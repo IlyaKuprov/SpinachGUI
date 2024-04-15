@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a6408ffc33b579190a98163f0e3185b1d" title="SpinachGUI::OrientationDialog::textBoxAngle_KeyPress" alt="" coords="419,5,767,32"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#ac049b29bccedecd789f6a01f139ec82b" title="SpinachGUI::OrientationDialog::textBoxEigen_KeyPress" alt="" coords="419,56,767,83"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#ad3e676513bed1a49ec1f4f089482e15a" title="SpinachGUI::OrientationDialog::textBoxeuler_KeyPress" alt="" coords="422,107,765,133"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#ab3689644798829f881e9fdd491b9f70f" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="817,56,1135,83"/>
+</map>

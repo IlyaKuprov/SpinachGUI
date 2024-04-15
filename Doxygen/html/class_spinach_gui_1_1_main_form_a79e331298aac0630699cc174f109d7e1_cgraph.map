@@ -1,0 +1,25 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_main_form.html#a54380c07798c976b7f32ce4537753e3f" title="SpinachGui::MainForm::CheckExistentInteractions" alt="" coords="392,132,707,159"/>
+<area shape="rect" id="node5" href="$class_open_g_l_form_1_1_c_open_g_l.html#ac8df7bacc4115db6119fb22eb76239f9" title="Updates the display list of the components of the system and renders at the end." alt="" coords="1449,107,1706,133"/>
+<area shape="rect" id="node24" href="$class_interactions_dictionary.html#a46a87c69895237a69e651c8720c69df9" title="InteractionsDictionary::RemoveAt" alt="" coords="442,259,657,285"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_main_form.html#a4c53d8aa45d4b70bed5a3c1b03bb811d" title="SpinachGui::MainForm::Update_Interactions_Color" alt="" coords="755,107,1069,133"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_main_form.html#aafc34a8e3441d1b0c4a57649f4bfce1f" title="SpinachGui::MainForm::BondtrackBar_Scroll" alt="" coords="1117,56,1400,83"/>
+<area shape="rect" id="node21" href="$class_spinach_gui_1_1_main_form.html#a10213b40d94662fe9532a252d123f026" title="SpinachGui::MainForm::ConColor" alt="" coords="1151,107,1367,133"/>
+<area shape="rect" id="node22" href="$class_spinach_gui_1_1_main_form.html#a468d48ae11811a6e6a9e48cd05a101ae" title="SpinachGui::MainForm::ECtrackBar_Scroll" alt="" coords="1123,157,1394,184"/>
+<area shape="rect" id="node23" href="$class_spinach_gui_1_1_main_form.html#a8278e6634e546ed18f69a4ff1aa06eb8" title="SpinachGui::MainForm::JCtrackBar_Scroll" alt="" coords="1125,5,1392,32"/>
+<area shape="rect" id="node6" href="$class_open_g_l_form_1_1_c_open_g_l.html#a4269a637342af6fb3add0853e1301da6" title="Final Render routine." alt="" coords="1845,31,2059,57"/>
+<area shape="rect" id="node17" href="$class_open_g_l_form_1_1_c_open_g_l.html#aaef092d833a02f8ffcccd33ec68565b8" title="Renders all atoms and compiles the selections ids for The OpenGL machinery." alt="" coords="2197,132,2456,159"/>
+<area shape="rect" id="node18" href="$class_open_g_l_form_1_1_c_open_g_l.html#a20ad2d00c74c32564330da4b870b327e" title="Render bonds and j&#45;couplings." alt="" coords="1823,132,2081,159"/>
+<area shape="rect" id="node19" href="$class_open_g_l_form_1_1_c_open_g_l.html#a34bf9fe57a5187c5e6b03a0e86aca066" title="Render in total the transparent ellispoids of all atoms nuclei selecting render method." alt="" coords="1755,183,2149,209"/>
+<area shape="rect" id="node7" href="$class_open_g_l_form_1_1_c_open_g_l.html#a89ada71ba19ad35316eb8cb304e63edc" title="Calculates the transformation matrix and parameters for double or quad buffer display." alt="" coords="2213,31,2440,57"/>
+<area shape="rect" id="node8" href="$class_open_g_l_form_1_1_c_open_g_l.html#a5176def024dbfe8abf5d90c939a07408" title="Rendering the all of the components of the 3d model." alt="" coords="2205,81,2448,108"/>
+<area shape="rect" id="node9" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6f98dd2f1244759dd296c0afe49552f6" title="Render electron cloud plane. Usually a verysmall number of electron are drawn, so not so much optimiz..." alt="" coords="2522,81,2798,108"/>
+<area shape="rect" id="node15" href="$class_open_g_l_form_1_1_c_open_g_l.html#ab5bbb674e0e4ea78f14ae0868a245e4d" title="Render of navigation axes in the edge fo the window." alt="" coords="2520,132,2800,159"/>
+<area shape="rect" id="node16" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6baf0e86d770379bdff7827cd1beb13e" title="Render an translucent outline of the atom to be selected and an fainted outline of the atom selected..." alt="" coords="2505,31,2815,57"/>
+<area shape="rect" id="node10" href="$class_open_g_l_form_1_1_c_open_g_l.html#a1395bfff5e5f8c5dbbbcf9587a99da1a" title="Render translucent ellispoid and eigen values axes." alt="" coords="2865,183,3183,209"/>
+<area shape="rect" id="node11" href="$class_open_g_l_form_1_1_c_open_g_l.html#a8599ba4db2c35ea771a17a2657a29692" title="Render a plane with name &quot;electrons&quot; in z and y coordinates." alt="" coords="2899,132,3149,159"/>
+<area shape="rect" id="node12" href="$class_open_g_l_form_1_1_c_open_g_l.html#a198db840c47578a0a2bbc10f132ed9f7" title="Renders OpenGL text of the integer number ID in distance radius from a point lied in (x..." alt="" coords="2895,31,3153,57"/>
+<area shape="rect" id="node13" href="$class_open_g_l_form_1_1_c_open_g_l.html#a5afbd1374f5c155cf0b59fa898c8dfbb" title="Final Render and orientation of a metaball." alt="" coords="2885,81,3163,108"/>
+<area shape="rect" id="node14" href="$class_c_u_b_e___g_r_i_d.html#a29d386d94a0b7965443c481ca7dcd27e" title="CUBE_GRID::DrawSurface" alt="" coords="3233,81,3410,108"/>
+<area shape="rect" id="node20" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6b334a904a14208066ba9619d9761069" title="Render the transparent ellispoids of all atoms nuclei with the specified translucency." alt="" coords="2511,183,2809,209"/>
+</map>

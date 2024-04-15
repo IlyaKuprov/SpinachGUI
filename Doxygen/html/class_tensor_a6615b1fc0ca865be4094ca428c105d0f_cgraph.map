@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_tensor.html#a36f65035458fb35c9aa8d501a475a105" title="Function for calculating the eigenvalues and eigenvectors of the interaction. Eigenvectors are calcul..." alt="" coords="166,5,367,32"/>
+<area shape="rect" id="node3" href="$class_interaction.html#a4f5ce0b1c86f0b6f209fb7a429ab76e9" title="Event Handler when the interaction is changed." alt="" coords="163,56,370,83"/>
+<area shape="rect" id="node4" href="$class_tensor.html#a36f972062a057ebb7adf327cab48db9e" title="Event Handler when tensor is changed to call the handler of interaction which is the OnPropertyChange..." alt="" coords="191,107,343,133"/>
+</map>

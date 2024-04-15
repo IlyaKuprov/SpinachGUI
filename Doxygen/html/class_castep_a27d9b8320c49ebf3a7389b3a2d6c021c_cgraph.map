@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_castep.html#a869ce88198e69c88857e4594cad2bbea" title="Castep::CheckImportAtom" alt="" coords="202,5,377,32"/>
+<area shape="rect" id="node5" href="$class_castep.html#a03f25462ecc93e9cc40e04b620b52fad" title="Castep::CheckImportInteraction" alt="" coords="187,56,391,83"/>
+<area shape="rect" id="node3" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Isotopes::FindIsotope" alt="" coords="440,5,587,32"/>
+<area shape="rect" id="node4" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Isotopes::Init_Isotopes" alt="" coords="635,5,787,32"/>
+</map>

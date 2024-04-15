@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_orientation.html#a75054c9d866e87e68bff2e2875b9f31e" title="SpinachGui::Orientation::ConvertToQuaternion" alt="" coords="323,19,611,45"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_orientation.html#ad8f8da7bd1e5dfbb070c6607681ddcfd" title="Normalise the contained rotation in place." alt="" coords="350,95,583,121"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_quaternion.html#a9e3d4208cd66fd5c8e6868b18b65dcef" title="SpinachGui::Quaternion::fromEigen" alt="" coords="663,5,889,32"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_angle_axis.html#a7a707ff6a91374b4b98c9a89ddc707ef" title="SpinachGui::AngleAxis::Normalized" alt="" coords="661,56,891,83"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_quaternion.html#adc51230582d349449dbf68186b4abb0e" title="SpinachGui::Quaternion::Normalized" alt="" coords="659,107,893,133"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_orientation.html#aadc64950787cfd4b35017b057df34b82" title="Constructs the identity rotation." alt="" coords="661,157,891,184"/>
+</map>

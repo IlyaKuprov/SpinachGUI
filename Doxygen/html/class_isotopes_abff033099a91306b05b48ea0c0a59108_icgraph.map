@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_castep.html#ab484058563e2655a6bfeca9efb906f62" title="Main function for reading file of new format." alt="" coords="343,5,481,32"/>
+<area shape="rect" id="node4" href="$class_castep.html#aefdcbb27364c47b7da3f6ff875bc53d6" title="Main function for reading file of old format." alt="" coords="346,56,478,83"/>
+<area shape="rect" id="node5" href="$class_orca.html#a6b7ea495fb000f288366e77acb69091c" title="Main function for reading Hyperfine couplings and quadropolar couplings from the file." alt="" coords="291,107,533,133"/>
+<area shape="rect" id="node7" href="$class_gauss.html#ac86ddd5a0b87e15d6d80acba29b302e7" title="Main function for reading Quadrupolar interactions from the file." alt="" coords="306,157,518,184"/>
+<area shape="rect" id="node3" href="$class_castep.html#a8051e02ec7974cfbf1ae7a25cdfbfff7" title="Main function for opening and reading file." alt="" coords="581,31,701,57"/>
+<area shape="rect" id="node6" href="$class_orca.html#ad5fe757215c1d92e6b3f2884b430cebc" title="Main function for opening and reading file." alt="" coords="588,107,695,133"/>
+<area shape="rect" id="node8" href="$class_gauss.html#a5c09c8b244a0a2b2f3f0e165ef77fc91" title="Main function for opening and reading file." alt="" coords="583,157,700,184"/>
+</map>

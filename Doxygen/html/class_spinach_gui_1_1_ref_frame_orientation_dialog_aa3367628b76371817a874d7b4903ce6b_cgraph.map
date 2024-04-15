@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_ref_frame_orientation_dialog.html#a35005e8ff3cef8cc5fe0a78b2484a0e1" title="SpinachGui::RefFrameOrientationDialog::textBoxangle_KeyPress" alt="" coords="427,5,827,32"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_ref_frame_orientation_dialog.html#a82feadf74660a7e29a5a41d9af3191f1" title="SpinachGui::RefFrameOrientationDialog::textBoxangle_Leave" alt="" coords="439,56,815,83"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_ref_frame_orientation_dialog.html#ad0e0492eda51140ab60cafeaf7e5c863" title="SpinachGui::RefFrameOrientationDialog::textBoxEuler_KeyPress" alt="" coords="427,107,826,133"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_ref_frame_orientation_dialog.html#a3b417c359f599c11798001a9a6933b7c" title="SpinachGui::RefFrameOrientationDialog::textBoxEuler_Leave" alt="" coords="439,157,814,184"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_orientation_export.html#ad1145b5c6d177c431908ecbb5edb8f51" title="SpinachGui::OrientationExport::checkBox_CheckedChanged" alt="" coords="373,5,747,32"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_orientation_export.html#ac893d691f86e856c7f9e95948a86cc55" title="SpinachGui::OrientationExport::Exportbutton_Click" alt="" coords="402,56,718,83"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_orientation_export.html#a92e6cd0b461721ddbaaf8f256a2da9df" title="SpinachGui::OrientationExport::RemoveAnisbutton_Click" alt="" coords="385,107,735,133"/>
+</map>

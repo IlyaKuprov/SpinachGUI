@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_easy_spin.html#a85feb76981d4f30146d87aa81d8a3cfd" title="EventHandler for diffusion parameters in Dynamics tab." alt="" coords="485,56,816,83"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_easy_spin.html#a4744b154d73ff0ad716a79a0b1ac2074" title="Convert units of a quantity." alt="" coords="876,5,1087,32"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_easy_spin.html#a89a91760a9ed11bbfb67e1de39d462c0" title="Write end of the file(Parameters) with the Easyspin format." alt="" coords="866,107,1097,133"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_easy_spin.html#ab81f9beacd8c63130326752b8d64bdc5" title="Write begin of the file(Atoms and interactions) with the Easyspin format." alt="" coords="864,56,1099,83"/>
+<area shape="rect" id="node4" href="$class_unit.html#ab66ea28760ab5a42774f50ed184124e1" title="Function for convertin from SI units to non SI units(this one)." alt="" coords="1197,56,1288,83"/>
+<area shape="rect" id="node5" href="$class_unit.html#abbade20370da92c8756c8a29cbe16101" title="Function for convertin from non SI units(this one) to SI units." alt="" coords="1205,5,1281,32"/>
+<area shape="rect" id="node8" href="$namespace_spinach_g_u_i.html#a3499841ad3a3710478f81b8e2b23181a" title="Function for converting tensor to the lab frame." alt="" coords="1147,107,1338,133"/>
+</map>

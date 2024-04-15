@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_x_y_z.html#a5c68589052a2d49182b4ef8e12aac712" title="XYZ::LoadFile" alt="" coords="470,5,573,32"/>
+<area shape="rect" id="node3" href="$class_m_o_l.html#a83e2bbd458e0baf7ee8e93653d177f2a" title="MOL::LoadFile" alt="" coords="468,56,575,83"/>
+<area shape="rect" id="node4" href="$class_g_a_m_e_s_s.html#a3f5f1d111931befe824c51ece08d3df3" title="GAMESS::read_CARTCOORD" alt="" coords="421,107,621,133"/>
+<area shape="rect" id="node6" href="$class_a_d_f.html#a07d2bd8da59843ce5ab53024e7b746b0" title="ADF::read_CARTCOORD" alt="" coords="437,157,606,184"/>
+<area shape="rect" id="node5" href="$class_g_a_m_e_s_s.html#a20be8b628417e560114fcadba7af7006" title="GAMESS::LoadFile" alt="" coords="669,107,805,133"/>
+<area shape="rect" id="node7" href="$class_a_d_f.html#a51693c64e9bc2eec48fda5f67af27944" title="ADF::LoadFile" alt="" coords="685,157,790,184"/>
+</map>

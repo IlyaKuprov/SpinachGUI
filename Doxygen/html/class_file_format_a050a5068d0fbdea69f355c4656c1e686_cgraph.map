@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Isotopes::FindIsotope" alt="" coords="485,208,632,234"/>
+<area shape="rect" id="node4" href="$class_file_format.html#ac9f8fd3200c4e4c2c58692893d038512" title="FileFormat::read_ANISCOUPLINGS" alt="" coords="204,56,433,82"/>
+<area shape="rect" id="node5" href="$class_file_format.html#a7c1dccdb8c20b6aa5136d9f4b2a88c96" title="FileFormat::read_CHRGMULTI" alt="" coords="219,106,418,133"/>
+<area shape="rect" id="node6" href="$class_file_format.html#aff95547c94c90d0189d56dc7fea0f43b" title="FileFormat::read_DISTANCEMAT" alt="" coords="211,157,426,184"/>
+<area shape="rect" id="node7" href="$class_file_format.html#a829213a1e7959bbf686f21b46a67a118" title="FileFormat::read_GTENSOR" alt="" coords="225,208,412,234"/>
+<area shape="rect" id="node8" href="$class_file_format.html#ab24d898c4579f17c4dc13aefd75459f9" title="FileFormat::read_ISOCOUPLINGS" alt="" coords="208,258,429,285"/>
+<area shape="rect" id="node9" href="$class_file_format.html#abf926c03032369465af85aec46c28779" title="FileFormat::read_QUADCOUPLINGS" alt="" coords="201,309,437,336"/>
+<area shape="rect" id="node10" href="$class_file_format.html#af4f7931909927549d33b99f2e4de127b" title="FileFormat::read_SFCGIAOTENSOR" alt="" coords="201,360,436,386"/>
+<area shape="rect" id="node11" href="$class_file_format.html#adfd331a0ca86da564ff87537c157ff07" title="FileFormat::read_STDORIENT" alt="" coords="221,410,417,437"/>
+<area shape="rect" id="node12" href="$class_file_format.html#ac73656cc0d00a16bf348adcc647ef61d" title="FileFormat::read_TOTCOUPLINGS" alt="" coords="207,461,430,488"/>
+<area shape="rect" id="node3" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Isotopes::Init_Isotopes" alt="" coords="680,208,832,234"/>
+</map>

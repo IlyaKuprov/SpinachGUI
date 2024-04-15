@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_easy_spin.html#a79a6490c2a4192d7632485ff9bf49a45" title="SpinachGui::EasySpin::textBoxDynamics_KeyPress" alt="" coords="483,81,811,108"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_easy_spin.html#a6c6df4755d732343af7e70d0940cdd9f" title="SpinachGui::EasySpin::logtext" alt="" coords="876,5,1076,32"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_easy_spin.html#a650d01b8df73ff7f53abb6836dd5f392" title="SpinachGui::EasySpin::unitconv" alt="" coords="872,56,1080,83"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_easy_spin.html#a61ee074c9bd1a560ea7a8df6f4d9276e" title="SpinachGui::EasySpin::WriteFooter" alt="" coords="861,157,1091,184"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_easy_spin.html#a5f97aa558c64befcd51adb7a22e9479e" title="SpinachGui::EasySpin::WriteHeader" alt="" coords="859,107,1093,133"/>
+<area shape="rect" id="node5" href="$class_unit.html#ab66ea28760ab5a42774f50ed184124e1" title="Unit::fromSI" alt="" coords="1223,31,1313,57"/>
+<area shape="rect" id="node6" href="$class_unit.html#abbade20370da92c8756c8a29cbe16101" title="Unit::toSI" alt="" coords="1230,81,1306,108"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_easy_spin.html#af4777373e3837bc7ed8db55dff4c2189" title="SpinachGui::EasySpin::ConvertToString" alt="" coords="1142,132,1394,159"/>
+<area shape="rect" id="node10" href="$class_spinach_gui_1_1_easy_spin.html#a81fa6fa2cb2c878ecfa70833b5b58386" title="SpinachGui::EasySpin::TransformToLab" alt="" coords="1141,183,1395,209"/>
+</map>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio 2013 Designer Edition (Trial) 11.0.1.4456 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation=".\spinxml_common.xsd" />
+    <xs:element name="spin_system">
+        <xs:complexType>
+            <xs:sequence minOccurs="1"
+                         maxOccurs="1">
+                <xs:element name="spin"
+                            minOccurs="0"
+                            maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="coordinates"
+                                        minOccurs="0"
+                                        maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:group ref="vector" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="number"
+                                      type="xs:integer"
+                                      use="required" />
+                        <xs:attribute name="isotope"
+                                      type="xs:string"
+                                      use="required" />
+                        <xs:attribute name="label"
+                                      type="xs:string"
+                                      use="optional" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="spin_interaction"
+                            type="interaction"
+                            minOccurs="0"
+                            maxOccurs="unbounded" />
+                <xs:element name="spin_reference_frame"
+                            type="reference_frame"
+                            minOccurs="0"
+                            maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

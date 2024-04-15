@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_a_d_f.html#a98bead250bc62db69ee4b33d0a3c969a" title="Main function for reading Chemical shieldings from the file." alt="" coords="412,5,641,32"/>
+<area shape="rect" id="node4" href="$class_orca.html#aaf49cd67e7fc833f07e13ee56197e1a4" title="Main function for reading Chemical shieldings from the file." alt="" coords="423,56,631,83"/>
+<area shape="rect" id="node6" href="$class_orca.html#a4dfd9e7283d1bbb572cc4203d18e5d52" title="Main function for reading g&#45;tensor couplins from the file." alt="" coords="450,107,603,133"/>
+<area shape="rect" id="node7" href="$class_orca.html#a6b7ea495fb000f288366e77acb69091c" title="Main function for reading Hyperfine couplings and quadropolar couplings from the file." alt="" coords="405,157,648,184"/>
+<area shape="rect" id="node8" href="$class_orca.html#afcc21f1d57c2de2b8db5cd15632e5e6a" title="Main function for reading zero&#45;field couplings from the file." alt="" coords="443,208,611,235"/>
+<area shape="rect" id="node3" href="$class_a_d_f.html#a51693c64e9bc2eec48fda5f67af27944" title="Main function for opening and reading file." alt="" coords="697,5,802,32"/>
+<area shape="rect" id="node5" href="$class_orca.html#ad5fe757215c1d92e6b3f2884b430cebc" title="Main function for opening and reading file." alt="" coords="696,132,803,159"/>
+</map>

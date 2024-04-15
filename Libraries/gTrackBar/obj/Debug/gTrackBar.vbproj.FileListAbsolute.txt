@@ -1,0 +1,11 @@
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\bin\Debug\gTrackBar.dll
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\bin\Debug\gTrackBar.pdb
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\bin\Debug\gTrackBar.xml
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\obj\Debug\gTrackBar.Resources.resources
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\obj\Debug\gTrackBar.gTrackBar.resources
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\obj\Debug\ResGen.read.1.tlog
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\obj\Debug\ResGen.write.1.tlog
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\obj\Debug\gTrackBar.dll
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\obj\Debug\gTrackBar.xml
+C:\Users\a.biternas\Documents\Visual Studio 2010\Projects\gTrackBar\obj\Debug\gTrackBar.pdb

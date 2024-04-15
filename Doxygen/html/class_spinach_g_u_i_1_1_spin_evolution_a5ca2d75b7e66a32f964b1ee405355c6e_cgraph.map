@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_spin_evolution.html#a31e2d4e73d20892deb4a9afc8fedf651" title="SpinachGUI::SpinEvolution::WriteFile" alt="" coords="349,31,587,57"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_spin_evolution.html#a30dca774c95d6099d172305833f5fdac" title="SpinachGUI::SpinEvolution::ConvertToString" alt="" coords="677,5,953,32"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_spin_evolution.html#af95c5001717dbb3b7c2d8290e6b96e00" title="SpinachGUI::SpinEvolution::EulerAnglesfromEigenVectors" alt="" coords="635,56,994,83"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_orientation.html#a3cee73f86a1eb038e44134ab0c9cab5c" title="Converts to a rotation matrix." alt="" coords="1043,56,1280,83"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_orientation.html#af646ce8e4bffed8157833b3ff9fced87" title="SpinachGUI::Orientation::ConvertToEuler" alt="" coords="1329,31,1586,57"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_orientation.html#ad8f8da7bd1e5dfbb070c6607681ddcfd" title="Normalise the contained rotation in place." alt="" coords="1340,81,1575,108"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_angle_axis.html#a66a3526f63ef2eccb1d0ee13a56b14ae" title="SpinachGUI::AngleAxis::Normalized" alt="" coords="1637,31,1867,57"/>
+<area shape="rect" id="node9" href="$class_spinach_g_u_i_1_1_quaternion.html#a2e809b98cbee366c45fab4687fc70648" title="SpinachGUI::Quaternion::Normalized" alt="" coords="1635,81,1869,108"/>
+<area shape="rect" id="node10" href="$class_spinach_g_u_i_1_1_orientation.html#ae91f1b51bd3f86125bd63f0d86b64376" title="Constructs the identity rotation." alt="" coords="1635,132,1869,159"/>
+</map>

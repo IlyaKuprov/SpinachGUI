@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_atoms_dictionary.html#a5fc80506216705ab642e1ea842a16d8c" title="AtomsDictionary::Add" alt="" coords="421,95,571,121"/>
+<area shape="rect" id="node9" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Isotopes::FindIsotope" alt="" coords="423,157,569,184"/>
+<area shape="rect" id="node3" href="$class_interactions_dictionary.html#a4ac8eb3eb8df59601b5c283ad9217c90" title="InteractionsDictionary::Add" alt="" coords="969,5,1148,32"/>
+<area shape="rect" id="node5" href="$class_atoms_dictionary.html#afa9b83f58aaeb80a81396d71f92565fa" title="AtomsDictionary::AtomsDictionaryChange" alt="" coords="619,81,885,108"/>
+<area shape="rect" id="node8" href="$class_atoms_dictionary.html#a5a21affd1d3cb117f92b05dfe29bb178" title="AtomsDictionary::OnCollectionChanged" alt="" coords="933,157,1184,184"/>
+<area shape="rect" id="node4" href="$class_interactions_dictionary.html#a93b3d8d02d67b2e2088a20a71eb7ea8c" title="InteractionsDictionary::InteractionsDictionaryChange" alt="" coords="1233,5,1557,32"/>
+<area shape="rect" id="node6" href="$class_interactions_dictionary.html#aab9a62a43eabd6e0edef2599e65ebf82" title="InteractionsDictionary::Clear" alt="" coords="966,56,1151,83"/>
+<area shape="rect" id="node7" href="$class_atom.html#a542c13cf22cab7bebec4f53198586434" title="Atom::getID" alt="" coords="1013,107,1104,133"/>
+<area shape="rect" id="node10" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Isotopes::Init_Isotopes" alt="" coords="676,183,828,209"/>
+</map>

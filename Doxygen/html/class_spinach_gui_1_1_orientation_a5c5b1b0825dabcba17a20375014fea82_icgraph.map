@@ -1,0 +1,30 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_orientation.html#aadc64950787cfd4b35017b057df34b82" title="Constructs the identity rotation." alt="" coords="270,282,501,308"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_orientation.html#ad8f8da7bd1e5dfbb070c6607681ddcfd" title="Normalise the contained rotation in place." alt="" coords="550,282,783,308"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_orientation.html#a28a12f033e768acc0bfd060459d4cf5d" title="SpinachGui::Orientation::GetAsAngleAxis" alt="" coords="835,180,1099,207"/>
+<area shape="rect" id="node17" href="$class_spinach_gui_1_1_orientation.html#a1b47921e73099dbca02b5a6c0722e5e3" title="SpinachGui::Orientation::GetAsDCM" alt="" coords="1193,358,1428,384"/>
+<area shape="rect" id="node25" href="$class_spinach_gui_1_1_orientation.html#a3cee73f86a1eb038e44134ab0c9cab5c" title="Converts to a rotation matrix." alt="" coords="849,256,1084,283"/>
+<area shape="rect" id="node28" href="$class_spinach_gui_1_1_orientation.html#af87218c2e6d9b954cb8bc63778ee23e9" title="SpinachGui::Orientation::GetAsQuaternion" alt="" coords="833,307,1101,334"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_orientation_dialog.html#ac346625cc6b5bfb548e5b3464707ca6e" title="SpinachGui::OrientationDialog::UpdateAngleAxis" alt="" coords="1159,155,1463,182"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_orientation_dialog.html#ae5a7122de7ade10cb86e6aa1b3c4dbc0" title="SpinachGui::OrientationDialog::InteractionMatrix_KeyPress" alt="" coords="1522,256,1886,283"/>
+<area shape="rect" id="node10" href="$class_spinach_gui_1_1_orientation_dialog.html#a0c83a8013a01c22bd8eb982e77946de2" title="SpinachGui::OrientationDialog::textBoxEigen_KeyPress" alt="" coords="1531,155,1877,182"/>
+<area shape="rect" id="node12" href="$class_spinach_gui_1_1_orientation_dialog.html#afe95308065a48f4eb2bf59c9f8aeb029" title="SpinachGui::OrientationDialog::textBoxeuler_KeyPress" alt="" coords="1533,307,1875,334"/>
+<area shape="rect" id="node14" href="$class_spinach_gui_1_1_orientation_dialog.html#a6b9307561adcfb2a4f53d800ff548c06" title="SpinachGui::OrientationDialog::textBoxSpherical_KeyPress" alt="" coords="1521,206,1887,232"/>
+<area shape="rect" id="node16" href="$class_spinach_gui_1_1_orientation_dialog.html#a55af5933d883876c28c399a42ba7f0f5" title="SpinachGui::OrientationDialog::UpdateAll" alt="" coords="1574,104,1834,131"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_orientation_dialog.html#ac1685c01d182095aa989e026b5ff9454" title="Required method for Designer support &#45; do not modify the contents of this method..." alt="" coords="2328,231,2645,258"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_orientation_dialog.html#a4bc6fb6d77648a8f3e020c7961e08873" title="SpinachGui::OrientationDialog::InteractionMatrix_Leave" alt="" coords="1938,231,2278,258"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_orientation_dialog.html#a3358be29a8182e5bde9e322ba061d039" title="SpinachGui::OrientationDialog::OrientationDialog" alt="" coords="2694,104,2997,131"/>
+<area shape="rect" id="node11" href="$class_spinach_gui_1_1_orientation_dialog.html#afd64c6b9285e1a88480f5823b552c7db" title="SpinachGui::OrientationDialog::textBoxEigen_Leave" alt="" coords="1947,79,2269,106"/>
+<area shape="rect" id="node13" href="$class_spinach_gui_1_1_orientation_dialog.html#a7d4eb8ff5de4bcdebf49d1baa9f8288d" title="SpinachGui::OrientationDialog::textBoxeuler_Leave" alt="" coords="1949,332,2267,359"/>
+<area shape="rect" id="node15" href="$class_spinach_gui_1_1_orientation_dialog.html#a89255598d2992f4f7b6c521ba1b5124f" title="SpinachGui::OrientationDialog::textBoxSpherical_Leave" alt="" coords="1937,180,2279,207"/>
+<area shape="rect" id="node18" href="$class_spin_x_m_l.html#a3c7a31e3b2e0bfde1c8728b372f062ca" title="SpinXML::ReadXML" alt="" coords="1636,484,1772,511"/>
+<area shape="rect" id="node23" href="$class_spinach_gui_1_1_orientation_dialog.html#aca2848e10dc7256acaae8f1a09e3aa6e" title="SpinachGui::OrientationDialog::textBoxAngle_KeyPress" alt="" coords="1531,358,1877,384"/>
+<area shape="rect" id="node19" href="$class_spinach_gui_1_1_main_form.html#a7fd8447f008029db2b7f66d184212dae" title="SpinachGui::MainForm::OpenSpinXML" alt="" coords="1985,535,2231,562"/>
+<area shape="rect" id="node20" href="$class_spinach_gui_1_1_main_form.html#a576d1ea2d5cdf00463046251c8158efd" title="SpinachGui::MainForm::MainForm" alt="" coords="3045,535,3267,562"/>
+<area shape="rect" id="node21" href="$class_spinach_gui_1_1_main_form.html#a09e3ef6f6201e62e4498df70c027fe96" title="SpinachGui::MainForm::OpenFileButton_Click" alt="" coords="2342,510,2631,536"/>
+<area shape="rect" id="node22" href="$class_spinach_gui_1_1_main_form.html#ac8630147be4dca465267790613371370" title="Required method for Designer support &#45; do not modify the contents of this method..." alt="" coords="2707,510,2983,536"/>
+<area shape="rect" id="node24" href="$class_spinach_gui_1_1_orientation_dialog.html#a1990e461bf9c6ec9ef558e4057708aa4" title="SpinachGui::OrientationDialog::textBoxAngle_Leave" alt="" coords="1947,434,2269,460"/>
+<area shape="rect" id="node26" href="$class_spinach_gui_1_1_orientation_dialog.html#a041b62507596106e891cdc04b6e076ef" title="SpinachGui::OrientationDialog::UpdateEulerAngles" alt="" coords="1153,206,1468,232"/>
+<area shape="rect" id="node27" href="$class_spinach_gui_1_1_orientation_dialog.html#ab90f9b82373812555bf92f9980bc3e75" title="SpinachGui::OrientationDialog::UpdateWignerMatrix" alt="" coords="1149,256,1472,283"/>
+<area shape="rect" id="node29" href="$class_spinach_gui_1_1_orientation_dialog.html#abf20c5beb3e527392eac6f1d2b9393c0" title="SpinachGui::OrientationDialog::UpdateQuaternion" alt="" coords="1157,307,1465,334"/>
+</map>

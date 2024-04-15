@@ -1,0 +1,17 @@
+Folders of SpinachGUI
+
+binaries       - Contains The last release version with example files and help file;
+Compilations   - Contains the compiling files of the Debug and Release builds;
+Doxygen        - Contains the files for the auto-generated documentation of the code;
+examples       - Contains all the example files;
+GUI            - Contains the main src files, the eigen library source files and the icons of the application; 
+Libraries      - Containts the gtrackbar library and infos for how to produce the .netmodule file;
+TestSpinachGUI - Contains the files for the unit tests;
+
+
+Compilations/DLL Creation   - Contains project files for creating a dll library of SpinachGUI, in order to use it for the unit testing. The unit test is not linking
+with executable(possible bug in MSVS2012). So in the SpinachGUI project we put
+a post-build step where makes a build of SpinachGUIDLL project in this folder and mover the dll file to the compilation folders
+
+
+spinach_gui.zip is the binaries folder zipped.

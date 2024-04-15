@@ -1,0 +1,2801 @@
+  SpinachGUI.About.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.BalloonToolTip.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.FilterFile.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.EasySpin.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.Simpson.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.Spinach.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.SpinEvolution.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.IsotopesDialog.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.MainForm.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.OrientationDialog.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.RefFrameOrientationDialog.resources - Embedded, ContainedInManifestFile, 
+  SpinachGUI.ShieldingtoShift.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly SpinachGUI, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class Tuple2f_t: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Single X : Public
+    Single Y : Public
+  Methods:
+    op_Addition(Tuple2f_t): PrivateScope, Public, HideBySig, SpecialName
+Class Tuple3f_t: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Single X : Public
+    Single Y : Public
+    Single Z : Public
+Class Tuple4f_t: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Single X : Public
+    Single Y : Public
+    Single Z : Public
+    Single W : Public
+Class Matrix3f_t: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Single XX : Public
+    Single XY : Public
+    Single XZ : Public
+    Single YX : Public
+    Single YY : Public
+    Single YZ : Public
+    Single ZX : Public
+    Single ZY : Public
+    Single ZZ : Public
+Class Matrix4f_t: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Single XX : Public
+    Single XY : Public
+    Single XZ : Public
+    Single XW : Public
+    Single YX : Public
+    Single YY : Public
+    Single YZ : Public
+    Single YW : Public
+    Single ZX : Public
+    Single ZY : Public
+    Single ZZ : Public
+    Single ZW : Public
+    Single TX : Public
+    Single TY : Public
+    Single TZ : Public
+    Single TW : Public
+Class ArcBall_t: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Single, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    setBounds(Single, Single): PrivateScope, Public, HideBySig
+    click(Tuple2f_t): PrivateScope, Public, HideBySig
+    drag(Tuple2f_t, Tuple4f_t): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class Isotope: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, Int32, Int32, Int32, Single, Single, Single, Single, Single, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String Element : Public
+    Int32 Mass : Public
+    Int32 AtomNumber : Public
+    Single Red : Public
+    Single Green : Public
+    Single Blue : Public
+    Int32 Radius : Public
+    Single Spin : Public
+    Single QuadrupoleMoment : Public
+    Double Magnetogyric : Public
+Class Isotopes: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    FindIsotope(String, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    getAllIsotopes(): PrivateScope, Public, Static, HideBySig
+    getAllIsotopeMasses(String): PrivateScope, Public, Static, HideBySig
+    FindIsotopeWithHigherSpin(Isotope): PrivateScope, Public, Static, HideBySig
+Class Unit: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    get_name(): PrivateScope, Public, HideBySig
+    op_Implicit(): PrivateScope, Public, HideBySig, SpecialName
+    toSI(Double): PrivateScope, Public, HideBySig
+    fromSI(Double): PrivateScope, Public, HideBySig
+    get_to_si(): PrivateScope, Public, HideBySig
+    get_from_si(): PrivateScope, Public, HideBySig
+Class Units: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Unit Unitless : Public, Static
+    Unit Gauss : Public, Static
+    Unit mTesla : Public, Static
+    Unit Mi_b : Public, Static
+    Unit ppm : Public, Static
+    Unit Unknown : Public, Static
+    Unit Joule : Public, Static
+    Unit Hz : Public, Static
+    Unit rev_cm : Public, Static
+    Unit KHz : Public, Static
+    Unit MHz : Public, Static
+    Unit GHz : Public, Static
+    Unit eV : Public, Static
+    Unit seconds : Public, Static
+    Unit nsec : Public, Static
+    Unit mi_sec : Public, Static
+    Unit metres : Public, Static
+    Unit milimetre : Public, Static
+    Unit micrometre : Public, Static
+    Unit nanometre : Public, Static
+    Unit Angstroms : Public, Static
+    Unit BohrRadius : Public, Static
+Class Atom: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.ComponentModel.INotifyPropertyChanged
+  Fields:
+    Int32 ID : Public
+  Properties:
+    Isotope isotope 'get set' : 
+    System.String Label 'get set' : 
+    Double Z   'get set' : 
+    Double Y   'get set' : 
+    Double X   'get set' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+  Methods:
+    getID(): PrivateScope, Public, HideBySig
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_X(): PrivateScope, Public, HideBySig, SpecialName
+    set_X(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Y(): PrivateScope, Public, HideBySig, SpecialName
+    set_Y(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Z(): PrivateScope, Public, HideBySig, SpecialName
+    set_Z(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Label(): PrivateScope, Public, HideBySig, SpecialName
+    set_Label(String): PrivateScope, Public, HideBySig, SpecialName
+    get_isotope(): PrivateScope, Public, HideBySig, SpecialName
+    set_isotope(Isotope): PrivateScope, Public, HideBySig, SpecialName
+Class Matrix3x3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.ComponentModel.INotifyPropertyChanged
+  Properties:
+    Double Item [Int32] 'get set' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+  Methods:
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Double): PrivateScope, Public, HideBySig, SpecialName
+Class Interaction: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Atom ByRef, Atom ByRef, InteractionKind): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.ComponentModel.INotifyPropertyChanged
+  Fields:
+    Int32 ID : Public
+    System.String reference : Public
+  Properties:
+    Atom B     'get set' : 
+    Atom A     'get set' : 
+    System.String Label 'get set' : 
+    InteractionKind IntKind 'get set' : 
+    Unit unit  'get set' : 
+    System.Collections.ObjectModel.ObservableCollection`1[System.Double] eigen 'get set' : 
+    System.Collections.ObjectModel.ObservableCollection`1[System.Double] dcm 'get set' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+  Methods:
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    getID(): PrivateScope, Public, HideBySig
+    get_dcm(): PrivateScope, Public, HideBySig, SpecialName
+    set_dcm(ObservableCollection`1): PrivateScope, Public, HideBySig, SpecialName
+    get_eigen(): PrivateScope, Public, HideBySig, SpecialName
+    set_eigen(ObservableCollection`1): PrivateScope, Public, HideBySig, SpecialName
+    get_unit(): PrivateScope, Public, HideBySig, SpecialName
+    set_unit(Unit): PrivateScope, Public, HideBySig, SpecialName
+    get_IntKind(): PrivateScope, Public, HideBySig, SpecialName
+    set_IntKind(InteractionKind): PrivateScope, Public, HideBySig, SpecialName
+    get_Label(): PrivateScope, Public, HideBySig, SpecialName
+    set_Label(String): PrivateScope, Public, HideBySig, SpecialName
+    get_A(): PrivateScope, Public, HideBySig, SpecialName
+    set_A(Atom): PrivateScope, Public, HideBySig, SpecialName
+    get_B(): PrivateScope, Public, HideBySig, SpecialName
+    set_B(Atom): PrivateScope, Public, HideBySig, SpecialName
+Class ReferenceFrame: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Matrix3x3): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.ComponentModel.INotifyPropertyChanged
+  Properties:
+    System.String Label 'get set' : 
+    Matrix3x3 matrix3x3 'get set' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+  Methods:
+    getID(): PrivateScope, Public, HideBySig
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_matrix3x3(): PrivateScope, Public, HideBySig, SpecialName
+    set_matrix3x3(Matrix3x3): PrivateScope, Public, HideBySig, SpecialName
+    get_Label(): PrivateScope, Public, HideBySig, SpecialName
+    set_Label(String): PrivateScope, Public, HideBySig, SpecialName
+Class Tensor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :Interaction
+    Void .ctor(Atom, Atom, InteractionKind, Matrix3x3): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    ReferenceFrame Frame 'get set' : 
+    Matrix3x3 matrix3x3 'get set' : 
+  Methods:
+    get_matrix3x3(): PrivateScope, Public, HideBySig, SpecialName
+    set_matrix3x3(Matrix3x3): PrivateScope, Public, HideBySig, SpecialName
+    get_Frame(): PrivateScope, Public, HideBySig, SpecialName
+    set_Frame(ReferenceFrame): PrivateScope, Public, HideBySig, SpecialName
+    Calculate_EigenStates(): PrivateScope, Public, HideBySig
+Class InteractionsDictionary: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Specialized.INotifyCollectionChanged
+    System.ComponentModel.INotifyPropertyChanged
+  Fields:
+    System.Collections.Generic.Dictionary`2[InteractionKind,System.Int32] InterKindCount : Public
+    System.Collections.Generic.Dictionary`2[InteractionKind,System.Double] InterKindMax : Public
+    System.Collections.Generic.Dictionary`2[InteractionKind,System.Double] InterKindMin : Public
+    System.Collections.Generic.Dictionary`2[InteractionKind,System.Int32] iInterKindMax : Public
+    System.Collections.Generic.Dictionary`2[InteractionKind,System.Int32] iInterKindMin : Public
+  Properties:
+    Interaction Item [Int32] 'get set' : 
+    KeyCollection Keys 'get ' : 
+    Int32 Count 'get ' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+    System.Collections.Specialized.NotifyCollectionChangedEventHandler CollectionChanged: SpecialName
+  Methods:
+    add_CollectionChanged(NotifyCollectionChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_CollectionChanged(NotifyCollectionChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Add(Interaction): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    RemoveAt(Int32): PrivateScope, Public, HideBySig
+    GetInterKindCount(InteractionKind): PrivateScope, Public, HideBySig
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Keys(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Interaction): PrivateScope, Public, HideBySig, SpecialName
+Class ReferenceFramesDictionary: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(InteractionsDictionary ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Specialized.INotifyCollectionChanged
+    System.ComponentModel.INotifyPropertyChanged
+  Properties:
+    ReferenceFrame Item [Int32] 'get set' : 
+    KeyCollection Keys 'get ' : 
+    Int32 Count 'get ' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+    System.Collections.Specialized.NotifyCollectionChangedEventHandler CollectionChanged: SpecialName
+  Methods:
+    add_CollectionChanged(NotifyCollectionChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_CollectionChanged(NotifyCollectionChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Add(ReferenceFrame): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    RemoveAt(Int32): PrivateScope, Public, HideBySig
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Keys(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, ReferenceFrame): PrivateScope, Public, HideBySig, SpecialName
+    MakeFrameLabFrame(ReferenceFrame): PrivateScope, Public, HideBySig
+Class AtomsDictionary: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(InteractionsDictionary ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Specialized.INotifyCollectionChanged
+    System.ComponentModel.INotifyPropertyChanged
+  Fields:
+    Double MinX : Public
+    Double MinY : Public
+    Double MinZ : Public
+    Double MaxX : Public
+    Double MaxY : Public
+    Double MaxZ : Public
+  Properties:
+    Atom Item [Int32] 'get set' : 
+    KeyCollection Keys 'get ' : 
+    Int32 Count 'get ' : 
+    Boolean Refreshing 'get set' : 
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+    System.Collections.Specialized.NotifyCollectionChangedEventHandler CollectionChanged: SpecialName
+  Methods:
+    add_CollectionChanged(NotifyCollectionChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_CollectionChanged(NotifyCollectionChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Clear(): PrivateScope, Public, HideBySig
+    Add(Atom): PrivateScope, Public, HideBySig
+    RemoveAt(Int32): PrivateScope, Public, HideBySig
+    get_Refreshing(): PrivateScope, Public, HideBySig, SpecialName
+    set_Refreshing(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Keys(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Atom): PrivateScope, Public, HideBySig, SpecialName
+    get_electron_number(): PrivateScope, Public, HideBySig
+Class Model: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Model): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.ComponentModel.INotifyPropertyChanged
+  Fields:
+    AtomsDictionary AtomCollection : Public
+    InteractionsDictionary InteractionCollection : Public
+    ReferenceFramesDictionary RefFrameCollection : Public
+  Events:
+    System.ComponentModel.PropertyChangedEventHandler PropertyChanged: SpecialName
+  Methods:
+    op_Assign(Model IsByValue): PrivateScope, Public, HideBySig, SpecialName
+    add_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    remove_PropertyChanged(PropertyChangedEventHandler): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    MakeInteractionLabFrame(Int32): PrivateScope, Public, HideBySig
+Class OpenGLForm.COpenGL: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Panel
+    Void .ctor(System.Windows.Forms.Form, System.Drawing.Point, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double CSfactor : Public
+    Double HCfactor : Public
+    Double GTfactor : Public
+    Double CBfactor : Public
+    Double JCfactor : Public
+    Double QCfactor : Public
+    Double ECfactor : Public
+    Double ZFfactor : Public
+    Double CSfinfactor : Public
+    Double HCfinfactor : Public
+    Double GTfinfactor : Public
+    Double CBfinfactor : Public
+    Double JCfinfactor : Public
+    Double QCfinfactor : Public
+    Double ECfinfactor : Public
+    Double ZFfinfactor : Public
+    Double* CScolor : Public
+    Double* HCcolor : Public
+    Double* GTcolor : Public
+    Double* JCcolor : Public
+    Double* CBcolor : Public
+    Double* QCcolor : Public
+    Double* ECcolor : Public
+    Double* ZFcolor : Public
+    Boolean CSFlag : Public
+    Boolean HCFlag : Public
+    Boolean GTFlag : Public
+    Boolean JCFlag : Public
+    Boolean CBFlag : Public
+    Boolean DCFlag : Public
+    Boolean QCFlag : Public
+    Boolean ECFlag : Public
+    Boolean ZFFlag : Public
+    Double* BackgroundColor : Public
+    Boolean AxesFlag : Public
+    Boolean AtomIDFlag : Public
+    Boolean EigenAxesFlag : Public
+    Boolean EigenEllipsoidsFlag : Public
+    Boolean SelectedAtomsInteractionsFlag : Public
+    Boolean ReferenceFrameAxesFlag : Public
+    Boolean focused : Public
+    Boolean stereoview : Public
+    Model SystemModel : Public
+    Int32 ToBeSelectedAtom : Public
+  Methods:
+    Home(): PrivateScope, Public, HideBySig
+    Reset(): PrivateScope, Public, HideBySig
+    ZoomtoFillScreen(): PrivateScope, Public, HideBySig
+    Render(): PrivateScope, Public, HideBySig
+    UpdateDisplay(UpdateType): PrivateScope, Public, HideBySig
+    TotalRender(): PrivateScope, Public, HideBySig
+    Calc_eye(Int32, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    ReSizeWindow(Form, Point, Int32, Int32): PrivateScope, Public, HideBySig
+    SwapOpenGLBuffers(): PrivateScope, Public, HideBySig
+    Save_BMP(): PrivateScope, Public, HideBySig
+    OnMouseWheel(Object, MouseEventArgs): PrivateScope, Public, HideBySig
+    RotateToPlane(SByte IsSignUnspecifiedByte, SByte IsSignUnspecifiedByte): PrivateScope, Public, HideBySig
+    Travelling(): PrivateScope, Public, HideBySig
+Class SpinachGUI.FilterFile: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SpinachGUI.ShieldingtoShift: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView ChanneldataGridView : Public
+Class SpinachGUI.EasySpin: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    EasySpin_Initialization(Model&, String): PrivateScope, Public, HideBySig
+Class SpinachGUI.IOSpinSystem: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Model SystemModel : Public
+    Boolean ToShift : Public
+    System.String FormatName : Public
+    System.String FileName : Public
+    System.IO.StreamReader ReadingFile : Public
+    System.IO.StreamWriter WritingFile : Public
+  Methods:
+    SaveFile(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    getLineStop(): PrivateScope, Public, HideBySig
+Struct SpinachGUI.IOSpinSystem+FilterType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    FilterType IMPORT = 0 : Public, Static, Literal, HasDefault
+    FilterType EXPORT = 1 : Public, Static, Literal, HasDefault
+    FilterType IMPORTEXPORT = 2 : Public, Static, Literal, HasDefault
+Class Gauss: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SpinachGUI.IOSpinSystem
+    Void .ctor(System.String, Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig
+Class Castep: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SpinachGUI.IOSpinSystem
+    Void .ctor(System.String, Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig
+Class spin_system: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.Data.DataSet
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRelationCollection Relations 'get ' : 
+    System.Data.DataTableCollection Tables 'get ' : 
+    System.Data.SchemaSerializationMode SchemaSerializationMode 'get set' : 
+    dcmDataTable dcm 'get ' : 
+    quaternionDataTable quaternion 'get ' : 
+    axisDataTable axis 'get ' : 
+    angle_axisDataTable angle_axis 'get ' : 
+    euler_anglesDataTable euler_angles 'get ' : 
+    orientationDataTable orientation 'get ' : 
+    aniso_asymmDataTable aniso_asymm 'get ' : 
+    span_skewDataTable span_skew 'get ' : 
+    axiality_rhombicityDataTable axiality_rhombicity 'get ' : 
+    eigenvaluesDataTable eigenvalues 'get ' : 
+    tensorDataTable tensor 'get ' : 
+    interactionDataTable interaction 'get ' : 
+    coordinatesDataTable coordinates 'get ' : 
+    spinDataTable spin 'get ' : 
+  Methods:
+    get_spin(): PrivateScope, Public, HideBySig, SpecialName
+    get_coordinates(): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction(): PrivateScope, Public, HideBySig, SpecialName
+    get_tensor(): PrivateScope, Public, HideBySig, SpecialName
+    get_eigenvalues(): PrivateScope, Public, HideBySig, SpecialName
+    get_axiality_rhombicity(): PrivateScope, Public, HideBySig, SpecialName
+    get_span_skew(): PrivateScope, Public, HideBySig, SpecialName
+    get_aniso_asymm(): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation(): PrivateScope, Public, HideBySig, SpecialName
+    get_euler_angles(): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis(): PrivateScope, Public, HideBySig, SpecialName
+    get_axis(): PrivateScope, Public, HideBySig, SpecialName
+    get_quaternion(): PrivateScope, Public, HideBySig, SpecialName
+    get_dcm(): PrivateScope, Public, HideBySig, SpecialName
+    get_SchemaSerializationMode(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_SchemaSerializationMode(SchemaSerializationMode): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Tables(): PrivateScope, Public, HideBySig, SpecialName
+    get_Relations(): PrivateScope, Public, HideBySig, SpecialName
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    GetTypedDataSetSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+spinRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, spinRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, spinRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+coordinatesRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, coordinatesRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, coordinatesRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+interactionRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, interactionRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, interactionRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+tensorRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, tensorRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, tensorRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+eigenvaluesRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, eigenvaluesRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, eigenvaluesRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+axiality_rhombicityRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, axiality_rhombicityRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, axiality_rhombicityRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+span_skewRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, span_skewRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, span_skewRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+aniso_asymmRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, aniso_asymmRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, aniso_asymmRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+orientationRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, orientationRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, orientationRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+euler_anglesRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, euler_anglesRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, euler_anglesRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+angle_axisRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, angle_axisRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, angle_axisRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+axisRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, axisRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, axisRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+quaternionRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, quaternionRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, quaternionRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+dcmRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, dcmRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, dcmRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system+spinDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    spinRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn spin_IdColumn 'get ' : 
+    System.Data.DataColumn labelColumn 'get ' : 
+    System.Data.DataColumn isotopeColumn 'get ' : 
+    System.Data.DataColumn idColumn 'get ' : 
+  Events:
+    spinRowChangeEventHandler spinRowDeleted: SpecialName
+    spinRowChangeEventHandler spinRowDeleting: SpecialName
+    spinRowChangeEventHandler spinRowChanged: SpecialName
+    spinRowChangeEventHandler spinRowChanging: SpecialName
+  Methods:
+    add_spinRowChanging(spinRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_spinRowChanging(spinRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_spinRowChanged(spinRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_spinRowChanged(spinRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_spinRowDeleting(spinRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_spinRowDeleting(spinRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_spinRowDeleted(spinRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_spinRowDeleted(spinRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_idColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_isotopeColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_labelColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_spin_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddspinRow(Int64, String, String): PrivateScope, Public, HideBySig
+    AddspinRow(spinRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewspinRow(): PrivateScope, Public, HideBySig
+    RemovespinRow(spinRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+coordinatesDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    coordinatesRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn spin_IdColumn 'get ' : 
+    System.Data.DataColumn zColumn 'get ' : 
+    System.Data.DataColumn yColumn 'get ' : 
+    System.Data.DataColumn xColumn 'get ' : 
+  Events:
+    coordinatesRowChangeEventHandler coordinatesRowDeleted: SpecialName
+    coordinatesRowChangeEventHandler coordinatesRowDeleting: SpecialName
+    coordinatesRowChangeEventHandler coordinatesRowChanged: SpecialName
+    coordinatesRowChangeEventHandler coordinatesRowChanging: SpecialName
+  Methods:
+    add_coordinatesRowChanging(coordinatesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_coordinatesRowChanging(coordinatesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_coordinatesRowChanged(coordinatesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_coordinatesRowChanged(coordinatesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_coordinatesRowDeleting(coordinatesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_coordinatesRowDeleting(coordinatesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_coordinatesRowDeleted(coordinatesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_coordinatesRowDeleted(coordinatesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_xColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_spin_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddcoordinatesRow(Double, Double, Double, spinRow): PrivateScope, Public, HideBySig
+    AddcoordinatesRow(coordinatesRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewcoordinatesRow(): PrivateScope, Public, HideBySig
+    RemovecoordinatesRow(coordinatesRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+interactionDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    interactionRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn interaction_IdColumn 'get ' : 
+    System.Data.DataColumn scalarColumn 'get ' : 
+    System.Data.DataColumn labelColumn 'get ' : 
+    System.Data.DataColumn referenceColumn 'get ' : 
+    System.Data.DataColumn reference_frame_idColumn 'get ' : 
+    System.Data.DataColumn spin_bColumn 'get ' : 
+    System.Data.DataColumn spin_aColumn 'get ' : 
+    System.Data.DataColumn unitsColumn 'get ' : 
+    System.Data.DataColumn idColumn 'get ' : 
+    System.Data.DataColumn kindColumn 'get ' : 
+  Events:
+    interactionRowChangeEventHandler interactionRowDeleted: SpecialName
+    interactionRowChangeEventHandler interactionRowDeleting: SpecialName
+    interactionRowChangeEventHandler interactionRowChanged: SpecialName
+    interactionRowChangeEventHandler interactionRowChanging: SpecialName
+  Methods:
+    add_interactionRowChanging(interactionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_interactionRowChanging(interactionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_interactionRowChanged(interactionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_interactionRowChanged(interactionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_interactionRowDeleting(interactionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_interactionRowDeleting(interactionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_interactionRowDeleted(interactionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_interactionRowDeleted(interactionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_kindColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_idColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_unitsColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_spin_aColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_spin_bColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_reference_frame_idColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_referenceColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_labelColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_scalarColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddinteractionRow(String, Int64, String, Int64, Int64, Int64, String, String, Double): PrivateScope, Public, HideBySig
+    AddinteractionRow(interactionRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewinteractionRow(): PrivateScope, Public, HideBySig
+    RemoveinteractionRow(interactionRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+tensorDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    tensorRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn interaction_IdColumn 'get ' : 
+    System.Data.DataColumn zzColumn 'get ' : 
+    System.Data.DataColumn zyColumn 'get ' : 
+    System.Data.DataColumn zxColumn 'get ' : 
+    System.Data.DataColumn yzColumn 'get ' : 
+    System.Data.DataColumn yyColumn 'get ' : 
+    System.Data.DataColumn yxColumn 'get ' : 
+    System.Data.DataColumn xzColumn 'get ' : 
+    System.Data.DataColumn xyColumn 'get ' : 
+    System.Data.DataColumn xxColumn 'get ' : 
+  Events:
+    tensorRowChangeEventHandler tensorRowDeleted: SpecialName
+    tensorRowChangeEventHandler tensorRowDeleting: SpecialName
+    tensorRowChangeEventHandler tensorRowChanged: SpecialName
+    tensorRowChangeEventHandler tensorRowChanging: SpecialName
+  Methods:
+    add_tensorRowChanging(tensorRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_tensorRowChanging(tensorRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_tensorRowChanged(tensorRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_tensorRowChanged(tensorRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_tensorRowDeleting(tensorRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_tensorRowDeleting(tensorRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_tensorRowDeleted(tensorRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_tensorRowDeleted(tensorRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_xxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_xyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_xzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddtensorRow(Double, Double, Double, Double, Double, Double, Double, Double, Double, interactionRow): PrivateScope, Public, HideBySig
+    AddtensorRow(tensorRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewtensorRow(): PrivateScope, Public, HideBySig
+    RemovetensorRow(tensorRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+eigenvaluesDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    eigenvaluesRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn interaction_IdColumn 'get ' : 
+    System.Data.DataColumn zzColumn 'get ' : 
+    System.Data.DataColumn yyColumn 'get ' : 
+    System.Data.DataColumn xxColumn 'get ' : 
+  Events:
+    eigenvaluesRowChangeEventHandler eigenvaluesRowDeleted: SpecialName
+    eigenvaluesRowChangeEventHandler eigenvaluesRowDeleting: SpecialName
+    eigenvaluesRowChangeEventHandler eigenvaluesRowChanged: SpecialName
+    eigenvaluesRowChangeEventHandler eigenvaluesRowChanging: SpecialName
+  Methods:
+    add_eigenvaluesRowChanging(eigenvaluesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_eigenvaluesRowChanging(eigenvaluesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_eigenvaluesRowChanged(eigenvaluesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_eigenvaluesRowChanged(eigenvaluesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_eigenvaluesRowDeleting(eigenvaluesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_eigenvaluesRowDeleting(eigenvaluesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_eigenvaluesRowDeleted(eigenvaluesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_eigenvaluesRowDeleted(eigenvaluesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_xxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddeigenvaluesRow(Double, Double, Double, interactionRow): PrivateScope, Public, HideBySig
+    AddeigenvaluesRow(eigenvaluesRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NeweigenvaluesRow(): PrivateScope, Public, HideBySig
+    RemoveeigenvaluesRow(eigenvaluesRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+axiality_rhombicityDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    axiality_rhombicityRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn interaction_IdColumn 'get ' : 
+    System.Data.DataColumn rhColumn 'get ' : 
+    System.Data.DataColumn axColumn 'get ' : 
+    System.Data.DataColumn isoColumn 'get ' : 
+  Events:
+    axiality_rhombicityRowChangeEventHandler axiality_rhombicityRowDeleted: SpecialName
+    axiality_rhombicityRowChangeEventHandler axiality_rhombicityRowDeleting: SpecialName
+    axiality_rhombicityRowChangeEventHandler axiality_rhombicityRowChanged: SpecialName
+    axiality_rhombicityRowChangeEventHandler axiality_rhombicityRowChanging: SpecialName
+  Methods:
+    add_axiality_rhombicityRowChanging(axiality_rhombicityRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axiality_rhombicityRowChanging(axiality_rhombicityRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axiality_rhombicityRowChanged(axiality_rhombicityRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axiality_rhombicityRowChanged(axiality_rhombicityRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axiality_rhombicityRowDeleting(axiality_rhombicityRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axiality_rhombicityRowDeleting(axiality_rhombicityRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axiality_rhombicityRowDeleted(axiality_rhombicityRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axiality_rhombicityRowDeleted(axiality_rhombicityRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_isoColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_axColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_rhColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Addaxiality_rhombicityRow(Double, Double, Double, interactionRow): PrivateScope, Public, HideBySig
+    Addaxiality_rhombicityRow(axiality_rhombicityRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    Newaxiality_rhombicityRow(): PrivateScope, Public, HideBySig
+    Removeaxiality_rhombicityRow(axiality_rhombicityRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+span_skewDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    span_skewRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn interaction_IdColumn 'get ' : 
+    System.Data.DataColumn skewColumn 'get ' : 
+    System.Data.DataColumn spanColumn 'get ' : 
+    System.Data.DataColumn isoColumn 'get ' : 
+  Events:
+    span_skewRowChangeEventHandler span_skewRowDeleted: SpecialName
+    span_skewRowChangeEventHandler span_skewRowDeleting: SpecialName
+    span_skewRowChangeEventHandler span_skewRowChanged: SpecialName
+    span_skewRowChangeEventHandler span_skewRowChanging: SpecialName
+  Methods:
+    add_span_skewRowChanging(span_skewRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_span_skewRowChanging(span_skewRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_span_skewRowChanged(span_skewRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_span_skewRowChanged(span_skewRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_span_skewRowDeleting(span_skewRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_span_skewRowDeleting(span_skewRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_span_skewRowDeleted(span_skewRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_span_skewRowDeleted(span_skewRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_isoColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_spanColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_skewColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Addspan_skewRow(Double, Double, Double, interactionRow): PrivateScope, Public, HideBySig
+    Addspan_skewRow(span_skewRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    Newspan_skewRow(): PrivateScope, Public, HideBySig
+    Removespan_skewRow(span_skewRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+aniso_asymmDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    aniso_asymmRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn interaction_IdColumn 'get ' : 
+    System.Data.DataColumn asymmColumn 'get ' : 
+    System.Data.DataColumn anisoColumn 'get ' : 
+    System.Data.DataColumn isoColumn 'get ' : 
+  Events:
+    aniso_asymmRowChangeEventHandler aniso_asymmRowDeleted: SpecialName
+    aniso_asymmRowChangeEventHandler aniso_asymmRowDeleting: SpecialName
+    aniso_asymmRowChangeEventHandler aniso_asymmRowChanged: SpecialName
+    aniso_asymmRowChangeEventHandler aniso_asymmRowChanging: SpecialName
+  Methods:
+    add_aniso_asymmRowChanging(aniso_asymmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_aniso_asymmRowChanging(aniso_asymmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_aniso_asymmRowChanged(aniso_asymmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_aniso_asymmRowChanged(aniso_asymmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_aniso_asymmRowDeleting(aniso_asymmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_aniso_asymmRowDeleting(aniso_asymmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_aniso_asymmRowDeleted(aniso_asymmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_aniso_asymmRowDeleted(aniso_asymmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_isoColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_anisoColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_asymmColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Addaniso_asymmRow(Double, Double, Double, interactionRow): PrivateScope, Public, HideBySig
+    Addaniso_asymmRow(aniso_asymmRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    Newaniso_asymmRow(): PrivateScope, Public, HideBySig
+    Removeaniso_asymmRow(aniso_asymmRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+orientationDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    orientationRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn interaction_IdColumn 'get ' : 
+    System.Data.DataColumn orientation_IdColumn 'get ' : 
+  Events:
+    orientationRowChangeEventHandler orientationRowDeleted: SpecialName
+    orientationRowChangeEventHandler orientationRowDeleting: SpecialName
+    orientationRowChangeEventHandler orientationRowChanged: SpecialName
+    orientationRowChangeEventHandler orientationRowChanging: SpecialName
+  Methods:
+    add_orientationRowChanging(orientationRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_orientationRowChanging(orientationRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_orientationRowChanged(orientationRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_orientationRowChanged(orientationRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_orientationRowDeleting(orientationRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_orientationRowDeleting(orientationRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_orientationRowDeleted(orientationRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_orientationRowDeleted(orientationRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddorientationRow(interactionRow): PrivateScope, Public, HideBySig
+    AddorientationRow(orientationRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NeworientationRow(): PrivateScope, Public, HideBySig
+    RemoveorientationRow(orientationRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+euler_anglesDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    euler_anglesRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn orientation_IdColumn 'get ' : 
+    System.Data.DataColumn gammaColumn 'get ' : 
+    System.Data.DataColumn betaColumn 'get ' : 
+    System.Data.DataColumn alphaColumn 'get ' : 
+  Events:
+    euler_anglesRowChangeEventHandler euler_anglesRowDeleted: SpecialName
+    euler_anglesRowChangeEventHandler euler_anglesRowDeleting: SpecialName
+    euler_anglesRowChangeEventHandler euler_anglesRowChanged: SpecialName
+    euler_anglesRowChangeEventHandler euler_anglesRowChanging: SpecialName
+  Methods:
+    add_euler_anglesRowChanging(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_euler_anglesRowChanging(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_euler_anglesRowChanged(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_euler_anglesRowChanged(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_euler_anglesRowDeleting(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_euler_anglesRowDeleting(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_euler_anglesRowDeleted(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_euler_anglesRowDeleted(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_alphaColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_betaColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_gammaColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Addeuler_anglesRow(Double, Double, Double, orientationRow): PrivateScope, Public, HideBySig
+    Addeuler_anglesRow(euler_anglesRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    Neweuler_anglesRow(): PrivateScope, Public, HideBySig
+    Removeeuler_anglesRow(euler_anglesRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+angle_axisDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    angle_axisRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn orientation_IdColumn 'get ' : 
+    System.Data.DataColumn angle_axis_IdColumn 'get ' : 
+    System.Data.DataColumn angleColumn 'get ' : 
+  Events:
+    angle_axisRowChangeEventHandler angle_axisRowDeleted: SpecialName
+    angle_axisRowChangeEventHandler angle_axisRowDeleting: SpecialName
+    angle_axisRowChangeEventHandler angle_axisRowChanged: SpecialName
+    angle_axisRowChangeEventHandler angle_axisRowChanging: SpecialName
+  Methods:
+    add_angle_axisRowChanging(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_angle_axisRowChanging(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_angle_axisRowChanged(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_angle_axisRowChanged(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_angle_axisRowDeleting(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_angle_axisRowDeleting(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_angle_axisRowDeleted(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_angle_axisRowDeleted(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_angleColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Addangle_axisRow(Double, orientationRow): PrivateScope, Public, HideBySig
+    Addangle_axisRow(angle_axisRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    Newangle_axisRow(): PrivateScope, Public, HideBySig
+    Removeangle_axisRow(angle_axisRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+axisDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    axisRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn angle_axis_IdColumn 'get ' : 
+    System.Data.DataColumn zColumn 'get ' : 
+    System.Data.DataColumn yColumn 'get ' : 
+    System.Data.DataColumn xColumn 'get ' : 
+  Events:
+    axisRowChangeEventHandler axisRowDeleted: SpecialName
+    axisRowChangeEventHandler axisRowDeleting: SpecialName
+    axisRowChangeEventHandler axisRowChanged: SpecialName
+    axisRowChangeEventHandler axisRowChanging: SpecialName
+  Methods:
+    add_axisRowChanging(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axisRowChanging(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axisRowChanged(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axisRowChanged(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axisRowDeleting(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axisRowDeleting(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axisRowDeleted(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axisRowDeleted(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_xColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddaxisRow(Double, Double, Double, angle_axisRow): PrivateScope, Public, HideBySig
+    AddaxisRow(axisRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewaxisRow(): PrivateScope, Public, HideBySig
+    RemoveaxisRow(axisRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+quaternionDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    quaternionRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn orientation_IdColumn 'get ' : 
+    System.Data.DataColumn kColumn 'get ' : 
+    System.Data.DataColumn jColumn 'get ' : 
+    System.Data.DataColumn iColumn 'get ' : 
+    System.Data.DataColumn reColumn 'get ' : 
+  Events:
+    quaternionRowChangeEventHandler quaternionRowDeleted: SpecialName
+    quaternionRowChangeEventHandler quaternionRowDeleting: SpecialName
+    quaternionRowChangeEventHandler quaternionRowChanged: SpecialName
+    quaternionRowChangeEventHandler quaternionRowChanging: SpecialName
+  Methods:
+    add_quaternionRowChanging(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_quaternionRowChanging(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_quaternionRowChanged(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_quaternionRowChanged(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_quaternionRowDeleting(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_quaternionRowDeleting(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_quaternionRowDeleted(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_quaternionRowDeleted(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_reColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_iColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_jColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_kColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddquaternionRow(Double, Double, Double, Double, orientationRow): PrivateScope, Public, HideBySig
+    AddquaternionRow(quaternionRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewquaternionRow(): PrivateScope, Public, HideBySig
+    RemovequaternionRow(quaternionRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+dcmDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    dcmRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn orientation_IdColumn 'get ' : 
+    System.Data.DataColumn zzColumn 'get ' : 
+    System.Data.DataColumn zyColumn 'get ' : 
+    System.Data.DataColumn zxColumn 'get ' : 
+    System.Data.DataColumn yzColumn 'get ' : 
+    System.Data.DataColumn yyColumn 'get ' : 
+    System.Data.DataColumn yxColumn 'get ' : 
+    System.Data.DataColumn xzColumn 'get ' : 
+    System.Data.DataColumn xyColumn 'get ' : 
+    System.Data.DataColumn xxColumn 'get ' : 
+  Events:
+    dcmRowChangeEventHandler dcmRowDeleted: SpecialName
+    dcmRowChangeEventHandler dcmRowDeleting: SpecialName
+    dcmRowChangeEventHandler dcmRowChanged: SpecialName
+    dcmRowChangeEventHandler dcmRowChanging: SpecialName
+  Methods:
+    add_dcmRowChanging(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_dcmRowChanging(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_dcmRowChanged(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_dcmRowChanged(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_dcmRowDeleting(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_dcmRowDeleting(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_dcmRowDeleted(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_dcmRowDeleted(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_xxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_xyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_xzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AdddcmRow(Double, Double, Double, Double, Double, Double, Double, Double, Double, orientationRow): PrivateScope, Public, HideBySig
+    AdddcmRow(dcmRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewdcmRow(): PrivateScope, Public, HideBySig
+    RemovedcmRow(dcmRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system+spinRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    Int32 spin_Id 'get set' : 
+    System.String label 'get set' : 
+    System.String isotope 'get set' : 
+    Int64 id   'get set' : 
+  Methods:
+    get_id(): PrivateScope, Public, HideBySig, SpecialName
+    set_id(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_isotope(): PrivateScope, Public, HideBySig, SpecialName
+    set_isotope(String): PrivateScope, Public, HideBySig, SpecialName
+    get_label(): PrivateScope, Public, HideBySig, SpecialName
+    set_label(String): PrivateScope, Public, HideBySig, SpecialName
+    get_spin_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_spin_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    IslabelNull(): PrivateScope, Public, HideBySig
+    SetlabelNull(): PrivateScope, Public, HideBySig
+    GetcoordinatesRows(): PrivateScope, Public, HideBySig
+Class spin_system+coordinatesRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    spinRow spinRow 'get set' : 
+    Int32 spin_Id 'get set' : 
+    Double z   'get set' : 
+    Double y   'get set' : 
+    Double x   'get set' : 
+  Methods:
+    get_x(): PrivateScope, Public, HideBySig, SpecialName
+    set_x(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_y(): PrivateScope, Public, HideBySig, SpecialName
+    set_y(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_z(): PrivateScope, Public, HideBySig, SpecialName
+    set_z(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_spin_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_spin_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_spinRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_spinRow(spinRow): PrivateScope, Public, HideBySig, SpecialName
+    Isspin_IdNull(): PrivateScope, Public, HideBySig
+    Setspin_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+interactionRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    Int32 interaction_Id 'get set' : 
+    Double scalar 'get set' : 
+    System.String label 'get set' : 
+    System.String reference 'get set' : 
+    Int64 reference_frame_id 'get set' : 
+    Int64 spin_b 'get set' : 
+    Int64 spin_a 'get set' : 
+    System.String units 'get set' : 
+    Int64 id   'get set' : 
+    System.String kind 'get set' : 
+  Methods:
+    get_kind(): PrivateScope, Public, HideBySig, SpecialName
+    set_kind(String): PrivateScope, Public, HideBySig, SpecialName
+    get_id(): PrivateScope, Public, HideBySig, SpecialName
+    set_id(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_units(): PrivateScope, Public, HideBySig, SpecialName
+    set_units(String): PrivateScope, Public, HideBySig, SpecialName
+    get_spin_a(): PrivateScope, Public, HideBySig, SpecialName
+    set_spin_a(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_spin_b(): PrivateScope, Public, HideBySig, SpecialName
+    set_spin_b(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_reference_frame_id(): PrivateScope, Public, HideBySig, SpecialName
+    set_reference_frame_id(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_reference(): PrivateScope, Public, HideBySig, SpecialName
+    set_reference(String): PrivateScope, Public, HideBySig, SpecialName
+    get_label(): PrivateScope, Public, HideBySig, SpecialName
+    set_label(String): PrivateScope, Public, HideBySig, SpecialName
+    get_scalar(): PrivateScope, Public, HideBySig, SpecialName
+    set_scalar(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_interaction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Isspin_bNull(): PrivateScope, Public, HideBySig
+    Setspin_bNull(): PrivateScope, Public, HideBySig
+    Isreference_frame_idNull(): PrivateScope, Public, HideBySig
+    Setreference_frame_idNull(): PrivateScope, Public, HideBySig
+    IsreferenceNull(): PrivateScope, Public, HideBySig
+    SetreferenceNull(): PrivateScope, Public, HideBySig
+    IsscalarNull(): PrivateScope, Public, HideBySig
+    SetscalarNull(): PrivateScope, Public, HideBySig
+    IslabelNull(): PrivateScope, Public, HideBySig
+    SetlabelNull(): PrivateScope, Public, HideBySig
+    GettensorRows(): PrivateScope, Public, HideBySig
+    GeteigenvaluesRows(): PrivateScope, Public, HideBySig
+    Getaxiality_rhombicityRows(): PrivateScope, Public, HideBySig
+    Getspan_skewRows(): PrivateScope, Public, HideBySig
+    Getaniso_asymmRows(): PrivateScope, Public, HideBySig
+    GetorientationRows(): PrivateScope, Public, HideBySig
+Class spin_system+tensorRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    interactionRow interactionRow 'get set' : 
+    Int32 interaction_Id 'get set' : 
+    Double zz  'get set' : 
+    Double zy  'get set' : 
+    Double zx  'get set' : 
+    Double yz  'get set' : 
+    Double yy  'get set' : 
+    Double yx  'get set' : 
+    Double xz  'get set' : 
+    Double xy  'get set' : 
+    Double xx  'get set' : 
+  Methods:
+    get_xx(): PrivateScope, Public, HideBySig, SpecialName
+    set_xx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_xy(): PrivateScope, Public, HideBySig, SpecialName
+    set_xy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_xz(): PrivateScope, Public, HideBySig, SpecialName
+    set_xz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yx(): PrivateScope, Public, HideBySig, SpecialName
+    set_yx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yy(): PrivateScope, Public, HideBySig, SpecialName
+    set_yy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yz(): PrivateScope, Public, HideBySig, SpecialName
+    set_yz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zx(): PrivateScope, Public, HideBySig, SpecialName
+    set_zx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zy(): PrivateScope, Public, HideBySig, SpecialName
+    set_zy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zz(): PrivateScope, Public, HideBySig, SpecialName
+    set_zz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_interaction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_interactionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_interactionRow(interactionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isinteraction_IdNull(): PrivateScope, Public, HideBySig
+    Setinteraction_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+eigenvaluesRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    interactionRow interactionRow 'get set' : 
+    Int32 interaction_Id 'get set' : 
+    Double zz  'get set' : 
+    Double yy  'get set' : 
+    Double xx  'get set' : 
+  Methods:
+    get_xx(): PrivateScope, Public, HideBySig, SpecialName
+    set_xx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yy(): PrivateScope, Public, HideBySig, SpecialName
+    set_yy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zz(): PrivateScope, Public, HideBySig, SpecialName
+    set_zz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_interaction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_interactionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_interactionRow(interactionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isinteraction_IdNull(): PrivateScope, Public, HideBySig
+    Setinteraction_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+axiality_rhombicityRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    interactionRow interactionRow 'get set' : 
+    Int32 interaction_Id 'get set' : 
+    Double rh  'get set' : 
+    Double ax  'get set' : 
+    Double iso 'get set' : 
+  Methods:
+    get_iso(): PrivateScope, Public, HideBySig, SpecialName
+    set_iso(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_ax(): PrivateScope, Public, HideBySig, SpecialName
+    set_ax(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_rh(): PrivateScope, Public, HideBySig, SpecialName
+    set_rh(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_interaction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_interactionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_interactionRow(interactionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isinteraction_IdNull(): PrivateScope, Public, HideBySig
+    Setinteraction_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+span_skewRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    interactionRow interactionRow 'get set' : 
+    Int32 interaction_Id 'get set' : 
+    Double skew 'get set' : 
+    Double span 'get set' : 
+    Double iso 'get set' : 
+  Methods:
+    get_iso(): PrivateScope, Public, HideBySig, SpecialName
+    set_iso(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_span(): PrivateScope, Public, HideBySig, SpecialName
+    set_span(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_skew(): PrivateScope, Public, HideBySig, SpecialName
+    set_skew(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_interaction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_interactionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_interactionRow(interactionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isinteraction_IdNull(): PrivateScope, Public, HideBySig
+    Setinteraction_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+aniso_asymmRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    interactionRow interactionRow 'get set' : 
+    Int32 interaction_Id 'get set' : 
+    Double asymm 'get set' : 
+    Double aniso 'get set' : 
+    Double iso 'get set' : 
+  Methods:
+    get_iso(): PrivateScope, Public, HideBySig, SpecialName
+    set_iso(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_aniso(): PrivateScope, Public, HideBySig, SpecialName
+    set_aniso(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_asymm(): PrivateScope, Public, HideBySig, SpecialName
+    set_asymm(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_interaction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_interactionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_interactionRow(interactionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isinteraction_IdNull(): PrivateScope, Public, HideBySig
+    Setinteraction_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+orientationRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    interactionRow interactionRow 'get set' : 
+    Int32 interaction_Id 'get set' : 
+    Int32 orientation_Id 'get set' : 
+  Methods:
+    get_orientation_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientation_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_interaction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_interaction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_interactionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_interactionRow(interactionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isinteraction_IdNull(): PrivateScope, Public, HideBySig
+    Setinteraction_IdNull(): PrivateScope, Public, HideBySig
+    Geteuler_anglesRows(): PrivateScope, Public, HideBySig
+    Getangle_axisRows(): PrivateScope, Public, HideBySig
+    GetquaternionRows(): PrivateScope, Public, HideBySig
+    GetdcmRows(): PrivateScope, Public, HideBySig
+Class spin_system+euler_anglesRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    orientationRow orientationRow 'get set' : 
+    Int32 orientation_Id 'get set' : 
+    Double gamma 'get set' : 
+    Double beta 'get set' : 
+    Double alpha 'get set' : 
+  Methods:
+    get_alpha(): PrivateScope, Public, HideBySig, SpecialName
+    set_alpha(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_beta(): PrivateScope, Public, HideBySig, SpecialName
+    set_beta(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_gamma(): PrivateScope, Public, HideBySig, SpecialName
+    set_gamma(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientation_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_orientationRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientationRow(orientationRow): PrivateScope, Public, HideBySig, SpecialName
+    Isorientation_IdNull(): PrivateScope, Public, HideBySig
+    Setorientation_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+angle_axisRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    orientationRow orientationRow 'get set' : 
+    Int32 orientation_Id 'get set' : 
+    Int32 angle_axis_Id 'get set' : 
+    Double angle 'get set' : 
+  Methods:
+    get_angle(): PrivateScope, Public, HideBySig, SpecialName
+    set_angle(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_angle_axis_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientation_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_orientationRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientationRow(orientationRow): PrivateScope, Public, HideBySig, SpecialName
+    Isorientation_IdNull(): PrivateScope, Public, HideBySig
+    Setorientation_IdNull(): PrivateScope, Public, HideBySig
+    GetaxisRows(): PrivateScope, Public, HideBySig
+Class spin_system+axisRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    angle_axisRow angle_axisRow 'get set' : 
+    Int32 angle_axis_Id 'get set' : 
+    Double z   'get set' : 
+    Double y   'get set' : 
+    Double x   'get set' : 
+  Methods:
+    get_x(): PrivateScope, Public, HideBySig, SpecialName
+    set_x(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_y(): PrivateScope, Public, HideBySig, SpecialName
+    set_y(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_z(): PrivateScope, Public, HideBySig, SpecialName
+    set_z(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_angle_axis_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axisRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_angle_axisRow(angle_axisRow): PrivateScope, Public, HideBySig, SpecialName
+    Isangle_axis_IdNull(): PrivateScope, Public, HideBySig
+    Setangle_axis_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+quaternionRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    orientationRow orientationRow 'get set' : 
+    Int32 orientation_Id 'get set' : 
+    Double k   'get set' : 
+    Double j   'get set' : 
+    Double i   'get set' : 
+    Double re  'get set' : 
+  Methods:
+    get_re(): PrivateScope, Public, HideBySig, SpecialName
+    set_re(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_i(): PrivateScope, Public, HideBySig, SpecialName
+    set_i(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_j(): PrivateScope, Public, HideBySig, SpecialName
+    set_j(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_k(): PrivateScope, Public, HideBySig, SpecialName
+    set_k(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientation_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_orientationRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientationRow(orientationRow): PrivateScope, Public, HideBySig, SpecialName
+    Isorientation_IdNull(): PrivateScope, Public, HideBySig
+    Setorientation_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+dcmRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    orientationRow orientationRow 'get set' : 
+    Int32 orientation_Id 'get set' : 
+    Double zz  'get set' : 
+    Double zy  'get set' : 
+    Double zx  'get set' : 
+    Double yz  'get set' : 
+    Double yy  'get set' : 
+    Double yx  'get set' : 
+    Double xz  'get set' : 
+    Double xy  'get set' : 
+    Double xx  'get set' : 
+  Methods:
+    get_xx(): PrivateScope, Public, HideBySig, SpecialName
+    set_xx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_xy(): PrivateScope, Public, HideBySig, SpecialName
+    set_xy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_xz(): PrivateScope, Public, HideBySig, SpecialName
+    set_xz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yx(): PrivateScope, Public, HideBySig, SpecialName
+    set_yx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yy(): PrivateScope, Public, HideBySig, SpecialName
+    set_yy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yz(): PrivateScope, Public, HideBySig, SpecialName
+    set_yz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zx(): PrivateScope, Public, HideBySig, SpecialName
+    set_zx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zy(): PrivateScope, Public, HideBySig, SpecialName
+    set_zy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zz(): PrivateScope, Public, HideBySig, SpecialName
+    set_zz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_orientation_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientation_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_orientationRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_orientationRow(orientationRow): PrivateScope, Public, HideBySig, SpecialName
+    Isorientation_IdNull(): PrivateScope, Public, HideBySig
+    Setorientation_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system+spinRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(spinRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    spinRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+coordinatesRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(coordinatesRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    coordinatesRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+interactionRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(interactionRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    interactionRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+tensorRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(tensorRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    tensorRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+eigenvaluesRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(eigenvaluesRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    eigenvaluesRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+axiality_rhombicityRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(axiality_rhombicityRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    axiality_rhombicityRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+span_skewRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(span_skewRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    span_skewRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+aniso_asymmRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(aniso_asymmRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    aniso_asymmRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+orientationRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(orientationRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    orientationRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+euler_anglesRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(euler_anglesRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    euler_anglesRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+angle_axisRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(angle_axisRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    angle_axisRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+axisRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(axisRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    axisRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+quaternionRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(quaternionRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    quaternionRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system+dcmRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(dcmRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    dcmRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system_ref: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.Data.DataSet
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRelationCollection Relations 'get ' : 
+    System.Data.DataTableCollection Tables 'get ' : 
+    System.Data.SchemaSerializationMode SchemaSerializationMode 'get set' : 
+    dcmDataTable dcm 'get ' : 
+    quaternionDataTable quaternion 'get ' : 
+    axisDataTable axis 'get ' : 
+    angle_axisDataTable angle_axis 'get ' : 
+    euler_anglesDataTable euler_angles 'get ' : 
+    directionDataTable direction 'get ' : 
+    reference_frameDataTable reference_frame 'get ' : 
+  Methods:
+    get_reference_frame(): PrivateScope, Public, HideBySig, SpecialName
+    get_direction(): PrivateScope, Public, HideBySig, SpecialName
+    get_euler_angles(): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis(): PrivateScope, Public, HideBySig, SpecialName
+    get_axis(): PrivateScope, Public, HideBySig, SpecialName
+    get_quaternion(): PrivateScope, Public, HideBySig, SpecialName
+    get_dcm(): PrivateScope, Public, HideBySig, SpecialName
+    get_SchemaSerializationMode(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_SchemaSerializationMode(SchemaSerializationMode): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Tables(): PrivateScope, Public, HideBySig, SpecialName
+    get_Relations(): PrivateScope, Public, HideBySig, SpecialName
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    GetTypedDataSetSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system_ref+reference_frameRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, reference_frameRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, reference_frameRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system_ref+directionRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, directionRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, directionRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system_ref+euler_anglesRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, euler_anglesRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, euler_anglesRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system_ref+angle_axisRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, angle_axisRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, angle_axisRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system_ref+axisRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, axisRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, axisRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system_ref+quaternionRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, quaternionRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, quaternionRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system_ref+dcmRowChangeEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, dcmRowChangeEvent): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(Object, dcmRowChangeEvent, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class spin_system_ref+reference_frameDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    reference_frameRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn reference_frame_IdColumn 'get ' : 
+    System.Data.DataColumn labelColumn 'get ' : 
+    System.Data.DataColumn parent_reference_frame_idColumn 'get ' : 
+    System.Data.DataColumn idColumn 'get ' : 
+  Events:
+    reference_frameRowChangeEventHandler reference_frameRowDeleted: SpecialName
+    reference_frameRowChangeEventHandler reference_frameRowDeleting: SpecialName
+    reference_frameRowChangeEventHandler reference_frameRowChanged: SpecialName
+    reference_frameRowChangeEventHandler reference_frameRowChanging: SpecialName
+  Methods:
+    add_reference_frameRowChanging(reference_frameRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_reference_frameRowChanging(reference_frameRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_reference_frameRowChanged(reference_frameRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_reference_frameRowChanged(reference_frameRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_reference_frameRowDeleting(reference_frameRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_reference_frameRowDeleting(reference_frameRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_reference_frameRowDeleted(reference_frameRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_reference_frameRowDeleted(reference_frameRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_idColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_parent_reference_frame_idColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_labelColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_reference_frame_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Addreference_frameRow(Int64, Int64, String): PrivateScope, Public, HideBySig
+    Addreference_frameRow(reference_frameRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    Newreference_frameRow(): PrivateScope, Public, HideBySig
+    Removereference_frameRow(reference_frameRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system_ref+directionDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    directionRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn reference_frame_IdColumn 'get ' : 
+    System.Data.DataColumn direction_IdColumn 'get ' : 
+  Events:
+    directionRowChangeEventHandler directionRowDeleted: SpecialName
+    directionRowChangeEventHandler directionRowDeleting: SpecialName
+    directionRowChangeEventHandler directionRowChanged: SpecialName
+    directionRowChangeEventHandler directionRowChanging: SpecialName
+  Methods:
+    add_directionRowChanging(directionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_directionRowChanging(directionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_directionRowChanged(directionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_directionRowChanged(directionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_directionRowDeleting(directionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_directionRowDeleting(directionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_directionRowDeleted(directionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_directionRowDeleted(directionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_reference_frame_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AdddirectionRow(reference_frameRow): PrivateScope, Public, HideBySig
+    AdddirectionRow(directionRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewdirectionRow(): PrivateScope, Public, HideBySig
+    RemovedirectionRow(directionRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system_ref+euler_anglesDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    euler_anglesRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn direction_IdColumn 'get ' : 
+    System.Data.DataColumn gammaColumn 'get ' : 
+    System.Data.DataColumn betaColumn 'get ' : 
+    System.Data.DataColumn alphaColumn 'get ' : 
+  Events:
+    euler_anglesRowChangeEventHandler euler_anglesRowDeleted: SpecialName
+    euler_anglesRowChangeEventHandler euler_anglesRowDeleting: SpecialName
+    euler_anglesRowChangeEventHandler euler_anglesRowChanged: SpecialName
+    euler_anglesRowChangeEventHandler euler_anglesRowChanging: SpecialName
+  Methods:
+    add_euler_anglesRowChanging(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_euler_anglesRowChanging(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_euler_anglesRowChanged(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_euler_anglesRowChanged(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_euler_anglesRowDeleting(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_euler_anglesRowDeleting(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_euler_anglesRowDeleted(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_euler_anglesRowDeleted(euler_anglesRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_alphaColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_betaColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_gammaColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Addeuler_anglesRow(Double, Double, Double, directionRow): PrivateScope, Public, HideBySig
+    Addeuler_anglesRow(euler_anglesRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    Neweuler_anglesRow(): PrivateScope, Public, HideBySig
+    Removeeuler_anglesRow(euler_anglesRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system_ref+angle_axisDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    angle_axisRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn direction_IdColumn 'get ' : 
+    System.Data.DataColumn angle_axis_IdColumn 'get ' : 
+    System.Data.DataColumn angleColumn 'get ' : 
+  Events:
+    angle_axisRowChangeEventHandler angle_axisRowDeleted: SpecialName
+    angle_axisRowChangeEventHandler angle_axisRowDeleting: SpecialName
+    angle_axisRowChangeEventHandler angle_axisRowChanged: SpecialName
+    angle_axisRowChangeEventHandler angle_axisRowChanging: SpecialName
+  Methods:
+    add_angle_axisRowChanging(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_angle_axisRowChanging(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_angle_axisRowChanged(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_angle_axisRowChanged(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_angle_axisRowDeleting(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_angle_axisRowDeleting(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_angle_axisRowDeleted(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_angle_axisRowDeleted(angle_axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_angleColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Addangle_axisRow(Double, directionRow): PrivateScope, Public, HideBySig
+    Addangle_axisRow(angle_axisRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    Newangle_axisRow(): PrivateScope, Public, HideBySig
+    Removeangle_axisRow(angle_axisRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system_ref+axisDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    axisRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn angle_axis_IdColumn 'get ' : 
+    System.Data.DataColumn zColumn 'get ' : 
+    System.Data.DataColumn yColumn 'get ' : 
+    System.Data.DataColumn xColumn 'get ' : 
+  Events:
+    axisRowChangeEventHandler axisRowDeleted: SpecialName
+    axisRowChangeEventHandler axisRowDeleting: SpecialName
+    axisRowChangeEventHandler axisRowChanged: SpecialName
+    axisRowChangeEventHandler axisRowChanging: SpecialName
+  Methods:
+    add_axisRowChanging(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axisRowChanging(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axisRowChanged(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axisRowChanged(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axisRowDeleting(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axisRowDeleting(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_axisRowDeleted(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_axisRowDeleted(axisRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_xColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddaxisRow(Double, Double, Double, angle_axisRow): PrivateScope, Public, HideBySig
+    AddaxisRow(axisRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewaxisRow(): PrivateScope, Public, HideBySig
+    RemoveaxisRow(axisRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system_ref+quaternionDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    quaternionRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn direction_IdColumn 'get ' : 
+    System.Data.DataColumn kColumn 'get ' : 
+    System.Data.DataColumn jColumn 'get ' : 
+    System.Data.DataColumn iColumn 'get ' : 
+    System.Data.DataColumn reColumn 'get ' : 
+  Events:
+    quaternionRowChangeEventHandler quaternionRowDeleted: SpecialName
+    quaternionRowChangeEventHandler quaternionRowDeleting: SpecialName
+    quaternionRowChangeEventHandler quaternionRowChanged: SpecialName
+    quaternionRowChangeEventHandler quaternionRowChanging: SpecialName
+  Methods:
+    add_quaternionRowChanging(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_quaternionRowChanging(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_quaternionRowChanged(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_quaternionRowChanged(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_quaternionRowDeleting(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_quaternionRowDeleting(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_quaternionRowDeleted(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_quaternionRowDeleted(quaternionRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_reColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_iColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_jColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_kColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddquaternionRow(Double, Double, Double, Double, directionRow): PrivateScope, Public, HideBySig
+    AddquaternionRow(quaternionRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewquaternionRow(): PrivateScope, Public, HideBySig
+    RemovequaternionRow(quaternionRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system_ref+dcmDataTable: AutoLayout, AnsiClass, Class, NestedPublic, Serializable, BeforeFieldInit
+  :System.Data.DataTable
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IEnumerable
+  Properties:
+    dcmRow Item [Int32] 'get ' : 
+    Int32 Count 'get ' : 
+    System.Data.DataColumn direction_IdColumn 'get ' : 
+    System.Data.DataColumn zzColumn 'get ' : 
+    System.Data.DataColumn zyColumn 'get ' : 
+    System.Data.DataColumn zxColumn 'get ' : 
+    System.Data.DataColumn yzColumn 'get ' : 
+    System.Data.DataColumn yyColumn 'get ' : 
+    System.Data.DataColumn yxColumn 'get ' : 
+    System.Data.DataColumn xzColumn 'get ' : 
+    System.Data.DataColumn xyColumn 'get ' : 
+    System.Data.DataColumn xxColumn 'get ' : 
+  Events:
+    dcmRowChangeEventHandler dcmRowDeleted: SpecialName
+    dcmRowChangeEventHandler dcmRowDeleting: SpecialName
+    dcmRowChangeEventHandler dcmRowChanged: SpecialName
+    dcmRowChangeEventHandler dcmRowChanging: SpecialName
+  Methods:
+    add_dcmRowChanging(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_dcmRowChanging(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_dcmRowChanged(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_dcmRowChanged(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_dcmRowDeleting(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_dcmRowDeleting(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    add_dcmRowDeleted(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    remove_dcmRowDeleted(dcmRowChangeEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_xxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_xyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_xzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_yzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zxColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zyColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_zzColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_IdColumn(): PrivateScope, Public, HideBySig, SpecialName
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AdddcmRow(Double, Double, Double, Double, Double, Double, Double, Double, Double, directionRow): PrivateScope, Public, HideBySig
+    AdddcmRow(dcmRow): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Clone(): PrivateScope, Public, Virtual, HideBySig
+    NewdcmRow(): PrivateScope, Public, HideBySig
+    RemovedcmRow(dcmRow): PrivateScope, Public, HideBySig
+    GetTypedTableSchema(XmlSchemaSet): PrivateScope, Public, Static, HideBySig
+Class spin_system_ref+reference_frameRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    Int32 reference_frame_Id 'get set' : 
+    System.String label 'get set' : 
+    Int64 parent_reference_frame_id 'get set' : 
+    Int64 id   'get set' : 
+  Methods:
+    get_id(): PrivateScope, Public, HideBySig, SpecialName
+    set_id(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_parent_reference_frame_id(): PrivateScope, Public, HideBySig, SpecialName
+    set_parent_reference_frame_id(Int64): PrivateScope, Public, HideBySig, SpecialName
+    get_label(): PrivateScope, Public, HideBySig, SpecialName
+    set_label(String): PrivateScope, Public, HideBySig, SpecialName
+    get_reference_frame_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_reference_frame_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    Isparent_reference_frame_idNull(): PrivateScope, Public, HideBySig
+    Setparent_reference_frame_idNull(): PrivateScope, Public, HideBySig
+    IslabelNull(): PrivateScope, Public, HideBySig
+    SetlabelNull(): PrivateScope, Public, HideBySig
+    GetdirectionRows(): PrivateScope, Public, HideBySig
+Class spin_system_ref+directionRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    reference_frameRow reference_frameRow 'get set' : 
+    Int32 reference_frame_Id 'get set' : 
+    Int32 direction_Id 'get set' : 
+  Methods:
+    get_direction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_direction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_reference_frame_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_reference_frame_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_reference_frameRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_reference_frameRow(reference_frameRow): PrivateScope, Public, HideBySig, SpecialName
+    Isreference_frame_IdNull(): PrivateScope, Public, HideBySig
+    Setreference_frame_IdNull(): PrivateScope, Public, HideBySig
+    Geteuler_anglesRows(): PrivateScope, Public, HideBySig
+    Getangle_axisRows(): PrivateScope, Public, HideBySig
+    GetquaternionRows(): PrivateScope, Public, HideBySig
+    GetdcmRows(): PrivateScope, Public, HideBySig
+Class spin_system_ref+euler_anglesRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    directionRow directionRow 'get set' : 
+    Int32 direction_Id 'get set' : 
+    Double gamma 'get set' : 
+    Double beta 'get set' : 
+    Double alpha 'get set' : 
+  Methods:
+    get_alpha(): PrivateScope, Public, HideBySig, SpecialName
+    set_alpha(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_beta(): PrivateScope, Public, HideBySig, SpecialName
+    set_beta(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_gamma(): PrivateScope, Public, HideBySig, SpecialName
+    set_gamma(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_direction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_directionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_directionRow(directionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isdirection_IdNull(): PrivateScope, Public, HideBySig
+    Setdirection_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system_ref+angle_axisRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    directionRow directionRow 'get set' : 
+    Int32 direction_Id 'get set' : 
+    Int32 angle_axis_Id 'get set' : 
+    Double angle 'get set' : 
+  Methods:
+    get_angle(): PrivateScope, Public, HideBySig, SpecialName
+    set_angle(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_angle_axis_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_direction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_directionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_directionRow(directionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isdirection_IdNull(): PrivateScope, Public, HideBySig
+    Setdirection_IdNull(): PrivateScope, Public, HideBySig
+    GetaxisRows(): PrivateScope, Public, HideBySig
+Class spin_system_ref+axisRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    angle_axisRow angle_axisRow 'get set' : 
+    Int32 angle_axis_Id 'get set' : 
+    Double z   'get set' : 
+    Double y   'get set' : 
+    Double x   'get set' : 
+  Methods:
+    get_x(): PrivateScope, Public, HideBySig, SpecialName
+    set_x(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_y(): PrivateScope, Public, HideBySig, SpecialName
+    set_y(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_z(): PrivateScope, Public, HideBySig, SpecialName
+    set_z(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axis_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_angle_axis_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_angle_axisRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_angle_axisRow(angle_axisRow): PrivateScope, Public, HideBySig, SpecialName
+    Isangle_axis_IdNull(): PrivateScope, Public, HideBySig
+    Setangle_axis_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system_ref+quaternionRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    directionRow directionRow 'get set' : 
+    Int32 direction_Id 'get set' : 
+    Double k   'get set' : 
+    Double j   'get set' : 
+    Double i   'get set' : 
+    Double re  'get set' : 
+  Methods:
+    get_re(): PrivateScope, Public, HideBySig, SpecialName
+    set_re(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_i(): PrivateScope, Public, HideBySig, SpecialName
+    set_i(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_j(): PrivateScope, Public, HideBySig, SpecialName
+    set_j(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_k(): PrivateScope, Public, HideBySig, SpecialName
+    set_k(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_direction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_directionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_directionRow(directionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isdirection_IdNull(): PrivateScope, Public, HideBySig
+    Setdirection_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system_ref+dcmRow: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.Data.DataRow
+  Properties:
+    directionRow directionRow 'get set' : 
+    Int32 direction_Id 'get set' : 
+    Double zz  'get set' : 
+    Double zy  'get set' : 
+    Double zx  'get set' : 
+    Double yz  'get set' : 
+    Double yy  'get set' : 
+    Double yx  'get set' : 
+    Double xz  'get set' : 
+    Double xy  'get set' : 
+    Double xx  'get set' : 
+  Methods:
+    get_xx(): PrivateScope, Public, HideBySig, SpecialName
+    set_xx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_xy(): PrivateScope, Public, HideBySig, SpecialName
+    set_xy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_xz(): PrivateScope, Public, HideBySig, SpecialName
+    set_xz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yx(): PrivateScope, Public, HideBySig, SpecialName
+    set_yx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yy(): PrivateScope, Public, HideBySig, SpecialName
+    set_yy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_yz(): PrivateScope, Public, HideBySig, SpecialName
+    set_yz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zx(): PrivateScope, Public, HideBySig, SpecialName
+    set_zx(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zy(): PrivateScope, Public, HideBySig, SpecialName
+    set_zy(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_zz(): PrivateScope, Public, HideBySig, SpecialName
+    set_zz(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_direction_Id(): PrivateScope, Public, HideBySig, SpecialName
+    set_direction_Id(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_directionRow(): PrivateScope, Public, HideBySig, SpecialName
+    set_directionRow(directionRow): PrivateScope, Public, HideBySig, SpecialName
+    Isdirection_IdNull(): PrivateScope, Public, HideBySig
+    Setdirection_IdNull(): PrivateScope, Public, HideBySig
+Class spin_system_ref+reference_frameRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(reference_frameRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    reference_frameRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system_ref+directionRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(directionRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    directionRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system_ref+euler_anglesRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(euler_anglesRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    euler_anglesRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system_ref+angle_axisRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(angle_axisRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    angle_axisRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system_ref+axisRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(axisRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    axisRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system_ref+quaternionRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(quaternionRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    quaternionRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class spin_system_ref+dcmRowChangeEvent: AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit
+  :System.EventArgs
+    Void .ctor(dcmRow, System.Data.DataRowAction): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Data.DataRowAction Action 'get ' : 
+    dcmRow Row 'get ' : 
+  Methods:
+    get_Row(): PrivateScope, Public, HideBySig, SpecialName
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Class SpinachGUI.Spinach: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView ExchangeRateMatrix : Public
+    System.Windows.Forms.DataGridView SymmetryGroupdata : Public
+    System.Windows.Forms.DataGridView Longitudinaldata : Public
+    System.Windows.Forms.DataGridView RelaxationRate1data : Public
+    System.Windows.Forms.DataGridView RelaxationRate2data : Public
+  Methods:
+    Spinach_Initialization(Model&, String): PrivateScope, Public, HideBySig
+Class SpinachGUI.EulerAngles: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double alpha : Public
+    Double beta : Public
+    Double gamma : Public
+  Methods:
+    Set(Double, Double, Double): PrivateScope, Public, HideBySig
+    Normalize(): PrivateScope, Public, HideBySig
+    Normalized(): PrivateScope, Public, HideBySig
+    op_Equality(EulerAngles IsByValue): PrivateScope, Public, HideBySig, SpecialName
+    op_Inequality(EulerAngles IsByValue): PrivateScope, Public, HideBySig, SpecialName
+Class SpinachGUI.Matrix3x3: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double xx : Public
+    Double xy : Public
+    Double xz : Public
+    Double yx : Public
+    Double yy : Public
+    Double yz : Public
+    Double zx : Public
+    Double zy : Public
+    Double zz : Public
+    Eigen.Matrix<double\,3\,3\,0\,3\,3>* matrix3d : Public
+  Methods:
+    Normalize(): PrivateScope, Public, HideBySig
+    Normalized(): PrivateScope, Public, HideBySig
+    toEigen(): PrivateScope, Public, HideBySig
+    fromEigen(): PrivateScope, Public, HideBySig
+Class SpinachGUI.Quaternion: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SpinachGUI.Quaternion): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double x : Public
+    Double y : Public
+    Double z : Public
+    Double w : Public
+    Eigen.Quaternion<double\,0>* quaterniond : Public
+  Methods:
+    Normalize(): PrivateScope, Public, HideBySig
+    Normalized(): PrivateScope, Public, HideBySig
+    toEigen(): PrivateScope, Public, HideBySig
+    fromEigen(): PrivateScope, Public, HideBySig
+Class SpinachGUI.AngleAxis: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SpinachGUI.AngleAxis): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Double, Double, Double, Double): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Double x : Public
+    Double y : Public
+    Double z : Public
+    Double angle : Public
+    Eigen.AngleAxis<double>* angleaxisd : Public
+  Methods:
+    Normalize(): PrivateScope, Public, HideBySig
+    Normalized(): PrivateScope, Public, HideBySig
+    toEigen(): PrivateScope, Public, HideBySig
+    fromEigen(): PrivateScope, Public, HideBySig
+Class SpinachGUI.Orientation: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(SpinachGUI.AngleAxis): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SpinachGUI.Quaternion): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SpinachGUI.Matrix3x3): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(SpinachGUI.EulerAngles): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Normalized(): PrivateScope, Public, HideBySig
+    GetType(): PrivateScope, Public, HideBySig
+    GetAsEuler(): PrivateScope, Public, HideBySig
+    GetAsDCM(): PrivateScope, Public, HideBySig
+    GetAsAngleAxis(): PrivateScope, Public, HideBySig
+    GetAsQuaternion(): PrivateScope, Public, HideBySig
+    ConvertToEuler(AngleAxis): PrivateScope, Public, HideBySig
+    ConvertToEuler(Quaternion): PrivateScope, Public, HideBySig
+    ConvertToEuler(Matrix3x3): PrivateScope, Public, HideBySig
+    ConvertToEuler(EulerAngles): PrivateScope, Public, HideBySig
+    ConvertToDCM(AngleAxis): PrivateScope, Public, HideBySig
+    ConvertToDCM(Quaternion): PrivateScope, Public, HideBySig
+    ConvertToDCM(Matrix3x3): PrivateScope, Public, HideBySig
+    ConvertToDCM(EulerAngles): PrivateScope, Public, HideBySig
+    ConvertToQuaternion(AngleAxis): PrivateScope, Public, HideBySig
+    ConvertToQuaternion(Quaternion): PrivateScope, Public, HideBySig
+    ConvertToQuaternion(Matrix3x3): PrivateScope, Public, HideBySig
+    ConvertToQuaternion(EulerAngles): PrivateScope, Public, HideBySig
+    ConvertToAngleAxis(AngleAxis): PrivateScope, Public, HideBySig
+    ConvertToAngleAxis(Quaternion): PrivateScope, Public, HideBySig
+    ConvertToAngleAxis(Matrix3x3): PrivateScope, Public, HideBySig
+    ConvertToAngleAxis(EulerAngles): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class SpinachGUI.Simpson: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView ChanneldataGridView : Public
+  Methods:
+    WriteFile(String): PrivateScope, Public, HideBySig
+    Initialize_Simpson(Model, String): PrivateScope, Public, HideBySig
+Class SpinachGUI.XYZ: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SpinachGUI.IOSpinSystem
+    Void .ctor(System.String, Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig
+Class MOL: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SpinachGUI.IOSpinSystem
+    Void .ctor(System.String, Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig
+Class Orca: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SpinachGUI.IOSpinSystem
+    Void .ctor(System.String, Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig
+Class ADF: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SpinachGUI.IOSpinSystem
+    Void .ctor(System.String, Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig
+Class GAMESS: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SpinachGUI.IOSpinSystem
+    Void .ctor(System.String, Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig
+Class COSMOS: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :SpinachGUI.IOSpinSystem
+    Void .ctor(System.String, Model ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    LoadFile(): PrivateScope, Public, Virtual, HideBySig
+Class SpinachGUI.SpinEvolution: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.DataGridView ChanneldataGridView : Public
+  Methods:
+    WriteFile(String): PrivateScope, Public, HideBySig
+    Initialize_SpinEvolution(Model, String): PrivateScope, Public, HideBySig
+Class SpinachGUI.OrientationExport: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SpinachGUI.OrientationDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.String InteractionText : Public
+    System.String EigenValuesText : Public
+    System.String EigenVectorsText : Public
+    System.String SphericalTensorText : Public
+    System.String EulerAnglesText : Public
+    System.String QuaternionText : Public
+    System.String AngleAxisText : Public
+    System.String WignerMatrixText : Public
+    System.String ConventionsText : Public
+    Atom nAtom : Public
+    Matrix3x3 Interact_Mat : Public
+    System.Collections.ObjectModel.ObservableCollection`1[System.Double] eigenval : Public
+    System.Collections.ObjectModel.ObservableCollection`1[System.Double] eigenvec : Public
+    InteractionKind InterKind : Public
+    Unit unit : Public
+    Int32 refID : Public
+    Int32 ID : Public
+  Methods:
+    UpdateInteraction(): PrivateScope, Public, HideBySig
+    Initialization(Tensor&, COpenGL&, Check): PrivateScope, Public, HideBySig
+    UpdateAll(): PrivateScope, Public, HideBySig
+    InteractionMatrix_KeyPress(Object, KeyPressEventArgs): PrivateScope, Public, HideBySig
+Class SpinachGUI.RefFrameOrientationDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(ReferenceFrame ByRef, OpenGLForm.COpenGL ByRef): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SpinachGUI.IsotopesDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SpinachGUI.About: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SpinachGUI.BalloonToolTip: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class SpinachGUI.MainForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.SaveFileDialog SaveFilesDialog : Public
+    OpenGLForm.COpenGL OpenGL : Public
+    Model SystemModel : Public
+    System.String CurrentTitleFile : Public
+    System.Windows.Forms.DataGridView dataGridView1 : Public
+    System.Windows.Forms.SplitContainer splitContainer2 : Public
+    System.Windows.Forms.PictureBox mouseSelectScroll : Public
+    System.Windows.Forms.PictureBox mouseSelectRight : Public
+    System.Windows.Forms.PictureBox pictureBoxMouse : Public
+    System.Windows.Forms.PictureBox mouseSelectLeft : Public
+    System.Windows.Forms.Timer OpenGLtimer : Public
+    System.Windows.Forms.CheckBox ReferencecheckBox : Public
+    System.Windows.Forms.ToolStripStatusLabel StatusBarLabel : Public
+    System.Windows.Forms.ContextMenuStrip OpenGLcontextMenu : Public
+    System.ValueType testpointer Int32 IsBoxed : Public
+    System.Windows.Forms.DataGridView dataGridView2 : Public
+  Methods:
+    OnMouseDownOpenGL(Object, MouseEventArgs): PrivateScope, Public, HideBySig
+    OnMouseUpOpenGL(Object, MouseEventArgs): PrivateScope, Public, HideBySig
+    InitializeComponent(): PrivateScope, Public, HideBySig
+Struct InteractionKind: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    InteractionKind CBond = 0 : Public, Static, Literal, HasDefault
+    InteractionKind HFC = 1 : Public, Static, Literal, HasDefault
+    InteractionKind CShielding = 2 : Public, Static, Literal, HasDefault
+    InteractionKind Shift = 3 : Public, Static, Literal, HasDefault
+    InteractionKind GTensor = 4 : Public, Static, Literal, HasDefault
+    InteractionKind ZFS = 5 : Public, Static, Literal, HasDefault
+    InteractionKind Exchange = 6 : Public, Static, Literal, HasDefault
+    InteractionKind Quadrupolar = 7 : Public, Static, Literal, HasDefault
+    InteractionKind Dipolar = 8 : Public, Static, Literal, HasDefault
+    InteractionKind Jcoupling = 9 : Public, Static, Literal, HasDefault
+    InteractionKind spinrotation = 10 : Public, Static, Literal, HasDefault
+Struct UpdateType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    UpdateType ALL = 0 : Public, Static, Literal, HasDefault
+    UpdateType BONDS_LIKE = 1 : Public, Static, Literal, HasDefault
+    UpdateType ELLIPSOIDS = 2 : Public, Static, Literal, HasDefault
+    UpdateType ATOMS = 3 : Public, Static, Literal, HasDefault
+Struct SpinachGUI.Type: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+Class gTrackBar.gTrackBar: AutoLayout, AnsiClass, Class, Public
+  :System.Windows.Forms.UserControl
+    Void .ctor(): PrivateScope, Public, SpecialName, RTSpecialName
+  Properties:
+    Boolean BorderStyle 'get set' : 
+    System.Drawing.Font Font 'get set' : 
+    System.Drawing.Color ForeColor 'get set' : 
+    System.Windows.Forms.Padding Padding 'get set' : 
+    Int32 Value 'get set' : 
+    Single ValueAdjusted 'get set' : 
+    eValueDivisor ValueDivisor 'get set' : 
+    System.String ValueStrFormat 'get set' : 
+    eBrushStyle BrushStyle 'get set' : 
+    System.Drawing.Drawing2D.LinearGradientMode BrushDirection 'get set' : 
+    System.Windows.Forms.Orientation Orientation 'get set' : 
+    Int32 MinValue 'get set' : 
+    Int32 MaxValue 'get set' : 
+    Int32 ChangeLarge 'get set' : 
+    Int32 ChangeSmall 'get set' : 
+    Boolean BorderShow 'get set' : 
+    Boolean ShowFocus 'get set' : 
+    Boolean JumpToMouse 'get set' : 
+    Boolean SnapToValue 'get set' : 
+    eTickType TickType 'get set' : 
+    Int32 TickInterval 'get set' : 
+    Int32 TickWidth 'get set' : 
+    Single TickThickness 'get set' : 
+    Int32 TickOffset 'get set' : 
+    Boolean FloatValue 'get set' : 
+    System.Drawing.Font FloatValueFont 'get set' : 
+    System.String Label 'get set' : 
+    System.Drawing.Font LabelFont 'get set' : 
+    System.Drawing.StringAlignment LabelAlighnment 'get set' : 
+    System.Windows.Forms.Padding LabelPadding 'get set' : 
+    Boolean LabelShow 'get set' : 
+    Single SliderWidthHigh 'get set' : 
+    Single SliderWidthLow 'get set' : 
+    System.Drawing.Bitmap SliderImage 'get set' : 
+    System.Drawing.Drawing2D.LineCap SliderCapStart 'get set' : 
+    System.Drawing.Drawing2D.LineCap SliderCapEnd 'get set' : 
+    System.Drawing.Size SliderSize 'get set' : 
+    eShape SliderShape 'get set' : 
+    System.Drawing.PointF SliderHighlightPt 'get set' : 
+    System.Drawing.PointF SliderFocalPt 'get set' : 
+    eValueBox ValueBox 'get set' : 
+    System.Drawing.Size ValueBoxSize 'get set' : 
+    System.Drawing.Font ValueBoxFont 'get set' : 
+    eShape ValueBoxShape 'get set' : 
+    Int32 UpDownWidth 'get set' : 
+    Boolean UpDownAutoWidth 'get set' : 
+    Boolean UpDownShow 'get set' : 
+    gTrackBar.ColorPack ColorUp 'get set' : 
+    gTrackBar.ColorPack ColorDown 'get set' : 
+    gTrackBar.ColorPack ColorHover 'get set' : 
+    System.Drawing.Color BorderColor 'get set' : 
+    gTrackBar.ColorLinearGradient SliderColorLow 'get set' : 
+    gTrackBar.ColorLinearGradient SliderColorHigh 'get set' : 
+    System.Drawing.Color ArrowColorUp 'get set' : 
+    System.Drawing.Color ArrowColorDown 'get set' : 
+    System.Drawing.Color ArrowColorHover 'get set' : 
+    gTrackBar.ColorPack AButColor 'get set' : 
+    System.Drawing.Color ValueBoxBackColor 'get set' : 
+    System.Drawing.Color ValueBoxBorder 'get set' : 
+    System.Drawing.Color ValueBoxFontColor 'get set' : 
+    System.Drawing.Color LabelColor 'get set' : 
+    System.Drawing.Color FloatValueFontColor 'get set' : 
+    System.Drawing.Color TickColor 'get set' : 
+  Events:
+    ValueChangedEventHandler ValueChanged: 
+  Methods:
+    ResetSliderHighlightPt(): PrivateScope, Public
+    get_SliderFocalPt(): PrivateScope, Public, SpecialName
+    set_SliderFocalPt(PointF): PrivateScope, Public, SpecialName
+    ResetSliderFocalPt(): PrivateScope, Public
+    get_ValueBox(): PrivateScope, Public, SpecialName
+    set_ValueBox(eValueBox): PrivateScope, Public, SpecialName
+    get_ValueBoxSize(): PrivateScope, Public, SpecialName
+    set_ValueBoxSize(Size): PrivateScope, Public, SpecialName
+    get_ValueBoxFont(): PrivateScope, Public, SpecialName
+    set_ValueBoxFont(Font): PrivateScope, Public, SpecialName
+    get_ValueBoxShape(): PrivateScope, Public, SpecialName
+    set_ValueBoxShape(eShape): PrivateScope, Public, SpecialName
+    get_UpDownWidth(): PrivateScope, Public, SpecialName
+    set_UpDownWidth(Int32): PrivateScope, Public, SpecialName
+    get_UpDownAutoWidth(): PrivateScope, Public, SpecialName
+    set_UpDownAutoWidth(Boolean): PrivateScope, Public, SpecialName
+    get_UpDownShow(): PrivateScope, Public, SpecialName
+    set_UpDownShow(Boolean): PrivateScope, Public, SpecialName
+    get_ColorUp(): PrivateScope, Public, SpecialName
+    set_ColorUp(ColorPack): PrivateScope, Public, SpecialName
+    ResetColorUp(): PrivateScope, Public
+    get_ColorDown(): PrivateScope, Public, SpecialName
+    set_ColorDown(ColorPack): PrivateScope, Public, SpecialName
+    ResetColorDown(): PrivateScope, Public
+    get_ColorHover(): PrivateScope, Public, SpecialName
+    set_ColorHover(ColorPack): PrivateScope, Public, SpecialName
+    ResetColorHover(): PrivateScope, Public
+    get_BorderColor(): PrivateScope, Public, SpecialName
+    set_BorderColor(Color): PrivateScope, Public, SpecialName
+    get_SliderColorLow(): PrivateScope, Public, SpecialName
+    set_SliderColorLow(ColorLinearGradient): PrivateScope, Public, SpecialName
+    ResetSliderColorLow(): PrivateScope, Public
+    get_SliderColorHigh(): PrivateScope, Public, SpecialName
+    set_SliderColorHigh(ColorLinearGradient): PrivateScope, Public, SpecialName
+    ResetSliderColorHigh(): PrivateScope, Public
+    get_ArrowColorUp(): PrivateScope, Public, SpecialName
+    set_ArrowColorUp(Color): PrivateScope, Public, SpecialName
+    get_ArrowColorDown(): PrivateScope, Public, SpecialName
+    set_ArrowColorDown(Color): PrivateScope, Public, SpecialName
+    get_ArrowColorHover(): PrivateScope, Public, SpecialName
+    set_ArrowColorHover(Color): PrivateScope, Public, SpecialName
+    get_AButColor(): PrivateScope, Public, SpecialName
+    set_AButColor(ColorPack): PrivateScope, Public, SpecialName
+    ResetAButColor(): PrivateScope, Public
+    get_ValueBoxBackColor(): PrivateScope, Public, SpecialName
+    set_ValueBoxBackColor(Color): PrivateScope, Public, SpecialName
+    get_ValueBoxBorder(): PrivateScope, Public, SpecialName
+    set_ValueBoxBorder(Color): PrivateScope, Public, SpecialName
+    get_ValueBoxFontColor(): PrivateScope, Public, SpecialName
+    set_ValueBoxFontColor(Color): PrivateScope, Public, SpecialName
+    get_LabelColor(): PrivateScope, Public, SpecialName
+    set_LabelColor(Color): PrivateScope, Public, SpecialName
+    get_FloatValueFontColor(): PrivateScope, Public, SpecialName
+    set_FloatValueFontColor(Color): PrivateScope, Public, SpecialName
+    get_TickColor(): PrivateScope, Public, SpecialName
+    set_TickColor(Color): PrivateScope, Public, SpecialName
+    add_ValueChanged(ValueChangedEventHandler): PrivateScope, Public, SpecialName
+    remove_ValueChanged(ValueChangedEventHandler): PrivateScope, Public, SpecialName
+    get_BorderStyle(): PrivateScope, Public, Static, SpecialName
+    set_BorderStyle(Boolean): PrivateScope, Public, Static, SpecialName
+    get_Font(): PrivateScope, Public, Static, SpecialName
+    set_Font(Font): PrivateScope, Public, Static, SpecialName
+    get_ForeColor(): PrivateScope, Public, Static, SpecialName
+    set_ForeColor(Color): PrivateScope, Public, Static, SpecialName
+    get_Padding(): PrivateScope, Public, SpecialName
+    set_Padding(Padding): PrivateScope, Public, SpecialName
+    get_Value(): PrivateScope, Public, SpecialName
+    set_Value(Int32): PrivateScope, Public, SpecialName
+    get_ValueAdjusted(): PrivateScope, Public, SpecialName
+    set_ValueAdjusted(Single): PrivateScope, Public, SpecialName
+    get_ValueDivisor(): PrivateScope, Public, SpecialName
+    set_ValueDivisor(eValueDivisor): PrivateScope, Public, SpecialName
+    get_ValueStrFormat(): PrivateScope, Public, SpecialName
+    set_ValueStrFormat(String): PrivateScope, Public, SpecialName
+    get_BrushStyle(): PrivateScope, Public, SpecialName
+    set_BrushStyle(eBrushStyle): PrivateScope, Public, SpecialName
+    get_BrushDirection(): PrivateScope, Public, SpecialName
+    set_BrushDirection(LinearGradientMode): PrivateScope, Public, SpecialName
+    get_Orientation(): PrivateScope, Public, SpecialName
+    set_Orientation(Orientation): PrivateScope, Public, SpecialName
+    get_MinValue(): PrivateScope, Public, SpecialName
+    set_MinValue(Int32): PrivateScope, Public, SpecialName
+    get_MaxValue(): PrivateScope, Public, SpecialName
+    set_MaxValue(Int32): PrivateScope, Public, SpecialName
+    get_ChangeLarge(): PrivateScope, Public, SpecialName
+    set_ChangeLarge(Int32): PrivateScope, Public, SpecialName
+    get_ChangeSmall(): PrivateScope, Public, SpecialName
+    set_ChangeSmall(Int32): PrivateScope, Public, SpecialName
+    get_BorderShow(): PrivateScope, Public, SpecialName
+    set_BorderShow(Boolean): PrivateScope, Public, SpecialName
+    get_ShowFocus(): PrivateScope, Public, SpecialName
+    set_ShowFocus(Boolean): PrivateScope, Public, SpecialName
+    get_JumpToMouse(): PrivateScope, Public, SpecialName
+    set_JumpToMouse(Boolean): PrivateScope, Public, SpecialName
+    get_SnapToValue(): PrivateScope, Public, SpecialName
+    set_SnapToValue(Boolean): PrivateScope, Public, SpecialName
+    get_TickType(): PrivateScope, Public, SpecialName
+    set_TickType(eTickType): PrivateScope, Public, SpecialName
+    get_TickInterval(): PrivateScope, Public, SpecialName
+    set_TickInterval(Int32): PrivateScope, Public, SpecialName
+    get_TickWidth(): PrivateScope, Public, SpecialName
+    set_TickWidth(Int32): PrivateScope, Public, SpecialName
+    get_TickThickness(): PrivateScope, Public, SpecialName
+    set_TickThickness(Single): PrivateScope, Public, SpecialName
+    get_TickOffset(): PrivateScope, Public, SpecialName
+    set_TickOffset(Int32): PrivateScope, Public, SpecialName
+    get_FloatValue(): PrivateScope, Public, SpecialName
+    set_FloatValue(Boolean): PrivateScope, Public, SpecialName
+    get_FloatValueFont(): PrivateScope, Public, SpecialName
+    set_FloatValueFont(Font): PrivateScope, Public, SpecialName
+    get_Label(): PrivateScope, Public, SpecialName
+    set_Label(String): PrivateScope, Public, SpecialName
+    get_LabelFont(): PrivateScope, Public, SpecialName
+    set_LabelFont(Font): PrivateScope, Public, SpecialName
+    get_LabelAlighnment(): PrivateScope, Public, SpecialName
+    set_LabelAlighnment(StringAlignment): PrivateScope, Public, SpecialName
+    get_LabelPadding(): PrivateScope, Public, SpecialName
+    set_LabelPadding(Padding): PrivateScope, Public, SpecialName
+    get_LabelShow(): PrivateScope, Public, SpecialName
+    set_LabelShow(Boolean): PrivateScope, Public, SpecialName
+    get_SliderWidthHigh(): PrivateScope, Public, SpecialName
+    set_SliderWidthHigh(Single): PrivateScope, Public, SpecialName
+    get_SliderWidthLow(): PrivateScope, Public, SpecialName
+    set_SliderWidthLow(Single): PrivateScope, Public, SpecialName
+    get_SliderImage(): PrivateScope, Public, SpecialName
+    set_SliderImage(Bitmap): PrivateScope, Public, SpecialName
+    get_SliderCapStart(): PrivateScope, Public, SpecialName
+    set_SliderCapStart(LineCap): PrivateScope, Public, SpecialName
+    get_SliderCapEnd(): PrivateScope, Public, SpecialName
+    set_SliderCapEnd(LineCap): PrivateScope, Public, SpecialName
+    get_SliderSize(): PrivateScope, Public, SpecialName
+    set_SliderSize(Size): PrivateScope, Public, SpecialName
+    get_SliderShape(): PrivateScope, Public, SpecialName
+    set_SliderShape(eShape): PrivateScope, Public, SpecialName
+    get_SliderHighlightPt(): PrivateScope, Public, SpecialName
+    set_SliderHighlightPt(PointF): PrivateScope, Public, SpecialName
+Class gTrackBar.gTrackBar+ValueChangedEventHandler: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    BeginInvoke(Object, EventArgs, AsyncCallback, Object): PrivateScope, Public, Virtual, VtableLayoutMask, CheckAccessOnOverride
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, VtableLayoutMask, CheckAccessOnOverride
+    Invoke(Object, EventArgs): PrivateScope, Public, Virtual, VtableLayoutMask, CheckAccessOnOverride
+Struct gTrackBar.gTrackBar+eTickType: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    eTickType None = 0 : Public, Static, Literal, HasDefault
+    eTickType Up_Right = 1 : Public, Static, Literal, HasDefault
+    eTickType Down_Left = 2 : Public, Static, Literal, HasDefault
+    eTickType Both = 3 : Public, Static, Literal, HasDefault
+    eTickType Middle = 4 : Public, Static, Literal, HasDefault
+Struct gTrackBar.gTrackBar+eMouseState: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    eMouseState Up = 0 : Public, Static, Literal, HasDefault
+    eMouseState Down = 1 : Public, Static, Literal, HasDefault
+Struct gTrackBar.gTrackBar+eShape: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    eShape Ellipse = 0 : Public, Static, Literal, HasDefault
+    eShape Rectangle = 1 : Public, Static, Literal, HasDefault
+Struct gTrackBar.gTrackBar+eValueBox: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    eValueBox None = 0 : Public, Static, Literal, HasDefault
+    eValueBox Left = 1 : Public, Static, Literal, HasDefault
+    eValueBox Right = 2 : Public, Static, Literal, HasDefault
+Struct gTrackBar.gTrackBar+eBrushStyle: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    eBrushStyle Image = 0 : Public, Static, Literal, HasDefault
+    eBrushStyle Linear = 1 : Public, Static, Literal, HasDefault
+    eBrushStyle Linear2 = 2 : Public, Static, Literal, HasDefault
+    eBrushStyle Path = 3 : Public, Static, Literal, HasDefault
+Struct gTrackBar.gTrackBar+eValueDivisor: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    eValueDivisor e1 = 1 : Public, Static, Literal, HasDefault
+    eValueDivisor e10 = 10 : Public, Static, Literal, HasDefault
+    eValueDivisor e100 = 100 : Public, Static, Literal, HasDefault
+    eValueDivisor e1000 = 1000 : Public, Static, Literal, HasDefault
+Class gTrackBar.ColorPack: AutoLayout, AnsiClass, Class, Public
+    Void .ctor(): PrivateScope, Public, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Color, System.Drawing.Color, System.Drawing.Color): PrivateScope, Public, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color Border 'get set' : 
+    System.Drawing.Color Face 'get set' : 
+    System.Drawing.Color Highlight 'get set' : 
+  Methods:
+    get_Border(): PrivateScope, Public, SpecialName
+    set_Border(Color): PrivateScope, Public, SpecialName
+    get_Face(): PrivateScope, Public, SpecialName
+    set_Face(Color): PrivateScope, Public, SpecialName
+    get_Highlight(): PrivateScope, Public, SpecialName
+    set_Highlight(Color): PrivateScope, Public, SpecialName
+    ToString(): PrivateScope, Public, Virtual, CheckAccessOnOverride
+    Equals(Object): PrivateScope, Public, Virtual, CheckAccessOnOverride
+Class gTrackBar.ColorPackEditor: AutoLayout, AnsiClass, Class, Public
+  :System.Drawing.Design.UITypeEditor
+    Void .ctor(): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    GetPaintValueSupported(ITypeDescriptorContext): PrivateScope, Public, Virtual, CheckAccessOnOverride
+    PaintValue(PaintValueEventArgs): PrivateScope, Public, Virtual, CheckAccessOnOverride
+Class gTrackBar.ColorLinearGradient: AutoLayout, AnsiClass, Class, Public
+    Void .ctor(): PrivateScope, Public, SpecialName, RTSpecialName
+    Void .ctor(System.Drawing.Color, System.Drawing.Color): PrivateScope, Public, SpecialName, RTSpecialName
+  Properties:
+    System.Drawing.Color ColorA 'get set' : 
+    System.Drawing.Color ColorB 'get set' : 
+  Methods:
+    get_ColorA(): PrivateScope, Public, SpecialName
+    set_ColorA(Color): PrivateScope, Public, SpecialName
+    get_ColorB(): PrivateScope, Public, SpecialName
+    set_ColorB(Color): PrivateScope, Public, SpecialName
+    ToString(): PrivateScope, Public, Virtual, CheckAccessOnOverride
+    Equals(Object): PrivateScope, Public, Virtual, CheckAccessOnOverride
+Class gTrackBar.ColorLinearGradientEditor: AutoLayout, AnsiClass, Class, Public
+  :System.Drawing.Design.UITypeEditor
+    Void .ctor(): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    GetPaintValueSupported(ITypeDescriptorContext): PrivateScope, Public, Virtual, CheckAccessOnOverride
+    PaintValue(PaintValueEventArgs): PrivateScope, Public, Virtual, CheckAccessOnOverride

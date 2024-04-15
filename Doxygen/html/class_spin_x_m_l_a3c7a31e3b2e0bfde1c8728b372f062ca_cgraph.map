@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Isotopes::FindIsotope" alt="" coords="233,17,380,44"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_orientation.html#a1b47921e73099dbca02b5a6c0722e5e3" title="SpinachGui::Orientation::GetAsDCM" alt="" coords="189,80,424,107"/>
+<area shape="rect" id="node10" href="$classspin__system.html#ab88f06c624e2c5f1f90683b6894e474d" title="spin_system::InitVars" alt="" coords="233,131,381,157"/>
+<area shape="rect" id="node3" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Isotopes::Init_Isotopes" alt="" coords="524,5,676,32"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_orientation.html#ae1554a2b9bc3cb645e145acf05b41efb" title="SpinachGui::Orientation::ConvertToDCM" alt="" coords="473,80,727,107"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_orientation.html#ad8f8da7bd1e5dfbb070c6607681ddcfd" title="Normalise the contained rotation in place." alt="" coords="483,131,717,157"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_angle_axis.html#a7a707ff6a91374b4b98c9a89ddc707ef" title="SpinachGui::AngleAxis::Normalized" alt="" coords="779,80,1008,107"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_quaternion.html#adc51230582d349449dbf68186b4abb0e" title="SpinachGui::Quaternion::Normalized" alt="" coords="777,131,1010,157"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_orientation.html#aadc64950787cfd4b35017b057df34b82" title="Constructs the identity rotation." alt="" coords="778,181,1009,208"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_easy_spin.html#a61ee074c9bd1a560ea7a8df6f4d9276e" title="SpinachGui::EasySpin::WriteFooter" alt="" coords="379,31,608,57"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_easy_spin.html#a5f97aa558c64befcd51adb7a22e9479e" title="SpinachGui::EasySpin::WriteHeader" alt="" coords="377,81,610,108"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_easy_spin.html#af4777373e3837bc7ed8db55dff4c2189" title="SpinachGui::EasySpin::ConvertToString" alt="" coords="659,5,911,32"/>
+<area shape="rect" id="node5" href="$class_unit.html#ab66ea28760ab5a42774f50ed184124e1" title="Unit::fromSI" alt="" coords="740,56,831,83"/>
+<area shape="rect" id="node6" href="$class_unit.html#abbade20370da92c8756c8a29cbe16101" title="Unit::toSI" alt="" coords="747,107,823,133"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_easy_spin.html#a81fa6fa2cb2c878ecfa70833b5b58386" title="SpinachGui::EasySpin::TransformToLab" alt="" coords="659,157,912,184"/>
+</map>

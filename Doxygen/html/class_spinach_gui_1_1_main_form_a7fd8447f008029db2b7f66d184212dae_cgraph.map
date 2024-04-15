@@ -1,0 +1,35 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_atoms_dictionary.html#a2b1099438d2b42b3f2c7c250323fa712" title="AtomsDictionary::Clear" alt="" coords="334,183,490,209"/>
+<area shape="rect" id="node3" href="$class_model.html#a3e765bcd554e898cd46fd6033d7ac366" title="Model::CreateBonds" alt="" coords="342,233,482,260"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_main_form.html#adc66b94bf14f1c745fc56f960e37343d" title="SpinachGui::MainForm::LoadModel" alt="" coords="299,284,525,311"/>
+<area shape="rect" id="node26" href="$class_spin_x_m_l.html#a3c7a31e3b2e0bfde1c8728b372f062ca" title="SpinXML::ReadXML" alt="" coords="344,436,480,463"/>
+<area shape="rect" id="node4" href="$class_interactions_dictionary.html#a4ac8eb3eb8df59601b5c283ad9217c90" title="InteractionsDictionary::Add" alt="" coords="667,31,845,57"/>
+<area shape="rect" id="node5" href="$class_interactions_dictionary.html#a93b3d8d02d67b2e2088a20a71eb7ea8c" title="InteractionsDictionary::InteractionsDictionaryChange" alt="" coords="1022,5,1346,32"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_main_form.html#a7265fc7079ed8fb3393c40b3c72042aa" title="SpinachGui::MainForm::DataGridView_Interactions_Update" alt="" coords="574,107,938,133"/>
+<area shape="rect" id="node12" href="$class_isotopes.html#a2fa7827baf610891e37762252c81151d" title="Isotopes::getAllIsotopeMasses" alt="" coords="656,309,856,336"/>
+<area shape="rect" id="node14" href="$class_open_g_l_form_1_1_c_open_g_l.html#a4269a637342af6fb3add0853e1301da6" title="OpenGLForm::COpenGL::Render" alt="" coords="649,259,863,285"/>
+<area shape="rect" id="node25" href="$class_open_g_l_form_1_1_c_open_g_l.html#a22e7bcaaad16c2edbac9a953a1ede7db" title="OpenGLForm::COpenGL::ZoomtoFillScreen" alt="" coords="619,360,893,387"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_main_form.html#adfc24be00acf24715957745ca9630f0b" title="SpinachGui::MainForm::CheckExistentInteractions" alt="" coords="1027,107,1341,133"/>
+<area shape="rect" id="node11" href="$class_spinach_gui_1_1_main_form.html#a02ebcb64567dc84663f1bc02ed627b34" title="SpinachGui::MainForm::UpdateInteractionTypeComboBox" alt="" coords="1006,56,1362,83"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_main_form.html#a4c53d8aa45d4b70bed5a3c1b03bb811d" title="SpinachGui::MainForm::Update_Interactions_Color" alt="" coords="1429,107,1744,133"/>
+<area shape="rect" id="node10" href="$class_spinach_gui_1_1_main_form.html#a10213b40d94662fe9532a252d123f026" title="SpinachGui::MainForm::ConColor" alt="" coords="1844,107,2060,133"/>
+<area shape="rect" id="node13" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Isotopes::Init_Isotopes" alt="" coords="1108,411,1260,437"/>
+<area shape="rect" id="node15" href="$class_open_g_l_form_1_1_c_open_g_l.html#aaef092d833a02f8ffcccd33ec68565b8" title="OpenGLForm::COpenGL::Render_Atoms" alt="" coords="1457,157,1716,184"/>
+<area shape="rect" id="node16" href="$class_open_g_l_form_1_1_c_open_g_l.html#a20ad2d00c74c32564330da4b870b327e" title="OpenGLForm::COpenGL::Render_Bonds" alt="" coords="1055,259,1313,285"/>
+<area shape="rect" id="node17" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6f98dd2f1244759dd296c0afe49552f6" title="OpenGLForm::COpenGL::Render_Electrons" alt="" coords="1046,309,1322,336"/>
+<area shape="rect" id="node22" href="$class_open_g_l_form_1_1_c_open_g_l.html#ab5bbb674e0e4ea78f14ae0868a245e4d" title="OpenGLForm::COpenGL::Render_Navigation" alt="" coords="1044,360,1324,387"/>
+<area shape="rect" id="node23" href="$class_open_g_l_form_1_1_c_open_g_l.html#a34bf9fe57a5187c5e6b03a0e86aca066" title="OpenGLForm::COpenGL::Render_Transparent_Atom_Properties" alt="" coords="987,208,1381,235"/>
+<area shape="rect" id="node18" href="$class_open_g_l_form_1_1_c_open_g_l.html#a8b804374f8ac761569b5c781a28d53e9" title="OpenGLForm::COpenGL::Render_Atom_Properties" alt="" coords="1793,233,2111,260"/>
+<area shape="rect" id="node19" href="$class_open_g_l_form_1_1_c_open_g_l.html#a8599ba4db2c35ea771a17a2657a29692" title="OpenGLForm::COpenGL::Render_Floor" alt="" coords="1461,309,1712,336"/>
+<area shape="rect" id="node20" href="$class_open_g_l_form_1_1_c_open_g_l.html#a5afbd1374f5c155cf0b59fa898c8dfbb" title="OpenGLForm::COpenGL::Render_MetaBalls" alt="" coords="1447,360,1726,387"/>
+<area shape="rect" id="node21" href="$class_c_u_b_e___g_r_i_d.html#a29d386d94a0b7965443c481ca7dcd27e" title="CUBE_GRID::DrawSurface" alt="" coords="1863,360,2041,387"/>
+<area shape="rect" id="node24" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6b334a904a14208066ba9619d9761069" title="OpenGLForm::COpenGL::Render_Transparency" alt="" coords="1437,208,1736,235"/>
+<area shape="rect" id="node27" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Isotopes::FindIsotope" alt="" coords="683,411,829,437"/>
+<area shape="rect" id="node28" href="$class_spinach_gui_1_1_orientation.html#a1b47921e73099dbca02b5a6c0722e5e3" title="SpinachGui::Orientation::GetAsDCM" alt="" coords="639,512,873,539"/>
+<area shape="rect" id="node34" href="$classspin__system.html#ab88f06c624e2c5f1f90683b6894e474d" title="spin_system::InitVars" alt="" coords="682,461,830,488"/>
+<area shape="rect" id="node29" href="$class_spinach_gui_1_1_orientation.html#ae1554a2b9bc3cb645e145acf05b41efb" title="SpinachGui::Orientation::ConvertToDCM" alt="" coords="1057,561,1311,588"/>
+<area shape="rect" id="node30" href="$class_spinach_gui_1_1_orientation.html#ad8f8da7bd1e5dfbb070c6607681ddcfd" title="Normalise the contained rotation in place." alt="" coords="1067,487,1301,513"/>
+<area shape="rect" id="node31" href="$class_spinach_gui_1_1_angle_axis.html#a7a707ff6a91374b4b98c9a89ddc707ef" title="SpinachGui::AngleAxis::Normalized" alt="" coords="1472,436,1701,463"/>
+<area shape="rect" id="node32" href="$class_spinach_gui_1_1_quaternion.html#adc51230582d349449dbf68186b4abb0e" title="SpinachGui::Quaternion::Normalized" alt="" coords="1470,487,1703,513"/>
+<area shape="rect" id="node33" href="$class_spinach_gui_1_1_orientation.html#aadc64950787cfd4b35017b057df34b82" title="Constructs the identity rotation." alt="" coords="1471,537,1702,564"/>
+</map>

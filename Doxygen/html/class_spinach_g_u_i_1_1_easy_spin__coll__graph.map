@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_unit.html" title="Unit" alt="" coords="133,187,178,213"/>
+<area shape="rect" id="node3" href="$class_model.html" title="Model" alt="" coords="203,187,260,213"/>
+<area shape="rect" id="node4" href="$class_reference_frames_dictionary.html" title="ReferenceFramesDictionary" alt="" coords="140,96,322,123"/>
+<area shape="rect" id="node5" href="$class_interactions_dictionary.html" title="InteractionsDictionary" alt="" coords="158,5,305,32"/>
+<area shape="rect" id="node6" href="$class_atoms_dictionary.html" title="AtomsDictionary" alt="" coords="347,96,465,123"/>
+</map>

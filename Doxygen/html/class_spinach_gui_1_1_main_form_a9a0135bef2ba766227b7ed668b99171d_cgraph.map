@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spin_x_m_l.html#a2778e189bf52993737e5ad1134175778" title="SpinXML::WriteFile" alt="" coords="317,132,451,159"/>
+<area shape="rect" id="node3" href="$class_spin_x_m_l.html#acc26bc93a8c1f2be78030f4f04f26050" title="SpinXML::ConvertToDouble" alt="" coords="569,5,748,32"/>
+<area shape="rect" id="node4" href="$classspin__system__ref.html#acc8705603d9b94ce6ee74e767982aeeb" title="spin_system_ref::InitVars" alt="" coords="574,56,743,83"/>
+<area shape="rect" id="node5" href="$classspin__system.html#ab88f06c624e2c5f1f90683b6894e474d" title="spin_system::InitVars" alt="" coords="585,107,733,133"/>
+<area shape="rect" id="node6" href="$classspin__system__ref_1_1reference__frame_row.html#a0ecd26b3b40fd0cabccd7b6229ea5b3d" title="spin_system_ref::reference_frameRow::SetlabelNull" alt="" coords="499,157,818,184"/>
+<area shape="rect" id="node7" href="$classspin__system_1_1spin_row.html#abd07913022c5f1240b51b7e0db4de43a" title="spin_system::spinRow::SetlabelNull" alt="" coords="543,208,774,235"/>
+<area shape="rect" id="node8" href="$classspin__system_1_1interaction_row.html#aac044ee0098d57313bfc2b9ad5c407d6" title="spin_system::interactionRow::Setspin_bNull" alt="" coords="520,259,797,285"/>
+</map>

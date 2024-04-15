@@ -1,0 +1,36 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$_open_g_l_8h.html" title="OpenGL.h" alt="" coords="3010,229,3091,256"/>
+<area shape="rect" id="node20" href="$_main_form_8h.html" title="../MainForm.h" alt="" coords="1671,80,1773,107"/>
+<area shape="rect" id="node9" href="$_meta_ball_8h.html" title="MetaBall.h" alt="" coords="2811,304,2895,331"/>
+<area shape="rect" id="node12" href="$_arc_ball_8h.html" title="ArcBall.h" alt="" coords="2920,304,2995,331"/>
+<area shape="rect" id="node14" href="$_model_8h.html" title="../System Core/Model.h" alt="" coords="269,304,429,331"/>
+<area shape="rect" id="node10" href="$_v_e_c_t_o_r3_d_8h.html" title="VECTOR3D.h" alt="" coords="2802,379,2904,405"/>
+<area shape="rect" id="node15" href="$isotopes_8h.html" title="isotopes.h" alt="" coords="425,379,508,405"/>
+<area shape="rect" id="node16" href="$unit_8h.html" title="unit.h" alt="" coords="334,379,388,405"/>
+<area shape="rect" id="node21" href="$_filter_file_8h.html" title="FilterFile.h" alt="" coords="347,229,429,256"/>
+<area shape="rect" id="node22" href="$_shieldingto_shift_8h.html" title="ShieldingtoShift.h" alt="" coords="5,229,128,256"/>
+<area shape="rect" id="node23" href="$_easy_spin_8h.html" title="IO Formats/EasySpin.h" alt="" coords="721,155,879,181"/>
+<area shape="rect" id="node29" href="$_gauss_8h.html" title="IO Formats/Gauss.h" alt="" coords="1653,155,1792,181"/>
+<area shape="rect" id="node30" href="$_castep_8h.html" title="IO Formats/Castep.h" alt="" coords="1817,155,1959,181"/>
+<area shape="rect" id="node31" href="$_spin_x_m_l_8h.html" title="IO Formats/SpinXML.h" alt="" coords="903,155,1056,181"/>
+<area shape="rect" id="node34" href="$_spinach_8h.html" title="IO Formats/Spinach.h" alt="" coords="547,155,696,181"/>
+<area shape="rect" id="node35" href="$_simpson_8h.html" title="IO Formats/Simpson.h" alt="" coords="2595,155,2748,181"/>
+<area shape="rect" id="node36" href="$_x_y_z_8h.html" title="IO Formats/XYZ.h" alt="" coords="1984,155,2109,181"/>
+<area shape="rect" id="node37" href="$_m_o_l_8h.html" title="IO Formats/MOL.h" alt="" coords="2133,155,2264,181"/>
+<area shape="rect" id="node38" href="$_orca_8h.html" title="IO Formats/Orca.h" alt="" coords="2288,155,2419,181"/>
+<area shape="rect" id="node39" href="$_a_d_f_8h.html" title="IO Formats/ADF.h" alt="" coords="2443,155,2571,181"/>
+<area shape="rect" id="node40" href="$_g_a_m_e_s_s_8h.html" title="IO Formats/GAMESS.h" alt="" coords="1081,155,1239,181"/>
+<area shape="rect" id="node41" href="$_c_o_s_m_o_s_8h.html" title="IO Formats/COSMOS.h" alt="" coords="1264,155,1424,181"/>
+<area shape="rect" id="node42" href="$_spin_evolution_8h.html" title="IO Formats/SpinEvolution.h" alt="" coords="1449,155,1628,181"/>
+<area shape="rect" id="node43" href="$_orientation_dialog_8h.html" title="OrientationDialog.h" alt="" coords="2985,155,3116,181"/>
+<area shape="rect" id="node45" href="$_ref_frame_orientation_dialog_8h.html" title="RefFrameOrientationDialog.h" alt="" coords="2773,155,2960,181"/>
+<area shape="rect" id="node46" href="$_isotopes_dialog_8h.html" title="IsotopesDialog.h" alt="" coords="203,229,321,256"/>
+<area shape="rect" id="node47" href="$_about_8h.html" title="About.h" alt="" coords="3141,155,3208,181"/>
+<area shape="rect" id="node49" href="$_balloon_tool_tip_8h.html" title="BalloonToolTip.h" alt="" coords="3232,155,3349,181"/>
+<area shape="rect" id="node24" href="$_i_o_spin_system_8h.html" title="IOSpinSystem.h" alt="" coords="1909,229,2027,256"/>
+<area shape="rect" id="node26" href="$orientation_8h.html" title="../System Core/orientation.h" alt="" coords="1179,304,1364,331"/>
+<area shape="rect" id="node32" href="$spinxml__schema_8h.html" title="spinxml_schema.h" alt="" coords="876,229,1007,256"/>
+<area shape="rect" id="node33" href="$spinxml__schema__reference__frame_8h.html" title="spinxml_schema_reference_frame.h" alt="" coords="1031,229,1261,256"/>
+<area shape="rect" id="node44" href="$_orientation_export_8h.html" title="OrientationExport.h" alt="" coords="2851,229,2985,256"/>
+<area shape="rect" id="node48" href="$stdafx_8h.html" title="StdAfx.h" alt="" coords="3139,229,3211,256"/>
+</map>

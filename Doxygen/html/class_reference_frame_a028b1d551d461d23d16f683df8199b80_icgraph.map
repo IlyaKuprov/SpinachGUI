@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_main_form.html#a004e1285ff159e96cb2fd80d1b1b5cf1" title="SpinachGUI::MainForm::AddNodeButton_Click" alt="" coords="710,5,1002,32"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a36c53006a93e73da4674553d1f566038" title="Initialization of orientation dialog." alt="" coords="280,56,555,83"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_ref_frame_orientation_dialog.html#ac3cb43bc795851a548748de2e1d1d451" title="SpinachGUI::RefFrameOrientationDialog::RefFrameOrientationDialog" alt="" coords="209,107,626,133"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_main_form.html#a68baf8b2f57ea2eff71b619cb0ae0e6d" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1086,56,1365,83"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_main_form.html#a8e56a0c3283e925a70f4c7f1ce40f02f" title="SpinachGUI::MainForm::dataGridView2_CellClick" alt="" coords="703,56,1009,83"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_main_form.html#af12c0fa0af564acbadeda1e98ad1c313" title="SpinachGUI::MainForm::OpenGLcontextMenu_ItemClicked" alt="" coords="675,107,1037,133"/>
+</map>

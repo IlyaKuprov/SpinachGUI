@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_spinach.html#af962a49fe832fa5b995c7ecf017cc997" title="SpinachGui::Spinach::Spinach_Initialization" alt="" coords="339,372,613,399"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_spinach.html#ab8207b77c4d57f07cbb62d1b087d3c3e" title="SpinachGui::Spinach::BasicSetComboBoxSelectedIndexChanged" alt="" coords="685,144,1088,171"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_spinach.html#a139764758493c5df0f0334f3c77a0e81" title="SpinachGui::Spinach::BasicSetextBoxKeyPress" alt="" coords="1186,94,1489,120"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_spinach.html#a48c564b433a030920fa8311987452029" title="SpinachGui::Spinach::WriteFooter" alt="" coords="1565,296,1785,323"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_spinach.html#a9a1e508d45e9d5adad5bec1713eb2dce" title="SpinachGui::Spinach::WriteHeader" alt="" coords="1563,448,1787,475"/>
+<area shape="rect" id="node10" href="$class_spinach_gui_1_1_spinach.html#a9aea096dc7701293da2ed8bec6926801" title="SpinachGui::Spinach::ChemicalKineticsComboBoxSelectedIndexChanged" alt="" coords="661,499,1112,526"/>
+<area shape="rect" id="node11" href="$class_spinach_gui_1_1_spinach.html#aec7b1adc040677511d0135eb3525672a" title="SpinachGui::Spinach::ChemicalKineticstextBoxKeyPress" alt="" coords="1160,550,1515,576"/>
+<area shape="rect" id="node12" href="$class_spinach_gui_1_1_spinach.html#ac941676246fae49f414486f2e42b4a96" title="SpinachGui::Spinach::ExchangeRateMatrix_CellEndEdit" alt="" coords="1163,296,1511,323"/>
+<area shape="rect" id="node13" href="$class_spinach_gui_1_1_spinach.html#ab07d4cf27db97eab7679bb96087f5476" title="SpinachGui::Spinach::LongitudinaldataRefresh" alt="" coords="1192,448,1483,475"/>
+<area shape="rect" id="node14" href="$class_spinach_gui_1_1_spinach.html#a0156454299236e5ee35a6e4e709f307f" title="SpinachGui::Spinach::Relaxation1_CellEndEdit" alt="" coords="1190,499,1485,526"/>
+<area shape="rect" id="node15" href="$class_spinach_gui_1_1_spinach.html#abf9bbbd152a0d84a3155325d40022a8b" title="SpinachGui::Spinach::Relaxation2_CellEndEdit" alt="" coords="1190,600,1485,627"/>
+<area shape="rect" id="node16" href="$class_spinach_gui_1_1_spinach.html#a989a75bc2639e9b0ed89a806d00318f2" title="SpinachGui::Spinach::RelaxationComboBoxSelectedIndexChanged" alt="" coords="681,296,1092,323"/>
+<area shape="rect" id="node17" href="$class_spinach_gui_1_1_spinach.html#aabe55632f0c39ca140328c272f4f5e73" title="SpinachGui::Spinach::RelaxationtextBoxKeyPress" alt="" coords="1180,246,1495,272"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_spinach.html#adee0fe2674c285ffd11267bc9bdc5818" title="SpinachGui::Spinach::FloatForm" alt="" coords="1852,246,2063,272"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_spinach.html#ab7179b8843a8e0987e3a25e74244cce7" title="SpinachGui::Spinach::GTensorForm" alt="" coords="1842,296,2073,323"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_spinach.html#a6cb6c6d60b8075f52dc9610912f133a5" title="SpinachGui::Spinach::TransformToLab" alt="" coords="1835,347,2079,374"/>
+</map>

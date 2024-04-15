@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_v_e_c_t_o_r3_d.html#ac1597e70012287ba20203d95bcb46d05" title="VECTOR3D::GetNormalized" alt="" coords="214,5,399,32"/>
+<area shape="rect" id="node5" href="$class_v_e_c_t_o_r3_d.html#adb8eb8c80cb3f5b5099d941f972533bb" title="VECTOR3D::GetPackedTo01" alt="" coords="211,56,403,83"/>
+<area shape="rect" id="node3" href="$class_v_e_c_t_o_r3_d.html#ab82472d00ba822c15c301ec260d562e0" title="VECTOR3D::GetRotatedAxis" alt="" coords="451,5,642,32"/>
+<area shape="rect" id="node4" href="$class_v_e_c_t_o_r3_d.html#aa81993a7238ae277f60a5b2dd641f23e" title="VECTOR3D::RotateAxis" alt="" coords="691,5,853,32"/>
+<area shape="rect" id="node6" href="$class_v_e_c_t_o_r3_d.html#a2a04a880e94c9d563499d2f0d57adc6b" title="pack to [0,1] for color" alt="" coords="468,56,625,83"/>
+</map>

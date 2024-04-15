@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_quaternion.html#a5dee0385b47f3d158b1deef6c3d81827" title="Function for setting the elements of the quaternion to the Eigen lib object values." alt="" coords="345,5,573,32"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_angle_axis.html#ab9e3c7ac8ae45c3068ed2fd4ecb0bec6" title="Function for setting the Eigen lib object values to the elements of the Angle axis." alt="" coords="353,56,564,83"/>
+</map>

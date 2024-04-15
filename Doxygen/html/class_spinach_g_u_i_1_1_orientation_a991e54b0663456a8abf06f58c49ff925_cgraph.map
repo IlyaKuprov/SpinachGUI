@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_angle_axis.html#aec52a83a0556c5f038f75c0c024aa7f9" title="SpinachGUI::AngleAxis::fromEigen" alt="" coords="341,5,565,32"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_quaternion.html#af85b5543f738dd669a4793287be908e3" title="SpinachGUI::Quaternion::toEigen" alt="" coords="346,56,561,83"/>
+</map>

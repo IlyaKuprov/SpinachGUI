@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_spinach.html#aec563154cd3852d1e24f7c7e44605d16" title="SpinachGui::Spinach::RelaxationRatetextBoxKeyPress" alt="" coords="438,81,781,108"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_spinach.html#a48c564b433a030920fa8311987452029" title="SpinachGui::Spinach::WriteFooter" alt="" coords="831,56,1051,83"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_spinach.html#a9a1e508d45e9d5adad5bec1713eb2dce" title="SpinachGui::Spinach::WriteHeader" alt="" coords="829,107,1053,133"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_spinach.html#adee0fe2674c285ffd11267bc9bdc5818" title="SpinachGui::Spinach::FloatForm" alt="" coords="1119,5,1329,32"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_spinach.html#ab7179b8843a8e0987e3a25e74244cce7" title="SpinachGui::Spinach::GTensorForm" alt="" coords="1109,56,1339,83"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_spinach.html#a6cb6c6d60b8075f52dc9610912f133a5" title="SpinachGui::Spinach::TransformToLab" alt="" coords="1102,107,1346,133"/>
+</map>

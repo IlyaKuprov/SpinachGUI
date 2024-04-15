@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#acc7bb72f2ff6d7d352a7a2f1dda8a226" title="SpinachGUI::OrientationDialog::InteractionMatrix_KeyPress" alt="" coords="370,5,737,32"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#ac049b29bccedecd789f6a01f139ec82b" title="SpinachGUI::OrientationDialog::textBoxEigen_KeyPress" alt="" coords="379,56,727,83"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a7e593ccbdd92c2ef5b80bef3e6f2aaf6" title="SpinachGUI::OrientationDialog::textBoxIso_KeyPress" alt="" coords="387,107,719,133"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a2d351af29d63b6afb99e3eea5285f107" title="SpinachGUI::OrientationDialog::textBoxSpherical_KeyPress" alt="" coords="369,157,738,184"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a55af5933d883876c28c399a42ba7f0f5" title="SpinachGUI::OrientationDialog::UpdateAll" alt="" coords="422,208,685,235"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#ab3689644798829f881e9fdd491b9f70f" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="787,81,1106,108"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#ad8e628a0a0a45b7f8572abb2276688e7" title="SpinachGUI::OrientationDialog::Initialization" alt="" coords="809,208,1084,235"/>
+<area shape="rect" id="node9" href="$class_spinach_g_u_i_1_1_main_form.html#a8e56a0c3283e925a70f4c7f1ce40f02f" title="SpinachGUI::MainForm::dataGridView2_CellClick" alt="" coords="1183,183,1489,209"/>
+<area shape="rect" id="node11" href="$class_spinach_g_u_i_1_1_main_form.html#af12c0fa0af564acbadeda1e98ad1c313" title="SpinachGUI::MainForm::OpenGLcontextMenu_ItemClicked" alt="" coords="1155,233,1517,260"/>
+<area shape="rect" id="node10" href="$class_spinach_g_u_i_1_1_main_form.html#a68baf8b2f57ea2eff71b619cb0ae0e6d" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1566,208,1845,235"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_orientation.html#a5cf20f6274fb2715ddffcf7a7bb976be" title="Function for returning orientation as quaternion." alt="" coords="422,44,693,71"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_orientation.html#a0ad43bd8aae4fab6fe32e4563dc641c1" title="Convertion function from Euler angles to Quaternion object." alt="" coords="741,5,1032,32"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_orientation.html#ad8f8da7bd1e5dfbb070c6607681ddcfd" title="Normalise the contained rotation." alt="" coords="769,81,1004,108"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_quaternion.html#a5dee0385b47f3d158b1deef6c3d81827" title="Function for setting the elements of the quaternion to the Eigen lib object values." alt="" coords="1363,17,1591,44"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_angle_axis.html#af9eb8227a8ab1773b965d75ec18ffe34" title="Getter of normalized AngleAxis object." alt="" coords="1082,144,1313,171"/>
+<area shape="rect" id="node9" href="$class_spinach_g_u_i_1_1_quaternion.html#a40cda805492e4b939c4582e13639853b" title="Getter of normalized quaternion object." alt="" coords="1080,93,1315,120"/>
+<area shape="rect" id="node11" href="$class_spinach_g_u_i_1_1_orientation.html#ae91f1b51bd3f86125bd63f0d86b64376" title="Constructs the identity rotation." alt="" coords="1081,43,1314,69"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_angle_axis.html#aec52a83a0556c5f038f75c0c024aa7f9" title="Function for setting the elements of the Angle axis to the Eigen lib object values." alt="" coords="1365,144,1589,171"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_angle_axis.html#ab9e3c7ac8ae45c3068ed2fd4ecb0bec6" title="Function for setting the Eigen lib object values to the elements of the Angle axis." alt="" coords="1372,195,1583,221"/>
+<area shape="rect" id="node10" href="$class_spinach_g_u_i_1_1_quaternion.html#af85b5543f738dd669a4793287be908e3" title="Function for setting the Eigen lib object values to the elements of the quaternion." alt="" coords="1370,93,1585,120"/>
+</map>

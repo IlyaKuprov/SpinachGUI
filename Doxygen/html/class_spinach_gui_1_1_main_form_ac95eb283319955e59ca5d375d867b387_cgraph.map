@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_main_form.html#a4c53d8aa45d4b70bed5a3c1b03bb811d" title="SpinachGui::MainForm::Update_Interactions_Color" alt="" coords="387,5,701,32"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_main_form.html#a0f4a1484a24b5e1a9c971c009789b83a" title="SpinachGui::MainForm::Update_OpenGL_Color" alt="" coords="396,56,692,83"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_main_form.html#a10213b40d94662fe9532a252d123f026" title="SpinachGui::MainForm::ConColor" alt="" coords="760,5,976,32"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_main_form.html#a0795cc5ef9d65763ba22fe821d6b608b" title="SpinachGui::MainForm::RevConColor" alt="" coords="749,56,987,83"/>
+</map>

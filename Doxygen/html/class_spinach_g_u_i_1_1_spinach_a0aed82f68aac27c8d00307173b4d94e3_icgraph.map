@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_spinach.html#a22141ba0f3e2cb7c49738fafcefa892f" title="EventHandler for setting up the keypress handler to a cell in the third column in Exchange Rates matr..." alt="" coords="441,5,833,32"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_spinach.html#af2510fc0411f351337caf52ab6f9b326" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="917,81,1184,108"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_spinach.html#af9641e704a179f6edfc9d712da91cc94" title="EventHandler for when something selected from comboboxes in the chemical exchange type..." alt="" coords="411,157,863,184"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_spinach.html#a080d49d5cd5b6ca616595939606ef818" title="Initializator of Spinach class." alt="" coords="913,183,1189,209"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_spinach.html#a18b548bdcc2bf4cdaf428df0ece9a165" title="EventHandler for when focus change from an editing cell(leaving) in the third column in Exchange Rate..." alt="" coords="469,107,806,133"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_main_form.html#aa475c49fcac31871e9882b9586a6d76a" title="SpinachGUI::MainForm::ExportSpinach_Click" alt="" coords="1238,183,1525,209"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_main_form.html#a68baf8b2f57ea2eff71b619cb0ae0e6d" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1574,183,1853,209"/>
+</map>

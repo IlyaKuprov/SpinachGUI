@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_a_d_f.html#a07d2bd8da59843ce5ab53024e7b746b0" title="ADF::read_CARTCOORD" alt="" coords="203,5,373,32"/>
+<area shape="rect" id="node5" href="$class_a_d_f.html#a98bead250bc62db69ee4b33d0a3c969a" title="ADF::read_CHEMICAL_SHIELDING" alt="" coords="173,56,403,83"/>
+<area shape="rect" id="node6" href="$class_a_d_f.html#a220323c0b3e0a568673dd5dca94cd68c" title="ADF::read_J_COUPLINGS" alt="" coords="200,107,376,133"/>
+<area shape="rect" id="node3" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Isotopes::FindIsotope" alt="" coords="451,5,597,32"/>
+<area shape="rect" id="node4" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Isotopes::Init_Isotopes" alt="" coords="645,5,797,32"/>
+</map>

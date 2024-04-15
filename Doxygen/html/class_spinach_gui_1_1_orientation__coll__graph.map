@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_quaternion.html" title="SpinachGui::Quaternion" alt="" coords="9,5,169,32"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_matrix3x3.html" title="SpinachGui::Matrix3x3" alt="" coords="12,56,167,83"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_angle_axis.html" title="SpinachGui::AngleAxis" alt="" coords="11,107,167,133"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_euler_angles.html" title="Euler angle type." alt="" coords="6,157,173,184"/>
+</map>

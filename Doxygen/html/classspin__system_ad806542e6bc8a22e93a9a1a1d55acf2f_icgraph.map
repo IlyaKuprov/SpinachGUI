@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classspin__system_1_1dcm_data_table.html#ab006e00a8e60f1c49a9e48fef1f996e3" title="spin_system::dcmDataTable::Clone" alt="" coords="234,5,462,32"/>
+<area shape="rect" id="node3" href="$classspin__system_1_1quaternion_data_table.html#a649edf2562bbe1e74f071f69542b1fab" title="spin_system::quaternionDataTable::Clone" alt="" coords="217,56,479,83"/>
+<area shape="rect" id="node4" href="$classspin__system_1_1axis_data_table.html#a9d6938f371d3517d9f98852fa1127dd7" title="spin_system::axisDataTable::Clone" alt="" coords="235,107,461,133"/>
+<area shape="rect" id="node5" href="$classspin__system_1_1angle__axis_data_table.html#a5c38abdf5ad9c497ed27f005965b7aea" title="spin_system::angle_axisDataTable::Clone" alt="" coords="215,157,481,184"/>
+<area shape="rect" id="node6" href="$classspin__system_1_1euler__angles_data_table.html#afa2373b5426b8203a4b4368a651f6fec" title="spin_system::euler_anglesDataTable::Clone" alt="" coords="210,208,486,235"/>
+<area shape="rect" id="node7" href="$classspin__system_1_1orientation_data_table.html#a377b852c20800ca025c1f16d4eeeff3c" title="spin_system::orientationDataTable::Clone" alt="" coords="217,259,479,285"/>
+<area shape="rect" id="node8" href="$classspin__system_1_1span__skew_data_table.html#a06edf625f64878c000c6c1116d49400c" title="spin_system::span_skewDataTable::Clone" alt="" coords="214,309,482,336"/>
+<area shape="rect" id="node9" href="$classspin__system_1_1axiality__rhombicity_data_table.html#af076dd686532e0186af5fc74aa8ddff2" title="spin_system::axiality_rhombicityDataTable::Clone" alt="" coords="193,360,503,387"/>
+<area shape="rect" id="node10" href="$classspin__system_1_1eigenvalues_data_table.html#a727ada6a848dc01d67fea8c1d97977b2" title="spin_system::eigenvaluesDataTable::Clone" alt="" coords="213,411,483,437"/>
+<area shape="rect" id="node11" href="$classspin__system_1_1tensor_data_table.html#a892af50a5586d02fccdafb60634d7724" title="spin_system::tensorDataTable::Clone" alt="" coords="229,461,467,488"/>
+<area shape="rect" id="node12" href="$classspin__system_1_1interaction_data_table.html#a72766e6bf107058ac525ef99ec67d3f1" title="spin_system::interactionDataTable::Clone" alt="" coords="217,512,479,539"/>
+<area shape="rect" id="node13" href="$classspin__system_1_1coordinates_data_table.html#a6117f05fb0767b960116117d3cee80b8" title="spin_system::coordinatesDataTable::Clone" alt="" coords="213,563,483,589"/>
+<area shape="rect" id="node14" href="$classspin__system_1_1spin_data_table.html#a82f2d5dd9fc62a1d7801177d2fa3850d" title="spin_system::spinDataTable::Clone" alt="" coords="235,613,461,640"/>
+</map>

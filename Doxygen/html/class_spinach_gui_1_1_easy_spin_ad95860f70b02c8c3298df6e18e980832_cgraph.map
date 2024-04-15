@@ -1,0 +1,39 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_easy_spin.html#a5a747380501fa4c8c590c30b565546e0" title="SpinachGui::EasySpin::EasySpin_Initialization" alt="" coords="273,516,565,543"/>
+<area shape="rect" id="node23" href="$class_spinach_gui_1_1_easy_spin.html#a1df6abcd5d9f146838fe9655fa6b5b1e" title="Required method for Designer support &#45; do not modify the contents of this method..." alt="" coords="281,1200,556,1227"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_easy_spin.html#a6a9ac1a8e47ce50aeac0debbc51ab666" title="SpinachGui::EasySpin::Anisotropic_text_KeyPress" alt="" coords="1129,998,1447,1024"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_easy_spin.html#a61ee074c9bd1a560ea7a8df6f4d9276e" title="SpinachGui::EasySpin::WriteFooter" alt="" coords="1536,947,1765,974"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_easy_spin.html#a5f97aa558c64befcd51adb7a22e9479e" title="SpinachGui::EasySpin::WriteHeader" alt="" coords="1534,998,1767,1024"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_easy_spin.html#a9c5db3947e05588999472938d5bec113" title="SpinachGui::EasySpin::convolutionBoxKeyPress" alt="" coords="1135,1504,1441,1531"/>
+<area shape="rect" id="node11" href="$class_spinach_gui_1_1_easy_spin.html#ac32cd09a2cd16fadb5e6025b1c955c3c" title="SpinachGui::EasySpin::CrystalSymmetryBoxKeyPress" alt="" coords="1117,1048,1459,1075"/>
+<area shape="rect" id="node12" href="$class_spinach_gui_1_1_easy_spin.html#a139a1fc10a0e30a08c2e5d04761a37ee" title="SpinachGui::EasySpin::Exp_comboBox_SelectedIndexChanged" alt="" coords="1091,846,1485,872"/>
+<area shape="rect" id="node13" href="$class_spinach_gui_1_1_easy_spin.html#aab5fd2f7d1d8b9096cbf19d609f2dfba" title="SpinachGui::EasySpin::ExperimenttextBoxKeyPress" alt="" coords="1123,1454,1453,1480"/>
+<area shape="rect" id="node14" href="$class_spinach_gui_1_1_easy_spin.html#a2c2a59899d03f0c8e7b39024e8dff93c" title="SpinachGui::EasySpin::Expnumeric_ValueChanged" alt="" coords="1127,947,1449,974"/>
+<area shape="rect" id="node15" href="$class_spinach_gui_1_1_easy_spin.html#ae23052a8ab5a8fcfe741ed31bf9e6139" title="SpinachGui::EasySpin::Opt_textBox_KeyPress" alt="" coords="1139,795,1437,822"/>
+<area shape="rect" id="node16" href="$class_spinach_gui_1_1_easy_spin.html#acc964473e5b3255bb05fddc2497a3997" title="SpinachGui::EasySpin::Optioncombo_SelectedIndexChanged" alt="" coords="1099,187,1477,214"/>
+<area shape="rect" id="node17" href="$class_spinach_gui_1_1_easy_spin.html#aa6948b557320358213da47492280bc76" title="SpinachGui::EasySpin::Optnumeric_ValueChanged" alt="" coords="1129,694,1447,720"/>
+<area shape="rect" id="node18" href="$class_spinach_gui_1_1_easy_spin.html#a1d6e6c3dfe22efd34149591b9a206984" title="SpinachGui::EasySpin::orderheisentext_KeyPress" alt="" coords="1131,1150,1445,1176"/>
+<area shape="rect" id="node19" href="$class_spinach_gui_1_1_easy_spin.html#afef4c01cfb0c4f9a3de2ef92e06a1790" title="SpinachGui::EasySpin::radioButton_CheckedChanged" alt="" coords="660,136,996,163"/>
+<area shape="rect" id="node20" href="$class_spinach_gui_1_1_easy_spin.html#a77672e8785ee8068099fb69d44d8076b" title="SpinachGui::EasySpin::radioButton_diffusion_CheckedChanged" alt="" coords="633,694,1023,720"/>
+<area shape="rect" id="node21" href="$class_spinach_gui_1_1_easy_spin.html#a79a6490c2a4192d7632485ff9bf49a45" title="SpinachGui::EasySpin::textBoxDynamics_KeyPress" alt="" coords="1124,1758,1452,1784"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_easy_spin.html#af4777373e3837bc7ed8db55dff4c2189" title="SpinachGui::EasySpin::ConvertToString" alt="" coords="1817,1410,2069,1436"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_easy_spin.html#a650d01b8df73ff7f53abb6836dd5f392" title="SpinachGui::EasySpin::unitconv" alt="" coords="1547,1504,1755,1531"/>
+<area shape="rect" id="node9" href="$class_unit.html#ab66ea28760ab5a42774f50ed184124e1" title="Unit::fromSI" alt="" coords="1897,1523,1988,1550"/>
+<area shape="rect" id="node10" href="$class_unit.html#abbade20370da92c8756c8a29cbe16101" title="Unit::toSI" alt="" coords="1905,1472,1981,1499"/>
+<area shape="rect" id="node22" href="$class_spinach_gui_1_1_easy_spin.html#a6c6df4755d732343af7e70d0940cdd9f" title="SpinachGui::EasySpin::logtext" alt="" coords="1551,1758,1751,1784"/>
+<area shape="rect" id="node24" href="$class_spinach_gui_1_1_easy_spin.html#ad37b13a1dfb1121f5e39e1a74bd26573" title="SpinachGui::EasySpin::Anisotropic_Leave" alt="" coords="695,1048,961,1075"/>
+<area shape="rect" id="node25" href="$class_spinach_gui_1_1_easy_spin.html#acc46d0906671bb502509d3cc0937e32c" title="SpinachGui::EasySpin::buttonFreqClick" alt="" coords="702,1555,954,1582"/>
+<area shape="rect" id="node26" href="$class_spinach_gui_1_1_easy_spin.html#a3fd4e1e93447ab9d7e1591a42ee35a13" title="SpinachGui::EasySpin::convolutiontext_Leave" alt="" coords="685,1808,971,1835"/>
+<area shape="rect" id="node27" href="$class_spinach_gui_1_1_easy_spin.html#a7bc4796c282238528b34c67a3262f6bd" title="SpinachGui::EasySpin::CrystalSymmetrytext_Leave" alt="" coords="666,1150,990,1176"/>
+<area shape="rect" id="node28" href="$class_spinach_gui_1_1_easy_spin.html#ac43ba43700277891a17b609c2a74100d" title="SpinachGui::EasySpin::DynamicsUnitscombo_SelectedIndexChanged" alt="" coords="614,1960,1042,1987"/>
+<area shape="rect" id="node29" href="$class_spinach_gui_1_1_easy_spin.html#ac3cf0257705fb8d6c939828af6ba2d54" title="SpinachGui::EasySpin::Exp_checkBox_CheckedChanged" alt="" coords="649,1251,1007,1278"/>
+<area shape="rect" id="node30" href="$class_spinach_gui_1_1_easy_spin.html#a6e6ca02be4b4bbad84fc301178f4cef4" title="SpinachGui::EasySpin::Experimenttext_Leave" alt="" coords="683,1606,973,1632"/>
+<area shape="rect" id="node31" href="$class_spinach_gui_1_1_easy_spin.html#a26afe786932fa9b725bfbfd386a8e111" title="SpinachGui::EasySpin::Exportbutton_Click" alt="" coords="693,1200,963,1227"/>
+<area shape="rect" id="node32" href="$class_spinach_gui_1_1_easy_spin.html#a2bd135831b3e08bc74141a8dc2fdde4c" title="SpinachGui::EasySpin::Opt_checkBox_CheckedChanged" alt="" coords="650,288,1006,315"/>
+<area shape="rect" id="node33" href="$class_spinach_gui_1_1_easy_spin.html#a91e45feeaa60a4d900f65ba84bc3f728" title="SpinachGui::EasySpin::Opt_text_Leave" alt="" coords="703,795,953,822"/>
+<area shape="rect" id="node34" href="$class_spinach_gui_1_1_easy_spin.html#aa9a510c2224bb39cbf428f3c0da415f1" title="SpinachGui::EasySpin::orderheisentext_Leave" alt="" coords="683,1403,973,1430"/>
+<area shape="rect" id="node35" href="$class_spinach_gui_1_1_easy_spin.html#a119e076a51adb2db530db4a867a8a6a3" title="SpinachGui::EasySpin::PreviewtextBox_MouseDown" alt="" coords="664,2011,992,2038"/>
+<area shape="rect" id="node36" href="$class_spinach_gui_1_1_easy_spin.html#a786c7732b3868dd5a26aa9a11627e1e9" title="SpinachGui::EasySpin::PreviewtextBox_MouseMove" alt="" coords="1125,2036,1451,2063"/>
+<area shape="rect" id="node37" href="$class_spinach_gui_1_1_easy_spin.html#a9ed0eb71ba64d405b8c3fef251e4adc4" title="SpinachGui::EasySpin::textBoxDynamics_Leave" alt="" coords="676,1910,980,1936"/>
+<area shape="rect" id="node38" href="$class_spinach_gui_1_1_easy_spin.html#acc09cf6f509a4b171cab0e5f9da80ca6" title="SpinachGui::EasySpin::Unitscombo_SelectedIndexChanged" alt="" coords="643,1656,1013,1683"/>
+</map>

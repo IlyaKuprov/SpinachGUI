@@ -1,0 +1,14 @@
+﻿Build started 07/03/2019 13:30:52.
+     1>Project "D:\GUI\GUI\SpinachGUI.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         SpinachGUI.vcxproj -> D:\GUI\GUI\..\Compilations\Release\SpinachGUI.exe
+       PostBuildEvent:
+         copy "D:\GUI\GUI\..\Compilations\Release\*.exe" "D:\GUI\GUI\..\binaries\*.*"
+         :VCEnd
+         D:\GUI\GUI\..\Compilations\Release\SpinachGui.exe
+                 1 file(s) copied.
+     1>Done Building Project "D:\GUI\GUI\SpinachGUI.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.33

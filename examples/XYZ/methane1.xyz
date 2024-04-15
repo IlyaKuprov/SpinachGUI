@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<spin_system>
+  <spin id="1" isotope="13C">
+    <coordinates x="0" y="0" z="0" />
+  </spin>
+  <spin id="2" isotope="1H">
+    <coordinates x="0" y="0" z="1.089" />
+  </spin>
+  <spin id="3" isotope="1H">
+    <coordinates x="1.02672" y="0" z="-0.363" />
+  </spin>
+  <spin id="4" isotope="1H">
+    <coordinates x="-0.51336" y="-0.88917" z="-0.363" />
+  </spin>
+  <spin id="5" isotope="1H">
+    <coordinates x="-0.51336" y="0.88917" z="-0.363" />
+  </spin>
+</spin_system>

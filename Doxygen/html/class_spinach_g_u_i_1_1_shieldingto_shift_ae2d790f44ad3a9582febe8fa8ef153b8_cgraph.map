@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#a6e4edd32a579fe901fe7d47838d4c5cb" title="SpinachGUI::ShieldingtoShift::Cancelbutton_Click" alt="" coords="440,31,749,57"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#a0644d6b412c4c3906e602add4b4c0419" title="EventHandler for when finishing editing the first or second column." alt="" coords="397,81,793,108"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#aa7dba3b1106246a61cf2f90bb86229b6" title="EventHandler for setting up the keypress handler to a cell in the first or second column..." alt="" coords="365,132,824,159"/>
+<area shape="rect" id="node9" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#adad83a77f3f765a1e84355e60085ce48" title="EventHandler for when OK button click with finishing the converstion from shielding to shifting tenso..." alt="" coords="451,183,739,209"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#acac5f2fbaed0fadee24614ee10321804" title="Function that checks if all the cells in the first and second column are filled in order to enabled O..." alt="" coords="897,5,1233,32"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#acdf2f3aca6a47508905baa568418e62d" title="Function which used with the delegate in order to redit a cell with wrong format." alt="" coords="920,56,1211,83"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#a660c5f7123400d71c8d417788df81d88" title="SpinachGUI::ShieldingtoShift::SetColumnIndex" alt="" coords="919,107,1211,133"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#a1803104107d61cd0b092cf71c5df971f" title="EventHandler for text in cells." alt="" coords="873,157,1258,184"/>
+</map>

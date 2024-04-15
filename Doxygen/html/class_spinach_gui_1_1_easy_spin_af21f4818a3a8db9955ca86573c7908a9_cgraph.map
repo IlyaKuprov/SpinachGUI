@@ -1,0 +1,23 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_easy_spin.html#a6a9ac1a8e47ce50aeac0debbc51ab666" title="SpinachGui::EasySpin::Anisotropic_text_KeyPress" alt="" coords="825,304,1143,331"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_easy_spin.html#a61ee074c9bd1a560ea7a8df6f4d9276e" title="SpinachGui::EasySpin::WriteFooter" alt="" coords="1232,355,1461,382"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_easy_spin.html#a5f97aa558c64befcd51adb7a22e9479e" title="SpinachGui::EasySpin::WriteHeader" alt="" coords="1230,456,1463,483"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_easy_spin.html#a9c5db3947e05588999472938d5bec113" title="SpinachGui::EasySpin::convolutionBoxKeyPress" alt="" coords="831,608,1137,635"/>
+<area shape="rect" id="node11" href="$class_spinach_gui_1_1_easy_spin.html#ac32cd09a2cd16fadb5e6025b1c955c3c" title="SpinachGui::EasySpin::CrystalSymmetryBoxKeyPress" alt="" coords="813,355,1155,382"/>
+<area shape="rect" id="node12" href="$class_spinach_gui_1_1_easy_spin.html#a139a1fc10a0e30a08c2e5d04761a37ee" title="SpinachGui::EasySpin::Exp_comboBox_SelectedIndexChanged" alt="" coords="787,507,1181,534"/>
+<area shape="rect" id="node13" href="$class_spinach_gui_1_1_easy_spin.html#aab5fd2f7d1d8b9096cbf19d609f2dfba" title="SpinachGui::EasySpin::ExperimenttextBoxKeyPress" alt="" coords="819,558,1149,584"/>
+<area shape="rect" id="node14" href="$class_spinach_gui_1_1_easy_spin.html#a2c2a59899d03f0c8e7b39024e8dff93c" title="SpinachGui::EasySpin::Expnumeric_ValueChanged" alt="" coords="823,406,1145,432"/>
+<area shape="rect" id="node15" href="$class_spinach_gui_1_1_easy_spin.html#ae23052a8ab5a8fcfe741ed31bf9e6139" title="SpinachGui::EasySpin::Opt_textBox_KeyPress" alt="" coords="835,102,1133,128"/>
+<area shape="rect" id="node16" href="$class_spinach_gui_1_1_easy_spin.html#acc964473e5b3255bb05fddc2497a3997" title="SpinachGui::EasySpin::Optioncombo_SelectedIndexChanged" alt="" coords="795,152,1173,179"/>
+<area shape="rect" id="node17" href="$class_spinach_gui_1_1_easy_spin.html#aa6948b557320358213da47492280bc76" title="SpinachGui::EasySpin::Optnumeric_ValueChanged" alt="" coords="825,456,1143,483"/>
+<area shape="rect" id="node18" href="$class_spinach_gui_1_1_easy_spin.html#a1d6e6c3dfe22efd34149591b9a206984" title="SpinachGui::EasySpin::orderheisentext_KeyPress" alt="" coords="827,203,1141,230"/>
+<area shape="rect" id="node19" href="$class_spinach_gui_1_1_easy_spin.html#afef4c01cfb0c4f9a3de2ef92e06a1790" title="SpinachGui::EasySpin::radioButton_CheckedChanged" alt="" coords="375,152,711,179"/>
+<area shape="rect" id="node20" href="$class_spinach_gui_1_1_easy_spin.html#a77672e8785ee8068099fb69d44d8076b" title="SpinachGui::EasySpin::radioButton_diffusion_CheckedChanged" alt="" coords="347,760,738,787"/>
+<area shape="rect" id="node21" href="$class_spinach_gui_1_1_easy_spin.html#a79a6490c2a4192d7632485ff9bf49a45" title="SpinachGui::EasySpin::textBoxDynamics_KeyPress" alt="" coords="820,710,1148,736"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_easy_spin.html#af4777373e3837bc7ed8db55dff4c2189" title="SpinachGui::EasySpin::ConvertToString" alt="" coords="1513,507,1765,534"/>
+<area shape="rect" id="node6" href="$class_unit.html#ab66ea28760ab5a42774f50ed184124e1" title="Unit::fromSI" alt="" coords="1593,608,1684,635"/>
+<area shape="rect" id="node7" href="$class_unit.html#abbade20370da92c8756c8a29cbe16101" title="Unit::toSI" alt="" coords="1601,558,1677,584"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_easy_spin.html#a81fa6fa2cb2c878ecfa70833b5b58386" title="SpinachGui::EasySpin::TransformToLab" alt="" coords="1512,456,1765,483"/>
+<area shape="rect" id="node10" href="$class_spinach_gui_1_1_easy_spin.html#a650d01b8df73ff7f53abb6836dd5f392" title="SpinachGui::EasySpin::unitconv" alt="" coords="1243,608,1451,635"/>
+<area shape="rect" id="node22" href="$class_spinach_gui_1_1_easy_spin.html#a6c6df4755d732343af7e70d0940cdd9f" title="SpinachGui::EasySpin::logtext" alt="" coords="1247,710,1447,736"/>
+</map>

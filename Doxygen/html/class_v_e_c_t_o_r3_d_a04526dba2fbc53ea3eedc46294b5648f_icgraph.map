@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_v_e_c_t_o_r3_d.html#ac57964a0b97f398b41ce19890961448a" title="vector algebra" alt="" coords="228,5,407,32"/>
+<area shape="rect" id="node3" href="$class_v_e_c_t_o_r3_d.html#adb8eb8c80cb3f5b5099d941f972533bb" title="VECTOR3D::GetPackedTo01" alt="" coords="221,56,413,83"/>
+<area shape="rect" id="node5" href="$class_v_e_c_t_o_r3_d.html#ab82472d00ba822c15c301ec260d562e0" title="VECTOR3D::GetRotatedAxis" alt="" coords="222,107,413,133"/>
+<area shape="rect" id="node7" href="$class_v_e_c_t_o_r3_d.html#ae585e3ff266c558256cfb355676d4cc1" title="VECTOR3D::GetRotatedX" alt="" coords="231,157,403,184"/>
+<area shape="rect" id="node9" href="$class_v_e_c_t_o_r3_d.html#ac6deff012106ce95d5195444cc93770b" title="VECTOR3D::GetRotatedY" alt="" coords="230,208,405,235"/>
+<area shape="rect" id="node11" href="$class_v_e_c_t_o_r3_d.html#a911cc7f2b67ad6a57c52596d43fa5571" title="VECTOR3D::GetRotatedZ" alt="" coords="231,259,403,285"/>
+<area shape="rect" id="node13" href="$class_v_e_c_t_o_r3_d.html#ac0e8ff06fae882feb8337019016f3d1b" title="VECTOR3D::operator*" alt="" coords="242,309,393,336"/>
+<area shape="rect" id="node14" href="$class_v_e_c_t_o_r3_d.html#a52631158cb818b74c1dee6f970cea500" title="VECTOR3D::operator+" alt="" coords="240,360,395,387"/>
+<area shape="rect" id="node15" href="$class_v_e_c_t_o_r3_d.html#a2256657d04f3dfcd8aa69f3bdc689451" title="VECTOR3D::operator&#45;" alt="" coords="242,411,393,437"/>
+<area shape="rect" id="node16" href="$class_v_e_c_t_o_r3_d.html#ae54e91d70f24734681d1c67bfc7fcfdd" title="VECTOR3D::operator/" alt="" coords="242,461,393,488"/>
+<area shape="rect" id="node4" href="$class_v_e_c_t_o_r3_d.html#a2a04a880e94c9d563499d2f0d57adc6b" title="pack to [0,1] for color" alt="" coords="464,56,621,83"/>
+<area shape="rect" id="node6" href="$class_v_e_c_t_o_r3_d.html#aa81993a7238ae277f60a5b2dd641f23e" title="VECTOR3D::RotateAxis" alt="" coords="461,107,624,133"/>
+<area shape="rect" id="node8" href="$class_v_e_c_t_o_r3_d.html#a7cbced91f14a4c80ee59ac7ebfe907b9" title="rotations" alt="" coords="471,157,615,184"/>
+<area shape="rect" id="node10" href="$class_v_e_c_t_o_r3_d.html#a2c7758f17d8850c6a9c711d31eaf890a" title="VECTOR3D::RotateY" alt="" coords="469,208,616,235"/>
+<area shape="rect" id="node12" href="$class_v_e_c_t_o_r3_d.html#a8a73db23a5b799631e831c6f1d7ebb44" title="VECTOR3D::RotateZ" alt="" coords="471,259,615,285"/>
+</map>

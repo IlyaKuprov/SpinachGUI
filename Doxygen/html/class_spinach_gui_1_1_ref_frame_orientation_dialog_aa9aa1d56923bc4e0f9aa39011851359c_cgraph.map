@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_ref_frame_orientation_dialog.html#a65dff554f6c82d2ecee87734a7a4319b" title="SpinachGui::RefFrameOrientationDialog::ConvertToString" alt="" coords="425,5,775,32"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_orientation.html#a3cee73f86a1eb038e44134ab0c9cab5c" title="Converts to a rotation matrix." alt="" coords="483,56,717,83"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_orientation.html#a25ea0461f3e0afb3eb649848402620ef" title="SpinachGui::Orientation::ConvertToEuler" alt="" coords="825,31,1079,57"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_orientation.html#ad8f8da7bd1e5dfbb070c6607681ddcfd" title="Normalise the contained rotation in place." alt="" coords="835,81,1069,108"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_angle_axis.html#a7a707ff6a91374b4b98c9a89ddc707ef" title="SpinachGui::AngleAxis::Normalized" alt="" coords="1131,31,1360,57"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_quaternion.html#adc51230582d349449dbf68186b4abb0e" title="SpinachGui::Quaternion::Normalized" alt="" coords="1129,81,1362,108"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_orientation.html#aadc64950787cfd4b35017b057df34b82" title="Constructs the identity rotation." alt="" coords="1130,132,1361,159"/>
+</map>

@@ -1,0 +1,6 @@
+﻿  SUCCESS: The process "vstest.executionengine.x86.exe" with PID 5064 has been terminated.
+  stdafx.cpp
+  AssemblyInfo.cpp
+  UnitTest.cpp
+  UnitTest1.cpp
+  TestSpinachGUI.vcxproj -> Z:\SpinachGUI\GUI\..\TestSpinachGUI\Debug\DefaultTest.dll

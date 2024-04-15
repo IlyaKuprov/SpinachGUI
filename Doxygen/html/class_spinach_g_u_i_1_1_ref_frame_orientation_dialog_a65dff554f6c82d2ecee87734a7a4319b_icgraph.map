@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_ref_frame_orientation_dialog.html#a40bdd3f3c58b8785fae8fea09ee03ec2" title="SpinachGUI::RefFrameOrientationDialog::UpdateAngleAxis" alt="" coords="413,5,776,32"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_ref_frame_orientation_dialog.html#aa9aa1d56923bc4e0f9aa39011851359c" title="SpinachGUI::RefFrameOrientationDialog::UpdateEulerAngles" alt="" coords="408,56,781,83"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_ref_frame_orientation_dialog.html#afd36d86c4eeb8a0b7ddc5126bad91438" title="SpinachGUI::RefFrameOrientationDialog::UpdateQuaternion" alt="" coords="411,107,778,133"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_ref_frame_orientation_dialog.html#a8ba5278620b0315c0eae1859865b26fe" title="SpinachGUI::RefFrameOrientationDialog::UpdateRotation" alt="" coords="419,157,770,184"/>
+</map>

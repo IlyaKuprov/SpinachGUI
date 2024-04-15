@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_filter_file.html#a3f14459721baa367095e06fd2e03eb22" title="EventHandler for Painting hyperfine coupling interacions distribution bars." alt="" coords="372,5,623,32"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_filter_file.html#a0082bf96dff5135e339d226f7a4c05b8" title="EventHandler for Painting j&#45;couplings interacions distribution bars." alt="" coords="377,56,617,83"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_filter_file.html#a2f7cdd11de250512aeed9bea7ccbcf44" title="EventHandler for text in numerics." alt="" coords="340,107,655,133"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_filter_file.html#abdfe763814570602a59796e36ad65e0a" title="SpinachGUI::FilterFile::numericUpDown_Leave" alt="" coords="352,157,643,184"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_filter_file.html#afc81e879c10142b94845e08bd2540671" title="EventHandler for numerics." alt="" coords="326,208,669,235"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_filter_file.html#a313819570463890b200563416ba5f1a9" title="SpinachGUI::FilterFile::OKbutton_Click" alt="" coords="373,259,621,285"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_filter_file.html#a6e6758c13f37832f5033e23c744df86a" title="EventHandler for Painting quadropolar interacions distribution bars." alt="" coords="375,309,619,336"/>
+<area shape="rect" id="node9" href="$class_spinach_g_u_i_1_1_filter_file.html#a04277d86472038d38b93e82518a078ff" title="SpinachGUI::FilterFile::RemoveAtomsCheckBox_Click" alt="" coords="329,360,666,387"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a8d12e89896c32976b9c28899370b3835" title="SpinachGUI::IOSpinSystem::getLineStop" alt="" coords="227,5,487,32"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a8afde8ccb9846c0fb14c340ae6a0afe7" title="Reads a line from the stream ReadingFile keeping track which line reads." alt="" coords="235,56,480,83"/>
+</map>

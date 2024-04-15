@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Function for finding the isotope when one of the element, atom number or mass is given." alt="" coords="305,5,452,32"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a8d12e89896c32976b9c28899370b3835" title="SpinachGUI::IOSpinSystem::getLineStop" alt="" coords="249,56,509,83"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a8afde8ccb9846c0fb14c340ae6a0afe7" title="Reads a line from the stream ReadingFile keeping track which line reads." alt="" coords="256,107,501,133"/>
+<area shape="rect" id="node3" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Main function for creating static isotopes in the Isotopes collection in order." alt="" coords="557,5,709,32"/>
+</map>

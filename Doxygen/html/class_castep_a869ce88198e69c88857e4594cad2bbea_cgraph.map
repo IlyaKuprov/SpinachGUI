@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Function for finding the isotope when one of the element, atom number or mass is given." alt="" coords="229,5,376,32"/>
+<area shape="rect" id="node4" href="$class_atom.html#a542c13cf22cab7bebec4f53198586434" title="Getter for the atom ID." alt="" coords="257,56,348,83"/>
+<area shape="rect" id="node3" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Main function for creating static isotopes in the Isotopes collection in order." alt="" coords="424,5,576,32"/>
+</map>

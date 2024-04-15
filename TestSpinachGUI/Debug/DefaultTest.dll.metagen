@@ -1,0 +1,107 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly DefaultTest, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly Microsoft.VisualBasic, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly SpinachGUI, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class TestSpinachGUI.UnitTest: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext 'get set' : 
+  Methods:
+    get_TestContext(): PrivateScope, Public, HideBySig, SpecialName
+    set_TestContext(TestContext): PrivateScope, Public, HideBySig, SpecialName
+    TestMethodGaussAlanine(): PrivateScope, Public, HideBySig
+    TestMethodGaussDcb_anion(): PrivateScope, Public, HideBySig
+    TestMethodGaussAnthraquinone_disulphonate_anion(): PrivateScope, Public, HideBySig
+    TestMethodGaussAnti_scan_190(): PrivateScope, Public, HideBySig
+    TestMethodGaussBenzoquinone(): PrivateScope, Public, HideBySig
+    TestMethodGaussBicyclopropylidene(): PrivateScope, Public, HideBySig
+    TestMethodGaussCamphor(): PrivateScope, Public, HideBySig
+    TestMethodGaussChrysene_cation(): PrivateScope, Public, HideBySig
+    TestMethodGaussCis_dimethyl(): PrivateScope, Public, HideBySig
+    TestMethodGaussCrystal_str(): PrivateScope, Public, HideBySig
+    TestMethodGaussCyclopentyl(): PrivateScope, Public, HideBySig
+    TestMethodGaussD4bicyclopropylidene(): PrivateScope, Public, HideBySig
+    TestMethodGaussDiacetylene(): PrivateScope, Public, HideBySig
+    TestMethodGaussFdnb(): PrivateScope, Public, HideBySig
+    TestMethodGaussGlycine(): PrivateScope, Public, HideBySig
+    TestMethodGaussMethyl(): PrivateScope, Public, HideBySig
+    TestMethodGaussMethylaziridine(): PrivateScope, Public, HideBySig
+    TestMethodGaussMethylaziridine_a(): PrivateScope, Public, HideBySig
+    TestMethodGaussMethylaziridine_a_quad(): PrivateScope, Public, HideBySig
+    TestMethodGaussMethylaziridine_b(): PrivateScope, Public, HideBySig
+    TestMethodGaussNapthalenetetrone(): PrivateScope, Public, HideBySig
+    TestMethodGaussNitroxide(): PrivateScope, Public, HideBySig
+    TestMethodGaussParafluorotoluene(): PrivateScope, Public, HideBySig
+    TestMethodGaussPerfluoropyrene_cation(): PrivateScope, Public, HideBySig
+    TestMethodGaussPerfluoropyrene_neutral(): PrivateScope, Public, HideBySig
+    TestMethodGaussPhenyl(): PrivateScope, Public, HideBySig
+    TestMethodGaussPhenylaziridine_al(): PrivateScope, Public, HideBySig
+    TestMethodGaussPhenylthiaz_cis(): PrivateScope, Public, HideBySig
+    TestMethodGaussPhenylthiaz_trans(): PrivateScope, Public, HideBySig
+    TestMethodGaussPyrene_cation(): PrivateScope, Public, HideBySig
+    TestMethodGaussPyrene_neutral(): PrivateScope, Public, HideBySig
+    TestMethodGaussStrychnine(): PrivateScope, Public, HideBySig
+    TestMethodGaussSucrose(): PrivateScope, Public, HideBySig
+    TestMethodGaussTma(): PrivateScope, Public, HideBySig
+    TestMethodGaussTrp_xray(): PrivateScope, Public, HideBySig
+    TestMethodGaussTryptophan_neutral_radical(): PrivateScope, Public, HideBySig
+    TestMethodGaussUrea(): PrivateScope, Public, HideBySig
+    TestMethodGaussAla(): PrivateScope, Public, HideBySig
+    TestMethodGaussArg(): PrivateScope, Public, HideBySig
+    TestMethodGaussAsn(): PrivateScope, Public, HideBySig
+    TestMethodGaussAsp(): PrivateScope, Public, HideBySig
+    TestMethodGaussGln(): PrivateScope, Public, HideBySig
+    TestMethodGaussGlu(): PrivateScope, Public, HideBySig
+    TestMethodGaussGly(): PrivateScope, Public, HideBySig
+    TestMethodGaussHis(): PrivateScope, Public, HideBySig
+    TestMethodGaussIle(): PrivateScope, Public, HideBySig
+    TestMethodGaussLeu(): PrivateScope, Public, HideBySig
+    TestMethodGaussLys(): PrivateScope, Public, HideBySig
+    TestMethodGaussMet(): PrivateScope, Public, HideBySig
+    TestMethodGaussPhe(): PrivateScope, Public, HideBySig
+    TestMethodGaussPro(): PrivateScope, Public, HideBySig
+    TestMethodGaussSer(): PrivateScope, Public, HideBySig
+    TestMethodGaussThr(): PrivateScope, Public, HideBySig
+    TestMethodGaussTrp(): PrivateScope, Public, HideBySig
+    TestMethodGaussTyr(): PrivateScope, Public, HideBySig
+    TestMethodGaussVal(): PrivateScope, Public, HideBySig
+Class TestSpinachGUI.UnitTestXYZ: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    TestMethodXYZUbiquitin(): PrivateScope, Public, HideBySig
+    TestMethodXYZMethane(): PrivateScope, Public, HideBySig
+    TestMethodXYZNonMethane(): PrivateScope, Public, HideBySig
+    TestMethodCOSMOSAspAlaFUM(): PrivateScope, Public, HideBySig
+    TestMethodADFadf_example(): PrivateScope, Public, HideBySig
+    TestMethodMOLAmfetamine(): PrivateScope, Public, HideBySig
+    TestMethodMOLAminoglutethimide(): PrivateScope, Public, HideBySig
+    TestMethodMOLBarbituricacid(): PrivateScope, Public, HideBySig
+    TestMethodGAMESTyr(): PrivateScope, Public, HideBySig
+    TestMethodCastepAlanine(): PrivateScope, Public, HideBySig
+    TestMethodCastepEthanol(): PrivateScope, Public, HideBySig
+    TestMethodCastepEthanolnmr(): PrivateScope, Public, HideBySig
+    TestMethodCastepGlycine(): PrivateScope, Public, HideBySig
+    TestMethodOrcaNBiradOpt(): PrivateScope, Public, HideBySig
+    TestMethodOrcaNitroxide(): PrivateScope, Public, HideBySig
+    TestMethodOrcaOrca_chrysene_cation_radical(): PrivateScope, Public, HideBySig

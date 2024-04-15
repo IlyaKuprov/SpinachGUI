@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_open_g_l_form_1_1_c_open_g_l.html#aa4e3269ebac6026328e8ae6d7a78a187" title="For handling the wheel rotation of the mouse and used for zooming of the model." alt="" coords="312,81,579,108"/>
+<area shape="rect" id="node3" href="$class_open_g_l_form_1_1_c_open_g_l.html#a4269a637342af6fb3add0853e1301da6" title="Final Render routine." alt="" coords="627,81,842,108"/>
+<area shape="rect" id="node4" href="$class_open_g_l_form_1_1_c_open_g_l.html#a89ada71ba19ad35316eb8cb304e63edc" title="Calculates the transformation matrix and parameters for double or quad buffer display." alt="" coords="899,56,1125,83"/>
+<area shape="rect" id="node5" href="$class_open_g_l_form_1_1_c_open_g_l.html#a5176def024dbfe8abf5d90c939a07408" title="Rendering the all of the components of the 3d model." alt="" coords="891,107,1133,133"/>
+<area shape="rect" id="node6" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6f98dd2f1244759dd296c0afe49552f6" title="Render electron cloud plane. Usually a verysmall number of electron are drawn, so not so much optimiz..." alt="" coords="1199,56,1475,83"/>
+<area shape="rect" id="node12" href="$class_open_g_l_form_1_1_c_open_g_l.html#ab5bbb674e0e4ea78f14ae0868a245e4d" title="Render of navigation axes in the edge fo the window." alt="" coords="1197,107,1477,133"/>
+<area shape="rect" id="node13" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6baf0e86d770379bdff7827cd1beb13e" title="Render an translucent outline of the atom to be selected and an fainted outline of the atom selected..." alt="" coords="1182,157,1493,184"/>
+<area shape="rect" id="node7" href="$class_open_g_l_form_1_1_c_open_g_l.html#a1395bfff5e5f8c5dbbbcf9587a99da1a" title="Render translucent ellispoid and eigen values axes." alt="" coords="1542,5,1861,32"/>
+<area shape="rect" id="node8" href="$class_open_g_l_form_1_1_c_open_g_l.html#a8599ba4db2c35ea771a17a2657a29692" title="Render a plane with name &quot;electrons&quot; in z and y coordinates." alt="" coords="1576,56,1827,83"/>
+<area shape="rect" id="node9" href="$class_open_g_l_form_1_1_c_open_g_l.html#a198db840c47578a0a2bbc10f132ed9f7" title="Renders OpenGL text of the integer number ID in distance radius from a point lied in (x..." alt="" coords="1572,157,1831,184"/>
+<area shape="rect" id="node10" href="$class_open_g_l_form_1_1_c_open_g_l.html#a5afbd1374f5c155cf0b59fa898c8dfbb" title="Final Render and orientation of a metaball." alt="" coords="1562,107,1841,133"/>
+<area shape="rect" id="node11" href="$class_c_u_b_e___g_r_i_d.html#a29d386d94a0b7965443c481ca7dcd27e" title="CUBE_GRID::DrawSurface" alt="" coords="1910,107,2087,133"/>
+</map>

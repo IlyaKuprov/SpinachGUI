@@ -1,0 +1,123 @@
+﻿  OpenGL.cpp
+  FilterFile.cpp
+  ADF.cpp
+  COSMOS.cpp
+  Castep.cpp
+  EasySpin.cpp
+  GAMESS.cpp
+  Gauss.cpp
+  IOSpinSystem.cpp
+  MOL.cpp
+  Orca.cpp
+  Simpson.cpp
+  SpinEvolution.cpp
+  SpinXML.cpp
+  Spinach.cpp
+  XYZ.cpp
+  MainForm.cpp
+  OrientationDialog.cpp
+  OrientationExport.cpp
+  RefFrameOrientationDialog.cpp
+  ShieldingtoShift.cpp
+  SpinachGUI.cpp
+  Model.cpp
+  isotopes.cpp
+  orientation.cpp
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+  Generating code
+  Finished generating code
+  SpinachGUI.vcxproj -> Z:\SpinachGUI\GUI\..\Compilations\Debug\SpinachGUI.exe
+  Microsoft (R) Build Engine version 4.0.30319.18408
+  [Microsoft .NET Framework, version 4.0.30319.18444]
+  Copyright (C) Microsoft Corporation. All rights reserved.
+  
+  Build started 22/04/2015 16:25:42.
+  Project "Z:\SpinachGUI\Compilations\DLL Creation\SpinachGUIDLL.vcxproj" on node 1 (default targets).
+  InitializeBuildStatus:
+    Creating "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUIDLL.unsuccessfulbuild" because "AlwaysCreate" was specified.
+  GenerateTargetFrameworkMonikerAttribute:
+  Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+  ClCompile:
+    Z:\Program Files\Microsoft Visual Studio 2012\VC\bin\CL.exe /c /I..\..\GUI /I"..\..\GUI\IO Formats" /I"Z:\SpinachGUI\Compilations\DLL Creation\..\..\GUI\Eigen" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W2 /WX- /MP /Od /Oy- /D WIN32 /D EIGEN_DONT_ALIGN_STATICALLY /D NOMINMAX /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\\" /Fd"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\vc110.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Microsoft.VisualBasic.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\VBPowerPacks\v10.0\Microsoft.VisualBasic.PowerPacks.Vs.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Design.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:queue /clr:nostdlib "..\..\GUI\3D Engine\OpenGL.cpp" ..\..\GUI\FilterFile.cpp "..\..\GUI\IO Formats\ADF.cpp" "..\..\GUI\IO Formats\COSMOS.cpp" "..\..\GUI\IO Formats\Castep.cpp" "..\..\GUI\IO Formats\EasySpin.cpp" "..\..\GUI\IO Formats\GAMESS.cpp" "..\..\GUI\IO Formats\Gauss.cpp" "..\..\GUI\IO Formats\IOSpinSystem.cpp" "..\..\GUI\IO Formats\MOL.cpp" "..\..\GUI\IO Formats\Orca.cpp" "..\..\GUI\IO Formats\Simpson.cpp" "..\..\GUI\IO Formats\SpinEvolution.cpp" "..\..\GUI\IO Formats\SpinXML.cpp" "..\..\GUI\IO Formats\Spinach.cpp" "..\..\GUI\IO Formats\XYZ.cpp" ..\..\GUI\MainForm.cpp ..\..\GUI\OrientationDialog.cpp ..\..\GUI\OrientationExport.cpp ..\..\GUI\RefFrameOrientationDialog.cpp ..\..\GUI\ShieldingtoShift.cpp ..\..\GUI\SpinachGUI.cpp "..\..\GUI\System Core\Model.cpp" "..\..\GUI\System Core\isotopes.cpp" "..\..\GUI\System Core\orientation.cpp"
+    OpenGL.cpp
+    FilterFile.cpp
+    ADF.cpp
+    COSMOS.cpp
+    Castep.cpp
+    EasySpin.cpp
+    GAMESS.cpp
+    Gauss.cpp
+    IOSpinSystem.cpp
+    MOL.cpp
+    Orca.cpp
+    Simpson.cpp
+    SpinEvolution.cpp
+    SpinXML.cpp
+    Spinach.cpp
+    XYZ.cpp
+    MainForm.cpp
+    OrientationDialog.cpp
+    OrientationExport.cpp
+    RefFrameOrientationDialog.cpp
+    ShieldingtoShift.cpp
+    SpinachGUI.cpp
+    Model.cpp
+    isotopes.cpp
+    orientation.cpp
+    All outputs are up-to-date.
+  CoreResGen:
+    No resources are out of date with respect to their source files. Skipping resource generation.
+  ResourceCompile:
+    All outputs are up-to-date.
+  Link:
+    Z:\Program Files\Microsoft Visual Studio 2012\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"Z:\SpinachGUI\Compilations\DLL Creation\..\Debug\SpinachGUI.dll" /INCREMENTAL /NOLOGO /LTCG:NOSTATUS openGL32.lib glu32.lib gdi32.lib user32.lib comctl32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib rpcrt4.lib wsock32.lib odbc32.lib gTrackBar.netmodule /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.About.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.BalloonToolTip.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.FilterFile.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.EasySpin.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.Simpson.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.Spinach.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.SpinEvolution.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.IsotopesDialog.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.MainForm.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.OrientationDialog.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.RefFrameOrientationDialog.resources" /ASSEMBLYRESOURCE:"Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.ShieldingtoShift.resources" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Z:\SpinachGUI\Compilations\DLL Creation\..\Debug\SpinachGUI.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /DLL "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\app.res"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\stdafx.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\ArcBall.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\MetaBall.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\OpenGL.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\VECTOR3D.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\AssemblyInfo.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\COSMOS.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\FilterFile.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\ADF.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\Castep.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\EasySpin.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\Gauss.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\GAMESS.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\IOSpinSystem.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\MOL.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\Orca.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\Simpson.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\Spinach.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinEvolution.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinXML.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\XYZ.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\MainForm.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\OrientationDialog.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\OrientationExport.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\RefFrameOrientationDialog.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\ShieldingtoShift.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUI.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\isotopes.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\Model.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\orientation.obj"
+    "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification [Z:\SpinachGUI\Compilations\DLL Creation\SpinachGUIDLL.vcxproj]
+    Generating code
+    Finished generating code
+    SpinachGUIDLL.vcxproj -> Z:\SpinachGUI\Compilations\DLL Creation\..\Debug\SpinachGUI.dll
+  FinalizeBuildStatus:
+    Deleting file "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUIDLL.unsuccessfulbuild".
+    Touching "Z:\SpinachGUI\Compilations\DLL Creation\\Debug\SpinachGUIDLL.lastbuildstate".
+  Done Building Project "Z:\SpinachGUI\Compilations\DLL Creation\SpinachGUIDLL.vcxproj" (default targets).
+  
+  Build succeeded.
+  
+  "Z:\SpinachGUI\Compilations\DLL Creation\SpinachGUIDLL.vcxproj" (default target) (1) ->
+  (Link target) -> 
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification [Z:\SpinachGUI\Compilations\DLL Creation\SpinachGUIDLL.vcxproj]
+  
+      1 Warning(s)
+      0 Error(s)
+  
+  Time Elapsed 00:00:17.18

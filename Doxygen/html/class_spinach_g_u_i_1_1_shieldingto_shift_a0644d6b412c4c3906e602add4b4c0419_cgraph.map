@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#acac5f2fbaed0fadee24614ee10321804" title="Function that checks if all the cells in the first and second column are filled in order to enabled O..." alt="" coords="451,5,787,32"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#acdf2f3aca6a47508905baa568418e62d" title="Function which used with the delegate in order to redit a cell with wrong format." alt="" coords="473,56,764,83"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_shieldingto_shift.html#a660c5f7123400d71c8d417788df81d88" title="SpinachGUI::ShieldingtoShift::SetColumnIndex" alt="" coords="473,107,765,133"/>
+</map>

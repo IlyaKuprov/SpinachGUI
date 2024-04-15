@@ -1,0 +1,24 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_main_form.html#aab14ba3054325f4fcd109d6c95d3bf2e" title="SpinachGui::MainForm::MainForm_Initialization" alt="" coords="703,408,999,435"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_main_form.html#a4c53d8aa45d4b70bed5a3c1b03bb811d" title="SpinachGui::MainForm::Update_Interactions_Color" alt="" coords="320,459,635,486"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_main_form.html#a54380c07798c976b7f32ce4537753e3f" title="SpinachGui::MainForm::CheckExistentInteractions" alt="" coords="693,459,1008,486"/>
+<area shape="rect" id="node22" href="$class_spinach_gui_1_1_main_form.html#a437d23fe3787d1067d72535861afd318" title="SpinachGui::MainForm::Colorlabel_MouseDoubleClick" alt="" coords="683,560,1018,587"/>
+<area shape="rect" id="node23" href="$class_spinach_gui_1_1_main_form.html#a19848dab399352aa09bd4c4c32105acb" title="SpinachGui::MainForm::Colour_DoubleClick" alt="" coords="713,712,989,739"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_main_form.html#a599b735854d6b771462477839506e100" title="SpinachGui::MainForm::dataGridView2_CellClick" alt="" coords="1935,79,2241,106"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_main_form.html#a2f8b2f3da63392115cb061eb41a998e7" title="SpinachGui::MainForm::dataGridView2_CellEndEdit" alt="" coords="1488,130,1811,156"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_main_form.html#a79e331298aac0630699cc174f109d7e1" title="SpinachGui::MainForm::dataGridView2_RowsRemoved" alt="" coords="1080,256,1419,283"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_main_form.html#a7265fc7079ed8fb3393c40b3c72042aa" title="SpinachGui::MainForm::DataGridView_Interactions_Update" alt="" coords="1067,332,1431,359"/>
+<area shape="rect" id="node15" href="$class_spinach_gui_1_1_main_form.html#a402869f94239c8cede4fe9bb6d3efae9" title="SpinachGui::MainForm::DeleteNodeButton_Click" alt="" coords="1097,434,1401,460"/>
+<area shape="rect" id="node16" href="$class_spinach_gui_1_1_main_form.html#a28bbb7f46a9652dd296fe854ced99561" title="SpinachGui::MainForm::MakeLabButton_Click" alt="" coords="1104,484,1395,511"/>
+<area shape="rect" id="node17" href="$class_spinach_gui_1_1_main_form.html#a74c10adc13937fb576b1baa578bc171c" title="SpinachGui::MainForm::OpenGLcontextMenu_ItemClicked" alt="" coords="1069,535,1430,562"/>
+<area shape="rect" id="node18" href="$class_spinach_gui_1_1_main_form.html#af061ddcb10c2e217c9d781cc76531137" title="SpinachGui::MainForm::Reset" alt="" coords="1551,624,1748,651"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_main_form.html#ac8630147be4dca465267790613371370" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="2358,459,2634,486"/>
+<area shape="rect" id="node10" href="$class_spinach_gui_1_1_main_form.html#a3c4040860b11ba174aecdb6ec4457e86" title="SpinachGui::MainForm::dataGridView1_CellEndEdit" alt="" coords="1927,238,2249,264"/>
+<area shape="rect" id="node11" href="$class_spinach_gui_1_1_main_form.html#a47df983a2bb5912bf0343dfefe989b2a" title="SpinachGui::MainForm::dataGridView1_RowsRemoved" alt="" coords="1480,282,1819,308"/>
+<area shape="rect" id="node12" href="$class_spinach_gui_1_1_main_form.html#adc66b94bf14f1c745fc56f960e37343d" title="SpinachGui::MainForm::LoadModel" alt="" coords="1536,332,1763,359"/>
+<area shape="rect" id="node14" href="$class_spinach_gui_1_1_main_form.html#a072983897a8eceed207b3ceab9bd418b" title="SpinachGui::MainForm::UpdateCoordinates" alt="" coords="1513,383,1786,410"/>
+<area shape="rect" id="node13" href="$class_spinach_gui_1_1_main_form.html#a8ebbf2082a81258d1104d81fdf4704be" title="SpinachGui::MainForm::ImportbackgroundWorker_RunWorkerCompleted" alt="" coords="1867,358,2309,384"/>
+<area shape="rect" id="node19" href="$class_spinach_gui_1_1_main_form.html#af666cfa73e21d1cfcbb01ba89fca328a" title="SpinachGui::MainForm::Importbutton_Click" alt="" coords="1953,586,2223,612"/>
+<area shape="rect" id="node20" href="$class_spinach_gui_1_1_main_form.html#a8baf11b4900732d41275792518ae221f" title="SpinachGui::MainForm::Newbutton_Click" alt="" coords="1958,636,2218,663"/>
+<area shape="rect" id="node21" href="$class_spinach_gui_1_1_main_form.html#a09e3ef6f6201e62e4498df70c027fe96" title="SpinachGui::MainForm::OpenFileButton_Click" alt="" coords="1943,687,2233,714"/>
+</map>

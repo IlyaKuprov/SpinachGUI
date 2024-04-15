@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_main_form.html#a8a5541688b932e3d9a2eca09bccef3e8" title="SpinachGui::MainForm::treeView_RefFrames_Update" alt="" coords="339,81,669,108"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_main_form.html#a402869f94239c8cede4fe9bb6d3efae9" title="SpinachGui::MainForm::DeleteNodeButton_Click" alt="" coords="1109,5,1413,32"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_main_form.html#adc66b94bf14f1c745fc56f960e37343d" title="SpinachGui::MainForm::LoadModel" alt="" coords="741,56,968,83"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_main_form.html#a28bbb7f46a9652dd296fe854ced99561" title="SpinachGui::MainForm::MakeLabButton_Click" alt="" coords="1116,107,1407,133"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_main_form.html#a072983897a8eceed207b3ceab9bd418b" title="SpinachGui::MainForm::UpdateCoordinates" alt="" coords="718,157,991,184"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_main_form.html#ac8630147be4dca465267790613371370" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1531,56,1807,83"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_main_form.html#a8ebbf2082a81258d1104d81fdf4704be" title="SpinachGui::MainForm::ImportbackgroundWorker_RunWorkerCompleted" alt="" coords="1040,56,1483,83"/>
+</map>

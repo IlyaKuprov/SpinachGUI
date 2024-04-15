@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_spinach.html#a080d49d5cd5b6ca616595939606ef818" title="Initializator of Spinach class." alt="" coords="342,347,618,373"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_spinach.html#a351e1e0e82c957ae27f46178633fd84a" title="EventHandler for when something selected from comboboxes in the Formalism, Approximation and coupling..." alt="" coords="691,397,1095,424"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_spinach.html#a6149c0d6a4b6cff618e29c6685a636ed" title="EventHandler for pressing key in cells in the in General tab." alt="" coords="1194,347,1499,373"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_spinach.html#a783185b0e18fc820abfac9ba95d2bfdd" title="Function for writing last lines in a final string for preview and exported file." alt="" coords="1575,271,1798,297"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_spinach.html#a956437999d4556b64eb8ce55fec48d4d" title="Function for writing first lines in a final string for preview and exported file." alt="" coords="1573,397,1800,424"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_spinach.html#af9641e704a179f6edfc9d712da91cc94" title="EventHandler for when something selected from comboboxes in the chemical exchange type..." alt="" coords="667,448,1119,475"/>
+<area shape="rect" id="node9" href="$class_spinach_g_u_i_1_1_spinach.html#a0aed82f68aac27c8d00307173b4d94e3" title="EventHandler for pressing key in cells in the third column in Exchange Rates matrix datagridview in C..." alt="" coords="1168,499,1525,525"/>
+<area shape="rect" id="node10" href="$class_spinach_g_u_i_1_1_spinach.html#a816096b19d7d1ddc3cb327091de90517" title="EventHandler for when finishing editing the first or second or third column&#39;s cell in the in Exch..." alt="" coords="1171,600,1522,627"/>
+<area shape="rect" id="node11" href="$class_spinach_g_u_i_1_1_spinach.html#ae83ee8878815dca9581ddb067a58f976" title="Function for refreshing Londitudinal states string from Londitudinal states datagridview in General t..." alt="" coords="1201,296,1493,323"/>
+<area shape="rect" id="node12" href="$class_spinach_g_u_i_1_1_spinach.html#ac4435aeb64434abd10db83b377b5ec50" title="EventHandler for when finishing editing the first or second column&#39;s cell in the in Relaxations R..." alt="" coords="1201,245,1492,272"/>
+<area shape="rect" id="node13" href="$class_spinach_g_u_i_1_1_spinach.html#a8d3511afbf3a4ead75023d1785dd6ad8" title="EventHandler for combo box of Formalism in Relaxation theory tab." alt="" coords="687,119,1099,145"/>
+<area shape="rect" id="node14" href="$class_spinach_g_u_i_1_1_spinach.html#af8dbd51b88348e2f8dc60385c6cf5225" title="EventHandler for combo box of Formalism in Relaxation theory tab." alt="" coords="1188,93,1505,120"/>
+<area shape="rect" id="node6" href="$namespace_spinach_g_u_i.html#a3499841ad3a3710478f81b8e2b23181a" title="Function for converting tensor to the lab frame." alt="" coords="1849,271,2039,297"/>
+</map>

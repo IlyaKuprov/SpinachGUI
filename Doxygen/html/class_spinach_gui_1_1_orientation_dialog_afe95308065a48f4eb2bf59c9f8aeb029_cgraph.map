@@ -1,0 +1,45 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_orientation_dialog.html#a3e06a4fb53bd03aed531a6b8f3574390" title="SpinachGui::OrientationDialog::Calculate_TensorfromEigen" alt="" coords="395,5,757,32"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_orientation.html#a1b47921e73099dbca02b5a6c0722e5e3" title="SpinachGui::Orientation::GetAsDCM" alt="" coords="836,56,1071,83"/>
+<area shape="rect" id="node15" href="$class_spinach_gui_1_1_orientation_dialog.html#ac346625cc6b5bfb548e5b3464707ca6e" title="SpinachGui::OrientationDialog::UpdateAngleAxis" alt="" coords="424,157,728,184"/>
+<area shape="rect" id="node19" href="$class_spinach_gui_1_1_orientation_dialog.html#a72bc1411eabbeb39f211efa8224fcbec" title="SpinachGui::OrientationDialog::UpdateEigenState" alt="" coords="421,360,731,387"/>
+<area shape="rect" id="node20" href="$class_spinach_gui_1_1_orientation_dialog.html#aaf09980f34ebddf625e8c31de2cc5e3e" title="SpinachGui::OrientationDialog::UpdateInteraction" alt="" coords="423,411,729,437"/>
+<area shape="rect" id="node21" href="$class_spinach_gui_1_1_orientation_dialog.html#a3f41b7b95de6d2430ae942844c7336e1" title="SpinachGui::OrientationDialog::UpdateIsotropic" alt="" coords="429,259,723,285"/>
+<area shape="rect" id="node22" href="$class_spinach_gui_1_1_orientation_dialog.html#a286d487bea21965845b0ee31ba73c31a" title="SpinachGui::OrientationDialog::UpdateModel" alt="" coords="436,461,716,488"/>
+<area shape="rect" id="node39" href="$class_spinach_gui_1_1_orientation_dialog.html#abf20c5beb3e527392eac6f1d2b9393c0" title="SpinachGui::OrientationDialog::UpdateQuaternion" alt="" coords="422,107,730,133"/>
+<area shape="rect" id="node41" href="$class_spinach_gui_1_1_orientation_dialog.html#a49bad18dd58731c7fe353b6f5b86852c" title="SpinachGui::OrientationDialog::UpdateSphericaTensor" alt="" coords="409,309,743,336"/>
+<area shape="rect" id="node42" href="$class_spinach_gui_1_1_orientation_dialog.html#ab90f9b82373812555bf92f9980bc3e75" title="SpinachGui::OrientationDialog::UpdateWignerMatrix" alt="" coords="415,208,737,235"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_orientation.html#ae1554a2b9bc3cb645e145acf05b41efb" title="SpinachGui::Orientation::ConvertToDCM" alt="" coords="1219,32,1474,59"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_orientation.html#ad8f8da7bd1e5dfbb070c6607681ddcfd" title="Normalise the contained rotation in place." alt="" coords="1230,208,1463,235"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_orientation.html#a75054c9d866e87e68bff2e2875b9f31e" title="SpinachGui::Orientation::ConvertToQuaternion" alt="" coords="1597,95,1885,121"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_quaternion.html#a9e3d4208cd66fd5c8e6868b18b65dcef" title="SpinachGui::Quaternion::fromEigen" alt="" coords="1985,100,2212,127"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_angle_axis.html#a7a707ff6a91374b4b98c9a89ddc707ef" title="SpinachGui::AngleAxis::Normalized" alt="" coords="1627,259,1856,285"/>
+<area shape="rect" id="node11" href="$class_spinach_gui_1_1_quaternion.html#adc51230582d349449dbf68186b4abb0e" title="SpinachGui::Quaternion::Normalized" alt="" coords="1625,157,1858,184"/>
+<area shape="rect" id="node13" href="$class_spinach_gui_1_1_orientation.html#aadc64950787cfd4b35017b057df34b82" title="Constructs the identity rotation." alt="" coords="1626,208,1857,235"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_angle_axis.html#ab5a39534c631cd9be500f7eaf121165b" title="SpinachGui::AngleAxis::fromEigen" alt="" coords="1987,309,2210,336"/>
+<area shape="rect" id="node10" href="$class_spinach_gui_1_1_angle_axis.html#ad2a4b7a8ea683cc2b1f8f1ad3dd90285" title="SpinachGui::AngleAxis::toEigen" alt="" coords="2309,247,2517,273"/>
+<area shape="rect" id="node12" href="$class_spinach_gui_1_1_quaternion.html#a622faa022efba5842abbc2c2de8a9e78" title="SpinachGui::Quaternion::toEigen" alt="" coords="2307,171,2519,197"/>
+<area shape="rect" id="node14" href="$class_spinach_gui_1_1_orientation.html#a5c5b1b0825dabcba17a20375014fea82" title="SpinachGui::Orientation::Invariant" alt="" coords="1991,208,2206,235"/>
+<area shape="rect" id="node16" href="$class_spinach_gui_1_1_orientation_dialog.html#af24f556f253aab2c92da885550bdef8f" title="SpinachGui::OrientationDialog::ConvertToString" alt="" coords="806,259,1101,285"/>
+<area shape="rect" id="node17" href="$class_spinach_gui_1_1_orientation.html#a28a12f033e768acc0bfd060459d4cf5d" title="SpinachGui::Orientation::GetAsAngleAxis" alt="" coords="821,157,1085,184"/>
+<area shape="rect" id="node18" href="$class_spinach_gui_1_1_orientation.html#a7b2caaf6bc67873c799805018b776750" title="SpinachGui::Orientation::ConvertToAngleAxis" alt="" coords="1205,157,1489,184"/>
+<area shape="rect" id="node23" href="$class_tensor.html#a36f65035458fb35c9aa8d501a475a105" title="Tensor::Calculate_EigenStates" alt="" coords="853,461,1054,488"/>
+<area shape="rect" id="node24" href="$class_open_g_l_form_1_1_c_open_g_l.html#a4269a637342af6fb3add0853e1301da6" title="OpenGLForm::COpenGL::Render" alt="" coords="846,411,1061,437"/>
+<area shape="rect" id="node25" href="$class_open_g_l_form_1_1_c_open_g_l.html#aaef092d833a02f8ffcccd33ec68565b8" title="OpenGLForm::COpenGL::Render_Atoms" alt="" coords="1612,309,1871,336"/>
+<area shape="rect" id="node26" href="$class_open_g_l_form_1_1_c_open_g_l.html#a20ad2d00c74c32564330da4b870b327e" title="OpenGLForm::COpenGL::Render_Bonds" alt="" coords="1217,461,1476,488"/>
+<area shape="rect" id="node27" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6f98dd2f1244759dd296c0afe49552f6" title="OpenGLForm::COpenGL::Render_Electrons" alt="" coords="1209,411,1485,437"/>
+<area shape="rect" id="node36" href="$class_open_g_l_form_1_1_c_open_g_l.html#ab5bbb674e0e4ea78f14ae0868a245e4d" title="OpenGLForm::COpenGL::Render_Navigation" alt="" coords="1207,512,1487,539"/>
+<area shape="rect" id="node37" href="$class_open_g_l_form_1_1_c_open_g_l.html#a34bf9fe57a5187c5e6b03a0e86aca066" title="OpenGLForm::COpenGL::Render_Transparent_Atom_Properties" alt="" coords="1150,360,1543,387"/>
+<area shape="rect" id="node28" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6fddac077b6ee7d5cb64694e9502e8e3" title="OpenGLForm::COpenGL::Render_Atom_Properties" alt="" coords="1939,360,2258,387"/>
+<area shape="rect" id="node29" href="$class_open_g_l_form_1_1_c_open_g_l.html#a8599ba4db2c35ea771a17a2657a29692" title="OpenGLForm::COpenGL::Render_Floor" alt="" coords="1616,461,1867,488"/>
+<area shape="rect" id="node30" href="$class_open_g_l_form_1_1_c_open_g_l.html#a5afbd1374f5c155cf0b59fa898c8dfbb" title="OpenGLForm::COpenGL::Render_MetaBalls" alt="" coords="1602,512,1881,539"/>
+<area shape="rect" id="node31" href="$class_c_u_b_e___g_r_i_d.html#a9f9d7fc001e0bb86c3e48dbaf6a1e3b0" title="CUBE_GRID::CreateMemory" alt="" coords="2004,537,2193,564"/>
+<area shape="rect" id="node32" href="$class_c_u_b_e___g_r_i_d.html#a29d386d94a0b7965443c481ca7dcd27e" title="CUBE_GRID::DrawSurface" alt="" coords="2010,588,2187,615"/>
+<area shape="rect" id="node33" href="$class_c_u_b_e___g_r_i_d.html#ad0b8c602a05bff4a90fd835f0d19911e" title="CUBE_GRID::Init" alt="" coords="2038,436,2159,463"/>
+<area shape="rect" id="node35" href="$class_v_e_c_t_o_r3_d.html#a85d84ac8002a7d5d2c408f2002aea0ed" title="VECTOR3D::LoadZero" alt="" coords="2023,487,2175,513"/>
+<area shape="rect" id="node34" href="$class_v_e_c_t_o_r3_d.html#a82454149dd607ae615eecd1cfe769267" title="VECTOR3D::Set" alt="" coords="2354,436,2473,463"/>
+<area shape="rect" id="node38" href="$class_open_g_l_form_1_1_c_open_g_l.html#a6b334a904a14208066ba9619d9761069" title="OpenGLForm::COpenGL::Render_Transparency" alt="" coords="1592,360,1891,387"/>
+<area shape="rect" id="node40" href="$class_spinach_gui_1_1_orientation.html#af87218c2e6d9b954cb8bc63778ee23e9" title="SpinachGui::Orientation::GetAsQuaternion" alt="" coords="819,107,1087,133"/>
+<area shape="rect" id="node43" href="$class_spinach_gui_1_1_orientation.html#a3cee73f86a1eb038e44134ab0c9cab5c" title="Converts to a rotation matrix." alt="" coords="836,208,1071,235"/>
+<area shape="rect" id="node44" href="$class_spinach_gui_1_1_orientation.html#a25ea0461f3e0afb3eb649848402620ef" title="SpinachGui::Orientation::ConvertToEuler" alt="" coords="1219,259,1474,285"/>
+</map>

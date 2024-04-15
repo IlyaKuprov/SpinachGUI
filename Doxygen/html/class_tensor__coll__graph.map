@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_interaction.html" title="Interaction" alt="" coords="93,200,176,227"/>
+<area shape="rect" id="node3" href="$class_unit.html" title="Unit" alt="" coords="5,96,51,123"/>
+<area shape="rect" id="node4" href="$class_interaction_kind.html" title="InteractionKind" alt="" coords="75,96,183,123"/>
+<area shape="rect" id="node5" href="$class_atom.html" title="Atom" alt="" coords="208,96,261,123"/>
+<area shape="rect" id="node6" href="$class_isotope.html" title="Isotope" alt="" coords="203,5,267,32"/>
+<area shape="rect" id="node7" href="$class_reference_frame.html" title="ReferenceFrame" alt="" coords="319,200,436,227"/>
+<area shape="rect" id="node8" href="$class_matrix3x3.html" title="Matrix3x3" alt="" coords="299,96,377,123"/>
+</map>

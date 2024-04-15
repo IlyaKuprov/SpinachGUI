@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_reference_frame.html#a4720f6c8bfe3cea3b2a270677c9d6739" title="Event Handler when the reference frame is changed." alt="" coords="275,5,517,32"/>
+<area shape="rect" id="node3" href="$class_reference_frame.html#acbe982b2dcfb43fde8c14e267dce7514" title="Event Handler when the rotation matrix is changed to call the handler of reference frame which is the..." alt="" coords="287,56,505,83"/>
+</map>

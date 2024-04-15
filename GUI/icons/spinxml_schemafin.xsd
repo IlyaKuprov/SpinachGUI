@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio 2013 Designer Edition (Trial) 11.0.1.4456 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+    <xs:group name="vector">
+        <xs:sequence>
+            <xs:element name="x"
+                        type="xs:double" />
+            <xs:element name="y"
+                        type="xs:double" />
+            <xs:element name="z"
+                        type="xs:double" />
+            <xs:element name="ve_reference_frame_ID"
+                        type="xs:integer" />
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="dcm">
+        <xs:sequence>
+            <xs:element name="xx"
+                        type="xs:double" />
+            <xs:element name="xy"
+                        type="xs:double" />
+            <xs:element name="xz"
+                        type="xs:double" />
+            <xs:element name="yx"
+                        type="xs:double" />
+            <xs:element name="yy"
+                        type="xs:double" />
+            <xs:element name="yz"
+                        type="xs:double" />
+            <xs:element name="zx"
+                        type="xs:double" />
+            <xs:element name="zy"
+                        type="xs:double" />
+            <xs:element name="zz"
+                        type="xs:double" />
+            <xs:element name="mat_reference_frame_ID"
+                        type="xs:integer" />
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="interaction">
+        <xs:choice minOccurs="1"
+                   maxOccurs="1">
+            <xs:element name="scalar"
+                        type="xs:double" />
+            <xs:element name="tensor">
+                <xs:complexType>
+                    <xs:group ref="dcm" />
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence>
+                <xs:choice minOccurs="1"
+                           maxOccurs="1">
+                    <xs:element name="eigenvalues">
+                        <xs:complexType>
+                            <xs:attribute name="XX"
+                                          type="xs:double"
+                                          use="required" />
+                            <xs:attribute name="YY"
+                                          type="xs:double"
+                                          use="required" />
+                            <xs:attribute name="ZZ"
+                                          type="xs:double"
+                                          use="required" />
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="axiality_rhombicity">
+                        <xs:complexType>
+                            <xs:attribute name="iso"
+                                          type="xs:double"
+                                          use="required" />
+                            <xs:attribute name="ax"
+                                          type="xs:double"
+                                          use="required" />
+                            <xs:attribute name="rh"
+                                          type="xs:double"
+                                          use="required" />
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="span_skew">
+                        <xs:complexType>
+                            <xs:attribute name="iso"
+                                          type="xs:double"
+                                          use="required" />
+                            <xs:attribute name="span"
+                                          type="xs:double"
+                                          use="required" />
+                            <xs:attribute name="skew"
+                                          type="xs:double"
+                                          use="required" />
+                        </xs:complexType>
+                    </xs:element>
+                </xs:choice>
+                <xs:element name="orientation"
+                            minOccurs="1"
+                            maxOccurs="1">
+                    <xs:complexType>
+                        <xs:group ref="orientation" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:choice>
+        <xs:attribute name="kind"
+                      use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="hfc" />
+                    <xs:enumeration value="shielding" />
+                    <xs:enumeration value="quadrupolar" />
+                    <xs:enumeration value="scalar" />
+                    <xs:enumeration value="dipolar" />
+                    <xs:enumeration value="g-tenser" />
+                    <xs:enumeration value="zfs" />
+                    <xs:enumeration value="exchange" />
+                    <xs:enumeration value="custem" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="units"
+                      type="xs:string"
+                      use="required" />
+        <xs:attribute name="spin_1"
+                      type="xs:integer"
+                      use="required" />
+        <xs:attribute name="spin_2"
+                      type="xs:integer"
+                      use="optional" />
+        <xs:attribute name="label"
+                      type="xs:string"
+                      use="optional" />
+    </xs:complexType>
+    <xs:group name="euler_angles">
+        <xs:sequence>
+            <xs:element name="alpha"
+                        type="xs:double" />
+            <xs:element name="beta"
+                        type="xs:double" />
+            <xs:element name="gamma"
+                        type="xs:double" />
+            <xs:element name="eu_reference_frame_ID"
+                        type="xs:integer" />
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="angle_axis">
+        <xs:sequence>
+            <xs:element name="angle"
+                        type="xs:double"
+                        minOccurs="1"
+                        maxOccurs="1" />
+            <xs:element name="axis"
+                        minOccurs="1"
+                        maxOccurs="1">
+                <xs:complexType>
+                    <xs:group ref="vector" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="quartenion">
+        <xs:sequence>
+            <xs:element name="re"
+                        type="xs:double" />
+            <xs:element name="i"
+                        type="xs:double" />
+            <xs:element name="j"
+                        type="xs:double" />
+            <xs:element name="k"
+                        type="xs:double" />
+            <xs:element name="quar_reference_frame_ID"
+                        type="xs:integer" />
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="orientation">
+        <xs:choice>
+            <xs:group ref="euler_angles" />
+            <xs:group ref="angle_axis" />
+            <xs:group ref="quartenion" />
+            <xs:group ref="dcm" />
+        </xs:choice>
+    </xs:group>
+    <xs:complexType name="reference_frame">
+        <xs:sequence>
+            <xs:element name="origin">
+                <xs:complexType>
+                    <xs:group ref="vector" />
+                </xs:complexType>
+            </xs:element>
+            <xs:group ref="orientation" />
+        </xs:sequence>
+        <xs:attribute name="number"
+                      type="xs:integer"
+                      use="required" />
+        <xs:attribute name="label"
+                      type="xs:string"
+                      use="required" />
+    </xs:complexType>
+    <xs:element name="spin_system">
+        <xs:complexType>
+            <xs:sequence minOccurs="1"
+                         maxOccurs="1">
+                <xs:element name="spin"
+                            minOccurs="0"
+                            maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="coordinates"
+                                        minOccurs="0"
+                                        maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:group ref="vector" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="number"
+                                      type="xs:integer"
+                                      use="required" />
+                        <xs:attribute name="isotope"
+                                      type="xs:string"
+                                      use="required" />
+                        <xs:attribute name="label"
+                                      type="xs:string"
+                                      use="optional" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="interaction"
+                            type="interaction"
+                            minOccurs="0"
+                            maxOccurs="unbounded" />
+                <xs:element name="reference_frame"
+                            type="reference_frame"
+                            minOccurs="0"
+                            maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

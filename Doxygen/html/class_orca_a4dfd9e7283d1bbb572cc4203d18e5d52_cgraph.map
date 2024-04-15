@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a76380877005a119942daf7995d4a65a0" title="Reads three lines, split them to a number of fields which must be equal to FieldsNumber (for each lin..." alt="" coords="209,81,559,108"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a8afde8ccb9846c0fb14c340ae6a0afe7" title="Reads a line from the stream ReadingFile keeping track which line reads." alt="" coords="616,132,861,159"/>
+<area shape="rect" id="node9" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Function for finding the isotope when one of the element, atom number or mass is given." alt="" coords="311,183,457,209"/>
+<area shape="rect" id="node3" href="$class_interactions_dictionary.html#ad925f794ab817762d3b2bab79fc34038" title="InteractionsDictionary::Add" alt="" coords="649,31,828,57"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a8d12e89896c32976b9c28899370b3835" title="SpinachGUI::IOSpinSystem::getLineStop" alt="" coords="609,81,869,108"/>
+<area shape="rect" id="node4" href="$class_interactions_dictionary.html#a93b3d8d02d67b2e2088a20a71eb7ea8c" title="InteractionsDictionary::InteractionsDictionaryChange" alt="" coords="918,56,1242,83"/>
+<area shape="rect" id="node5" href="$class_interactions_dictionary.html#a24b42132584bb48de5522724ab231489" title="Event Handler when the interaction collection is changed." alt="" coords="1291,5,1571,32"/>
+<area shape="rect" id="node6" href="$class_interactions_dictionary.html#a3bb28cc16941d6defa9f69251f2a4e06" title="InteractionsDictionary::UpdateEigenMinMax" alt="" coords="1293,56,1568,83"/>
+<area shape="rect" id="node10" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Main function for creating static isotopes in the Isotopes collection in order." alt="" coords="663,183,815,209"/>
+</map>

@@ -1,0 +1,35 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$_filter_file_8h.html" title="FilterFile.h" alt="" coords="172,155,255,181"/>
+<area shape="rect" id="node4" href="$_model_8h.html" title="System Core/Model.h" alt="" coords="146,229,294,256"/>
+<area shape="rect" id="node5" href="$isotopes_8h.html" title="isotopes.h" alt="" coords="298,304,380,331"/>
+<area shape="rect" id="node9" href="$_shieldingto_shift_8h.html" title="ShieldingtoShift.h" alt="" coords="26,155,148,181"/>
+<area shape="rect" id="node10" href="$_easy_spin_8h.html" title="IO Formats/EasySpin.h" alt="" coords="765,80,923,107"/>
+<area shape="rect" id="node17" href="$_open_g_l_8h.html" title="3D Engine/OpenGL.h" alt="" coords="2584,155,2728,181"/>
+<area shape="rect" id="node26" href="$_gauss_8h.html" title="IO Formats/Gauss.h" alt="" coords="1697,80,1836,107"/>
+<area shape="rect" id="node27" href="$_castep_8h.html" title="IO Formats/Castep.h" alt="" coords="1861,80,2003,107"/>
+<area shape="rect" id="node28" href="$_spin_x_m_l_8h.html" title="IO Formats/SpinXML.h" alt="" coords="536,80,688,107"/>
+<area shape="rect" id="node31" href="$_spinach_8h.html" title="IO Formats/Spinach.h" alt="" coords="362,80,511,107"/>
+<area shape="rect" id="node32" href="$_simpson_8h.html" title="IO Formats/Simpson.h" alt="" coords="948,80,1100,107"/>
+<area shape="rect" id="node33" href="$_x_y_z_8h.html" title="IO Formats/XYZ.h" alt="" coords="2028,80,2154,107"/>
+<area shape="rect" id="node34" href="$_m_o_l_8h.html" title="IO Formats/MOL.h" alt="" coords="2178,80,2308,107"/>
+<area shape="rect" id="node35" href="$_orca_8h.html" title="IO Formats/Orca.h" alt="" coords="2332,80,2463,107"/>
+<area shape="rect" id="node36" href="$_a_d_f_8h.html" title="IO Formats/ADF.h" alt="" coords="2487,80,2615,107"/>
+<area shape="rect" id="node37" href="$_g_a_m_e_s_s_8h.html" title="IO Formats/GAMESS.h" alt="" coords="1125,80,1283,107"/>
+<area shape="rect" id="node38" href="$_c_o_s_m_o_s_8h.html" title="IO Formats/COSMOS.h" alt="" coords="1308,80,1468,107"/>
+<area shape="rect" id="node39" href="$_spin_evolution_8h.html" title="IO Formats/SpinEvolution.h" alt="" coords="1493,80,1672,107"/>
+<area shape="rect" id="node40" href="$_orientation_dialog_8h.html" title="OrientationDialog.h" alt="" coords="2904,80,3035,107"/>
+<area shape="rect" id="node42" href="$_ref_frame_orientation_dialog_8h.html" title="RefFrameOrientationDialog.h" alt="" coords="2640,80,2827,107"/>
+<area shape="rect" id="node43" href="$_isotopes_dialog_8h.html" title="IsotopesDialog.h" alt="" coords="280,155,398,181"/>
+<area shape="rect" id="node44" href="$_about_8h.html" title="About.h" alt="" coords="3060,80,3127,107"/>
+<area shape="rect" id="node46" href="$_balloon_tool_tip_8h.html" title="BalloonToolTip.h" alt="" coords="3151,80,3268,107"/>
+<area shape="rect" id="node6" href="$unit_8h.html" title="unit.h" alt="" coords="128,304,182,331"/>
+<area shape="rect" id="node11" href="$_i_o_spin_system_8h.html" title="IOSpinSystem.h" alt="" coords="1602,155,1719,181"/>
+<area shape="rect" id="node14" href="$orientation_8h.html" title="../System Core/orientation.h" alt="" coords="1568,229,1752,256"/>
+<area shape="rect" id="node21" href="$_meta_ball_8h.html" title="MetaBall.h" alt="" coords="2425,229,2508,256"/>
+<area shape="rect" id="node24" href="$_arc_ball_8h.html" title="ArcBall.h" alt="" coords="2708,229,2783,256"/>
+<area shape="rect" id="node22" href="$_v_e_c_t_o_r3_d_8h.html" title="VECTOR3D.h" alt="" coords="2464,304,2566,331"/>
+<area shape="rect" id="node29" href="$spinxml__schema_8h.html" title="spinxml_schema.h" alt="" coords="474,155,604,181"/>
+<area shape="rect" id="node30" href="$spinxml__schema__reference__frame_8h.html" title="spinxml_schema_reference_frame.h" alt="" coords="629,155,859,181"/>
+<area shape="rect" id="node41" href="$_orientation_export_8h.html" title="OrientationExport.h" alt="" coords="2902,155,3036,181"/>
+<area shape="rect" id="node45" href="$stdafx_8h.html" title="StdAfx.h" alt="" coords="3062,155,3134,181"/>
+</map>

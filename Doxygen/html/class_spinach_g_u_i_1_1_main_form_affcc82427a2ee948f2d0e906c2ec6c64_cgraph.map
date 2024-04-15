@@ -1,0 +1,23 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_easy_spin.html#ac124e4cea1a94f53892b7f56b26d41fc" title="Initializator of EasySpin class." alt="" coords="347,420,642,447"/>
+<area shape="rect" id="node22" href="$class_atoms_dictionary.html#a96e3d0e7d320792d02f940b1f1b99c4a" title="Getter for the number of electrons in the collection." alt="" coords="371,471,618,498"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_easy_spin.html#a1d3793aaeefb60aff11e37c2b3efa6dc" title="EventHandler for anisotropic parameters in Broadenings tab." alt="" coords="1167,471,1489,498"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_easy_spin.html#a89a91760a9ed11bbfb67e1de39d462c0" title="Write end of the file(Parameters) with the Easyspin format." alt="" coords="1575,351,1806,378"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_easy_spin.html#ab81f9beacd8c63130326752b8d64bdc5" title="Write begin of the file(Atoms and interactions) with the Easyspin format." alt="" coords="1573,402,1808,428"/>
+<area shape="rect" id="node9" href="$class_spinach_g_u_i_1_1_easy_spin.html#a2bd63859def7a3c89130b63d7fb3e273" title="EventHandler for convolutions parameters in Broadenings tab." alt="" coords="1175,66,1481,92"/>
+<area shape="rect" id="node11" href="$class_spinach_g_u_i_1_1_easy_spin.html#a6c452e3a3e2e7ca20010425434f10bf7" title="EventHandler for crystal symmetry parameter in Experiment tab." alt="" coords="1156,522,1500,548"/>
+<area shape="rect" id="node12" href="$class_spinach_g_u_i_1_1_easy_spin.html#a3ff9c552c60bc3cd824c63b2005a3641" title="EventHandler for combo boxes in Experiment tab." alt="" coords="1131,674,1525,700"/>
+<area shape="rect" id="node13" href="$class_spinach_g_u_i_1_1_easy_spin.html#a8397ee3fb850d21e87566f40948f6edd" title="EventHandler for top text boxes in Experiment tab." alt="" coords="1163,116,1493,143"/>
+<area shape="rect" id="node14" href="$class_spinach_g_u_i_1_1_easy_spin.html#a89031569a4c5e80bba2866f274ccfff7" title="EventHandler for Temperature numeric box in Experiment tab." alt="" coords="1167,572,1489,599"/>
+<area shape="rect" id="node15" href="$class_spinach_g_u_i_1_1_easy_spin.html#ae072bb9d66c0eb740c3d76cc7d51fc61" title="EventHandler for text boxes in Options tab." alt="" coords="1178,370,1478,396"/>
+<area shape="rect" id="node16" href="$class_spinach_g_u_i_1_1_easy_spin.html#a6a184a40933a0c951f9ad39be215b504" title="EventHandler for combo boxes in Options tab." alt="" coords="1138,218,1518,244"/>
+<area shape="rect" id="node17" href="$class_spinach_g_u_i_1_1_easy_spin.html#abf571874dbb5619d99f4d83736a58a88" title="EventHandler for Numerix boxes in Options tab." alt="" coords="1167,623,1489,650"/>
+<area shape="rect" id="node18" href="$class_spinach_g_u_i_1_1_easy_spin.html#a3a5204edd1f2e04f9080e3e6c5cc7164" title="EventHandler for ordering potential parameters in Dynamics tab." alt="" coords="1170,420,1486,447"/>
+<area shape="rect" id="node19" href="$class_spinach_g_u_i_1_1_easy_spin.html#a24b139f5bf72937e29f656a78faaefb9" title="EventHandler for radio button of EasySpin Function." alt="" coords="717,318,1056,344"/>
+<area shape="rect" id="node20" href="$class_spinach_g_u_i_1_1_easy_spin.html#a1bb2428d85428d99650d49c2edcfcb14" title="EventHandler for rotational radio button of Dynamics tab." alt="" coords="691,775,1083,802"/>
+<area shape="rect" id="node21" href="$class_spinach_g_u_i_1_1_easy_spin.html#a85feb76981d4f30146d87aa81d8a3cfd" title="EventHandler for diffusion parameters in Dynamics tab." alt="" coords="1163,167,1493,194"/>
+<area shape="rect" id="node6" href="$class_unit.html#ab66ea28760ab5a42774f50ed184124e1" title="Function for convertin from SI units to non SI units(this one)." alt="" coords="1907,314,1997,340"/>
+<area shape="rect" id="node7" href="$class_unit.html#abbade20370da92c8756c8a29cbe16101" title="Function for convertin from non SI units(this one) to SI units." alt="" coords="1914,187,1990,214"/>
+<area shape="rect" id="node8" href="$namespace_spinach_g_u_i.html#a3499841ad3a3710478f81b8e2b23181a" title="Function for converting tensor to the lab frame." alt="" coords="1857,402,2047,428"/>
+<area shape="rect" id="node10" href="$class_spinach_g_u_i_1_1_easy_spin.html#a4744b154d73ff0ad716a79a0b1ac2074" title="Convert units of a quantity." alt="" coords="1585,167,1796,194"/>
+</map>

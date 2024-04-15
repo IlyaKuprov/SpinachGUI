@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_open_g_l_form_1_1_c_open_g_l.html#a7fa1e17cedd7c3ec6d1d67b770b69a9d" title="Rotates the 3D model to a plane." alt="" coords="331,5,589,32"/>
+<area shape="rect" id="node3" href="$_arc_ball_8h.html#a0d9529b8d3d0fc1dd9306848bd6e019a" title="Matrix3fSetIdentity" alt="" coords="637,5,768,32"/>
+<area shape="rect" id="node4" href="$_arc_ball_8h.html#aa645b6dcbfda926c37ab42a7cc43c557" title="Matrix3fSetZero" alt="" coords="817,5,930,32"/>
+</map>

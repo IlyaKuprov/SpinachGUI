@@ -1,0 +1,31 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a76380877005a119942daf7995d4a65a0" title="Reads three lines, split them to a number of fields which must be equal to FieldsNumber (for each lin..." alt="" coords="299,598,650,625"/>
+<area shape="rect" id="node3" href="$class_castep.html#aefdcbb27364c47b7da3f6ff875bc53d6" title="Main function for reading file of old format." alt="" coords="754,142,886,169"/>
+<area shape="rect" id="node4" href="$class_castep.html#a8051e02ec7974cfbf1ae7a25cdfbfff7" title="Main function for opening and reading file." alt="" coords="989,92,1109,118"/>
+<area shape="rect" id="node5" href="$class_a_d_f.html#a98bead250bc62db69ee4b33d0a3c969a" title="Main function for reading Chemical shieldings from the file." alt="" coords="705,345,935,372"/>
+<area shape="rect" id="node6" href="$class_a_d_f.html#a51693c64e9bc2eec48fda5f67af27944" title="Main function for opening and reading file." alt="" coords="997,269,1102,296"/>
+<area shape="rect" id="node7" href="$class_orca.html#aaf49cd67e7fc833f07e13ee56197e1a4" title="Main function for reading Chemical shifts from the file." alt="" coords="716,458,924,485"/>
+<area shape="rect" id="node8" href="$class_orca.html#ad5fe757215c1d92e6b3f2884b430cebc" title="Main function for opening and reading file." alt="" coords="996,534,1103,561"/>
+<area shape="rect" id="node9" href="$class_gauss.html#abb6fdfc6fe30b908a02d551dee52ed7a" title="Main function for reading Chemical shieldings from the file." alt="" coords="735,750,905,777"/>
+<area shape="rect" id="node10" href="$class_gauss.html#a5c09c8b244a0a2b2f3f0e165ef77fc91" title="Main function for opening and reading file." alt="" coords="991,978,1108,1005"/>
+<area shape="rect" id="node11" href="$class_orca.html#a4dfd9e7283d1bbb572cc4203d18e5d52" title="Main function for reading g&#45;tensor couplins from the file." alt="" coords="743,509,897,536"/>
+<area shape="rect" id="node12" href="$class_gauss.html#ac0da12c4d6300fc6d2ece76efc78bb6d" title="Main function for reading G&#45;tesnor from the file." alt="" coords="739,801,901,828"/>
+<area shape="rect" id="node13" href="$class_orca.html#a6b7ea495fb000f288366e77acb69091c" title="Main function for reading Hyperfine couplings and quadropolar couplings from the file." alt="" coords="699,560,941,586"/>
+<area shape="rect" id="node14" href="$class_gauss.html#ac86ddd5a0b87e15d6d80acba29b302e7" title="Main function for reading Quadrupolar interactions from the file." alt="" coords="714,852,926,878"/>
+<area shape="rect" id="node15" href="$class_orca.html#afcc21f1d57c2de2b8db5cd15632e5e6a" title="Main function for reading zero&#45;field couplings from the file." alt="" coords="736,610,904,637"/>
+<area shape="rect" id="node16" href="$class_spinach_g_u_i_1_1_x_y_z.html#a8150ab976a6b47f17227f14a6af5f66d" title="SpinachGUI::XYZ::LoadFile" alt="" coords="385,1257,564,1284"/>
+<area shape="rect" id="node17" href="$class_m_o_l.html#a83e2bbd458e0baf7ee8e93653d177f2a" title="Main function for opening and reading file." alt="" coords="421,1308,528,1334"/>
+<area shape="rect" id="node18" href="$class_g_a_m_e_s_s.html#a20be8b628417e560114fcadba7af7006" title="Main function for opening and reading file." alt="" coords="752,1384,888,1410"/>
+<area shape="rect" id="node19" href="$class_c_o_s_m_o_s.html#a589d6b8e7cc002de06dda0aa65930efe" title="COSMOS::LoadFile" alt="" coords="406,1460,543,1486"/>
+<area shape="rect" id="node20" href="$class_castep.html#ab484058563e2655a6bfeca9efb906f62" title="Main function for reading file of new format." alt="" coords="751,92,889,118"/>
+<area shape="rect" id="node21" href="$class_gauss.html#a261475e940fc2879d05409c2104a3db2" title="Main function for reading Anisotropic eigenvalues and DCMs and save them as spin rotation couplings i..." alt="" coords="372,1206,577,1233"/>
+<area shape="rect" id="node22" href="$class_orca.html#ae9cda2066401f8c0507eb201cdf74667" title="Main function for reading coordinates from the file." alt="" coords="389,700,560,726"/>
+<area shape="rect" id="node23" href="$class_g_a_m_e_s_s.html#a3f5f1d111931befe824c51ece08d3df3" title="Main function for reading coordinates from the file." alt="" coords="375,1358,575,1385"/>
+<area shape="rect" id="node24" href="$class_a_d_f.html#a07d2bd8da59843ce5ab53024e7b746b0" title="Main function for reading coordinates from the file." alt="" coords="735,294,905,321"/>
+<area shape="rect" id="node25" href="$class_gauss.html#a43fd8214ef8b74422fd8a9fc385c1ef2" title="Main function for reading coordinates and add atoms in the collection." alt="" coords="378,902,571,929"/>
+<area shape="rect" id="node26" href="$class_gauss.html#a679d98a7e3eae4e1f93034bdd91c790b" title="Function for reading isotropic factors for each atom to used for hyperfine couplings later..." alt="" coords="376,953,573,980"/>
+<area shape="rect" id="node27" href="$class_gauss.html#afbda91eff39b3474f2663af2b767ce8a" title="Main function for opening isotope section and save the elements and mass numbers if exist..." alt="" coords="388,1004,561,1030"/>
+<area shape="rect" id="node28" href="$class_gauss.html#aed0fce131672ec670acd20d89b21f7d5" title="Alternative function for opening isotope section and save the elements and mass numbers if exist..." alt="" coords="388,1054,561,1081"/>
+<area shape="rect" id="node29" href="$class_a_d_f.html#a220323c0b3e0a568673dd5dca94cd68c" title="Main function for reading J&#45;Couplings from the file." alt="" coords="732,193,908,220"/>
+<area shape="rect" id="node30" href="$class_gauss.html#a51254d8385541e17552e4b180c682a1d" title="Main function for reading J&#45;Couplings from the file." alt="" coords="384,1105,565,1132"/>
+</map>

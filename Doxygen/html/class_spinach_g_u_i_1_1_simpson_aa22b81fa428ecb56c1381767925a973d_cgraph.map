@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_simpson.html#a2bd6730e87382638a740de218bbb30d7" title="SpinachGUI::Simpson::Cancelbutton_Click" alt="" coords="326,5,597,32"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_simpson.html#ac721b16187c4e83d2edbb7a3dd8587e2" title="EventHandler for opening the save dialoguebox and writing the stream to file." alt="" coords="327,56,595,83"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_simpson.html#a41e6361e250b4b25cc271d04ab0d2bca" title="SpinachGUI::Simpson::WriteFile" alt="" coords="645,56,856,83"/>
+</map>

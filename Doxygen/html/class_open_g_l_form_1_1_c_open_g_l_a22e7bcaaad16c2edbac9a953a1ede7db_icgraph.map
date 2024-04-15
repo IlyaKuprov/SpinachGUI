@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_main_form.html#a5d00e3d63458ffadbcc21c52aa6b7f64" title="SpinachGUI::MainForm::dataGridView1_CellEndEdit" alt="" coords="711,5,1035,32"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_main_form.html#ab42879460d808810ce4d58dbc8dbe2d9" title="SpinachGUI::MainForm::LoadModel" alt="" coords="351,56,579,83"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_main_form.html#a48d42e90210aec3b233361e271916f20" title="SpinachGUI::MainForm::UpdateCoordinates" alt="" coords="328,107,603,133"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_main_form.html#a68baf8b2f57ea2eff71b619cb0ae0e6d" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1145,31,1423,57"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_main_form.html#a7e7d7acb3bd3965aea44a4fb2c29c4dc" title="SpinachGUI::MainForm::ImportbackgroundWorker_RunWorkerCompleted" alt="" coords="651,56,1095,83"/>
+</map>

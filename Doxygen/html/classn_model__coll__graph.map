@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classspin__system.html" title="Represents a strongly typed in&#45;memory cache of data. /summary&gt;" alt="" coords="464,325,560,352"/>
+<area shape="rect" id="node3" href="$classspin__system_1_1span__skew_data_table.html" title="spin_system::span_skewDataTable" alt="" coords="28,21,255,48"/>
+<area shape="rect" id="node4" href="$classspin__system_1_1angle__axis_data_table.html" title="spin_system::angle_axisDataTable" alt="" coords="29,72,253,99"/>
+<area shape="rect" id="node5" href="$classspin__system_1_1tensor_data_table.html" title="spin_system::tensorDataTable" alt="" coords="42,123,241,149"/>
+<area shape="rect" id="node6" href="$classspin__system_1_1eigenvalues_data_table.html" title="spin_system::eigenvaluesDataTable" alt="" coords="27,173,256,200"/>
+<area shape="rect" id="node7" href="$classspin__system_1_1spin_data_table.html" title="spin_system::spinDataTable" alt="" coords="48,224,235,251"/>
+<area shape="rect" id="node8" href="$classspin__system_1_1axiality__rhombicity_data_table.html" title="spin_system::axiality_rhombicityDataTable" alt="" coords="6,275,277,301"/>
+<area shape="rect" id="node9" href="$classspin__system_1_1coordinates_data_table.html" title="spin_system::coordinatesDataTable" alt="" coords="27,325,256,352"/>
+<area shape="rect" id="node10" href="$classspin__system_1_1axis_data_table.html" title="spin_system::axisDataTable" alt="" coords="48,376,235,403"/>
+<area shape="rect" id="node11" href="$classspin__system_1_1dcm_data_table.html" title="spin_system::dcmDataTable" alt="" coords="48,427,235,453"/>
+<area shape="rect" id="node12" href="$classspin__system_1_1orientation_data_table.html" title="spin_system::orientationDataTable" alt="" coords="30,477,253,504"/>
+<area shape="rect" id="node13" href="$classspin__system_1_1interaction_data_table.html" title="spin_system::interactionDataTable" alt="" coords="30,528,253,555"/>
+<area shape="rect" id="node14" href="$classspin__system_1_1quaternion_data_table.html" title="spin_system::quaternionDataTable" alt="" coords="30,579,253,605"/>
+<area shape="rect" id="node15" href="$classspin__system_1_1euler__angles_data_table.html" title="spin_system::euler_anglesDataTable" alt="" coords="24,629,259,656"/>
+</map>

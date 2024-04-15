@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_interactions_dictionary.html#ad925f794ab817762d3b2bab79fc34038" title="InteractionsDictionary::Add" alt="" coords="276,31,455,57"/>
+<area shape="rect" id="node6" href="$class_interactions_dictionary.html#aab9a62a43eabd6e0edef2599e65ebf82" title="InteractionsDictionary::Clear" alt="" coords="273,81,458,108"/>
+<area shape="rect" id="node7" href="$class_atoms_dictionary.html#a61eb2f90b7d4578a03b8108f4139a668" title="Event Handler when the atom collection is changed." alt="" coords="240,132,491,159"/>
+<area shape="rect" id="node3" href="$class_interactions_dictionary.html#a93b3d8d02d67b2e2088a20a71eb7ea8c" title="InteractionsDictionary::InteractionsDictionaryChange" alt="" coords="539,56,863,83"/>
+<area shape="rect" id="node4" href="$class_interactions_dictionary.html#a24b42132584bb48de5522724ab231489" title="Event Handler when the interaction collection is changed." alt="" coords="912,5,1192,32"/>
+<area shape="rect" id="node5" href="$class_interactions_dictionary.html#a3bb28cc16941d6defa9f69251f2a4e06" title="InteractionsDictionary::UpdateEigenMinMax" alt="" coords="915,56,1189,83"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_isotopes.html#a5d8772910912cbc6667f066a2a8ef531" title="Isotopes::FindIsotope" alt="" coords="467,35,613,61"/>
+<area shape="rect" id="node4" href="$class_orca.html#ae9cda2066401f8c0507eb201cdf74667" title="Orca::read_CARTCOORD" alt="" coords="212,35,383,61"/>
+<area shape="rect" id="node5" href="$class_orca.html#aaf49cd67e7fc833f07e13ee56197e1a4" title="Orca::read_CHEMICAL_SHIFTS" alt="" coords="193,85,401,112"/>
+<area shape="rect" id="node6" href="$class_orca.html#a4dfd9e7283d1bbb572cc4203d18e5d52" title="Orca::read_GTENSOR" alt="" coords="221,136,374,163"/>
+<area shape="rect" id="node7" href="$class_orca.html#a6b7ea495fb000f288366e77acb69091c" title="Orca::read_HFC_QUAD_COUPLINGS" alt="" coords="176,187,419,213"/>
+<area shape="rect" id="node3" href="$class_isotopes.html#af3235d81a3d9a1798586fa61695cca1a" title="Isotopes::Init_Isotopes" alt="" coords="661,35,813,61"/>
+</map>

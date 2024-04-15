@@ -1,0 +1,16 @@
+In order to make changes in the SpinXML:
+
+1. Rename the older spinxml_schema.h & spinxml_schema_reference_frame.h 
+   in order to use them later;
+
+2. Change the XSD files using Liquid XML or something like that;
+
+3. Import it in visual studio in order to autogenerate the .h code;
+
+4. After that, delete the .xsd files from the project inside the visual studio, 
+   so only the .h files to exist. This in order to avoid continuous auto-generation
+   of the code.
+
+5. Open the older version files and make diff(using WinMerge) with the new files 
+   to see the differences. The differences that are not created by the changes you
+   made you must copy them to the new files.

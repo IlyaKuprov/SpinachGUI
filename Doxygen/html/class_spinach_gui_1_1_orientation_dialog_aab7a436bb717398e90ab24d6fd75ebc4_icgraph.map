@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_orientation_dialog.html#acc7bb72f2ff6d7d352a7a2f1dda8a226" title="SpinachGui::OrientationDialog::InteractionMatrix_KeyPress" alt="" coords="354,5,718,32"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_orientation_dialog.html#a7e593ccbdd92c2ef5b80bef3e6f2aaf6" title="SpinachGui::OrientationDialog::textBoxIso_KeyPress" alt="" coords="371,56,701,83"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_orientation_dialog.html#a2d351af29d63b6afb99e3eea5285f107" title="SpinachGui::OrientationDialog::textBoxSpherical_KeyPress" alt="" coords="353,107,719,133"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_orientation_dialog.html#a55af5933d883876c28c399a42ba7f0f5" title="SpinachGui::OrientationDialog::UpdateAll" alt="" coords="406,157,666,184"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_orientation_dialog.html#ac1685c01d182095aa989e026b5ff9454" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="768,56,1085,83"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_orientation_dialog.html#ad8e628a0a0a45b7f8572abb2276688e7" title="SpinachGui::OrientationDialog::Initialization" alt="" coords="791,157,1063,184"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_main_form.html#a599b735854d6b771462477839506e100" title="SpinachGui::MainForm::dataGridView2_CellClick" alt="" coords="1162,132,1467,159"/>
+<area shape="rect" id="node10" href="$class_spinach_gui_1_1_main_form.html#a74c10adc13937fb576b1baa578bc171c" title="SpinachGui::MainForm::OpenGLcontextMenu_ItemClicked" alt="" coords="1134,183,1495,209"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_main_form.html#ac8630147be4dca465267790613371370" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1545,157,1821,184"/>
+</map>

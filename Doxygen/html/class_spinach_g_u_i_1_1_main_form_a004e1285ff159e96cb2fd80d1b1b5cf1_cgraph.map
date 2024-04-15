@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_reference_frames_dictionary.html#a58496087004766c6f8bef676f16484a5" title="ReferenceFramesDictionary::Add" alt="" coords="347,5,560,32"/>
+<area shape="rect" id="node5" href="$class_reference_frame.html#a028b1d551d461d23d16f683df8199b80" title="Getter for the reference frame ID." alt="" coords="376,56,531,83"/>
+<area shape="rect" id="node3" href="$class_reference_frames_dictionary.html#a1a83bd92318994a8a9f712bf5f8b95f5" title="Event Handler when the reference frame collection is changed." alt="" coords="1051,5,1365,32"/>
+<area shape="rect" id="node4" href="$class_reference_frames_dictionary.html#a4a6e478a7297c733ca661fcebc82dc80" title="ReferenceFramesDictionary::ReferenceFramesDictionaryChange" alt="" coords="608,31,1003,57"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a570e14c933c15f89c3b2abb94c22e1fd" title="EventHandler for text inside interaction tensor matrix." alt="" coords="755,5,1122,32"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a510af6b9b91695dbc7eb2b2d8d36ac6a" title="EventHandler for text inside angle axis, angle box." alt="" coords="765,56,1113,83"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a2a295a94b855a2cbf9db647f3ed338dd" title="EventHandler for text inside Eigen values boxes." alt="" coords="765,107,1113,133"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a472099b43addca599925c2dc8076089d" title="EventHandler for text inside Euler angles boxes." alt="" coords="350,157,693,184"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#adb9070f5afa9cbb7612817c799d6f4a4" title="EventHandler for text insideisotropic conventions, isotropic box." alt="" coords="355,208,687,235"/>
+<area shape="rect" id="node8" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#a286934538579b1c243b30faf0ba484fe" title="EventHandler for text inside Spherical tensor boxes." alt="" coords="337,259,706,285"/>
+<area shape="rect" id="node3" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#ab3689644798829f881e9fdd491b9f70f" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1171,157,1490,184"/>
+<area shape="rect" id="node9" href="$class_spinach_g_u_i_1_1_orientation_dialog.html#aaa3fbaea78d82b80729dead6b7a20fad" title="EventHandler for button for removing anisotropic part from the spherical tensor coeefficients." alt="" coords="763,309,1114,336"/>
+</map>

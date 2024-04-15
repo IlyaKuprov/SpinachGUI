@@ -1,0 +1,32 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_interactions_dictionary.html#ad925f794ab817762d3b2bab79fc34038" title="InteractionsDictionary::Add" alt="" coords="379,233,557,260"/>
+<area shape="rect" id="node3" href="$class_atoms_dictionary.html#a5fc80506216705ab642e1ea842a16d8c" title="AtomsDictionary::Add" alt="" coords="1016,157,1165,184"/>
+<area shape="rect" id="node15" href="$class_model.html#ad965db336d4a3c054d68ed8b009445ff" title="Model::Model" alt="" coords="1443,208,1543,235"/>
+<area shape="rect" id="node16" href="$class_atoms_dictionary.html#afa9b83f58aaeb80a81396d71f92565fa" title="AtomsDictionary::AtomsDictionaryChange" alt="" coords="605,157,872,184"/>
+<area shape="rect" id="node17" href="$class_spinach_g_u_i_1_1_main_form.html#a4f55a4cb7dbbafaa1cddebcd6071174f" title="SpinachGUI::MainForm::dataGridView2_CellEndEdit" alt="" coords="929,259,1253,285"/>
+<area shape="rect" id="node18" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a76380877005a119942daf7995d4a65a0" title="Reads three lines, split them to a number of fields which must be equal to FieldsNumber (for each lin..." alt="" coords="1318,487,1669,513"/>
+<area shape="rect" id="node30" href="$class_atoms_dictionary.html#af08725f59d4aa7bf662d247d98cbdd8d" title="AtomsDictionary::RemoveAt" alt="" coords="646,360,831,387"/>
+<area shape="rect" id="node4" href="$class_spinach_g_u_i_1_1_main_form.html#a5d00e3d63458ffadbcc21c52aa6b7f64" title="SpinachGUI::MainForm::dataGridView1_CellEndEdit" alt="" coords="1331,157,1655,184"/>
+<area shape="rect" id="node6" href="$class_spinach_g_u_i_1_1_i_o_spin_system.html#a4e0e83118217d13824c6fee42337f697" title="Reads a line, split them to a number of fields which must be equal to FieldsNumber and extracts the i..." alt="" coords="1310,107,1677,133"/>
+<area shape="rect" id="node5" href="$class_spinach_g_u_i_1_1_main_form.html#a68baf8b2f57ea2eff71b619cb0ae0e6d" title="Required method for Designer support &#45; do not modify the contents of this method with the code editor..." alt="" coords="1726,259,2005,285"/>
+<area shape="rect" id="node7" href="$class_spinach_g_u_i_1_1_x_y_z.html#a8150ab976a6b47f17227f14a6af5f66d" title="SpinachGUI::XYZ::LoadFile" alt="" coords="1776,5,1955,32"/>
+<area shape="rect" id="node8" href="$class_m_o_l.html#a83e2bbd458e0baf7ee8e93653d177f2a" title="Main function for opening and reading file." alt="" coords="1812,56,1919,83"/>
+<area shape="rect" id="node9" href="$class_orca.html#ae9cda2066401f8c0507eb201cdf74667" title="Main function for reading coordinates from the file." alt="" coords="1780,208,1951,235"/>
+<area shape="rect" id="node11" href="$class_g_a_m_e_s_s.html#a3f5f1d111931befe824c51ece08d3df3" title="Main function for reading coordinates from the file." alt="" coords="1765,107,1965,133"/>
+<area shape="rect" id="node13" href="$class_a_d_f.html#a07d2bd8da59843ce5ab53024e7b746b0" title="Main function for reading coordinates from the file." alt="" coords="1781,157,1950,184"/>
+<area shape="rect" id="node10" href="$class_orca.html#ad5fe757215c1d92e6b3f2884b430cebc" title="Main function for opening and reading file." alt="" coords="2068,411,2175,437"/>
+<area shape="rect" id="node12" href="$class_g_a_m_e_s_s.html#a20be8b628417e560114fcadba7af7006" title="Main function for opening and reading file." alt="" coords="2053,107,2189,133"/>
+<area shape="rect" id="node14" href="$class_a_d_f.html#a51693c64e9bc2eec48fda5f67af27944" title="Main function for opening and reading file." alt="" coords="2069,233,2174,260"/>
+<area shape="rect" id="node19" href="$class_castep.html#aefdcbb27364c47b7da3f6ff875bc53d6" title="Main function for reading file of old format." alt="" coords="1799,563,1931,589"/>
+<area shape="rect" id="node21" href="$class_a_d_f.html#a98bead250bc62db69ee4b33d0a3c969a" title="Main function for reading Chemical shieldings from the file." alt="" coords="1751,309,1980,336"/>
+<area shape="rect" id="node22" href="$class_orca.html#aaf49cd67e7fc833f07e13ee56197e1a4" title="Main function for reading Chemical shifts from the file." alt="" coords="1761,360,1969,387"/>
+<area shape="rect" id="node23" href="$class_gauss.html#abb6fdfc6fe30b908a02d551dee52ed7a" title="Main function for reading Chemical shieldings from the file." alt="" coords="1780,613,1951,640"/>
+<area shape="rect" id="node25" href="$class_orca.html#a4dfd9e7283d1bbb572cc4203d18e5d52" title="Main function for reading g&#45;tensor couplins from the file." alt="" coords="1789,411,1942,437"/>
+<area shape="rect" id="node26" href="$class_gauss.html#ac0da12c4d6300fc6d2ece76efc78bb6d" title="Main function for reading G&#45;tesnor from the file." alt="" coords="1784,664,1947,691"/>
+<area shape="rect" id="node27" href="$class_orca.html#a6b7ea495fb000f288366e77acb69091c" title="Main function for reading Hyperfine couplings and quadropolar couplings from the file." alt="" coords="1744,461,1987,488"/>
+<area shape="rect" id="node28" href="$class_gauss.html#ac86ddd5a0b87e15d6d80acba29b302e7" title="Main function for reading Quadrupolar interactions from the file." alt="" coords="1759,715,1971,741"/>
+<area shape="rect" id="node29" href="$class_orca.html#afcc21f1d57c2de2b8db5cd15632e5e6a" title="Main function for reading zero&#45;field couplings from the file." alt="" coords="1781,512,1949,539"/>
+<area shape="rect" id="node20" href="$class_castep.html#a8051e02ec7974cfbf1ae7a25cdfbfff7" title="Main function for opening and reading file." alt="" coords="2061,563,2181,589"/>
+<area shape="rect" id="node24" href="$class_gauss.html#a5c09c8b244a0a2b2f3f0e165ef77fc91" title="Main function for opening and reading file." alt="" coords="2063,664,2180,691"/>
+<area shape="rect" id="node31" href="$class_spinach_g_u_i_1_1_main_form.html#af18b6d818d161ca377f32b3c6fa7f514" title="SpinachGUI::MainForm::dataGridView1_RowsRemoved" alt="" coords="920,360,1261,387"/>
+</map>

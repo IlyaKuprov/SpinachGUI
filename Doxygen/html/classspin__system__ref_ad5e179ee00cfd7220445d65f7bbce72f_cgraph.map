@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classspin__system__ref_1_1dcm_data_table.html#aa415b23fb26e4cb212d11b0340f94818" title="spin_system_ref::dcmDataTable::InitVars" alt="" coords="258,5,518,32"/>
+<area shape="rect" id="node3" href="$classspin__system__ref_1_1quaternion_data_table.html#a574181c2c441940679e0048e86d479a4" title="spin_system_ref::quaternionDataTable::InitVars" alt="" coords="241,56,535,83"/>
+<area shape="rect" id="node4" href="$classspin__system__ref_1_1axis_data_table.html#a9db12261d06f71a7df9e994de381be73" title="spin_system_ref::axisDataTable::InitVars" alt="" coords="259,107,517,133"/>
+<area shape="rect" id="node5" href="$classspin__system__ref_1_1angle__axis_data_table.html#ac1cf968c71d7eb94a9da47b2a87a0993" title="spin_system_ref::angle_axisDataTable::InitVars" alt="" coords="239,157,537,184"/>
+<area shape="rect" id="node6" href="$classspin__system__ref_1_1euler__angles_data_table.html#ab5f57c4b0d321ce460793b8bdeeeff40" title="spin_system_ref::euler_anglesDataTable::InitVars" alt="" coords="234,208,542,235"/>
+<area shape="rect" id="node7" href="$classspin__system__ref_1_1direction_data_table.html#adfd42652554706e3b61b4a248320c917" title="spin_system_ref::directionDataTable::InitVars" alt="" coords="246,259,530,285"/>
+<area shape="rect" id="node8" href="$classspin__system__ref_1_1reference__frame_data_table.html#a57a47644b4b66f371eaa70701dd25764" title="spin_system_ref::reference_frameDataTable::InitVars" alt="" coords="225,309,551,336"/>
+</map>

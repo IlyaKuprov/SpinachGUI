@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$_main_form_8h.html" title="Z:/SpinachGUI/GUI/MainForm.h" alt="" coords="376,80,581,107"/>
+<area shape="rect" id="node6" href="$_orientation_export_8h.html" title="Z:/SpinachGUI/GUI/OrientationExport.h" alt="" coords="739,80,987,107"/>
+<area shape="rect" id="node8" href="$_orientation_dialog_8cpp.html" title="Z:/SpinachGUI/GUI/OrientationDialog.cpp" alt="" coords="1011,80,1271,107"/>
+<area shape="rect" id="node3" href="$_open_g_l_8cpp.html" title="Z:/SpinachGUI/GUI/3D Engine/OpenGL.cpp" alt="" coords="5,155,277,181"/>
+<area shape="rect" id="node4" href="$_main_form_8cpp.html" title="Z:/SpinachGUI/GUI/MainForm.cpp" alt="" coords="303,155,521,181"/>
+<area shape="rect" id="node5" href="$_spinach_gui_8cpp.html" title="Z:/SpinachGUI/GUI/SpinachGui.cpp" alt="" coords="546,155,773,181"/>
+<area shape="rect" id="node7" href="$_orientation_export_8cpp.html" title="Z:/SpinachGUI/GUI/OrientationExport.cpp" alt="" coords="798,155,1060,181"/>
+</map>

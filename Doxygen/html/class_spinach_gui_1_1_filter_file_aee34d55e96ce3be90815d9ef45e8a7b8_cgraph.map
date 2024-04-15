@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_spinach_gui_1_1_filter_file.html#a3a3f98b58c876791fe2a6e902765ec13" title="SpinachGui::FilterFile::HFCpanel_Paint" alt="" coords="369,5,618,32"/>
+<area shape="rect" id="node3" href="$class_spinach_gui_1_1_filter_file.html#a83b9b328e2cecf984d552e5c7f987237" title="SpinachGui::FilterFile::JCpanel_Paint" alt="" coords="374,56,613,83"/>
+<area shape="rect" id="node4" href="$class_spinach_gui_1_1_filter_file.html#a9fa3d296a4fe3bd94afb9a3e36343257" title="SpinachGui::FilterFile::numericUpDown_KeyPress" alt="" coords="337,107,650,133"/>
+<area shape="rect" id="node5" href="$class_spinach_gui_1_1_filter_file.html#af87530975f7ecbbbc6cd59e670f1c4e5" title="SpinachGui::FilterFile::numericUpDown_Leave" alt="" coords="349,157,638,184"/>
+<area shape="rect" id="node6" href="$class_spinach_gui_1_1_filter_file.html#ae6ad43bcf29aa53c7fa34e402332761f" title="SpinachGui::FilterFile::numericUpDown_ValueChanged" alt="" coords="323,208,663,235"/>
+<area shape="rect" id="node7" href="$class_spinach_gui_1_1_filter_file.html#a1739bf64a951c24538b5b06c2a1f6814" title="SpinachGui::FilterFile::OKbutton_Click" alt="" coords="370,259,617,285"/>
+<area shape="rect" id="node8" href="$class_spinach_gui_1_1_filter_file.html#aab48505858727cf518aecfc37eaa4d49" title="SpinachGui::FilterFile::QCpanel_Paint" alt="" coords="372,309,615,336"/>
+<area shape="rect" id="node9" href="$class_spinach_gui_1_1_filter_file.html#a32b4dfe443d5a78157da2ce882c6a48a" title="SpinachGui::FilterFile::RemoveAtomsCheckBox_Click" alt="" coords="326,360,661,387"/>
+</map>
