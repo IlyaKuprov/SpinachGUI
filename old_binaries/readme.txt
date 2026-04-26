@@ -1,0 +1,1 @@
+Please install the enclosed VC redistributable before running the GUI.
