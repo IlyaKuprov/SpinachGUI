@@ -23,7 +23,7 @@
 #include "IsotopesDialog.h"
 #include "About.h"
 #include "BalloonToolTip.h"
-#using "gTrackBar.netmodule"
+// gTrackBar is now referenced as a normal managed project/assembly.
 
 namespace SpinachGUI {
 

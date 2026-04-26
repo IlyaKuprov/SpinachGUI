@@ -31,16 +31,10 @@ using namespace SpinachGUI;
  * 
  *
  * \section inst Installation 
- * You need at least MS Visual Studio 2012 for loading the project and solution files.
+ * Open the solution in a recent Visual Studio release with C++/CLI and .NET Framework support.
  *
- * Everything is setup there. %Unit testing framework(called TestSpinachGUI) is setup
- * for the debug configuration only.
- *
- * Due to some difficulties with MS visual studio 2012, 
- * during the compilation of the debug configuration, a second
- * compilation runs in order to produce a .dll file in order to used with the unit testing.
- *
- * In order to used the updated .dll file, rebuild the TestSpinachGUI nad then run the tests.
+ * The application targets .NET Framework 4.8.1 and builds the companion gTrackBar control
+ * as a normal managed project dependency.
  *
  * \section start Guide for developers
  * The entry point function of SpinachGUI is the \ref main() "main" function and consequently the 
