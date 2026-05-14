@@ -37,3 +37,5 @@ Second MATLAB slice tightens system-core parity: legacy interaction-kind names/o
 Third MATLAB slice ports the legacy MOL V2000 importer, including its deliberate behaviour of importing atom coordinates/elements while ignoring explicit MOL bond records and rebuilding SpinachGUI display bonds automatically.
 
 Fourth MATLAB slice ports Gaussian/GaussView and ORCA coordinate import. It dispatches `.log`/`.out` files by content markers, handles Gaussian Z-matrix isotope symbols, parses Gaussian `Input orientation`/`Standard orientation`, parses ORCA `CARTESIAN COORDINATES (A.U.)`, applies Bohr-to-Å conversion for ORCA, preserves last-frame-wins geometry, and rebuilds automatic display bonds.
+
+Fifth MATLAB slice ports Gaussian direct tensor import: chemical shielding, electron g tensors, magnetic susceptibility pseudo-atom tensors, and quadrupolar tensors with isotope upgrade and zero-tensor skipping. Gaussian J-couplings and hyperfine couplings remain pending.

@@ -20,7 +20,8 @@ This file is the parity ledger for the one-for-one MATLAB rewrite. It is intenti
 | MOL import | `GUI/IO Formats/MOL.*` | Slice 3: V2000 atom block parser with legacy behaviour of ignoring explicit bond records and rebuilding display bonds | `SPINACHGUI_SLICE3_MOL_OK` |
 | Gaussian/GaussView coordinate import | `GUI/IO Formats/Gauss.*`, `IOSpinSystem.*` | Slice 4: `.log`/`.out` content dispatch, isotope-symbol scan, `Input orientation`/`Standard orientation` parser, last-frame-wins coordinates, automatic display-bond rebuild | `SPINACHGUI_SLICE4_COORD_IMPORT_OK` |
 | ORCA coordinate import | `GUI/IO Formats/Orca.*`, `IOSpinSystem.*` | Slice 4: `.log`/`.out` content dispatch, `CARTESIAN COORDINATES (A.U.)` parser, Bohr-to-Å conversion, last-frame-wins coordinates, automatic display-bond rebuild | `SPINACHGUI_SLICE4_COORD_IMPORT_OK` |
-| Import formats ADF/Castep/COSMOS/GAMESS/Gaussian tensors/ORCA tensors | `GUI/IO Formats/*` | Not yet ported | pending |
+| Gaussian direct tensor import | `GUI/IO Formats/Gauss.*`, `IOSpinSystem.*` | Slice 5: chemical shielding (`CShielding`/ppm), g tensor (`GTensor`/Bohr magneton with electron pseudoatom), magnetic susceptibility (`CHITensor`/Bohr magneton with `chi` pseudoatom), and quadrupolar tensors (`Quadrupolar`/MHz with isotope upgrade and zero-tensor skip) | `GAUSSIAN_DIRECT_TENSORS_VALIDATION_OK` |
+| Import formats ADF/Castep/COSMOS/GAMESS/Gaussian J/HFC/ORCA tensors | `GUI/IO Formats/*` | Not yet ported | pending |
 | Export formats EasySpin/SIMPSON/SpinEvolution | `GUI/IO Formats/*` | Not yet ported | pending |
 | Filtering dialog | `FilterFile.*` | Not yet ported | pending |
 | Shielding-to-shift conversion | `ShieldingtoShift.*` | Not yet ported | pending |
