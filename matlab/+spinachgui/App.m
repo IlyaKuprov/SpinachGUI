@@ -207,7 +207,7 @@ classdef App < handle
         end
 
         function openDialog(app)
-            [file, path] = uigetfile({'*.sxml;*.xml;*.xyz;*.mol', 'Supported files (*.sxml, *.xml, *.xyz, *.mol)'; '*.*', 'All files'}, 'Open or import spin system');
+            [file, path] = uigetfile({'*.sxml;*.xml;*.xyz;*.mol;*.log;*.out', 'Supported files (*.sxml, *.xml, *.xyz, *.mol, *.log, *.out)'; '*.*', 'All files'}, 'Open or import spin system');
             if isequal(file, 0), return, end
             app.openFile(fullfile(path, file));
         end

@@ -35,3 +35,5 @@ First MATLAB slice creates the package scaffold and ports core state, isotope da
 Second MATLAB slice tightens system-core parity: legacy interaction-kind names/order, unit conversion factors, Z-Y-Z Euler/DCM orientation convention, tensor symmetrisation, lab-frame default, positive scientific interactions versus negative auto-bond display interactions, interaction statistics, and reference-frame-to-root DCM composition.
 
 Third MATLAB slice ports the legacy MOL V2000 importer, including its deliberate behaviour of importing atom coordinates/elements while ignoring explicit MOL bond records and rebuilding SpinachGUI display bonds automatically.
+
+Fourth MATLAB slice ports Gaussian/GaussView and ORCA coordinate import. It dispatches `.log`/`.out` files by content markers, handles Gaussian Z-matrix isotope symbols, parses Gaussian `Input orientation`/`Standard orientation`, parses ORCA `CARTESIAN COORDINATES (A.U.)`, applies Bohr-to-Å conversion for ORCA, preserves last-frame-wins geometry, and rebuilds automatic display bonds.
