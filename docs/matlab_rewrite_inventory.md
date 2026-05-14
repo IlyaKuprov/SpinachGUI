@@ -47,3 +47,5 @@ Seventh MATLAB slice tightens the Spinach MATLAB exporter toward one-for-one leg
 Eighth MATLAB slice ports Gaussian hyperfine coupling import: isotropic Fermi-contact Gauss values, anisotropic spin-dipole principal-axis tensors, electron/default g-tensor creation, and `HFC`/Gauss matrices formed as anisotropic tensor plus isotropic part.
 
 Ninth MATLAB slice ports ORCA tensor import: g tensor, zero-field splitting, chemical shifts as `Shift`/MHz, HFC section parsing with raw HFC matrices stored as `HFC`/Gauss, default electron/default g-tensor creation, quadrupolar EFG-to-MHz conversion with isotope upgrade, and expanded `.log`/`.out` content dispatch markers.
+
+Tenth MATLAB slice adds a pure EasySpin exporter: legacy-style one-electron output with default experiment/options/broadening/dynamics blocks for `garlic`, `chili`, and `pepper`, HFC through `nucspinadd`, one `Sys.g`, one unit-converted `Sys.D`, legacy-ignored interactions skipped, and explicit errors for unsupported or ambiguous cases such as quadrupolar output, multiple g/ZFS tensors, missing electron, chi pseudo-atoms, and non-contiguous atom IDs.

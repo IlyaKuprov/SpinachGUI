@@ -25,7 +25,8 @@ This file is the parity ledger for the one-for-one MATLAB rewrite. It is intenti
 | Gaussian HFC import | `GUI/IO Formats/Gauss.*`, `IOSpinSystem.*` | Slice 8: isotropic Fermi-contact Gauss column plus anisotropic spin-dipole PAS tensors combined into `HFC`/Gauss matrices coupled to an electron/default g tensor; anisotropic-only fallback as `spinrotation` | `GAUSSIAN_HFC_PARENT_VALIDATION_OK` |
 | ORCA tensor import | `GUI/IO Formats/Orca.*`, `IOSpinSystem.*` | Slice 9: g tensor, ZFS, chemical shifts as `Shift`/MHz, HFC section with raw matrices stored as `HFC`/Gauss, default electron/g tensor when needed, quadrupolar EFG-to-MHz conversion with isotope upgrade, and expanded `.log`/`.out` dispatch markers | `ORCA_TENSOR_PARENT_VALIDATION_OK` |
 | Import formats ADF/Castep/COSMOS/GAMESS | `GUI/IO Formats/*` | Not yet ported | pending |
-| Export formats EasySpin/SIMPSON/SpinEvolution | `GUI/IO Formats/*` | Not yet ported | pending |
+| EasySpin export | `GUI/IO Formats/EasySpin.*` | Slice 10: pure `writeEasySpin` writer for legacy one-electron EasySpin output, default garlic/chili/pepper option blocks, HFC via `nucspinadd(... mt2mhz(matrix/10))`, one `Sys.g`, one unit-converted `Sys.D`, explicit failures for unsupported/ambiguous cases | `EASYSPIN_WRITE_EXPORTER_PARENT_OK` |
+| Export formats SIMPSON/SpinEvolution | `GUI/IO Formats/*` | Not yet ported | pending |
 | Filtering dialog | `FilterFile.*` | Not yet ported | pending |
 | Shielding-to-shift conversion | `ShieldingtoShift.*` | Not yet ported | pending |
 | Bitmap/print export | `MainForm.*` | Print callback only; bitmap export not yet ported | pending |
