@@ -31,7 +31,9 @@ elseif contains(text, 'Amsterdam Density Functional') || ...
         contains(text, 'Stephen K. Wolff & Georg Schreckenbach') || ...
         contains(text, '*  NMR spin spin coupling tensor calculation  *')
     model = spinachgui.readADF(filename);
+elseif contains(text, '***** EQUILIBRIUM GEOMETRY LOCATED *****')
+    model = spinachgui.readGAMESS(filename);
 else
-    error('spinachgui:UnsupportedImport', 'Could not recognise Gaussian, ORCA, or ADF content in %s.', filename);
+    error('spinachgui:UnsupportedImport', 'Could not recognise Gaussian, ORCA, ADF, or GAMESS content in %s.', filename);
 end
 end

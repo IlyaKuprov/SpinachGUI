@@ -57,3 +57,5 @@ Twelfth MATLAB slice adds a pure SpinEvolution exporter: `ElementMass` channel l
 Thirteenth MATLAB slice ports ADF import: safe `.log`/`.out` content dispatch, Cartesian coordinates, total NMR shielding tensors as `CShielding`/ppm, and legacy scalar total J-couplings as isotropic `Jcoupling`/Hz matrices with reverse-pair duplicate suppression.
 
 Fourteenth MATLAB slice ports CASTEP/MAGRES import: legacy CASTEP shielding and quadrupolar blocks, MAGRES atom coordinates, `ms` shielding tensors, `efg` quadrupolar tensors with isotope upgrade, and total `isc` trace-only J-couplings through `.magres` dispatch. It deliberately leaves component-resolved `isc_*` MAGRES records ignored, matching the historical C++ reader.
+
+Fifteenth MATLAB slice ports GAMESS import: the pure MATLAB `readGAMESS` reader imports only the legacy equilibrium Cartesian coordinate table after `***** EQUILIBRIUM GEOMETRY LOCATED *****`, keeps last-frame-wins geometry semantics, rebuilds display bonds, and adds `.log`/`.out` dispatch on that distinctive marker. GAMESS tensor sections and COSMOS import remain outside this slice.
