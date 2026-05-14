@@ -45,3 +45,5 @@ Sixth MATLAB slice ports Gaussian J-coupling import, including legacy five-colum
 Seventh MATLAB slice tightens the Spinach MATLAB exporter toward one-for-one legacy parity: header/function, default magnet field, isotope/electron spelling, labels, coordinates with empty electron/chi entries, supported coupling matrices, scalar J couplings, susceptibility tensor/coordinates, Zeeman GTensor/Shift output, and final `spin_system=create(sys,inter);` without non-legacy basis boilerplate.
 
 Eighth MATLAB slice ports Gaussian hyperfine coupling import: isotropic Fermi-contact Gauss values, anisotropic spin-dipole principal-axis tensors, electron/default g-tensor creation, and `HFC`/Gauss matrices formed as anisotropic tensor plus isotropic part.
+
+Ninth MATLAB slice ports ORCA tensor import: g tensor, zero-field splitting, chemical shifts as `Shift`/MHz, HFC section parsing with raw HFC matrices stored as `HFC`/Gauss, default electron/default g-tensor creation, quadrupolar EFG-to-MHz conversion with isotope upgrade, and expanded `.log`/`.out` content dispatch markers.

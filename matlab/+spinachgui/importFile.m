@@ -18,7 +18,9 @@ end
 
 function model = importTextOutput(filename)
 text = fileread(filename);
-if contains(text, 'CARTESIAN COORDINATES (A.U.)') || contains(text, 'The g-matrix:') || contains(text, 'ELECTRIC AND MAGNETIC HYPERFINE STRUCTURE')
+if contains(text, 'CARTESIAN COORDINATES (A.U.)') || contains(text, 'The g-matrix:') || ...
+        contains(text, 'ZERO-FIELD-SPLITTING TENSOR') || contains(text, 'CHEMICAL SHIFTS') || ...
+        contains(text, 'ELECTRIC AND MAGNETIC HYPERFINE STRUCTURE')
     model = spinachgui.readOrca(filename);
 elseif contains(text, 'Standard orientation:') || contains(text, 'Input orientation:') || contains(text, 'SCF GIAO Magnetic shielding tensor')
     model = spinachgui.readGaussian(filename);
