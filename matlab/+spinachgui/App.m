@@ -145,8 +145,8 @@ classdef App < handle
             root = uigridlayout(app.VisualizationTab, [1 2]);
             root.ColumnWidth = {360, '1x'};
             tensorPanel = uipanel(root, 'Title', 'Tensor');
-            tensorGrid = uigridlayout(tensorPanel, [12 2]);
-            tensorGrid.RowHeight = repmat({24}, 1, 12);
+            tensorGrid = uigridlayout(tensorPanel, [13 2]);
+            tensorGrid.RowHeight = repmat({24}, 1, 13);
             names = {'BOND  < 1.60 Ang', 'CHEMICAL SHIFT', 'HYPERFINE COUPLING', ...
                 'J-COUPLING  > 0.50 Hz', 'G-TENSOR', 'CHI-TENSOR', ...
                 'QUADRUPOLAR COUPLING', 'EXCHANGE COUPL. > 0.50 MHz', 'ZERO-FIELD SPLITTING'};
@@ -158,6 +158,9 @@ classdef App < handle
             uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Axes', 'ValueChangedFcn', @(~,~) app.refresh());
             uicheckbox(tensorGrid, 'Text', 'NMR', 'Value', true, 'ValueChangedFcn', @(~,~) app.refresh());
             uilabel(tensorGrid, 'Text', 'View');
+            orientationButton = uibutton(tensorGrid, 'Text', 'Orientation export...', ...
+                'ButtonPushedFcn', @(~,~) app.showSelectedOrientation());
+            orientationButton.Layout.Column = [1 2];
 
             app.VisualizationInteractionsTable = uitable(root);
         end
@@ -239,6 +242,37 @@ classdef App < handle
 
         function showIsotopes(~)
             spinachgui.isotopeBrowser();
+        end
+
+        function showSelectedOrientation(app)
+            if isempty(app.VisualizationInteractionsTable) || ~isvalid(app.VisualizationInteractionsTable)
+                return
+            end
+            data = app.VisualizationInteractionsTable.Data;
+            if isempty(data) || height(data) == 0
+                uialert(app.Figure, 'No positive interactions are available for orientation export.', ...
+                    'No interaction selected', 'Icon', 'warning');
+                return
+            end
+            row = 1;
+            if isprop(app.VisualizationInteractionsTable, 'Selection')
+                selection = app.VisualizationInteractionsTable.Selection;
+                if ~isempty(selection)
+                    row = selection(1, 1);
+                end
+            end
+            row = max(1, min(row, height(data)));
+            interactionID = data.ID(row);
+            idx = find(app.Model.Interactions.ID == interactionID, 1);
+            if isempty(idx)
+                uialert(app.Figure, 'The selected interaction is no longer present in the model.', ...
+                    'Interaction unavailable', 'Icon', 'warning');
+                return
+            end
+            titleText = sprintf('Interaction %d orientation export', interactionID);
+            spinachgui.orientationEditor(app.Model.Interactions.DCM{idx}, 'Title', titleText, ...
+                'Editable', false, 'InteractionMatrix', app.Model.Interactions.Matrix{idx}, ...
+                'Eigenvalues', app.Model.Interactions.Eigenvalues{idx});
         end
 
         function aboutDialog(app)
