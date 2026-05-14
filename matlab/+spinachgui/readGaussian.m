@@ -1,14 +1,14 @@
 function model = readGaussian(filename)
 %READGAUSSIAN Import Gaussian/GaussView output into a SpinachGUI model.
 %   This reader preserves the legacy last-frame-wins coordinate semantics and
-%   imports direct 3x3 Gaussian tensor sections implemented in this slice:
-%   chemical shielding, electron g tensor, magnetic susceptibility, and
-%   nuclear quadrupolar couplings.
+%   imports direct 3x3 Gaussian tensor sections and legacy lower-triangular
+%   five-column isotropic J-coupling blocks.
 
 lines = readlines(filename, 'EmptyLineRule', 'read');
 isotopes = gaussianIsotopes(lines);
 frames = {};
 shieldingSections = {};
+jCouplingSections = {};
 gTensor = [];
 chiTensor = [];
 quadrupolarSections = {};
@@ -24,6 +24,13 @@ for k = 1:numel(lines)
         end
     elseif contains(line, 'SCF GIAO Magnetic shielding tensor (ppm):')
         shieldingSections{end+1} = readShieldingSection(lines, k, filename); %#ok<AGROW>
+        readAnySection = true;
+    elseif contains(line, 'Total nuclear spin-spin coupling J (Hz):')
+        if isempty(frames)
+            error('spinachgui:InvalidGaussian', ...
+                'Gaussian J-coupling section near line %d in %s precedes the coordinate section needed for atom count.', k, filename);
+        end
+        jCouplingSections{end+1} = readJCouplingSection(lines, k, numel(frames{end}), filename); %#ok<AGROW>
         readAnySection = true;
     elseif contains(line, 'g tensor [g = g_e + g_RMC + g_DC + g_OZ/SOC]:')
         gTensor = readLabeled3x3(lines, k + 1, filename, 'Gaussian g tensor');
@@ -56,6 +63,9 @@ end
 
 if ~isempty(shieldingSections)
     addShieldingInteractions(model, shieldingSections{end});
+end
+if ~isempty(jCouplingSections)
+    addJCouplingInteractions(model, jCouplingSections{end});
 end
 if ~isempty(gTensor)
     electronID = ensurePseudoAtom(model, "e");
@@ -262,6 +272,81 @@ for k = 1:numel(tensors)
         error('spinachgui:InvalidGaussian', 'Gaussian shielding tensor refers to missing atom %d.', atomID);
     end
     model.addInteraction("CShielding", atomID, atomID, tensors(k).Matrix, "ppm", "", 1, "", "Gaussian shielding");
+end
+end
+
+function couplings = readJCouplingSection(lines, markerLine, atomCount, filename)
+if atomCount < 1
+    error('spinachgui:InvalidGaussian', 'Gaussian J-coupling section near line %d in %s has no atoms.', markerLine, filename);
+end
+couplings = struct('A', {}, 'B', {}, 'Value', {});
+lineNumber = markerLine + 1;
+for firstColumn = 1:5:atomCount
+    if lineNumber > numel(lines)
+        error('spinachgui:InvalidGaussian', 'Truncated Gaussian J-coupling block after line %d in %s.', markerLine, filename);
+    end
+    columns = readJColumnHeader(lines, lineNumber, firstColumn, atomCount, filename);
+    lineNumber = lineNumber + 1;
+    for atomID = firstColumn:atomCount
+        if lineNumber > numel(lines)
+            error('spinachgui:InvalidGaussian', 'Truncated Gaussian J-coupling row for atom %d in %s.', atomID, filename);
+        end
+        fields = splitFields(char(lines(lineNumber)));
+        expectedFields = min(atomID - firstColumn + 2, numel(columns) + 1);
+        if numel(fields) ~= expectedFields
+            error('spinachgui:InvalidGaussian', ...
+                'Expected %d fields in Gaussian J-coupling row for atom %d at line %d in %s.', ...
+                expectedFields, atomID, lineNumber, filename);
+        end
+        rowAtom = str2double(fields{1});
+        if isnan(rowAtom) || rowAtom ~= atomID
+            error('spinachgui:InvalidGaussian', ...
+                'Expected Gaussian J-coupling row for atom %d at line %d in %s.', atomID, lineNumber, filename);
+        end
+        values = parseNumber(fields(2:end));
+        if any(isnan(values))
+            error('spinachgui:InvalidGaussian', ...
+                'Invalid numeric value in Gaussian J-coupling row for atom %d at line %d in %s.', atomID, lineNumber, filename);
+        end
+        for c = 1:numel(values)
+            columnAtom = columns(c);
+            if columnAtom >= atomID
+                continue
+            end
+            couplings(end+1).A = atomID; %#ok<AGROW>
+            couplings(end).B = columnAtom;
+            couplings(end).Value = values(c);
+        end
+        lineNumber = lineNumber + 1;
+    end
+end
+expectedCouplings = atomCount * (atomCount - 1) / 2;
+if numel(couplings) ~= expectedCouplings
+    error('spinachgui:InvalidGaussian', ...
+        'Gaussian J-coupling section near line %d in %s produced %d couplings, expected %d.', ...
+        markerLine, filename, numel(couplings), expectedCouplings);
+end
+end
+
+function columns = readJColumnHeader(lines, lineNumber, firstColumn, atomCount, filename)
+fields = splitFields(char(lines(lineNumber)));
+columns = parseNumber(fields);
+expectedColumns = firstColumn:min(firstColumn + 4, atomCount);
+if numel(columns) ~= numel(expectedColumns) || any(isnan(columns)) || any(columns ~= expectedColumns)
+    error('spinachgui:InvalidGaussian', ...
+        'Malformed Gaussian J-coupling column header at line %d in %s.', lineNumber, filename);
+end
+end
+
+function addJCouplingInteractions(model, couplings)
+for k = 1:numel(couplings)
+    atomA = couplings(k).A;
+    atomB = couplings(k).B;
+    if atomA < 1 || atomA > height(model.Atoms) || atomB < 1 || atomB > height(model.Atoms)
+        error('spinachgui:InvalidGaussian', ...
+            'Gaussian J-coupling refers to missing atom pair %d-%d.', atomA, atomB);
+    end
+    model.addInteraction("Jcoupling", atomA, atomB, couplings(k).Value * eye(3), "Hz", "", 1, "", "Gaussian J coupling");
 end
 end
 

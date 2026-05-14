@@ -21,7 +21,8 @@ This file is the parity ledger for the one-for-one MATLAB rewrite. It is intenti
 | Gaussian/GaussView coordinate import | `GUI/IO Formats/Gauss.*`, `IOSpinSystem.*` | Slice 4: `.log`/`.out` content dispatch, isotope-symbol scan, `Input orientation`/`Standard orientation` parser, last-frame-wins coordinates, automatic display-bond rebuild | `SPINACHGUI_SLICE4_COORD_IMPORT_OK` |
 | ORCA coordinate import | `GUI/IO Formats/Orca.*`, `IOSpinSystem.*` | Slice 4: `.log`/`.out` content dispatch, `CARTESIAN COORDINATES (A.U.)` parser, Bohr-to-Å conversion, last-frame-wins coordinates, automatic display-bond rebuild | `SPINACHGUI_SLICE4_COORD_IMPORT_OK` |
 | Gaussian direct tensor import | `GUI/IO Formats/Gauss.*`, `IOSpinSystem.*` | Slice 5: chemical shielding (`CShielding`/ppm), g tensor (`GTensor`/Bohr magneton with electron pseudoatom), magnetic susceptibility (`CHITensor`/Bohr magneton with `chi` pseudoatom), and quadrupolar tensors (`Quadrupolar`/MHz with isotope upgrade and zero-tensor skip) | `GAUSSIAN_DIRECT_TENSORS_VALIDATION_OK` |
-| Import formats ADF/Castep/COSMOS/GAMESS/Gaussian J/HFC/ORCA tensors | `GUI/IO Formats/*` | Not yet ported | pending |
+| Gaussian J-coupling import | `GUI/IO Formats/Gauss.*`, `IOSpinSystem.*` | Slice 6: legacy five-column lower-triangular `Total nuclear spin-spin coupling J (Hz)` parser with `D` exponent support, diagonal skip, `Jcoupling`/Hz isotropic matrices | `GAUSSIAN_J_SLICE_VALIDATION_OK` |
+| Import formats ADF/Castep/COSMOS/GAMESS/Gaussian HFC/ORCA tensors | `GUI/IO Formats/*` | Not yet ported | pending |
 | Export formats EasySpin/SIMPSON/SpinEvolution | `GUI/IO Formats/*` | Not yet ported | pending |
 | Filtering dialog | `FilterFile.*` | Not yet ported | pending |
 | Shielding-to-shift conversion | `ShieldingtoShift.*` | Not yet ported | pending |

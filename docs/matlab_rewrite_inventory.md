@@ -38,4 +38,6 @@ Third MATLAB slice ports the legacy MOL V2000 importer, including its deliberate
 
 Fourth MATLAB slice ports Gaussian/GaussView and ORCA coordinate import. It dispatches `.log`/`.out` files by content markers, handles Gaussian Z-matrix isotope symbols, parses Gaussian `Input orientation`/`Standard orientation`, parses ORCA `CARTESIAN COORDINATES (A.U.)`, applies Bohr-to-Å conversion for ORCA, preserves last-frame-wins geometry, and rebuilds automatic display bonds.
 
-Fifth MATLAB slice ports Gaussian direct tensor import: chemical shielding, electron g tensors, magnetic susceptibility pseudo-atom tensors, and quadrupolar tensors with isotope upgrade and zero-tensor skipping. Gaussian J-couplings and hyperfine couplings remain pending.
+Fifth MATLAB slice ports Gaussian direct tensor import: chemical shielding, electron g tensors, magnetic susceptibility pseudo-atom tensors, and quadrupolar tensors with isotope upgrade and zero-tensor skipping.
+
+Sixth MATLAB slice ports Gaussian J-coupling import, including legacy five-column lower-triangular block parsing, Fortran `D` exponent support, diagonal skipping, and `Jcoupling`/Hz isotropic matrices. Gaussian hyperfine couplings remain pending.
