@@ -61,3 +61,5 @@ Fourteenth MATLAB slice ports CASTEP/MAGRES import: legacy CASTEP shielding and 
 Fifteenth MATLAB slice ports GAMESS import: the pure MATLAB `readGAMESS` reader imports only the legacy equilibrium Cartesian coordinate table after `***** EQUILIBRIUM GEOMETRY LOCATED *****`, keeps last-frame-wins geometry semantics, rebuilds display bonds, and adds `.log`/`.out` dispatch on that distinctive marker. GAMESS tensor sections remain outside this slice.
 
 Sixteenth MATLAB slice ports COSMOS import: pure `readCOSMOS` for legacy `.coo` ATOMS geometry, `CS-TENSOR` shielding tensors, and scalar `J-COUPLINGS`, plus `.coo` extension dispatch and safe marker-based text dispatch. Legacy-recognized `RDC-TENSOR`, `ORDER-TENSOR`, `QC-TENSOR`, `DD-TENSOR`, and `DISTANCES` records remain ignored, matching the historical C++ reader.
+
+Seventeenth MATLAB slice ports the read-only isotope browser: `spinachgui.isotopeBrowser` builds a simple `uifigure`/`uitable` view of the existing isotope database with legacy row numbering, display labels, RGB colour swatches, a hidden/offscreen construction path for validation, and wiring from the main app Isotopes button.

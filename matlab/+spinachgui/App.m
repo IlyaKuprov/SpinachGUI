@@ -238,8 +238,7 @@ classdef App < handle
         end
 
         function showIsotopes(~)
-            f = uifigure('Name', 'Isotopes', 'Position', [120 120 850 600]);
-            uitable(f, 'Data', spinachgui.isotopeTable(), 'Position', [1 1 848 598]);
+            spinachgui.isotopeBrowser();
         end
 
         function aboutDialog(app)

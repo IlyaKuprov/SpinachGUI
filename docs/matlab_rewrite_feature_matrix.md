@@ -16,7 +16,7 @@ This file is the parity ledger for the one-for-one MATLAB rewrite. It is intenti
 | Orientation math | `GUI/System Core/orientation.*` | Slice 2: pure MATLAB Z-Y-Z Euler/DCM conversion helpers matching legacy `Rz(alpha)*Ry(beta)*Rz(gamma)` convention | DCM round-trip in `SPINACHGUI_SLICE2_OK` |
 | Unit catalogue/conversion | `GUI/System Core/unit.h` | Slice 2: `spinachgui.units`, `unitFactor`, `convertUnit` reproduce legacy factors | mTesla→Gauss and 22-unit table in `SPINACHGUI_SLICE2_OK` |
 | Tensor dialogs | `OrientationDialog`, `RefFrameOrientationDialog`, `OrientationExport` | Orientation math helpers exist; dialog UI not yet ported | pending |
-| Isotope browser | `IsotopesDialog` | First slice: isotope `uitable` window | pending |
+| Isotope browser | `IsotopesDialog` | Slice 17: read-only `spinachgui.isotopeBrowser` uifigure/uitable with legacy row numbers, isotope metadata, RGB swatches, app button integration, and headless construction path | `ISOTOPE_BROWSER_VALIDATION_OK` |
 | MOL import | `GUI/IO Formats/MOL.*` | Slice 3: V2000 atom block parser with legacy behaviour of ignoring explicit bond records and rebuilding display bonds | `SPINACHGUI_SLICE3_MOL_OK` |
 | Gaussian/GaussView coordinate import | `GUI/IO Formats/Gauss.*`, `IOSpinSystem.*` | Slice 4: `.log`/`.out` content dispatch, isotope-symbol scan, `Input orientation`/`Standard orientation` parser, last-frame-wins coordinates, automatic display-bond rebuild | `SPINACHGUI_SLICE4_COORD_IMPORT_OK` |
 | ORCA coordinate import | `GUI/IO Formats/Orca.*`, `IOSpinSystem.*` | Slice 4: `.log`/`.out` content dispatch, `CARTESIAN COORDINATES (A.U.)` parser, Bohr-to-Å conversion, last-frame-wins coordinates, automatic display-bond rebuild | `SPINACHGUI_SLICE4_COORD_IMPORT_OK` |
