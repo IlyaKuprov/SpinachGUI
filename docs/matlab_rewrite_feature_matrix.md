@@ -27,7 +27,7 @@ This file is the parity ledger for the one-for-one MATLAB rewrite. It is intenti
 | Import formats ADF/Castep/COSMOS/GAMESS | `GUI/IO Formats/*` | Not yet ported | pending |
 | EasySpin export | `GUI/IO Formats/EasySpin.*` | Slice 10: pure `writeEasySpin` writer for legacy one-electron EasySpin output, default garlic/chili/pepper option blocks, HFC via `nucspinadd(... mt2mhz(matrix/10))`, one `Sys.g`, one unit-converted `Sys.D`, explicit failures for unsupported/ambiguous cases | `EASYSPIN_WRITE_EXPORTER_PARENT_OK` |
 | SIMPSON export | `GUI/IO Formats/Simpson.*` | Slice 11: pure `writeSimpson` writer with channels, optional isotope sorting/reindexing, quadrupole order, dipolar threshold, and legacy-order `Shift`, `Jcoupling`, `Quadrupolar`, and CBond-derived `dipole` lines; explicit failures for electrons, invalid atoms/tensors/options | `SIMPSON_WRITE_EXPORTER_PARENT_OK` |
-| Export format SpinEvolution | `GUI/IO Formats/SpinEvolution.*` | Not yet ported | pending |
+| SpinEvolution export | `GUI/IO Formats/SpinEvolution.*` | Slice 12: pure `writeSpinEvolution` writer with `ElementMass` channel labels, enabled/disabled channel filtering, exported atom reindexing, legacy system/pulse/variables/options scaffold, and legacy-supported `Shift`, `Jcoupling`, and `Quadrupolar` lines; explicit failures for pseudo-atoms, invalid channels/kinds/IDs, and missing interaction atoms | `SPINEVOLUTION_WRITE_EXPORTER_PARENT_OK` |
 | Filtering dialog | `FilterFile.*` | Not yet ported | pending |
 | Shielding-to-shift conversion | `ShieldingtoShift.*` | Not yet ported | pending |
 | Bitmap/print export | `MainForm.*` | Print callback only; bitmap export not yet ported | pending |
