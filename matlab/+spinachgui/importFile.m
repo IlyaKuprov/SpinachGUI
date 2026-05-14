@@ -7,6 +7,8 @@ switch lower(ext)
         model = spinachgui.readXYZ(filename);
     case {'.sxml', '.xml'}
         model = spinachgui.readSpinXML(filename);
+    case '.mol'
+        model = spinachgui.readMOL(filename);
     otherwise
         error('spinachgui:UnsupportedImport', 'Import for "%s" is not implemented in the MATLAB port yet.', ext);
 end

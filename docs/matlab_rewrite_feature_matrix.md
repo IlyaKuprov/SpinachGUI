@@ -17,7 +17,8 @@ This file is the parity ledger for the one-for-one MATLAB rewrite. It is intenti
 | Unit catalogue/conversion | `GUI/System Core/unit.h` | Slice 2: `spinachgui.units`, `unitFactor`, `convertUnit` reproduce legacy factors | mTesla→Gauss and 22-unit table in `SPINACHGUI_SLICE2_OK` |
 | Tensor dialogs | `OrientationDialog`, `RefFrameOrientationDialog`, `OrientationExport` | Orientation math helpers exist; dialog UI not yet ported | pending |
 | Isotope browser | `IsotopesDialog` | First slice: isotope `uitable` window | pending |
-| Import formats ADF/Castep/COSMOS/GAMESS/Gauss/MOL/ORCA | `GUI/IO Formats/*` | Not yet ported | pending |
+| MOL import | `GUI/IO Formats/MOL.*` | Slice 3: V2000 atom block parser with legacy behaviour of ignoring explicit bond records and rebuilding display bonds | `SPINACHGUI_SLICE3_MOL_OK` |
+| Import formats ADF/Castep/COSMOS/GAMESS/Gauss/ORCA | `GUI/IO Formats/*` | Not yet ported | pending |
 | Export formats EasySpin/SIMPSON/SpinEvolution | `GUI/IO Formats/*` | Not yet ported | pending |
 | Filtering dialog | `FilterFile.*` | Not yet ported | pending |
 | Shielding-to-shift conversion | `ShieldingtoShift.*` | Not yet ported | pending |
