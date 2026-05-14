@@ -9,6 +9,8 @@ isotopes = gaussianIsotopes(lines);
 frames = {};
 shieldingSections = {};
 jCouplingSections = {};
+fermiContactSections = {};
+spinDipoleSections = {};
 gTensor = [];
 chiTensor = [];
 quadrupolarSections = {};
@@ -32,6 +34,16 @@ for k = 1:numel(lines)
         end
         jCouplingSections{end+1} = readJCouplingSection(lines, k, numel(frames{end}), filename); %#ok<AGROW>
         readAnySection = true;
+    elseif contains(line, 'Isotropic Fermi Contact Couplings')
+        fermiContactSections{end+1} = readFermiContactSection(lines, k, filename); %#ok<AGROW>
+        readAnySection = true;
+    elseif contains(line, 'Anisotropic Spin Dipole Couplings in Principal Axis System')
+        if isempty(frames)
+            error('spinachgui:InvalidGaussian', ...
+                'Gaussian spin-dipole section near line %d in %s precedes the coordinate section needed for atom count.', k, filename);
+        end
+        spinDipoleSections{end+1} = readSpinDipoleSection(lines, k, numel(frames{end}), filename); %#ok<AGROW>
+        readAnySection = true;
     elseif contains(line, 'g tensor [g = g_e + g_RMC + g_DC + g_OZ/SOC]:')
         gTensor = readLabeled3x3(lines, k + 1, filename, 'Gaussian g tensor');
         readAnySection = true;
@@ -47,7 +59,8 @@ end
 if ~readAnySection
     error('spinachgui:UnsupportedGaussian', 'No recognized Gaussian section was found in %s.', filename);
 end
-if isempty(frames) && (~isempty(shieldingSections) || ~isempty(quadrupolarSections))
+if isempty(frames) && (~isempty(shieldingSections) || ~isempty(quadrupolarSections) || ...
+        ~isempty(fermiContactSections) || ~isempty(spinDipoleSections))
     error('spinachgui:InvalidGaussian', 'Gaussian tensor sections requiring nuclei were found, but no coordinate section was found in %s.', filename);
 end
 
@@ -70,6 +83,13 @@ end
 if ~isempty(gTensor)
     electronID = ensurePseudoAtom(model, "e");
     model.addInteraction("GTensor", electronID, electronID, gTensor, "Bohr magneton", "", 1, "", "Gaussian g tensor");
+end
+if ~isempty(spinDipoleSections)
+    if ~isempty(fermiContactSections)
+        addHyperfineInteractions(model, fermiContactSections{end}, spinDipoleSections{end});
+    else
+        addSpinRotationInteractions(model, spinDipoleSections{end});
+    end
 end
 if ~isempty(chiTensor)
     chiID = ensurePseudoAtom(model, "chi");
@@ -347,6 +367,139 @@ for k = 1:numel(couplings)
             'Gaussian J-coupling refers to missing atom pair %d-%d.', atomA, atomB);
     end
     model.addInteraction("Jcoupling", atomA, atomB, couplings(k).Value * eye(3), "Hz", "", 1, "", "Gaussian J coupling");
+end
+end
+
+function contacts = readFermiContactSection(lines, markerLine, filename)
+contacts = struct('AtomID', {}, 'Value', {});
+for j = markerLine+2:numel(lines)
+    line = char(lines(j));
+    if contains(line, '--------')
+        break
+    end
+    if strlength(strtrim(line)) == 0
+        continue
+    end
+    fields = splitFields(line);
+    if numel(fields) ~= 6
+        error('spinachgui:InvalidGaussian', ...
+            'Expected six fields in Gaussian Fermi-contact row at line %d in %s.', j, filename);
+    end
+    atomID = str2double(fields{1});
+    value = parseNumber(fields(5));
+    if isnan(atomID) || isnan(value)
+        error('spinachgui:InvalidGaussian', ...
+            'Invalid numeric value in Gaussian Fermi-contact row at line %d in %s.', j, filename);
+    end
+    contacts(end+1).AtomID = atomID; %#ok<AGROW>
+    contacts(end).Value = value;
+end
+if isempty(contacts)
+    error('spinachgui:InvalidGaussian', 'No Fermi-contact couplings found after line %d in %s.', markerLine, filename);
+end
+end
+
+function couplings = readSpinDipoleSection(lines, markerLine, atomCount, filename)
+couplings = struct('AtomID', {}, 'Matrix', {});
+lineNumber = markerLine + 4;
+while lineNumber <= numel(lines)
+    if contains(char(lines(lineNumber)), '--------')
+        break
+    end
+    if strlength(strtrim(char(lines(lineNumber)))) == 0
+        lineNumber = lineNumber + 1;
+        continue
+    end
+    baaLine = lineNumber;
+    bbbLine = lineNumber + 1;
+    bccLine = lineNumber + 2;
+    if bccLine > numel(lines)
+        error('spinachgui:InvalidGaussian', ...
+            'Truncated Gaussian spin-dipole section after line %d in %s.', markerLine, filename);
+    end
+    baaFields = splitFields(char(lines(baaLine)));
+    bbbFields = splitFields(char(lines(bbbLine)));
+    bccFields = splitFields(char(lines(bccLine)));
+    if numel(baaFields) ~= 8 || ~strcmp(baaFields{1}, 'Baa') || ...
+            numel(bbbFields) ~= 10 || ~strcmp(bbbFields{3}, 'Bbb') || ...
+            numel(bccFields) ~= 8 || ~strcmp(bccFields{1}, 'Bcc')
+        error('spinachgui:InvalidGaussian', ...
+            'Malformed Gaussian spin-dipole principal-axis block near line %d in %s.', baaLine, filename);
+    end
+    atomID = str2double(bbbFields{1});
+    values = parseNumber({baaFields{4}, bbbFields{6}, bccFields{4}});
+    axisA = parseNumber(baaFields(6:8));
+    axisB = parseNumber(bbbFields(8:10));
+    axisC = parseNumber(bccFields(6:8));
+    if isnan(atomID) || any(isnan(values)) || any(isnan([axisA, axisB, axisC]))
+        error('spinachgui:InvalidGaussian', ...
+            'Invalid numeric value in Gaussian spin-dipole block near line %d in %s.', baaLine, filename);
+    end
+    axes = [axisA(:), axisB(:), axisC(:)];
+    couplings(end+1).AtomID = atomID; %#ok<AGROW>
+    couplings(end).Matrix = axes * builtin('diag', values) * axes.';
+    lineNumber = lineNumber + 3;
+end
+if numel(couplings) ~= atomCount
+    error('spinachgui:InvalidGaussian', ...
+        'Gaussian spin-dipole section near line %d in %s produced %d tensors, expected %d.', ...
+        markerLine, filename, numel(couplings), atomCount);
+end
+end
+
+function addHyperfineInteractions(model, contacts, spinDipoles)
+contactValues = nan(maxAtomID(contacts, spinDipoles), 1);
+for k = 1:numel(contacts)
+    atomID = contacts(k).AtomID;
+    if atomID >= 1 && atomID <= numel(contactValues)
+        contactValues(atomID) = contacts(k).Value;
+    end
+end
+electronID = ensureElectronWithGTensor(model);
+for k = 1:numel(spinDipoles)
+    atomID = spinDipoles(k).AtomID;
+    assertExistingAtom(model, atomID, 'Gaussian hyperfine coupling');
+    if atomID > numel(contactValues) || isnan(contactValues(atomID))
+        error('spinachgui:InvalidGaussian', ...
+            'Gaussian hyperfine coupling for atom %d has anisotropic data but no Fermi-contact value.', atomID);
+    end
+    matrix = spinDipoles(k).Matrix + contactValues(atomID) * eye(3);
+    model.addInteraction("HFC", atomID, electronID, matrix, "Gauss", "", 1, "", "Gaussian hyperfine coupling");
+end
+end
+
+function addSpinRotationInteractions(model, spinDipoles)
+for k = 1:numel(spinDipoles)
+    atomID = spinDipoles(k).AtomID;
+    assertExistingAtom(model, atomID, 'Gaussian spin-dipole coupling');
+    model.addInteraction("spinrotation", atomID, atomID, spinDipoles(k).Matrix, "Gauss", "", 1, "", "Gaussian spin dipole");
+end
+end
+
+function n = maxAtomID(contacts, spinDipoles)
+ids = zeros(1, numel(contacts) + numel(spinDipoles));
+for k = 1:numel(contacts)
+    ids(k) = contacts(k).AtomID;
+end
+offset = numel(contacts);
+for k = 1:numel(spinDipoles)
+    ids(offset + k) = spinDipoles(k).AtomID;
+end
+n = max(ids);
+end
+
+function electronID = ensureElectronWithGTensor(model)
+electronID = ensurePseudoAtom(model, "e");
+hasGTensor = any(model.Interactions.Kind == "GTensor" & ...
+    model.Interactions.A == electronID & model.Interactions.B == electronID);
+if ~hasGTensor
+    model.addInteraction("GTensor", electronID, electronID, 2.0023 * eye(3), "Bohr magneton", "", 1, "", "Gaussian default g tensor");
+end
+end
+
+function assertExistingAtom(model, atomID, context)
+if atomID < 1 || atomID > height(model.Atoms)
+    error('spinachgui:InvalidGaussian', '%s refers to missing atom %d.', context, atomID);
 end
 end
 
