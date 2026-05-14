@@ -1,0 +1,33 @@
+# SpinachGUI MATLAB rewrite inventory
+
+Baseline: `main` at `501c15faa81fb549b7db03f0b608850c3fb3f5cb`.
+
+The historical application is C++/CLI WinForms. The entry point is `GUI/SpinachGui.cpp`, which creates `MainForm`; the core state object is `GUI/System Core/Model.*`; import/export adapters are in `GUI/IO Formats/`; the custom 3D renderer is in `GUI/3D Engine/`.
+
+Top-level WinForms screens/forms:
+
+- `MainForm`: main application shell, atoms table, interactions table, file/import/export controls, OpenGL view, view-plane buttons, tensor visibility controls, status/progress UI, printing, bitmap export, and format exporters.
+- `About`: about dialog with project icon, text, link, and university image.
+- `IsotopesDialog`: read-only isotope table.
+- `OrientationDialog`: tensor/eigen/orientation editor for interactions.
+- `RefFrameOrientationDialog`: reference-frame orientation editor.
+- `OrientationExport`: orientation export dialog.
+- `FilterFile`: import filtering for HFC/J-coupling/quadrupolar tensors and atom removal.
+- `ShieldingtoShift`: channel/reference table for chemical shielding to chemical shift conversion.
+- `BalloonToolTip`: custom tooltip form.
+
+Main data model classes to port:
+
+- `Isotope` / `Isotopes`: isotope symbol, atom number, mass, radius, RGB colour, spin, quadrupole moment, magnetogyric ratio.
+- `Atom`: ID, isotope, label, coordinates.
+- `Interaction`: ID, kind, label, atoms A/B, unit, eigenvalues, DCM, reference.
+- `Tensor`: interaction with 3x3 matrix and reference frame.
+- `ReferenceFrame`: ID, label, DCM, parent frame.
+- `Model`: atoms, interactions, reference frames.
+
+Format coverage in the historical code:
+
+- Imports: ADF, CASTEP, COSMOS, GAMESS, Gaussian/GaussView, MOL, ORCA, SpinXML/SXML, XYZ.
+- Exports: SpinXML/SXML, EasySpin, Spinach MATLAB file, SIMPSON, SpinEvolution.
+
+First MATLAB slice creates the package scaffold and ports core state, isotope data, XYZ import, basic SpinXML import/export, Spinach export scaffold, and the first `uifigure` shell.
