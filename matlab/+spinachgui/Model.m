@@ -137,6 +137,16 @@ classdef Model < handle
             end
         end
 
+        function [filteredModel, summary] = filterInteractions(obj, thresholds, removeOrphanAtoms)
+            if nargin < 2
+                thresholds = struct();
+            end
+            if nargin < 3
+                removeOrphanAtoms = false;
+            end
+            [filteredModel, summary] = spinachgui.filterInteractions(obj, thresholds, removeOrphanAtoms);
+        end
+
         function pairs = bondPairs(obj, cutoffAngstrom)
             if nargin < 2, cutoffAngstrom = 1.60; end
             pairs = spinachgui.bondPairs(obj.Atoms, cutoffAngstrom);
