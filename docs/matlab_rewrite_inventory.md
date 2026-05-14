@@ -55,3 +55,5 @@ Eleventh MATLAB slice adds a pure SIMPSON exporter: channel selection, optional 
 Twelfth MATLAB slice adds a pure SpinEvolution exporter: `ElementMass` channel labels, enabled/disabled channel filtering, exported atom reindexing, legacy system/pulse/variables/options scaffold, legacy-supported `Shift`, `Jcoupling`, and `Quadrupolar` lines, and explicit errors for pseudo-atoms, invalid channels/kinds/IDs, and missing interaction atoms.
 
 Thirteenth MATLAB slice ports ADF import: safe `.log`/`.out` content dispatch, Cartesian coordinates, total NMR shielding tensors as `CShielding`/ppm, and legacy scalar total J-couplings as isotropic `Jcoupling`/Hz matrices with reverse-pair duplicate suppression.
+
+Fourteenth MATLAB slice ports CASTEP/MAGRES import: legacy CASTEP shielding and quadrupolar blocks, MAGRES atom coordinates, `ms` shielding tensors, `efg` quadrupolar tensors with isotope upgrade, and total `isc` trace-only J-couplings through `.magres` dispatch. It deliberately leaves component-resolved `isc_*` MAGRES records ignored, matching the historical C++ reader.

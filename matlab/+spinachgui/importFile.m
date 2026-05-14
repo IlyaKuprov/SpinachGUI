@@ -11,6 +11,8 @@ switch lower(ext)
         model = spinachgui.readMOL(filename);
     case {'.log', '.out'}
         model = importTextOutput(filename);
+    case '.magres'
+        model = spinachgui.readCastep(filename);
     otherwise
         error('spinachgui:UnsupportedImport', 'Import for "%s" is not implemented in the MATLAB port yet.', ext);
 end
