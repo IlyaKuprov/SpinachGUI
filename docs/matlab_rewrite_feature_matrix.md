@@ -5,15 +5,17 @@ This file is the parity ledger for the one-for-one MATLAB rewrite. It is intenti
 | Area | Original source | MATLAB status | Validation |
 | --- | --- | --- | --- |
 | Application entry point | `GUI/SpinachGui.cpp`, `MainForm` | First slice: `matlab/SpinachGUI.m` calls `spinachgui.App` | `SPINACHGUI_UI_OK` |
-| Core model | `GUI/System Core/Model.*` | First slice: `spinachgui.Model` with atoms, interactions, reference frames | `SPINACHGUI_CORE_AND_CHECKCODE_OK` |
+| Core model | `GUI/System Core/Model.*` | Slice 2: `spinachgui.Model` preserves lab-frame default, canonical interaction kinds, positive vs negative auto-bond IDs, tensor symmetrisation, positive-interaction filtering, interaction statistics, and reference-frame-to-root DCM composition | `SPINACHGUI_SLICE2_OK` |
 | Isotope database | `GUI/System Core/isotopes.*` | First slice: generated `spinachgui.isotopeTable` and `findIsotope` | 121-row isotope table checked |
 | XYZ import | `GUI/IO Formats/XYZ.*` | First slice: `spinachgui.readXYZ` | methane XYZ imported with 5 atoms |
-| SpinXML import | `GUI/IO Formats/SpinXML.*`, generated schema headers | First slice: atom/reference-frame/interaction parser for historical SXML shape | alanine SXML imported with 13 atoms / 91 interactions |
-| SpinXML export | `GUI/IO Formats/SpinXML.*` | First slice: `spinachgui.writeSpinXML` | SXML round-trip preserved atom/interaction counts |
-| Spinach export | `GUI/IO Formats/Spinach.*` | First slice: `spinachgui.writeSpinach` scaffold for isotopes, coordinates, tensors | MATLAB file generation exercised |
-| Main window layout | `GUI/MainForm.*` | First slice: `uifigure` shell with Home/Visualization tabs, tables, 3D axes, file/export/view/tensor controls | headless `uifigure` construction checked |
+| SpinXML import | `GUI/IO Formats/SpinXML.*`, generated schema headers | Slice 2: atom/reference-frame/interaction parser for historical SXML shape, preserving explicit reference-frame IDs and canonicalising legacy interaction-kind spellings | alanine SXML imported with 13 atoms / 91 positive interactions |
+| SpinXML export | `GUI/IO Formats/SpinXML.*` | Slice 2: `spinachgui.writeSpinXML`, omitting negative auto-bond display interactions from saved SpinXML and emitting legacy lowercase kind names | SXML round-trip preserved 13 atoms / 91 positive interactions |
+| Spinach export | `GUI/IO Formats/Spinach.*` | Slice 2: `spinachgui.writeSpinach` scaffold for isotopes, coordinates, positive tensor interactions | MATLAB file generation exercised |
+| Main window layout | `GUI/MainForm.*` | Slice 2: `uifigure` shell with Home/Visualization tabs, tables, 3D axes, file/export/view/tensor controls; interaction tables display positive scientific interactions rather than negative auto-bonds | `SPINACHGUI_SLICE2_UI_OK` |
 | 3D molecule view | `GUI/3D Engine/OpenGL.*` | First slice: MATLAB `uiaxes`, atoms, bonds | headless render path checked through app construction |
-| Tensor dialogs | `OrientationDialog`, `RefFrameOrientationDialog`, `OrientationExport` | Not yet ported | pending |
+| Orientation math | `GUI/System Core/orientation.*` | Slice 2: pure MATLAB Z-Y-Z Euler/DCM conversion helpers matching legacy `Rz(alpha)*Ry(beta)*Rz(gamma)` convention | DCM round-trip in `SPINACHGUI_SLICE2_OK` |
+| Unit catalogue/conversion | `GUI/System Core/unit.h` | Slice 2: `spinachgui.units`, `unitFactor`, `convertUnit` reproduce legacy factors | mTesla→Gauss and 22-unit table in `SPINACHGUI_SLICE2_OK` |
+| Tensor dialogs | `OrientationDialog`, `RefFrameOrientationDialog`, `OrientationExport` | Orientation math helpers exist; dialog UI not yet ported | pending |
 | Isotope browser | `IsotopesDialog` | First slice: isotope `uitable` window | pending |
 | Import formats ADF/Castep/COSMOS/GAMESS/Gauss/MOL/ORCA | `GUI/IO Formats/*` | Not yet ported | pending |
 | Export formats EasySpin/SIMPSON/SpinEvolution | `GUI/IO Formats/*` | Not yet ported | pending |

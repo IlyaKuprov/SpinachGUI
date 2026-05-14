@@ -167,7 +167,8 @@ classdef App < handle
                 return
             end
             app.AtomsTable.Data = app.Model.Atoms;
-            interactionData = app.Model.Interactions(:, {'ID','Kind','A','B','Label','Unit','ReferenceFrameID','Reference'});
+            interactionData = app.Model.positiveInteractions();
+            interactionData = interactionData(:, {'ID','Kind','A','B','Label','Unit','ReferenceFrameID','Reference'});
             if ~isempty(app.InteractionsTable) && isvalid(app.InteractionsTable)
                 app.InteractionsTable.Data = interactionData;
             end

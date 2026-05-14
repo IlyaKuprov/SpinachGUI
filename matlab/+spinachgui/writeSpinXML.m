@@ -18,15 +18,20 @@ end
 for k = 1:height(model.ReferenceFrames)
     frame = model.ReferenceFrames(k,:);
     matrix = frame.Matrix{1};
-    fprintf(fid, '  <reference_frame id="%d" label="%s">\n', frame.ID, xmlEscape(frame.Label));
+    if isnan(frame.ParentID)
+        fprintf(fid, '  <reference_frame id="%d" label="%s">\n', frame.ID, xmlEscape(frame.Label));
+    else
+        fprintf(fid, '  <reference_frame id="%d" label="%s" parent_id="%d">\n', frame.ID, xmlEscape(frame.Label), frame.ParentID);
+    end
     fprintf(fid, '    <dcm xx="%.12g" xy="%.12g" xz="%.12g" yx="%.12g" yy="%.12g" yz="%.12g" zx="%.12g" zy="%.12g" zz="%.12g" />\n', matrix.');
     fprintf(fid, '  </reference_frame>\n');
 end
-for k = 1:height(model.Interactions)
-    inter = model.Interactions(k,:);
+interactions = model.positiveInteractions();
+for k = 1:height(interactions)
+    inter = interactions(k,:);
     matrix = inter.Matrix{1};
     fprintf(fid, '  <interaction kind="%s" id="%d" units="%s" spin_a="%d" spin_b="%d" reference_frame_id="%g" reference="%s">\n', ...
-        xmlEscape(inter.Kind), inter.ID, xmlEscape(inter.Unit), inter.A, inter.B, inter.ReferenceFrameID, xmlEscape(inter.Reference));
+        xmlEscape(lower(inter.Kind)), inter.ID, xmlEscape(inter.Unit), inter.A, inter.B, inter.ReferenceFrameID, xmlEscape(inter.Reference));
     fprintf(fid, '    <tensor xx="%.12g" xy="%.12g" xz="%.12g" yx="%.12g" yy="%.12g" yz="%.12g" zx="%.12g" zy="%.12g" zz="%.12g" />\n', matrix.');
     fprintf(fid, '  </interaction>\n');
 end

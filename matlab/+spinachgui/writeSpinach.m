@@ -31,8 +31,9 @@ end
 fprintf(fid, '};\n\n');
 fprintf(fid, 'inter.zeeman.matrix = cell(1, %d);\n', height(model.Atoms));
 fprintf(fid, 'inter.coupling.matrix = cell(%d);\n', height(model.Atoms));
-for k = 1:height(model.Interactions)
-    inter = model.Interactions(k,:);
+interactions = model.positiveInteractions();
+for k = 1:height(interactions)
+    inter = interactions(k,:);
     mat = inter.Matrix{1};
     if inter.A == inter.B
         fprintf(fid, 'inter.zeeman.matrix{%d} = %s; %% %s\n', inter.A, matrixLiteral(mat), inter.Kind);

@@ -17,7 +17,7 @@ for k = 1:numel(frameBlocks)
     id = attrNumber(attrs, 'id', k);
     label = attrString(attrs, 'label', "");
     parent = attrNumber(attrs, 'parent_id', NaN);
-    model.addReferenceFrame(matrix, label, parent, "SpinXML", id == 1);
+    model.addReferenceFrame(matrix, label, parent, "SpinXML", id == 1, id);
 end
 if isempty(model.ReferenceFrames)
     model.addReferenceFrame(eye(3), "Lab", NaN, "SpinXML", true);

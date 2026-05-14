@@ -31,3 +31,5 @@ Format coverage in the historical code:
 - Exports: SpinXML/SXML, EasySpin, Spinach MATLAB file, SIMPSON, SpinEvolution.
 
 First MATLAB slice creates the package scaffold and ports core state, isotope data, XYZ import, basic SpinXML import/export, Spinach export scaffold, and the first `uifigure` shell.
+
+Second MATLAB slice tightens system-core parity: legacy interaction-kind names/order, unit conversion factors, Z-Y-Z Euler/DCM orientation convention, tensor symmetrisation, lab-frame default, positive scientific interactions versus negative auto-bond display interactions, interaction statistics, and reference-frame-to-root DCM composition.

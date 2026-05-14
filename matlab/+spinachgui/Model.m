@@ -1,6 +1,6 @@
 classdef Model < handle
     %MODEL Spin system model used by the MATLAB SpinachGUI rewrite.
-    %   This is the MATLAB counterpart of GUI/System Core/Model.h.  It keeps
+    %   This is the MATLAB counterpart of GUI/System Core/Model.h. It keeps
     %   atoms, interactions, and reference frames in MATLAB tables so the GUI
     %   and import/export layers share one mutable state object.
 
@@ -24,48 +24,107 @@ classdef Model < handle
             obj.Interactions = table('Size', [0 12], ...
                 'VariableTypes', {'double','string','double','double','string','string','cell','cell','cell','double','string','string'}, ...
                 'VariableNames', {'ID','Kind','A','B','Label','Unit','Matrix','Eigenvalues','DCM','ReferenceFrameID','Reference','Source'});
-            obj.ReferenceFrames = table('Size', [0 6], ...
+            obj.ReferenceFrames = table('Size', [1 6], ...
                 'VariableTypes', {'double','string','cell','double','string','double'}, ...
                 'VariableNames', {'ID','Label','Matrix','ParentID','Source','IsLabFrame'});
+            obj.ReferenceFrames(1, :) = {1, "Lab Frame", {eye(3)}, NaN, "Legacy default", 1};
             obj.SourceFile = "";
             obj.Dirty = false;
         end
 
-        function id = addAtom(obj, isotopeName, xyz, label)
+        function id = addAtom(obj, isotopeName, xyz, label, makeAutoBonds)
             if nargin < 4
                 label = "";
             end
+            if nargin < 5
+                makeAutoBonds = false;
+            end
             isotope = spinachgui.findIsotope(isotopeName);
-            id = height(obj.Atoms) + 1;
+            id = nextPositiveID(obj.Atoms.ID);
             obj.Atoms(end+1, :) = {id, string(isotope.Element), isotope.Mass, string(label), ...
                 xyz(1), xyz(2), xyz(3), isotope.Radius, isotope.Red, isotope.Green, isotope.Blue, ...
                 isotope.Spin, isotope.Magnetogyric};
+            if makeAutoBonds
+                obj.addBondsForAtom(id);
+            end
             obj.Dirty = true;
         end
 
         function id = addInteraction(obj, kind, atomA, atomB, matrix, unitName, label, referenceFrameID, reference, source)
+            kind = spinachgui.normalizeInteractionKind(kind);
             if nargin < 6 || strlength(string(unitName)) == 0, unitName = "Unknown"; end
             if nargin < 7, label = ""; end
-            if nargin < 8 || isempty(referenceFrameID), referenceFrameID = NaN; end
+            if nargin < 8 || isempty(referenceFrameID) || isnan(referenceFrameID), referenceFrameID = 1; end
             if nargin < 9, reference = ""; end
             if nargin < 10, source = ""; end
-            if isempty(matrix), matrix = zeros(3); end
-            [vec, val] = eig((matrix + matrix.')/2);
-            id = height(obj.Interactions) + 1;
-            obj.Interactions(end+1, :) = {id, string(kind), atomA, atomB, string(label), string(unitName), ...
-                {matrix}, {diag(val).'}, {vec}, referenceFrameID, string(reference), string(source)};
+            matrix = spinachgui.symmetrizeTensor(matrix);
+            [vec, val] = eig(matrix);
+            if kind == "CBond"
+                id = nextNegativeID(obj.Interactions.ID);
+            else
+                id = nextPositiveID(obj.Interactions.ID(obj.Interactions.ID > 0));
+            end
+            dcm = obj.referenceFrameToRootMatrix(referenceFrameID) * vec;
+            obj.Interactions(end+1, :) = {id, kind, atomA, atomB, string(label), string(unitName), ...
+                {matrix}, {diag(val).'}, {dcm}, referenceFrameID, string(reference), string(source)};
             obj.Dirty = true;
         end
 
-        function id = addReferenceFrame(obj, matrix, label, parentID, source, isLabFrame)
+        function id = addReferenceFrame(obj, matrix, label, parentID, source, isLabFrame, requestedID)
             if nargin < 3, label = ""; end
             if nargin < 4 || isempty(parentID), parentID = NaN; end
             if nargin < 5, source = ""; end
             if nargin < 6, isLabFrame = false; end
+            if nargin < 7 || isempty(requestedID) || isnan(requestedID)
+                id = nextPositiveID(obj.ReferenceFrames.ID);
+            else
+                id = requestedID;
+            end
             if isempty(matrix), matrix = eye(3); end
-            id = height(obj.ReferenceFrames) + 1;
-            obj.ReferenceFrames(end+1, :) = {id, string(label), {matrix}, parentID, string(source), double(isLabFrame)};
+            if ismember(id, obj.ReferenceFrames.ID)
+                obj.ReferenceFrames(obj.ReferenceFrames.ID == id, :) = {id, string(label), {matrix}, parentID, string(source), double(isLabFrame)};
+            else
+                obj.ReferenceFrames(end+1, :) = {id, string(label), {matrix}, parentID, string(source), double(isLabFrame)};
+                obj.ReferenceFrames = sortrows(obj.ReferenceFrames, 'ID');
+            end
             obj.Dirty = true;
+        end
+
+        function rebuildAutoBonds(obj)
+            obj.Interactions = obj.Interactions(obj.Interactions.Kind ~= "CBond", :);
+            for a = 1:height(obj.Atoms)
+                for b = 1:a-1
+                    if obj.Atoms.Element(a) ~= "e" && obj.Atoms.Element(b) ~= "e"
+                        obj.addBondInteraction(obj.Atoms.ID(a), obj.Atoms.ID(b));
+                    end
+                end
+            end
+        end
+
+        function rows = positiveInteractions(obj)
+            rows = obj.Interactions(obj.Interactions.ID > 0, :);
+        end
+
+        function stats = interactionStats(obj)
+            kinds = spinachgui.interactionKinds();
+            count = zeros(numel(kinds), 1);
+            maxAbsEigenvalue = zeros(numel(kinds), 1);
+            minAbsEigenvalue = inf(numel(kinds), 1);
+            for k = 1:numel(kinds)
+                rows = obj.Interactions(obj.Interactions.Kind == kinds(k), :);
+                count(k) = height(rows);
+                values = [];
+                for r = 1:height(rows)
+                    values = [values, abs(rows.Eigenvalues{r})]; %#ok<AGROW>
+                end
+                if ~isempty(values)
+                    maxAbsEigenvalue(k) = max(values);
+                    minAbsEigenvalue(k) = min(values);
+                end
+            end
+            minAbsEigenvalue(isinf(minAbsEigenvalue)) = 0;
+            stats = table(kinds(:), count, minAbsEigenvalue, maxAbsEigenvalue, ...
+                'VariableNames', {'Kind', 'Count', 'MinAbsEigenvalue', 'MaxAbsEigenvalue'});
         end
 
         function pairs = bondPairs(obj, cutoffAngstrom)
@@ -74,12 +133,77 @@ classdef Model < handle
         end
 
         function b = bounds(obj)
-            if isempty(obj.Atoms)
+            atoms = obj.Atoms(obj.Atoms.Element ~= "e", :);
+            if isempty(atoms)
                 b = [0 1; 0 1; 0 1];
                 return
             end
-            xyz = [obj.Atoms.X, obj.Atoms.Y, obj.Atoms.Z];
+            xyz = [atoms.X, atoms.Y, atoms.Z];
             b = [min(xyz, [], 1); max(xyz, [], 1)].';
         end
+
+        function matrix = referenceFrameToRootMatrix(obj, frameID)
+            matrix = eye(3);
+            if isempty(frameID) || isnan(frameID)
+                return
+            end
+            visited = [];
+            while ~isempty(frameID) && ~isnan(frameID) && ~ismember(frameID, visited)
+                idx = find(obj.ReferenceFrames.ID == frameID, 1);
+                if isempty(idx)
+                    return
+                end
+                visited(end+1) = frameID; %#ok<AGROW>
+                matrix = obj.ReferenceFrames.Matrix{idx} * matrix;
+                frameID = obj.ReferenceFrames.ParentID(idx);
+            end
+        end
     end
+
+    methods (Access = private)
+        function addBondsForAtom(obj, atomID)
+            atomIndex = find(obj.Atoms.ID == atomID, 1);
+            if isempty(atomIndex) || obj.Atoms.Element(atomIndex) == "e"
+                return
+            end
+            for row = 1:height(obj.Atoms)
+                otherID = obj.Atoms.ID(row);
+                if otherID == atomID || obj.Atoms.Element(row) == "e"
+                    continue
+                end
+                if ~isempty(obj.Interactions) && any(obj.Interactions.Kind == "CBond" & ...
+                        ((obj.Interactions.A == atomID & obj.Interactions.B == otherID) | ...
+                        (obj.Interactions.A == otherID & obj.Interactions.B == atomID)))
+                    continue
+                end
+                obj.addBondInteraction(atomID, otherID);
+            end
+        end
+
+        function addBondInteraction(obj, atomA, atomB)
+            idxA = find(obj.Atoms.ID == atomA, 1);
+            idxB = find(obj.Atoms.ID == atomB, 1);
+            distance = norm([obj.Atoms.X(idxA) - obj.Atoms.X(idxB), ...
+                obj.Atoms.Y(idxA) - obj.Atoms.Y(idxB), obj.Atoms.Z(idxA) - obj.Atoms.Z(idxB)]);
+            obj.addInteraction("CBond", atomA, atomB, distance * eye(3), "Angstroms", "", 1, "", "Auto bond");
+        end
+    end
+end
+
+function id = nextPositiveID(ids)
+ids = ids(ids > 0);
+if isempty(ids)
+    id = 1;
+else
+    id = max(ids) + 1;
+end
+end
+
+function id = nextNegativeID(ids)
+ids = ids(ids < 0);
+if isempty(ids)
+    id = -1;
+else
+    id = min(ids) - 1;
+end
 end
