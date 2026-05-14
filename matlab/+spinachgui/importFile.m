@@ -24,7 +24,12 @@ if contains(text, 'CARTESIAN COORDINATES (A.U.)') || contains(text, 'The g-matri
     model = spinachgui.readOrca(filename);
 elseif contains(text, 'Standard orientation:') || contains(text, 'Input orientation:') || contains(text, 'SCF GIAO Magnetic shielding tensor')
     model = spinachgui.readGaussian(filename);
+elseif contains(text, 'Amsterdam Density Functional') || ...
+        contains(text, 'G E O M E T R Y  ***  3D  Molecule  ***') || ...
+        contains(text, 'Stephen K. Wolff & Georg Schreckenbach') || ...
+        contains(text, '*  NMR spin spin coupling tensor calculation  *')
+    model = spinachgui.readADF(filename);
 else
-    error('spinachgui:UnsupportedImport', 'Could not recognise Gaussian or ORCA content in %s.', filename);
+    error('spinachgui:UnsupportedImport', 'Could not recognise Gaussian, ORCA, or ADF content in %s.', filename);
 end
 end

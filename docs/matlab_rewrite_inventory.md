@@ -53,3 +53,5 @@ Tenth MATLAB slice adds a pure EasySpin exporter: legacy-style one-electron outp
 Eleventh MATLAB slice adds a pure SIMPSON exporter: channel selection, optional isotope sorting/reindexing, quadrupole order, dipolar threshold, legacy-order `Shift`, `Jcoupling`, `Quadrupolar`, and CBond-derived `dipole` lines, orientation/Euler handling, and explicit errors for unsupported or invalid electrons, atom references, tensors, bond distances, and options.
 
 Twelfth MATLAB slice adds a pure SpinEvolution exporter: `ElementMass` channel labels, enabled/disabled channel filtering, exported atom reindexing, legacy system/pulse/variables/options scaffold, legacy-supported `Shift`, `Jcoupling`, and `Quadrupolar` lines, and explicit errors for pseudo-atoms, invalid channels/kinds/IDs, and missing interaction atoms.
+
+Thirteenth MATLAB slice ports ADF import: safe `.log`/`.out` content dispatch, Cartesian coordinates, total NMR shielding tensors as `CShielding`/ppm, and legacy scalar total J-couplings as isotropic `Jcoupling`/Hz matrices with reverse-pair duplicate suppression.
