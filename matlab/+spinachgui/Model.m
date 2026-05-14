@@ -127,6 +127,16 @@ classdef Model < handle
                 'VariableNames', {'Kind', 'Count', 'MinAbsEigenvalue', 'MaxAbsEigenvalue'});
         end
 
+        function summary = convertShieldingToShift(obj, referenceOverrides, interactionIDs)
+            if nargin < 2
+                summary = spinachgui.convertShieldingToShift(obj);
+            elseif nargin < 3
+                summary = spinachgui.convertShieldingToShift(obj, referenceOverrides);
+            else
+                summary = spinachgui.convertShieldingToShift(obj, referenceOverrides, interactionIDs);
+            end
+        end
+
         function pairs = bondPairs(obj, cutoffAngstrom)
             if nargin < 2, cutoffAngstrom = 1.60; end
             pairs = spinachgui.bondPairs(obj.Atoms, cutoffAngstrom);
