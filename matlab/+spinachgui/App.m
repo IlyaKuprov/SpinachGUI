@@ -53,7 +53,7 @@ classdef App < handle
             controls = uigridlayout(root, [5 1]);
             controls.Layout.Row = [1 2];
             controls.Layout.Column = 1;
-            controls.RowHeight = {170, 170, 150, 120, '1x'};
+            controls.RowHeight = {205, 170, 150, 120, '1x'};
 
             app.makeFilePanel(controls);
             app.makeExportPanel(controls);
@@ -89,18 +89,20 @@ classdef App < handle
 
         function makeFilePanel(app, parent)
             panel = uipanel(parent, 'Title', 'File');
-            grid = uigridlayout(panel, [5 2]);
-            grid.RowHeight = repmat({28}, 1, 5);
+            grid = uigridlayout(panel, [6 2]);
+            grid.RowHeight = repmat({28}, 1, 6);
             grid.ColumnWidth = {'1x', '1x'};
             uibutton(grid, 'Text', 'New', 'ButtonPushedFcn', @(~,~) app.newModel());
             uibutton(grid, 'Text', 'Open', 'ButtonPushedFcn', @(~,~) app.openDialog());
             uibutton(grid, 'Text', 'Save', 'ButtonPushedFcn', @(~,~) app.saveDialog());
             uibutton(grid, 'Text', 'Save As', 'ButtonPushedFcn', @(~,~) app.saveDialog());
             uibutton(grid, 'Text', 'Import', 'ButtonPushedFcn', @(~,~) app.openDialog());
+            uibutton(grid, 'Text', 'Filter...', 'ButtonPushedFcn', @(~,~) app.showFilterDialog());
             uibutton(grid, 'Text', 'Print', 'ButtonPushedFcn', @(~,~) print(app.Figure));
             uibutton(grid, 'Text', 'About', 'ButtonPushedFcn', @(~,~) app.aboutDialog());
             uibutton(grid, 'Text', 'Exit', 'ButtonPushedFcn', @(~,~) delete(app.Figure));
             app.FileLabel = uilabel(grid, 'Text', 'Imported File: (None)');
+            app.FileLabel.Layout.Row = 6;
             app.FileLabel.Layout.Column = [1 2];
         end
 
@@ -242,6 +244,20 @@ classdef App < handle
 
         function showIsotopes(~)
             spinachgui.isotopeBrowser();
+        end
+
+        function showFilterDialog(app)
+            spinachgui.filterDialog(app.Model, 'ApplyFcn', @applyFilteredModel, ...
+                'CloseOnApply', true, 'CloseOnCancel', true);
+
+            function applyFilteredModel(~, filteredModel, summary)
+                app.Model = filteredModel;
+                app.refresh();
+                app.StatusLabel.Text = sprintf(['Filtered model: %d -> %d atoms, ' ...
+                    '%d -> %d interactions'], summary.OriginalAtomCount, ...
+                    summary.FilteredAtomCount, summary.OriginalInteractionCount, ...
+                    summary.FilteredInteractionCount);
+            end
         end
 
         function showSelectedOrientation(app)
