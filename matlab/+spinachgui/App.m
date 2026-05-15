@@ -37,6 +37,33 @@ classdef App < handle
                 app.StatusLabel.Text = "Exported " + string(info.Filename);
             end
         end
+
+        function exportModel(app, filename, kind, options)
+            if nargin < 4 || isempty(options)
+                options = struct();
+            end
+
+            switch string(kind)
+                case "SpinXML"
+                    spinachgui.writeSpinXML(app.Model, filename);
+                    app.Model.Dirty = false;
+                case "Spinach"
+                    spinachgui.writeSpinach(app.Model, filename);
+                case "EasySpin"
+                    spinachgui.writeEasySpin(app.Model, filename, options);
+                case "SIMPSON"
+                    spinachgui.writeSimpson(app.Model, filename, options);
+                case "SpinEvolution"
+                    spinachgui.writeSpinEvolution(app.Model, filename, options);
+                otherwise
+                    error('spinachgui:UnsupportedExportKind', ...
+                        'Unsupported export kind "%s".', kind);
+            end
+
+            if ~isempty(app.StatusLabel) && isvalid(app.StatusLabel)
+                app.StatusLabel.Text = "Exported " + string(filename);
+            end
+        end
     end
 
     methods (Access = private)
@@ -122,9 +149,9 @@ classdef App < handle
             uibutton(grid, 'Text', 'SpinXML', 'ButtonPushedFcn', @(~,~) app.exportDialog('SpinXML'));
             uibutton(grid, 'Text', 'Spinach', 'ButtonPushedFcn', @(~,~) app.exportDialog('Spinach'));
             uibutton(grid, 'Text', 'Bitmap', 'ButtonPushedFcn', @(~,~) app.exportDialog('Bitmap'));
-            uibutton(grid, 'Text', 'EasySpin', 'ButtonPushedFcn', @(~,~) app.notYet('EasySpin export'));
-            uibutton(grid, 'Text', 'SIMPSON', 'ButtonPushedFcn', @(~,~) app.notYet('SIMPSON export'));
-            uibutton(grid, 'Text', 'SpinEvolution', 'ButtonPushedFcn', @(~,~) app.notYet('SpinEvolution export'));
+            uibutton(grid, 'Text', 'EasySpin', 'ButtonPushedFcn', @(~,~) app.exportDialog('EasySpin'));
+            uibutton(grid, 'Text', 'SIMPSON', 'ButtonPushedFcn', @(~,~) app.exportDialog('SIMPSON'));
+            uibutton(grid, 'Text', 'SpinEvolution', 'ButtonPushedFcn', @(~,~) app.exportDialog('SpinEvolution'));
         end
 
         function makeViewPanel(app, parent)
@@ -230,8 +257,7 @@ classdef App < handle
         function saveDialog(app)
             [file, path] = uiputfile({'*.sxml', 'SpinXML (*.sxml)'}, 'Save SpinXML');
             if isequal(file, 0), return, end
-            spinachgui.writeSpinXML(app.Model, fullfile(path, file));
-            app.Model.Dirty = false;
+            app.exportModel(fullfile(path, file), 'SpinXML');
             app.StatusLabel.Text = "Saved " + string(fullfile(path, file));
         end
 
@@ -242,8 +268,22 @@ classdef App < handle
                 case 'Spinach'
                     [file, path] = uiputfile({'*.m', 'MATLAB (*.m)'}, 'Export Spinach MATLAB file');
                     if isequal(file, 0), return, end
-                    spinachgui.writeSpinach(app.Model, fullfile(path, file));
-                    app.StatusLabel.Text = "Exported " + string(fullfile(path, file));
+                    app.exportModel(fullfile(path, file), 'Spinach');
+                case 'EasySpin'
+                    [file, path] = uiputfile({'*.m', 'MATLAB (*.m)'}, ...
+                        'Export EasySpin MATLAB file', 'easyspin_system.m');
+                    if isequal(file, 0), return, end
+                    app.exportModel(fullfile(path, file), 'EasySpin');
+                case 'SIMPSON'
+                    [file, path] = uiputfile({'*.in', 'SIMPSON input (*.in)'}, ...
+                        'Export SIMPSON input file', 'simpson_system.in');
+                    if isequal(file, 0), return, end
+                    app.exportModel(fullfile(path, file), 'SIMPSON');
+                case 'SpinEvolution'
+                    [file, path] = uiputfile({'*.in', 'SpinEvolution input (*.in)'}, ...
+                        'Export SpinEvolution input file', 'spinevolution_system.in');
+                    if isequal(file, 0), return, end
+                    app.exportModel(fullfile(path, file), 'SpinEvolution');
                 case 'Bitmap'
                     [file, path] = uiputfile({'*.bmp', 'Bitmap (*.bmp)'; '*.png', 'PNG (*.png)'; ...
                         '*.tif;*.tiff', 'TIFF (*.tif, *.tiff)'; '*.jpg;*.jpeg', 'JPEG (*.jpg, *.jpeg)'}, ...
@@ -316,10 +356,6 @@ classdef App < handle
 
         function aboutDialog(app)
             uialert(app.Figure, sprintf('SpinachGUI MATLAB rewrite\nOriginal WinForms GUI by the Spinach project.'), 'About SpinachGUI');
-        end
-
-        function notYet(app, feature)
-            uialert(app.Figure, feature + " is queued for a later parity slice.", 'Parity slice pending', 'Icon', 'warning');
         end
 
         function setFullscreen(app, value)
