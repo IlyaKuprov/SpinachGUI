@@ -30,6 +30,13 @@ classdef App < handle
             app.Model = spinachgui.importFile(filename);
             app.refresh();
         end
+
+        function info = exportVisualization(app, filename, varargin)
+            info = spinachgui.exportVisualization(app.Axes, filename, varargin{:});
+            if ~isempty(app.StatusLabel) && isvalid(app.StatusLabel)
+                app.StatusLabel.Text = "Exported " + string(info.Filename);
+            end
+        end
     end
 
     methods (Access = private)
@@ -98,7 +105,7 @@ classdef App < handle
             uibutton(grid, 'Text', 'Save As', 'ButtonPushedFcn', @(~,~) app.saveDialog());
             uibutton(grid, 'Text', 'Import', 'ButtonPushedFcn', @(~,~) app.openDialog());
             uibutton(grid, 'Text', 'Filter...', 'ButtonPushedFcn', @(~,~) app.showFilterDialog());
-            uibutton(grid, 'Text', 'Print', 'ButtonPushedFcn', @(~,~) print(app.Figure));
+            uibutton(grid, 'Text', 'Print', 'ButtonPushedFcn', @(~,~) app.printVisualizationDialog());
             uibutton(grid, 'Text', 'About', 'ButtonPushedFcn', @(~,~) app.aboutDialog());
             uibutton(grid, 'Text', 'Exit', 'ButtonPushedFcn', @(~,~) delete(app.Figure));
             app.FileLabel = uilabel(grid, 'Text', 'Imported File: (None)');
@@ -108,10 +115,13 @@ classdef App < handle
 
         function makeExportPanel(app, parent)
             panel = uipanel(parent, 'Title', 'Export');
-            grid = uigridlayout(panel, [5 1]);
-            grid.RowHeight = repmat({28}, 1, 5);
+            grid = uigridlayout(panel, [6 1]);
+            grid.RowHeight = repmat({23}, 1, 6);
+            grid.Padding = [4 4 4 4];
+            grid.RowSpacing = 4;
             uibutton(grid, 'Text', 'SpinXML', 'ButtonPushedFcn', @(~,~) app.exportDialog('SpinXML'));
             uibutton(grid, 'Text', 'Spinach', 'ButtonPushedFcn', @(~,~) app.exportDialog('Spinach'));
+            uibutton(grid, 'Text', 'Bitmap', 'ButtonPushedFcn', @(~,~) app.exportDialog('Bitmap'));
             uibutton(grid, 'Text', 'EasySpin', 'ButtonPushedFcn', @(~,~) app.notYet('EasySpin export'));
             uibutton(grid, 'Text', 'SIMPSON', 'ButtonPushedFcn', @(~,~) app.notYet('SIMPSON export'));
             uibutton(grid, 'Text', 'SpinEvolution', 'ButtonPushedFcn', @(~,~) app.notYet('SpinEvolution export'));
@@ -234,7 +244,20 @@ classdef App < handle
                     if isequal(file, 0), return, end
                     spinachgui.writeSpinach(app.Model, fullfile(path, file));
                     app.StatusLabel.Text = "Exported " + string(fullfile(path, file));
+                case 'Bitmap'
+                    [file, path] = uiputfile({'*.bmp', 'Bitmap (*.bmp)'; '*.png', 'PNG (*.png)'; ...
+                        '*.tif;*.tiff', 'TIFF (*.tif, *.tiff)'; '*.jpg;*.jpeg', 'JPEG (*.jpg, *.jpeg)'}, ...
+                        'Export bitmap image', 'spinachgui_view.bmp');
+                    if isequal(file, 0), return, end
+                    app.exportVisualization(fullfile(path, file), 'Resolution', 300, 'ContentType', 'image');
             end
+        end
+
+        function printVisualizationDialog(app)
+            [file, path] = uiputfile({'*.pdf', 'PDF (*.pdf)'; '*.eps', 'EPS (*.eps)'}, ...
+                'Print visualization to file', 'spinachgui_view.pdf');
+            if isequal(file, 0), return, end
+            app.exportVisualization(fullfile(path, file), 'ContentType', 'image');
         end
 
         function newModel(app)
