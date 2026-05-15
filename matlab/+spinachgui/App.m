@@ -184,8 +184,8 @@ classdef App < handle
             root = uigridlayout(app.VisualizationTab, [1 2]);
             root.ColumnWidth = {360, '1x'};
             tensorPanel = uipanel(root, 'Title', 'Tensor');
-            tensorGrid = uigridlayout(tensorPanel, [13 2]);
-            tensorGrid.RowHeight = repmat({24}, 1, 13);
+            tensorGrid = uigridlayout(tensorPanel, [17 2]);
+            tensorGrid.RowHeight = repmat({24}, 1, 17);
             names = {'BOND  < 1.60 Ang', 'CHEMICAL SHIFT', 'HYPERFINE COUPLING', ...
                 'J-COUPLING  > 0.50 Hz', 'G-TENSOR', 'CHI-TENSOR', ...
                 'QUADRUPOLAR COUPLING', 'EXCHANGE COUPL. > 0.50 MHz', 'ZERO-FIELD SPLITTING'};
@@ -196,10 +196,25 @@ classdef App < handle
             uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Ellipsoids', 'ValueChangedFcn', @(~,~) app.refresh());
             uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Axes', 'ValueChangedFcn', @(~,~) app.refresh());
             uicheckbox(tensorGrid, 'Text', 'NMR', 'Value', true, 'ValueChangedFcn', @(~,~) app.refresh());
-            uilabel(tensorGrid, 'Text', 'View');
+            viewLabel = uilabel(tensorGrid, 'Text', 'Selected interaction actions', 'FontWeight', 'bold');
+            viewLabel.Layout.Row = 13;
+            viewLabel.Layout.Column = [1 2];
             orientationButton = uibutton(tensorGrid, 'Text', 'Orientation export...', ...
                 'ButtonPushedFcn', @(~,~) app.showSelectedOrientation());
+            orientationButton.Layout.Row = 14;
             orientationButton.Layout.Column = [1 2];
+            referenceFrameButton = uibutton(tensorGrid, 'Text', 'Reference frame...', ...
+                'ButtonPushedFcn', @(~,~) app.showSelectedReferenceFrame());
+            referenceFrameButton.Layout.Row = 15;
+            referenceFrameButton.Layout.Column = [1 2];
+            removeAnisotropyButton = uibutton(tensorGrid, 'Text', 'Remove anisotropy', ...
+                'ButtonPushedFcn', @(~,~) app.removeSelectedAnisotropy());
+            removeAnisotropyButton.Layout.Row = 16;
+            removeAnisotropyButton.Layout.Column = [1 2];
+            alignLabButton = uibutton(tensorGrid, 'Text', 'Align lab frame', ...
+                'ButtonPushedFcn', @(~,~) app.alignLabFrameToSelectedInteraction());
+            alignLabButton.Layout.Row = 17;
+            alignLabButton.Layout.Column = [1 2];
 
             app.VisualizationInteractionsTable = uitable(root);
         end
@@ -324,12 +339,79 @@ classdef App < handle
         end
 
         function showSelectedOrientation(app)
+            [interactionID, idx] = app.selectedPositiveInteraction();
+            if isempty(idx)
+                return
+            end
+            titleText = sprintf('Interaction %d tensor/orientation editor', interactionID);
+            spinachgui.orientationEditor(app.Model.Interactions.DCM{idx}, 'Title', titleText, ...
+                'Editable', true, 'InteractionMatrix', app.Model.Interactions.Matrix{idx}, ...
+                'Eigenvalues', app.Model.Interactions.Eigenvalues{idx}, ...
+                'ValueChangedFcn', @applyInteractionOrientation);
+
+            function applyInteractionOrientation(editor, ~)
+                app.Model.setInteractionEigenSystem(interactionID, editor.CurrentEigenvalues(), editor.CurrentDcm());
+                app.refresh();
+                app.StatusLabel.Text = sprintf('Updated tensor/orientation for interaction %d', interactionID);
+            end
+        end
+
+        function showSelectedReferenceFrame(app)
+            [~, idx] = app.selectedPositiveInteraction();
+            if isempty(idx)
+                return
+            end
+            frameID = app.Model.Interactions.ReferenceFrameID(idx);
+            frameIdx = find(app.Model.ReferenceFrames.ID == frameID, 1);
+            if isempty(frameIdx)
+                uialert(app.Figure, 'The selected interaction references a missing frame.', ...
+                    'Reference frame unavailable', 'Icon', 'warning');
+                return
+            end
+            titleText = sprintf('Reference frame %d orientation editor', frameID);
+            spinachgui.orientationEditor(app.Model.ReferenceFrames.Matrix{frameIdx}, 'Title', titleText, ...
+                'Editable', true, 'ValueChangedFcn', @applyReferenceFrameOrientation);
+
+            function applyReferenceFrameOrientation(editor, ~)
+                app.Model.setReferenceFrameMatrix(frameID, editor.CurrentDcm());
+                app.refresh();
+                app.StatusLabel.Text = sprintf('Updated reference frame %d', frameID);
+            end
+        end
+
+        function removeSelectedAnisotropy(app)
+            [interactionID, idx] = app.selectedPositiveInteraction();
+            if isempty(idx)
+                return
+            end
+            app.Model.removeInteractionAnisotropy(interactionID);
+            app.refresh();
+            app.StatusLabel.Text = sprintf('Removed anisotropy from interaction %d', interactionID);
+        end
+
+        function alignLabFrameToSelectedInteraction(app)
+            [interactionID, idx] = app.selectedPositiveInteraction();
+            if isempty(idx)
+                return
+            end
+            app.Model.alignLabFrameToInteraction(interactionID);
+            app.refresh();
+            app.StatusLabel.Text = sprintf('Aligned lab frame to interaction %d', interactionID);
+        end
+
+        function aboutDialog(app)
+            uialert(app.Figure, sprintf('SpinachGUI MATLAB rewrite\nOriginal WinForms GUI by the Spinach project.'), 'About SpinachGUI');
+        end
+
+        function [interactionID, idx] = selectedPositiveInteraction(app)
+            interactionID = [];
+            idx = [];
             if isempty(app.VisualizationInteractionsTable) || ~isvalid(app.VisualizationInteractionsTable)
                 return
             end
             data = app.VisualizationInteractionsTable.Data;
             if isempty(data) || height(data) == 0
-                uialert(app.Figure, 'No positive interactions are available for orientation export.', ...
+                uialert(app.Figure, 'No positive interactions are available.', ...
                     'No interaction selected', 'Icon', 'warning');
                 return
             end
@@ -346,16 +428,7 @@ classdef App < handle
             if isempty(idx)
                 uialert(app.Figure, 'The selected interaction is no longer present in the model.', ...
                     'Interaction unavailable', 'Icon', 'warning');
-                return
             end
-            titleText = sprintf('Interaction %d orientation export', interactionID);
-            spinachgui.orientationEditor(app.Model.Interactions.DCM{idx}, 'Title', titleText, ...
-                'Editable', false, 'InteractionMatrix', app.Model.Interactions.Matrix{idx}, ...
-                'Eigenvalues', app.Model.Interactions.Eigenvalues{idx});
-        end
-
-        function aboutDialog(app)
-            uialert(app.Figure, sprintf('SpinachGUI MATLAB rewrite\nOriginal WinForms GUI by the Spinach project.'), 'About SpinachGUI');
         end
 
         function setFullscreen(app, value)

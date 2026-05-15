@@ -137,6 +137,67 @@ classdef Model < handle
             end
         end
 
+        function setInteractionMatrix(obj, interactionID, matrix)
+            idx = obj.interactionRow(interactionID);
+            [matrix, eigenvalues, dcm] = obj.interactionDerivedState(matrix, obj.Interactions.ReferenceFrameID(idx));
+            obj.Interactions.Matrix{idx} = matrix;
+            obj.Interactions.Eigenvalues{idx} = eigenvalues;
+            obj.Interactions.DCM{idx} = dcm;
+            obj.Dirty = true;
+        end
+
+        function setInteractionEigenSystem(obj, interactionID, eigenvalues, rootDcm)
+            idx = obj.interactionRow(interactionID);
+            validateattributes(eigenvalues, {'numeric'}, {'vector', 'numel', 3, 'finite', 'real'}, ...
+                mfilename, 'eigenvalues');
+            rootDcm = spinachgui.normalizeDcm(rootDcm);
+            frameToRoot = obj.referenceFrameToRootMatrix(obj.Interactions.ReferenceFrameID(idx));
+            localDcm = frameToRoot \ rootDcm;
+            obj.Interactions.Matrix{idx} = spinachgui.symmetrizeTensor(localDcm * diag(double(eigenvalues(:))) * localDcm.');
+            obj.Interactions.Eigenvalues{idx} = double(eigenvalues(:).');
+            obj.Interactions.DCM{idx} = rootDcm;
+            obj.Dirty = true;
+        end
+
+        function setReferenceFrameMatrix(obj, frameID, matrix)
+            validateattributes(matrix, {'numeric'}, {'size', [3 3], 'finite', 'real'}, mfilename, 'matrix');
+            idx = find(obj.ReferenceFrames.ID == frameID, 1);
+            if isempty(idx)
+                error('spinachgui:MissingReferenceFrame', 'Reference frame %g is not present.', frameID);
+            end
+            obj.ReferenceFrames.Matrix{idx} = spinachgui.normalizeDcm(matrix);
+            obj.refreshInteractionDerivedStates(obj.Interactions.ReferenceFrameID == frameID);
+            obj.Dirty = true;
+        end
+
+        function removeInteractionAnisotropy(obj, interactionID)
+            idx = obj.interactionRow(interactionID);
+            isotropicPart = trace(obj.Interactions.Matrix{idx}) / 3;
+            obj.setInteractionMatrix(interactionID, isotropicPart * eye(3));
+        end
+
+        function alignLabFrameToInteraction(obj, interactionID)
+            idx = obj.interactionRow(interactionID);
+            [vectors, ~] = eig(spinachgui.symmetrizeTensor(obj.Interactions.Matrix{idx}));
+            rotation = spinachgui.normalizeDcm(vectors);
+            inverseRotation = rotation.';
+
+            coordinates = [obj.Atoms.X, obj.Atoms.Y, obj.Atoms.Z] * inverseRotation.';
+            obj.Atoms.X = coordinates(:, 1);
+            obj.Atoms.Y = coordinates(:, 2);
+            obj.Atoms.Z = coordinates(:, 3);
+
+            for row = 1:height(obj.Interactions)
+                if obj.Interactions.Kind(row) == "CBond"
+                    continue
+                end
+                matrix = obj.Interactions.Matrix{row};
+                obj.Interactions.Matrix{row} = inverseRotation * matrix * rotation;
+            end
+            obj.refreshInteractionDerivedStates(obj.Interactions.Kind ~= "CBond");
+            obj.Dirty = true;
+        end
+
         function [filteredModel, summary] = filterInteractions(obj, thresholds, removeOrphanAtoms)
             if nargin < 2
                 thresholds = struct();
@@ -181,6 +242,34 @@ classdef Model < handle
     end
 
     methods (Access = private)
+        function idx = interactionRow(obj, interactionID)
+            idx = find(obj.Interactions.ID == interactionID, 1);
+            if isempty(idx)
+                error('spinachgui:MissingInteraction', 'Interaction %g is not present.', interactionID);
+            end
+        end
+
+        function refreshInteractionDerivedStates(obj, rows)
+            if islogical(rows)
+                rows = find(rows);
+            end
+            for row = rows(:).'
+                [matrix, eigenvalues, dcm] = obj.interactionDerivedState(obj.Interactions.Matrix{row}, ...
+                    obj.Interactions.ReferenceFrameID(row));
+                obj.Interactions.Matrix{row} = matrix;
+                obj.Interactions.Eigenvalues{row} = eigenvalues;
+                obj.Interactions.DCM{row} = dcm;
+            end
+        end
+
+        function [matrix, eigenvalues, dcm] = interactionDerivedState(obj, matrix, referenceFrameID)
+            matrix = spinachgui.symmetrizeTensor(matrix);
+            [vectors, values] = eig(matrix);
+            eigenvalues = diag(values).';
+            dcm = obj.referenceFrameToRootMatrix(referenceFrameID) * vectors;
+            dcm = spinachgui.normalizeDcm(dcm);
+        end
+
         function addBondsForAtom(obj, atomID)
             atomIndex = find(obj.Atoms.ID == atomID, 1);
             if isempty(atomIndex) || obj.Atoms.Element(atomIndex) == "e"
