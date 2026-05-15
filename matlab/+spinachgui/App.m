@@ -14,6 +14,7 @@ classdef App < handle
         StatusLabel matlab.ui.control.Label
         FileLabel matlab.ui.control.Label
         VisibilityControls struct = struct()
+        TensorControls struct = struct()
         CurrentView double = [-37.5 30]
         SavePath string = ""
     end
@@ -205,23 +206,48 @@ classdef App < handle
             tensorPanel = uipanel(root, 'Title', 'Tensor');
             tensorGrid = uigridlayout(tensorPanel, [17 2]);
             tensorGrid.RowHeight = repmat({24}, 1, 17);
-            names = {'BOND  < 1.60 Ang', 'CHEMICAL SHIFT', 'HYPERFINE COUPLING', ...
-                'J-COUPLING  > 0.50 Hz', 'G-TENSOR', 'CHI-TENSOR', ...
-                'QUADRUPOLAR COUPLING', 'EXCHANGE COUPL. > 0.50 MHz', 'ZERO-FIELD SPLITTING'};
-            for k = 1:numel(names)
-                uicheckbox(tensorGrid, 'Text', names{k}, 'Value', true, 'Enable', 'off', ...
-                    'Tooltip', 'Tensor visibility filters are not yet ported.', ...
+            app.TensorControls = struct();
+            configs = app.tensorVisualConfigs();
+            for k = 1:numel(configs)
+                key = char(configs(k).Key);
+                checkbox = uicheckbox(tensorGrid, 'Text', configs(k).Label, 'Value', true, ...
+                    'Tag', "TensorControl_" + key, ...
+                    'Tooltip', 'Show or hide this interaction tensor ellipsoid class.', ...
                     'ValueChangedFcn', @(~,~) app.refresh());
-                uislider(tensorGrid, 'Limits', [0 1], 'Value', 0.5, 'Enable', 'off', ...
-                    'Tooltip', 'Tensor visibility thresholds are not yet ported.', ...
+                slider = uislider(tensorGrid, 'Limits', [-30 30], 'Value', 0, ...
+                    'MajorTicks', -30:15:30, 'MinorTicks', -30:5:30, ...
+                    'Tag', "TensorScale_" + key, ...
+                    'Tooltip', 'Logarithmic tensor-size scale, matching the legacy GUI trackbars.', ...
                     'ValueChangedFcn', @(~,~) app.refresh());
+                checkbox.Layout.Row = k;
+                checkbox.Layout.Column = 1;
+                slider.Layout.Row = k;
+                slider.Layout.Column = 2;
+                app.TensorControls.(key).Checkbox = checkbox;
+                app.TensorControls.(key).Slider = slider;
             end
-            uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Ellipsoids', 'Enable', 'off', ...
-                'Tooltip', 'Tensor ellipsoid rendering is not yet ported.', 'ValueChangedFcn', @(~,~) app.refresh());
-            uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Axes', 'Enable', 'off', ...
-                'Tooltip', 'Tensor-axis rendering is not yet ported.', 'ValueChangedFcn', @(~,~) app.refresh());
-            uicheckbox(tensorGrid, 'Text', 'NMR', 'Value', true, 'Enable', 'off', ...
-                'Tooltip', 'NMR tensor filtering is not yet ported.', 'ValueChangedFcn', @(~,~) app.refresh());
+            app.TensorControls.Ellipsoids = uicheckbox(tensorGrid, ...
+                'Text', 'Interaction Tensor Ellipsoids', 'Value', true, ...
+                'Tag', 'TensorControl_Ellipsoids', ...
+                'Tooltip', 'Draw translucent ellipsoid surfaces scaled by tensor eigenvalue moduli.', ...
+                'ValueChangedFcn', @(~,~) app.refresh());
+            app.TensorControls.Ellipsoids.Layout.Row = 7;
+            app.TensorControls.Ellipsoids.Layout.Column = [1 2];
+            app.TensorControls.Axes = uicheckbox(tensorGrid, ...
+                'Text', 'Interaction Tensor Axes', 'Value', true, ...
+                'Tag', 'TensorControl_Axes', ...
+                'Tooltip', 'Draw principal axes; red denotes positive eigenvalues, blue negative.', ...
+                'ValueChangedFcn', @(~,~) app.refresh());
+            app.TensorControls.Axes.Layout.Row = 8;
+            app.TensorControls.Axes.Layout.Column = [1 2];
+            modeGrid = uigridlayout(tensorGrid, [1 3]);
+            modeGrid.Padding = [0 0 0 0];
+            modeGrid.ColumnSpacing = 4;
+            modeGrid.Layout.Row = 9;
+            modeGrid.Layout.Column = [1 2];
+            uibutton(modeGrid, 'Text', 'All', 'ButtonPushedFcn', @(~,~) app.setTensorMode('All'));
+            uibutton(modeGrid, 'Text', 'NMR', 'ButtonPushedFcn', @(~,~) app.setTensorMode('NMR'));
+            uibutton(modeGrid, 'Text', 'EPR', 'ButtonPushedFcn', @(~,~) app.setTensorMode('EPR'));
             viewLabel = uilabel(tensorGrid, 'Text', 'Selected interaction actions', 'FontWeight', 'bold');
             viewLabel.Layout.Row = 13;
             viewLabel.Layout.Column = [1 2];
@@ -258,6 +284,7 @@ classdef App < handle
             if ~isempty(app.VisualizationInteractionsTable) && isvalid(app.VisualizationInteractionsTable)
                 app.VisualizationInteractionsTable.Data = interactionData;
             end
+            app.updateTensorControlEnableState();
             if strlength(app.Model.SourceFile) == 0
                 app.FileLabel.Text = 'Imported File: (None)';
             else
@@ -290,12 +317,296 @@ classdef App < handle
                 a = pairs(k, 1); b = pairs(k, 2);
                 plot3(app.Axes, [atoms.X(a) atoms.X(b)], [atoms.Y(a) atoms.Y(b)], [atoms.Z(a) atoms.Z(b)], '-', 'Color', [0.35 0.35 0.35]);
             end
+            app.renderTensorEllipsoids();
             hold(app.Axes, 'off');
             axis(app.Axes, 'equal');
             grid(app.Axes, 'on');
             view(app.Axes, app.CurrentView(1), app.CurrentView(2));
             title(app.Axes, '3D view');
             app.applyAxesVisibility();
+        end
+
+        function renderTensorEllipsoids(app)
+            if isempty(app.TensorControls) || isempty(app.Model.Interactions) || isempty(app.Model.Atoms)
+                return
+            end
+
+            drawSurfaces = app.tensorControlValue('Ellipsoids', true);
+            drawAxes = app.tensorControlValue('Axes', true);
+            if ~drawSurfaces && ~drawAxes
+                return
+            end
+
+            atoms = app.Model.Atoms;
+            coords = [atoms.X atoms.Y atoms.Z];
+            nonElectronRows = find(atoms.Element ~= "e");
+            baseLength = 1.6;
+            pairs = app.Model.bondPairs(1.60);
+            if ~isempty(pairs)
+                distances = zeros(size(pairs, 1), 1);
+                for pairIdx = 1:size(pairs, 1)
+                    distances(pairIdx) = norm(coords(pairs(pairIdx, 1), :) - coords(pairs(pairIdx, 2), :));
+                end
+                distances = distances(distances > eps & isfinite(distances));
+                if ~isempty(distances)
+                    baseLength = min(distances);
+                end
+            elseif numel(nonElectronRows) > 1
+                distances = [];
+                for leftIdx = 1:numel(nonElectronRows)
+                    for rightIdx = 1:leftIdx-1
+                        distances(end+1) = norm(coords(nonElectronRows(leftIdx), :) - coords(nonElectronRows(rightIdx), :)); %#ok<AGROW>
+                    end
+                end
+                distances = distances(distances > eps & isfinite(distances));
+                if ~isempty(distances)
+                    baseLength = min(distances);
+                end
+            else
+                span = max(max(coords, [], 1) - min(coords, [], 1));
+                if isfinite(span) && span > eps
+                    baseLength = max(1.0, span / 4);
+                end
+            end
+
+            configs = app.tensorVisualConfigs();
+            [sphereX, sphereY, sphereZ] = sphere(24);
+            spherePoints = [sphereX(:).'; sphereY(:).'; sphereZ(:).'];
+            interactions = app.Model.Interactions;
+            for configIdx = 1:numel(configs)
+                config = configs(configIdx);
+                key = char(config.Key);
+                if ~app.tensorControlValue(key, true)
+                    continue
+                end
+                rowMask = interactions.ID > 0 & ismember(interactions.Kind, config.Kinds);
+                rows = find(rowMask);
+                if isempty(rows)
+                    continue
+                end
+
+                maxAbsEigenvalue = 0;
+                for row = rows(:).'
+                    eigenvalues = interactions.Eigenvalues{row};
+                    if isnumeric(eigenvalues) && numel(eigenvalues) == 3 && all(isfinite(eigenvalues(:)))
+                        maxAbsEigenvalue = max(maxAbsEigenvalue, max(abs(eigenvalues(:))));
+                    end
+                end
+                if ~(isfinite(maxAbsEigenvalue) && maxAbsEigenvalue > eps)
+                    continue
+                end
+
+                coordinateScale = config.BaseScale * baseLength * ...
+                    10.^(app.tensorSliderValue(key) / 10) / maxAbsEigenvalue;
+                for row = rows(:).'
+                    eigenvalues = double(interactions.Eigenvalues{row}(:).');
+                    dcm = interactions.DCM{row};
+                    if numel(eigenvalues) ~= 3 || any(~isfinite(eigenvalues)) || ...
+                            ~isnumeric(dcm) || ~isequal(size(dcm), [3 3]) || any(~isfinite(dcm(:)))
+                        matrix = interactions.Matrix{row};
+                        if ~isnumeric(matrix) || ~isequal(size(matrix), [3 3]) || any(~isfinite(matrix(:)))
+                            continue
+                        end
+                        [dcm, values] = eig(spinachgui.symmetrizeTensor(matrix));
+                        eigenvalues = diag(values).';
+                    end
+                    dcm = spinachgui.normalizeDcm(dcm);
+
+                    atomID = interactions.A(row);
+                    atomRow = find(atoms.ID == atomID, 1);
+                    if isempty(atomRow)
+                        atomID = interactions.B(row);
+                        atomRow = find(atoms.ID == atomID, 1);
+                    end
+                    if isempty(atomRow)
+                        continue
+                    end
+                    centre = coords(atomRow, :).';
+                    radii = abs(eigenvalues(:)) * coordinateScale;
+                    if any(~isfinite(radii)) || all(radii <= eps)
+                        continue
+                    end
+
+                    scaledPoints = [spherePoints(1, :) * radii(1); ...
+                                    spherePoints(2, :) * radii(2); ...
+                                    spherePoints(3, :) * radii(3)];
+                    plotPoints = dcm * scaledPoints + centre;
+                    xPlot = reshape(plotPoints(1, :), size(sphereX));
+                    yPlot = reshape(plotPoints(2, :), size(sphereY));
+                    zPlot = reshape(plotPoints(3, :), size(sphereZ));
+
+                    if drawSurfaces
+                        surf(app.Axes, xPlot, yPlot, zPlot, ...
+                            'FaceColor', config.Color, 'FaceAlpha', config.Alpha, ...
+                            'EdgeColor', config.Color * 0.7, 'EdgeAlpha', 0.18, ...
+                            'FaceLighting', 'gouraud', ...
+                            'Tag', sprintf('TensorEllipsoid_%d', interactions.ID(row)));
+                    end
+
+                    if drawAxes
+                        for axisIdx = 1:3
+                            principalVector = dcm(:, axisIdx) * radii(axisIdx);
+                            axisColour = [1 0 0];
+                            if eigenvalues(axisIdx) <= 0
+                                axisColour = [0 0 1];
+                            end
+                            plot3(app.Axes, ...
+                                [centre(1) - principalVector(1), centre(1) + principalVector(1)], ...
+                                [centre(2) - principalVector(2), centre(2) + principalVector(2)], ...
+                                [centre(3) - principalVector(3), centre(3) + principalVector(3)], ...
+                                '-', 'Color', axisColour, 'LineWidth', 1.2, ...
+                                'Tag', sprintf('TensorAxis_%d_%d', interactions.ID(row), axisIdx));
+                        end
+                    end
+                end
+            end
+        end
+
+        function configs = tensorVisualConfigs(~)
+            template = struct('Key', "", 'Label', "", 'Kinds', strings(1, 0), ...
+                'Color', [0 0 0], 'Alpha', 0.5, 'BaseScale', 0.35, 'Mode', "");
+            configs = repmat(template, 1, 6);
+
+            configs(1).Key = "Shift";
+            configs(1).Label = "CHEMICAL SHIFT / SHIELDING";
+            configs(1).Kinds = ["Shift", "CShielding"];
+            configs(1).Color = [0.0 0.0 0.9];
+            configs(1).Alpha = 0.40;
+            configs(1).BaseScale = 0.40;
+            configs(1).Mode = "NMR";
+
+            configs(2).Key = "HFC";
+            configs(2).Label = "HYPERFINE COUPLING";
+            configs(2).Kinds = "HFC";
+            configs(2).Color = [1.0 0.5 0.25];
+            configs(2).Alpha = 0.35;
+            configs(2).BaseScale = 0.35;
+            configs(2).Mode = "EPR";
+
+            configs(3).Key = "Quadrupolar";
+            configs(3).Label = "QUADRUPOLAR COUPLING";
+            configs(3).Kinds = "Quadrupolar";
+            configs(3).Color = [0.45 0.10 0.55];
+            configs(3).Alpha = 0.35;
+            configs(3).BaseScale = 0.35;
+            configs(3).Mode = "NMR";
+
+            configs(4).Key = "GTensor";
+            configs(4).Label = "G-TENSOR";
+            configs(4).Kinds = "GTensor";
+            configs(4).Color = [1.0 0.0 0.0];
+            configs(4).Alpha = 0.60;
+            configs(4).BaseScale = 0.60;
+            configs(4).Mode = "EPR";
+
+            configs(5).Key = "ZFS";
+            configs(5).Label = "ZERO-FIELD SPLITTING";
+            configs(5).Kinds = "ZFS";
+            configs(5).Color = [0.0 0.5 0.25];
+            configs(5).Alpha = 0.60;
+            configs(5).BaseScale = 0.60;
+            configs(5).Mode = "EPR";
+
+            configs(6).Key = "CHITensor";
+            configs(6).Label = "CHI-TENSOR";
+            configs(6).Kinds = "CHITensor";
+            configs(6).Color = [0.0 0.0 0.9];
+            configs(6).Alpha = 0.60;
+            configs(6).BaseScale = 0.60;
+            configs(6).Mode = "EPR";
+        end
+
+        function updateTensorControlEnableState(app)
+            if isempty(app.TensorControls)
+                return
+            end
+            configs = app.tensorVisualConfigs();
+            available = strings(0, 1);
+            if ~isempty(app.Model.Interactions)
+                available = app.Model.Interactions.Kind(app.Model.Interactions.ID > 0);
+            end
+            anyAvailable = false;
+            for configIdx = 1:numel(configs)
+                key = char(configs(configIdx).Key);
+                enabled = any(ismember(available, configs(configIdx).Kinds));
+                anyAvailable = anyAvailable || enabled;
+                state = 'off';
+                if enabled
+                    state = 'on';
+                end
+                if isfield(app.TensorControls, key)
+                    entry = app.TensorControls.(key);
+                    if isfield(entry, 'Checkbox') && isvalid(entry.Checkbox)
+                        entry.Checkbox.Enable = state;
+                    end
+                    if isfield(entry, 'Slider') && isvalid(entry.Slider)
+                        entry.Slider.Enable = state;
+                    end
+                end
+            end
+            state = 'off';
+            if anyAvailable
+                state = 'on';
+            end
+            if isfield(app.TensorControls, 'Ellipsoids') && isvalid(app.TensorControls.Ellipsoids)
+                app.TensorControls.Ellipsoids.Enable = state;
+            end
+            if isfield(app.TensorControls, 'Axes') && isvalid(app.TensorControls.Axes)
+                app.TensorControls.Axes.Enable = state;
+            end
+        end
+
+        function setTensorMode(app, mode)
+            configs = app.tensorVisualConfigs();
+            mode = string(mode);
+            for configIdx = 1:numel(configs)
+                key = char(configs(configIdx).Key);
+                if ~isfield(app.TensorControls, key)
+                    continue
+                end
+                entry = app.TensorControls.(key);
+                if ~isfield(entry, 'Checkbox') || ~isvalid(entry.Checkbox)
+                    continue
+                end
+                switch mode
+                    case "NMR"
+                        entry.Checkbox.Value = configs(configIdx).Mode == "NMR";
+                    case "EPR"
+                        entry.Checkbox.Value = configs(configIdx).Mode == "EPR";
+                    otherwise
+                        entry.Checkbox.Value = true;
+                end
+            end
+            app.refresh();
+        end
+
+        function value = tensorControlValue(app, name, defaultValue)
+            value = defaultValue;
+            name = char(name);
+            if ~isfield(app.TensorControls, name)
+                return
+            end
+            entry = app.TensorControls.(name);
+            if isstruct(entry) && isfield(entry, 'Checkbox')
+                control = entry.Checkbox;
+            else
+                control = entry;
+            end
+            if ~isempty(control) && isvalid(control)
+                value = logical(control.Value);
+            end
+        end
+
+        function value = tensorSliderValue(app, name)
+            value = 0;
+            name = char(name);
+            if ~isfield(app.TensorControls, name)
+                return
+            end
+            entry = app.TensorControls.(name);
+            if isstruct(entry) && isfield(entry, 'Slider') && ~isempty(entry.Slider) && isvalid(entry.Slider)
+                value = double(entry.Slider.Value);
+            end
         end
 
         function openDialog(app)
