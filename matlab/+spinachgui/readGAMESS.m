@@ -1,8 +1,9 @@
 function model = readGAMESS(filename)
-%READGAMESS Import GAMESS equilibrium coordinates into a SpinachGUI model.
-%   This reader deliberately preserves the legacy GAMESS importer scope: only
-%   the equilibrium Cartesian coordinate table following
-%   "***** EQUILIBRIUM GEOMETRY LOCATED *****" is imported.
+%READGAMESS Import GAMESS coordinates into a SpinachGUI model.
+%   The legacy GAMESS importer scope is Cartesian geometry only. Optimised
+%   Angstrom coordinate frames following "***** EQUILIBRIUM GEOMETRY LOCATED
+%   *****" are preferred; old single-point/hessian outputs fall back to the
+%   initial "COORDINATES (BOHR)" atom table.
 
 lines = readlines(filename, 'EmptyLineRule', 'read');
 coordinateFrames = {};
@@ -10,6 +11,14 @@ coordinateFrames = {};
 for k = 1:numel(lines)
     if contains(char(lines(k)), '***** EQUILIBRIUM GEOMETRY LOCATED *****')
         coordinateFrames{end+1} = readCoordinateFrame(lines, k, filename); %#ok<AGROW>
+    end
+end
+
+if isempty(coordinateFrames)
+    for k = 1:numel(lines)
+        if contains(char(lines(k)), 'ATOM') && contains(char(lines(k)), 'COORDINATES (BOHR)')
+            coordinateFrames{end+1} = readBohrCoordinateFrame(lines, k, filename); %#ok<AGROW>
+        end
     end
 end
 
@@ -50,6 +59,34 @@ for j = startLine:numel(lines)
     xyz = parseNumber(fields(3:5));
     if any(isnan(xyz))
         error('spinachgui:InvalidGAMESS', 'Invalid GAMESS coordinate value at line %d in %s.', j, filename);
+    end
+    atoms(end+1).Isotope = canonicalElement(fields{1}); %#ok<AGROW>
+    atoms(end).XYZ = xyz;
+end
+end
+
+function atoms = readBohrCoordinateFrame(lines, markerLine, filename)
+bohrToAngstrom = 0.529177210903;
+atoms = struct('Isotope', {}, 'XYZ', {});
+startLine = markerLine + 2;
+if startLine > numel(lines)
+    error('spinachgui:InvalidGAMESS', 'Truncated GAMESS Bohr coordinate section after line %d in %s.', markerLine, filename);
+end
+
+for j = startLine:numel(lines)
+    line = char(lines(j));
+    if isempty(strtrim(line))
+        if ~isempty(atoms), return, end
+        continue
+    end
+    fields = splitFields(line);
+    if numel(fields) < 5 || isempty(regexp(fields{1}, '^[A-Za-z]+$', 'once'))
+        if ~isempty(atoms), return, end
+        continue
+    end
+    xyz = parseNumber(fields(3:5)) * bohrToAngstrom;
+    if any(isnan(xyz))
+        error('spinachgui:InvalidGAMESS', 'Invalid GAMESS Bohr coordinate value at line %d in %s.', j, filename);
     end
     atoms(end+1).Isotope = canonicalElement(fields{1}); %#ok<AGROW>
     atoms(end).XYZ = xyz;

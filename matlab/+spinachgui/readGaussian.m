@@ -82,7 +82,7 @@ if ~isempty(jCouplingSections)
 end
 if ~isempty(gTensor)
     electronID = ensurePseudoAtom(model, "e");
-    model.addInteraction("GTensor", electronID, electronID, gTensor, "Bohr magneton", "", 1, "", "Gaussian g tensor");
+    model.addInteraction("GTensor", electronID, electronID, gTensor, "Unitless", "", 1, "", "Gaussian g tensor");
 end
 if ~isempty(spinDipoleSections)
     if ~isempty(fermiContactSections)
@@ -93,7 +93,7 @@ if ~isempty(spinDipoleSections)
 end
 if ~isempty(chiTensor)
     chiID = ensurePseudoAtom(model, "chi");
-    model.addInteraction("CHITensor", chiID, chiID, chiTensor, "Bohr magneton", "", 1, "", "Gaussian magnetic susceptibility");
+    model.addInteraction("CHITensor", chiID, chiID, chiTensor, "cgs-ppm", "", 1, "", "Gaussian magnetic susceptibility");
 end
 if ~isempty(quadrupolarSections)
     addQuadrupolarInteractions(model, quadrupolarSections{end});
@@ -493,7 +493,7 @@ electronID = ensurePseudoAtom(model, "e");
 hasGTensor = any(model.Interactions.Kind == "GTensor" & ...
     model.Interactions.A == electronID & model.Interactions.B == electronID);
 if ~hasGTensor
-    model.addInteraction("GTensor", electronID, electronID, 2.0023 * eye(3), "Bohr magneton", "", 1, "", "Gaussian default g tensor");
+    model.addInteraction("GTensor", electronID, electronID, 2.0023 * eye(3), "Unitless", "", 1, "", "Gaussian default g tensor");
 end
 end
 

@@ -12,10 +12,17 @@ counts = regexp(char(lines(4)), '\S+', 'match');
 if numel(counts) < 2
     error('spinachgui:InvalidMOL', 'Missing MOL counts line in %s.', filename);
 end
+if ~contains(char(lines(4)), 'V2000')
+    if contains(char(lines(4)), 'V3000')
+        error('spinachgui:UnsupportedMOL', 'MOL V3000 files are not supported by this V2000 reader: %s.', filename);
+    end
+    error('spinachgui:InvalidMOL', 'MOL counts line must declare V2000 in %s.', filename);
+end
 atomCount = str2double(counts{1});
 bondCount = str2double(counts{2});
-if isnan(atomCount) || isnan(bondCount)
-    error('spinachgui:InvalidMOL', 'Invalid MOL counts line in %s.', filename);
+if isnan(atomCount) || isnan(bondCount) || atomCount < 0 || bondCount < 0 || ...
+        atomCount ~= fix(atomCount) || bondCount ~= fix(bondCount)
+    error('spinachgui:InvalidMOL', 'MOL atom and bond counts must be non-negative integers in %s.', filename);
 end
 if numel(lines) < 4 + atomCount + bondCount
     error('spinachgui:InvalidMOL', 'Unexpected end of MOL file: %s', filename);

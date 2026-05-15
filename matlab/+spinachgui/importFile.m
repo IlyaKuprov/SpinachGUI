@@ -4,7 +4,11 @@ function model = importFile(filename)
 [~,~,ext] = fileparts(filename);
 switch lower(ext)
     case '.xyz'
-        model = spinachgui.readXYZ(filename);
+        if isSpinXMLText(filename)
+            model = spinachgui.readSpinXML(filename);
+        else
+            model = spinachgui.readXYZ(filename);
+        end
     case {'.sxml', '.xml'}
         model = spinachgui.readSpinXML(filename);
     case '.mol'
@@ -35,11 +39,23 @@ elseif contains(text, 'Amsterdam Density Functional') || ...
         contains(text, 'Stephen K. Wolff & Georg Schreckenbach') || ...
         contains(text, '*  NMR spin spin coupling tensor calculation  *')
     model = spinachgui.readADF(filename);
-elseif contains(text, '***** EQUILIBRIUM GEOMETRY LOCATED *****')
+elseif contains(text, '***** EQUILIBRIUM GEOMETRY LOCATED *****') || ...
+        (contains(text, 'GAMESS VERSION') && contains(text, 'COORDINATES (BOHR)'))
     model = spinachgui.readGAMESS(filename);
 else
     error('spinachgui:UnsupportedImport', 'Could not recognise COSMOS, Gaussian, ORCA, ADF, or GAMESS content in %s.', filename);
 end
+end
+
+function tf = isSpinXMLText(filename)
+try
+    text = fileread(filename);
+catch
+    tf = false;
+    return
+end
+text = erase(text, char(65279));
+tf = contains(text, '<spin_system') || contains(text, '<spin-system');
 end
 
 function tf = isCOSMOSText(text)

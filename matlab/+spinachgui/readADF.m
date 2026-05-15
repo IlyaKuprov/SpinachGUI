@@ -274,16 +274,16 @@ end
 
 function isotope = isotopeLabelForADF(elementToken, mass)
 element = canonicalElement(elementToken);
-if mass > 0
-    specific = string(mass) + element;
-    try
-        spinachgui.findIsotope(specific);
-        isotope = specific;
-        return
-    catch
-    end
+if mass > 0 && isExactKnownIsotope(element, mass)
+    isotope = string(mass) + element;
+    return
 end
 isotope = element;
+end
+
+function tf = isExactKnownIsotope(element, mass)
+tableOut = spinachgui.isotopeTable();
+tf = any(tableOut.Element == element & tableOut.Mass == mass);
 end
 
 function requireAtom(model, atomID, context)

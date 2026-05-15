@@ -104,7 +104,9 @@ end
 function assertSimpsonRejectsMissingAtoms(tmpDir)
 model = spinachgui.Model();
 model.addAtom("1H", [0 0 0], "", false);
-model.addInteraction("Jcoupling", 1, 99, diag([1 2 3]), "Hz", "", 1, "", "validation");
+model.addAtom("13C", [1 0 0], "", false);
+model.addInteraction("Jcoupling", 1, 2, diag([1 2 3]), "Hz", "", 1, "", "validation");
+model.Interactions.B(end) = 99; % Deliberately corrupt the public table to exercise writer validation.
 try
     spinachgui.writeSimpson(model, fullfile(tmpDir, 'missing_atom.in'));
     error('validation:ExpectedFailureMissing', 'Expected missing-atom rejection was not raised.');

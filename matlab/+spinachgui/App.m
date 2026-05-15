@@ -14,6 +14,8 @@ classdef App < handle
         StatusLabel matlab.ui.control.Label
         FileLabel matlab.ui.control.Label
         VisibilityControls struct = struct()
+        CurrentView double = [-37.5 30]
+        SavePath string = ""
     end
 
     methods
@@ -27,7 +29,16 @@ classdef App < handle
         end
 
         function openFile(app, filename)
+            if ~app.confirmDiscardChanges('open another file')
+                return
+            end
             app.Model = spinachgui.importFile(filename);
+            [~,~,ext] = fileparts(filename);
+            if ismember(lower(ext), {'.sxml', '.xml'})
+                app.SavePath = string(filename);
+            else
+                app.SavePath = "";
+            end
             app.refresh();
         end
 
@@ -47,6 +58,8 @@ classdef App < handle
                 case "SpinXML"
                     spinachgui.writeSpinXML(app.Model, filename);
                     app.Model.Dirty = false;
+                    app.Model.SourceFile = string(filename);
+                    app.SavePath = string(filename);
                 case "Spinach"
                     spinachgui.writeSpinach(app.Model, filename);
                 case "EasySpin"
@@ -69,6 +82,7 @@ classdef App < handle
     methods (Access = private)
         function buildUI(app)
             app.Figure = uifigure('Name', 'SpinachGUI', 'Position', [100 100 1200 760]);
+            app.Figure.CloseRequestFcn = @(~,~) app.closeApp();
             app.TabGroup = uitabgroup(app.Figure, 'Position', [1 1 1200 760]);
             app.HomeTab = uitab(app.TabGroup, 'Title', 'Home');
             app.VisualizationTab = uitab(app.TabGroup, 'Title', 'Visualization');
@@ -128,13 +142,13 @@ classdef App < handle
             grid.ColumnWidth = {'1x', '1x'};
             uibutton(grid, 'Text', 'New', 'ButtonPushedFcn', @(~,~) app.newModel());
             uibutton(grid, 'Text', 'Open', 'ButtonPushedFcn', @(~,~) app.openDialog());
-            uibutton(grid, 'Text', 'Save', 'ButtonPushedFcn', @(~,~) app.saveDialog());
+            uibutton(grid, 'Text', 'Save', 'ButtonPushedFcn', @(~,~) app.saveCurrent());
             uibutton(grid, 'Text', 'Save As', 'ButtonPushedFcn', @(~,~) app.saveDialog());
             uibutton(grid, 'Text', 'Import', 'ButtonPushedFcn', @(~,~) app.openDialog());
             uibutton(grid, 'Text', 'Filter...', 'ButtonPushedFcn', @(~,~) app.showFilterDialog());
             uibutton(grid, 'Text', 'Print', 'ButtonPushedFcn', @(~,~) app.printVisualizationDialog());
             uibutton(grid, 'Text', 'About', 'ButtonPushedFcn', @(~,~) app.aboutDialog());
-            uibutton(grid, 'Text', 'Exit', 'ButtonPushedFcn', @(~,~) delete(app.Figure));
+            uibutton(grid, 'Text', 'Exit', 'ButtonPushedFcn', @(~,~) app.closeApp());
             app.FileLabel = uilabel(grid, 'Text', 'Imported File: (None)');
             app.FileLabel.Layout.Row = 6;
             app.FileLabel.Layout.Column = [1 2];
@@ -158,19 +172,24 @@ classdef App < handle
             panel = uipanel(parent, 'Title', '3D View Properties');
             grid = uigridlayout(panel, [5 1]);
             grid.RowHeight = repmat({24}, 1, 5);
-            uicheckbox(grid, 'Text', 'Atom IDs', 'ValueChangedFcn', @(~,~) app.refresh());
-            uicheckbox(grid, 'Text', 'Axes', 'Value', true, 'ValueChangedFcn', @(~,~) app.refresh());
+            app.VisibilityControls.AtomIDs = uicheckbox(grid, 'Text', 'Atom IDs', ...
+                'ValueChangedFcn', @(~,~) app.refresh());
+            app.VisibilityControls.Axes = uicheckbox(grid, 'Text', 'Axes', 'Value', true, ...
+                'ValueChangedFcn', @(~,~) app.refresh());
             uicheckbox(grid, 'Text', 'Fullscreen', 'ValueChangedFcn', @(src,~) app.setFullscreen(src.Value));
-            uicheckbox(grid, 'Text', 'Show Interactions in selected atoms', 'ValueChangedFcn', @(~,~) app.refresh());
+            app.VisibilityControls.SelectedAtomInteractions = uicheckbox(grid, ...
+                'Text', 'Show Interactions in selected atoms', 'Enable', 'off', ...
+                'Tooltip', 'Selected-atom interaction overlay is not yet ported.', ...
+                'ValueChangedFcn', @(~,~) app.refresh());
             uibutton(grid, 'Text', 'Isotopes', 'ButtonPushedFcn', @(~,~) app.showIsotopes());
         end
 
-        function makePlanePanel(~, parent)
+        function makePlanePanel(app, parent)
             panel = uipanel(parent, 'Title', 'View Planes');
             grid = uigridlayout(panel, [2 3]);
             labels = {'XY','XZ','YZ','YX','ZX','ZY'};
             for k = 1:numel(labels)
-                uibutton(grid, 'Text', labels{k});
+                uibutton(grid, 'Text', labels{k}, 'ButtonPushedFcn', @(~,~) app.setViewPlane(labels{k}));
             end
         end
 
@@ -190,12 +209,19 @@ classdef App < handle
                 'J-COUPLING  > 0.50 Hz', 'G-TENSOR', 'CHI-TENSOR', ...
                 'QUADRUPOLAR COUPLING', 'EXCHANGE COUPL. > 0.50 MHz', 'ZERO-FIELD SPLITTING'};
             for k = 1:numel(names)
-                uicheckbox(tensorGrid, 'Text', names{k}, 'Value', true, 'ValueChangedFcn', @(~,~) app.refresh());
-                uislider(tensorGrid, 'Limits', [0 1], 'Value', 0.5, 'ValueChangedFcn', @(~,~) app.refresh());
+                uicheckbox(tensorGrid, 'Text', names{k}, 'Value', true, 'Enable', 'off', ...
+                    'Tooltip', 'Tensor visibility filters are not yet ported.', ...
+                    'ValueChangedFcn', @(~,~) app.refresh());
+                uislider(tensorGrid, 'Limits', [0 1], 'Value', 0.5, 'Enable', 'off', ...
+                    'Tooltip', 'Tensor visibility thresholds are not yet ported.', ...
+                    'ValueChangedFcn', @(~,~) app.refresh());
             end
-            uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Ellipsoids', 'ValueChangedFcn', @(~,~) app.refresh());
-            uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Axes', 'ValueChangedFcn', @(~,~) app.refresh());
-            uicheckbox(tensorGrid, 'Text', 'NMR', 'Value', true, 'ValueChangedFcn', @(~,~) app.refresh());
+            uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Ellipsoids', 'Enable', 'off', ...
+                'Tooltip', 'Tensor ellipsoid rendering is not yet ported.', 'ValueChangedFcn', @(~,~) app.refresh());
+            uicheckbox(tensorGrid, 'Text', 'Interaction Tensor Axes', 'Enable', 'off', ...
+                'Tooltip', 'Tensor-axis rendering is not yet ported.', 'ValueChangedFcn', @(~,~) app.refresh());
+            uicheckbox(tensorGrid, 'Text', 'NMR', 'Value', true, 'Enable', 'off', ...
+                'Tooltip', 'NMR tensor filtering is not yet ported.', 'ValueChangedFcn', @(~,~) app.refresh());
             viewLabel = uilabel(tensorGrid, 'Text', 'Selected interaction actions', 'FontWeight', 'bold');
             viewLabel.Layout.Row = 13;
             viewLabel.Layout.Column = [1 2];
@@ -245,12 +271,20 @@ classdef App < handle
             cla(app.Axes);
             if isempty(app.Model.Atoms)
                 title(app.Axes, '3D view');
+                app.applyAxesVisibility();
                 return
             end
             atoms = app.Model.Atoms;
             colors = [atoms.Red atoms.Green atoms.Blue];
             scatter3(app.Axes, atoms.X, atoms.Y, atoms.Z, max(24, atoms.Radius), colors, 'filled');
             hold(app.Axes, 'on');
+            if app.controlValue('AtomIDs', false)
+                for atomIdx = 1:height(atoms)
+                    text(app.Axes, atoms.X(atomIdx), atoms.Y(atomIdx), atoms.Z(atomIdx), ...
+                        sprintf(' %d', atoms.ID(atomIdx)), 'FontSize', 8, ...
+                        'Color', [0.1 0.1 0.1], 'Interpreter', 'none');
+                end
+            end
             pairs = app.Model.bondPairs(1.60);
             for k = 1:size(pairs, 1)
                 a = pairs(k, 1); b = pairs(k, 2);
@@ -259,12 +293,15 @@ classdef App < handle
             hold(app.Axes, 'off');
             axis(app.Axes, 'equal');
             grid(app.Axes, 'on');
-            view(app.Axes, 3);
+            view(app.Axes, app.CurrentView(1), app.CurrentView(2));
             title(app.Axes, '3D view');
+            app.applyAxesVisibility();
         end
 
         function openDialog(app)
-            [file, path] = uigetfile({'*.sxml;*.xml;*.xyz;*.mol;*.log;*.out', 'Supported files (*.sxml, *.xml, *.xyz, *.mol, *.log, *.out)'; '*.*', 'All files'}, 'Open or import spin system');
+            [file, path] = uigetfile({'*.sxml;*.xml;*.xyz;*.mol;*.log;*.out;*.magres;*.coo', ...
+                'Supported files (*.sxml, *.xml, *.xyz, *.mol, *.log, *.out, *.magres, *.coo)'; ...
+                '*.*', 'All files'}, 'Open or import spin system');
             if isequal(file, 0), return, end
             app.openFile(fullfile(path, file));
         end
@@ -274,6 +311,15 @@ classdef App < handle
             if isequal(file, 0), return, end
             app.exportModel(fullfile(path, file), 'SpinXML');
             app.StatusLabel.Text = "Saved " + string(fullfile(path, file));
+        end
+
+        function saveCurrent(app)
+            if strlength(app.SavePath) == 0
+                app.saveDialog();
+                return
+            end
+            app.exportModel(app.SavePath, 'SpinXML');
+            app.StatusLabel.Text = "Saved " + app.SavePath;
         end
 
         function exportDialog(app, kind)
@@ -316,7 +362,11 @@ classdef App < handle
         end
 
         function newModel(app)
+            if ~app.confirmDiscardChanges('start a new model')
+                return
+            end
             app.Model = spinachgui.Model();
+            app.SavePath = "";
             app.refresh();
         end
 
@@ -344,13 +394,21 @@ classdef App < handle
                 return
             end
             titleText = sprintf('Interaction %d tensor/orientation editor', interactionID);
-            spinachgui.orientationEditor(app.Model.Interactions.DCM{idx}, 'Title', titleText, ...
+            frameToRoot = app.Model.referenceFrameToRootMatrix(app.Model.Interactions.ReferenceFrameID(idx));
+            localDcm = frameToRoot \ app.Model.Interactions.DCM{idx};
+            spinachgui.orientationEditor(localDcm, 'Title', titleText, ...
                 'Editable', true, 'InteractionMatrix', app.Model.Interactions.Matrix{idx}, ...
                 'Eigenvalues', app.Model.Interactions.Eigenvalues{idx}, ...
                 'ValueChangedFcn', @applyInteractionOrientation);
 
             function applyInteractionOrientation(editor, ~)
-                app.Model.setInteractionEigenSystem(interactionID, editor.CurrentEigenvalues(), editor.CurrentDcm());
+                currentIdx = find(app.Model.Interactions.ID == interactionID, 1);
+                if isempty(currentIdx)
+                    return
+                end
+                currentFrameToRoot = app.Model.referenceFrameToRootMatrix(app.Model.Interactions.ReferenceFrameID(currentIdx));
+                rootDcm = currentFrameToRoot * editor.CurrentDcm();
+                app.Model.setInteractionEigenSystem(interactionID, editor.CurrentEigenvalues(), rootDcm);
                 app.refresh();
                 app.StatusLabel.Text = sprintf('Updated tensor/orientation for interaction %d', interactionID);
             end
@@ -415,13 +473,22 @@ classdef App < handle
                     'No interaction selected', 'Icon', 'warning');
                 return
             end
-            row = 1;
+            selection = [];
             if isprop(app.VisualizationInteractionsTable, 'Selection')
                 selection = app.VisualizationInteractionsTable.Selection;
-                if ~isempty(selection)
-                    row = selection(1, 1);
-                end
             end
+            if isempty(selection)
+                uialert(app.Figure, 'Please select one positive interaction first.', ...
+                    'No interaction selected', 'Icon', 'warning');
+                return
+            end
+            selectedRows = unique(selection(:, 1));
+            if numel(selectedRows) ~= 1
+                uialert(app.Figure, 'Please select exactly one positive interaction.', ...
+                    'Multiple interactions selected', 'Icon', 'warning');
+                return
+            end
+            row = selectedRows(1);
             row = max(1, min(row, height(data)));
             interactionID = data.ID(row);
             idx = find(app.Model.Interactions.ID == interactionID, 1);
@@ -437,6 +504,65 @@ classdef App < handle
             else
                 app.Figure.WindowState = 'normal';
             end
+        end
+
+        function setViewPlane(app, plane)
+            switch string(plane)
+                case "XY"
+                    app.CurrentView = [0 90];
+                case "YX"
+                    app.CurrentView = [180 -90];
+                case "XZ"
+                    app.CurrentView = [0 0];
+                case "ZX"
+                    app.CurrentView = [180 0];
+                case "YZ"
+                    app.CurrentView = [90 0];
+                case "ZY"
+                    app.CurrentView = [-90 0];
+                otherwise
+                    error('spinachgui:InvalidViewPlane', 'Unknown view plane "%s".', plane);
+            end
+            app.renderModel();
+        end
+
+        function applyAxesVisibility(app)
+            if app.controlValue('Axes', true)
+                axis(app.Axes, 'on');
+            else
+                axis(app.Axes, 'off');
+            end
+        end
+
+        function value = controlValue(app, name, defaultValue)
+            value = defaultValue;
+            if isfield(app.VisibilityControls, name)
+                control = app.VisibilityControls.(name);
+                if ~isempty(control) && isvalid(control)
+                    value = logical(control.Value);
+                end
+            end
+        end
+
+        function closeApp(app)
+            if app.confirmDiscardChanges('exit') && ~isempty(app.Figure) && isvalid(app.Figure)
+                delete(app.Figure);
+            end
+        end
+
+        function confirmed = confirmDiscardChanges(app, actionText)
+            confirmed = true;
+            if isempty(app.Model) || ~app.Model.Dirty
+                return
+            end
+            if isempty(app.Figure) || ~isvalid(app.Figure)
+                return
+            end
+            choice = uiconfirm(app.Figure, ...
+                sprintf('The current model has unsaved changes. Discard them and %s?', actionText), ...
+                'Unsaved changes', 'Options', {'Discard changes', 'Cancel'}, ...
+                'DefaultOption', 'Cancel', 'CancelOption', 'Cancel', 'Icon', 'warning');
+            confirmed = strcmp(choice, 'Discard changes');
         end
     end
 end

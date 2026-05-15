@@ -56,7 +56,7 @@ end
 if ~isempty(gTensor)
     electronID = ensurePseudoAtom(model, "e");
     model.addInteraction("GTensor", electronID, electronID, gTensor, ...
-        "Bohr magneton", "", 1, "", "ORCA g tensor");
+        "Unitless", "", 1, "", "ORCA g tensor");
 end
 if ~isempty(zfsTensor)
     electronID = ensurePseudoAtom(model, "e");
@@ -319,16 +319,16 @@ end
 
 function isotope = isotopeLabelForOrca(elementToken, mass)
 element = canonicalElement(elementToken);
-if mass > 0
-    specific = string(mass) + element;
-    try
-        spinachgui.findIsotope(specific);
-        isotope = specific;
-        return
-    catch
-    end
+if mass > 0 && isExactKnownIsotope(element, mass)
+    isotope = string(mass) + element;
+    return
 end
 isotope = element;
+end
+
+function tf = isExactKnownIsotope(element, mass)
+tableOut = spinachgui.isotopeTable();
+tf = any(tableOut.Element == element & tableOut.Mass == mass);
 end
 
 function element = canonicalElement(token)
@@ -356,7 +356,7 @@ function electronID = ensureHfcElectron(model)
 electronID = ensurePseudoAtom(model, "e");
 if ~any(model.Interactions.Kind == "GTensor")
     model.addInteraction("GTensor", electronID, electronID, ...
-        diag([2.0023 2.0023 2.0023]), "Bohr magneton", "", 1, "", ...
+        diag([2.0023 2.0023 2.0023]), "Unitless", "", 1, "", ...
         "ORCA default electron g tensor");
 end
 end

@@ -45,7 +45,7 @@ labelLines = strings(0, 1);
 for k = 1:nAtoms
     label = string(atoms.Label(k));
     if strlength(strtrim(label)) > 0
-        labelLines(end+1, 1) = sprintf("sys.labels{%d}= '%s';", atomIDs(k), escapeMatlabString(label)); %#ok<AGROW>
+        labelLines(end+1, 1) = sprintf("sys.labels{%d}= '%s';", k, escapeMatlabString(label)); %#ok<AGROW>
     end
 end
 if ~isempty(labelLines)
@@ -107,9 +107,6 @@ if any(~isfinite(atomIDs)) || any(atomIDs <= 0) || any(atomIDs ~= fix(atomIDs))
 end
 if numel(unique(atomIDs)) ~= numel(atomIDs)
     error('spinachgui:DuplicateAtomID', 'Spinach export requires unique atom IDs.');
-end
-if ~isequal(atomIDs, 1:max(atomIDs))
-    error('spinachgui:NonContiguousAtomIDs', 'Spinach export requires contiguous atom IDs for legacy cell-list output.');
 end
 end
 
@@ -204,17 +201,25 @@ atomA = primaryAtomID(inter, atomIDs);
 atomB = inter.B;
 if isempty(atomB) || isnan(atomB) || atomB <= 0
     atomB = atomA;
+    return
 end
-if ~ismember(atomB, atomIDs)
+atomBIndex = find(atomIDs == atomB, 1);
+if isempty(atomBIndex)
     error('spinachgui:InvalidInteractionAtom', 'Interaction %d references missing atom ID %g.', inter.ID, atomB);
 end
+atomB = atomBIndex;
 end
 
 function atomA = primaryAtomID(inter, atomIDs)
 atomA = inter.A;
-if isempty(atomA) || isnan(atomA) || atomA <= 0 || ~ismember(atomA, atomIDs)
+if isempty(atomA) || isnan(atomA) || atomA <= 0
     error('spinachgui:InvalidInteractionAtom', 'Interaction %d references missing atom ID %g.', inter.ID, atomA);
 end
+atomAIndex = find(atomIDs == atomA, 1);
+if isempty(atomAIndex)
+    error('spinachgui:InvalidInteractionAtom', 'Interaction %d references missing atom ID %g.', inter.ID, atomA);
+end
+atomA = atomAIndex;
 end
 
 function matrix = labMatrix(model, inter)

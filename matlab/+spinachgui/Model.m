@@ -32,15 +32,27 @@ classdef Model < handle
             obj.Dirty = false;
         end
 
-        function id = addAtom(obj, isotopeName, xyz, label, makeAutoBonds)
+        function id = addAtom(obj, isotopeName, xyz, label, makeAutoBonds, requestedID)
             if nargin < 4
                 label = "";
             end
             if nargin < 5
                 makeAutoBonds = false;
             end
+            if nargin < 6
+                requestedID = [];
+            end
+            validateattributes(xyz, {'numeric'}, {'vector', 'numel', 3, 'finite', 'real'}, mfilename, 'xyz');
+            xyz = double(xyz(:).');
             isotope = spinachgui.findIsotope(isotopeName);
-            id = nextPositiveID(obj.Atoms.ID);
+            if isempty(requestedID)
+                id = nextPositiveID(obj.Atoms.ID);
+            else
+                id = validatePositiveIntegerID(requestedID, 'Atom ID');
+                if any(obj.Atoms.ID == id)
+                    error('spinachgui:DuplicateAtomID', 'Atom ID %d is already present.', id);
+                end
+            end
             obj.Atoms(end+1, :) = {id, string(isotope.Element), isotope.Mass, string(label), ...
                 xyz(1), xyz(2), xyz(3), isotope.Radius, isotope.Red, isotope.Green, isotope.Blue, ...
                 isotope.Spin, isotope.Magnetogyric};
@@ -50,21 +62,40 @@ classdef Model < handle
             obj.Dirty = true;
         end
 
-        function id = addInteraction(obj, kind, atomA, atomB, matrix, unitName, label, referenceFrameID, reference, source)
+        function id = addInteraction(obj, kind, atomA, atomB, matrix, unitName, label, referenceFrameID, reference, source, requestedID)
             kind = spinachgui.normalizeInteractionKind(kind);
             if nargin < 6 || strlength(string(unitName)) == 0, unitName = "Unknown"; end
             if nargin < 7, label = ""; end
             if nargin < 8 || isempty(referenceFrameID) || isnan(referenceFrameID), referenceFrameID = 1; end
             if nargin < 9, reference = ""; end
             if nargin < 10, source = ""; end
+            if nargin < 11, requestedID = []; end
+            atomA = obj.validateAtomReference(atomA, 'atomA');
+            if isempty(atomB) || isnan(atomB)
+                atomB = atomA;
+            end
+            atomB = obj.validateAtomReference(atomB, 'atomB');
+            referenceFrameID = obj.validateReferenceFrameReference(referenceFrameID, 'referenceFrameID');
             matrix = spinachgui.symmetrizeTensor(matrix);
             [vec, val] = eig(matrix);
-            if kind == "CBond"
-                id = nextNegativeID(obj.Interactions.ID);
+            if isempty(requestedID)
+                if kind == "CBond"
+                    id = nextNegativeID(obj.Interactions.ID);
+                else
+                    id = nextPositiveID(obj.Interactions.ID(obj.Interactions.ID > 0));
+                end
             else
-                id = nextPositiveID(obj.Interactions.ID(obj.Interactions.ID > 0));
+                id = validateIntegerID(requestedID, 'Interaction ID');
+                if kind == "CBond" && id >= 0
+                    error('spinachgui:InvalidInteractionID', 'CBond interaction IDs must be negative.');
+                elseif kind ~= "CBond" && id <= 0
+                    error('spinachgui:InvalidInteractionID', 'Scientific interaction IDs must be positive.');
+                end
+                if any(obj.Interactions.ID == id)
+                    error('spinachgui:DuplicateInteractionID', 'Interaction ID %d is already present.', id);
+                end
             end
-            dcm = obj.referenceFrameToRootMatrix(referenceFrameID) * vec;
+            dcm = spinachgui.normalizeDcm(obj.referenceFrameToRootMatrix(referenceFrameID) * vec);
             obj.Interactions(end+1, :) = {id, kind, atomA, atomB, string(label), string(unitName), ...
                 {matrix}, {diag(val).'}, {dcm}, referenceFrameID, string(reference), string(source)};
             obj.Dirty = true;
@@ -78,14 +109,20 @@ classdef Model < handle
             if nargin < 7 || isempty(requestedID) || isnan(requestedID)
                 id = nextPositiveID(obj.ReferenceFrames.ID);
             else
-                id = requestedID;
+                id = validatePositiveIntegerID(requestedID, 'Reference frame ID');
             end
             if isempty(matrix), matrix = eye(3); end
+            matrix = spinachgui.normalizeDcm(matrix);
+            parentID = obj.validateReferenceFrameParent(id, parentID);
+            replacing = ismember(id, obj.ReferenceFrames.ID);
             if ismember(id, obj.ReferenceFrames.ID)
                 obj.ReferenceFrames(obj.ReferenceFrames.ID == id, :) = {id, string(label), {matrix}, parentID, string(source), double(isLabFrame)};
             else
                 obj.ReferenceFrames(end+1, :) = {id, string(label), {matrix}, parentID, string(source), double(isLabFrame)};
                 obj.ReferenceFrames = sortrows(obj.ReferenceFrames, 'ID');
+            end
+            if replacing
+                obj.refreshInteractionsForFrameClosure(id);
             end
             obj.Dirty = true;
         end
@@ -151,7 +188,8 @@ classdef Model < handle
             validateattributes(eigenvalues, {'numeric'}, {'vector', 'numel', 3, 'finite', 'real'}, ...
                 mfilename, 'eigenvalues');
             rootDcm = spinachgui.normalizeDcm(rootDcm);
-            frameToRoot = obj.referenceFrameToRootMatrix(obj.Interactions.ReferenceFrameID(idx));
+            frameID = obj.validateReferenceFrameReference(obj.Interactions.ReferenceFrameID(idx), 'referenceFrameID');
+            frameToRoot = obj.referenceFrameToRootMatrix(frameID);
             localDcm = frameToRoot \ rootDcm;
             obj.Interactions.Matrix{idx} = spinachgui.symmetrizeTensor(localDcm * diag(double(eigenvalues(:))) * localDcm.');
             obj.Interactions.Eigenvalues{idx} = double(eigenvalues(:).');
@@ -166,7 +204,7 @@ classdef Model < handle
                 error('spinachgui:MissingReferenceFrame', 'Reference frame %g is not present.', frameID);
             end
             obj.ReferenceFrames.Matrix{idx} = spinachgui.normalizeDcm(matrix);
-            obj.refreshInteractionDerivedStates(obj.Interactions.ReferenceFrameID == frameID);
+            obj.refreshInteractionsForFrameClosure(frameID);
             obj.Dirty = true;
         end
 
@@ -232,11 +270,14 @@ classdef Model < handle
             while ~isempty(frameID) && ~isnan(frameID) && ~ismember(frameID, visited)
                 idx = find(obj.ReferenceFrames.ID == frameID, 1);
                 if isempty(idx)
-                    return
+                    error('spinachgui:MissingReferenceFrame', 'Reference frame %g is not present.', frameID);
                 end
                 visited(end+1) = frameID; %#ok<AGROW>
                 matrix = obj.ReferenceFrames.Matrix{idx} * matrix;
                 frameID = obj.ReferenceFrames.ParentID(idx);
+            end
+            if ~isempty(frameID) && ~isnan(frameID)
+                error('spinachgui:ReferenceFrameCycle', 'Reference frame hierarchy contains a cycle at frame %g.', frameID);
             end
         end
     end
@@ -247,6 +288,68 @@ classdef Model < handle
             if isempty(idx)
                 error('spinachgui:MissingInteraction', 'Interaction %g is not present.', interactionID);
             end
+        end
+
+        function atomID = validateAtomReference(obj, atomID, argumentName)
+            atomID = validatePositiveIntegerID(atomID, argumentName);
+            if ~ismember(atomID, obj.Atoms.ID)
+                error('spinachgui:MissingAtom', '%s references missing atom ID %d.', argumentName, atomID);
+            end
+        end
+
+        function frameID = validateReferenceFrameReference(obj, frameID, argumentName)
+            frameID = validatePositiveIntegerID(frameID, argumentName);
+            if ~ismember(frameID, obj.ReferenceFrames.ID)
+                error('spinachgui:MissingReferenceFrame', '%s references missing reference frame ID %d.', argumentName, frameID);
+            end
+        end
+
+        function parentID = validateReferenceFrameParent(obj, frameID, parentID)
+            if isempty(parentID) || isnan(parentID)
+                parentID = NaN;
+                return
+            end
+            parentID = validatePositiveIntegerID(parentID, 'Reference frame parent ID');
+            if parentID == frameID
+                error('spinachgui:ReferenceFrameCycle', 'Reference frame %d cannot be its own parent.', frameID);
+            end
+            if ~ismember(parentID, obj.ReferenceFrames.ID)
+                error('spinachgui:MissingReferenceFrame', 'Reference frame parent ID %d is not present.', parentID);
+            end
+            ancestorID = parentID;
+            visited = [];
+            while ~isempty(ancestorID) && ~isnan(ancestorID)
+                if ancestorID == frameID || ismember(ancestorID, visited)
+                    error('spinachgui:ReferenceFrameCycle', 'Reference frame hierarchy would contain a cycle at frame %d.', frameID);
+                end
+                visited(end+1) = ancestorID; %#ok<AGROW>
+                ancestorRow = find(obj.ReferenceFrames.ID == ancestorID, 1);
+                if isempty(ancestorRow)
+                    error('spinachgui:MissingReferenceFrame', 'Reference frame parent ID %d is not present.', ancestorID);
+                end
+                ancestorID = obj.ReferenceFrames.ParentID(ancestorRow);
+            end
+        end
+
+        function ids = descendantReferenceFrameIDs(obj, frameID)
+            ids = frameID;
+            changed = true;
+            while changed
+                changed = false;
+                for row = 1:height(obj.ReferenceFrames)
+                    candidateID = obj.ReferenceFrames.ID(row);
+                    parentID = obj.ReferenceFrames.ParentID(row);
+                    if ~isnan(parentID) && ismember(parentID, ids) && ~ismember(candidateID, ids)
+                        ids(end+1) = candidateID; %#ok<AGROW>
+                        changed = true;
+                    end
+                end
+            end
+        end
+
+        function refreshInteractionsForFrameClosure(obj, frameID)
+            frameIDs = obj.descendantReferenceFrameIDs(frameID);
+            obj.refreshInteractionDerivedStates(ismember(obj.Interactions.ReferenceFrameID, frameIDs));
         end
 
         function refreshInteractionDerivedStates(obj, rows)
@@ -315,4 +418,16 @@ if isempty(ids)
 else
     id = min(ids) - 1;
 end
+end
+
+function id = validatePositiveIntegerID(value, name)
+id = validateIntegerID(value, name);
+if id <= 0
+    error('spinachgui:InvalidID', '%s must be a positive integer.', name);
+end
+end
+
+function id = validateIntegerID(value, name)
+validateattributes(value, {'numeric'}, {'scalar', 'finite', 'real', 'integer'}, mfilename, name);
+id = double(value);
 end

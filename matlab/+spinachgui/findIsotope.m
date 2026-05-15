@@ -30,7 +30,12 @@ end
 if mass ~= 0
     massIdx = idx(t.Mass(idx) == mass);
     if isempty(massIdx)
-        error('spinachgui:UnknownIsotopeMass', 'Unknown isotope "%s".', isotopeName);
+        isotope = t(idx(1), :);
+        isotope.Mass = mass;
+        isotope.Spin = 0;
+        isotope.QuadrupoleMoment = 0;
+        isotope.Magnetogyric = 0;
+        return
     end
     idx = massIdx(1);
 else

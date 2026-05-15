@@ -30,8 +30,9 @@ interactions = model.positiveInteractions();
 for k = 1:height(interactions)
     inter = interactions(k,:);
     matrix = inter.Matrix{1};
-    fprintf(fid, '  <interaction kind="%s" id="%d" units="%s" spin_a="%d" spin_b="%d" reference_frame_id="%g" reference="%s">\n', ...
-        xmlEscape(lower(inter.Kind)), inter.ID, xmlEscape(inter.Unit), inter.A, inter.B, inter.ReferenceFrameID, xmlEscape(inter.Reference));
+    fprintf(fid, '  <interaction kind="%s" id="%d" units="%s" spin_a="%d" spin_b="%d" label="%s" reference_frame_id="%g" reference="%s">\n', ...
+        xmlEscape(lower(inter.Kind)), inter.ID, xmlEscape(inter.Unit), inter.A, inter.B, ...
+        xmlEscape(inter.Label), inter.ReferenceFrameID, xmlEscape(inter.Reference));
     fprintf(fid, '    <tensor xx="%.12g" xy="%.12g" xz="%.12g" yx="%.12g" yy="%.12g" yz="%.12g" zx="%.12g" zy="%.12g" zz="%.12g" />\n', matrix.');
     fprintf(fid, '  </interaction>\n');
 end

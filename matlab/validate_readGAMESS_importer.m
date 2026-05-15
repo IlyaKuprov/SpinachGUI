@@ -23,6 +23,16 @@ imported = spinachgui.importFile(fixture);
 assert(height(imported.Atoms) == 3, 'GAMESS dispatch should preserve atom count.');
 assertClose([imported.Atoms.X, imported.Atoms.Y, imported.Atoms.Z], expectedXYZ, 1e-12, 'GAMESS dispatch coordinates');
 
+bohrFixture = [tempname(tempdir), '.out'];
+bohrCleanup = onCleanup(@() deleteIfExists(bohrFixture));
+writeSyntheticGAMESSBohrFixture(bohrFixture);
+bohrModel = spinachgui.importFile(bohrFixture);
+assert(height(bohrModel.Atoms) == 2, 'GAMESS Bohr fallback should import two atoms.');
+assert(isequal(bohrModel.Atoms.Element, ["C"; "H"]), 'Unexpected GAMESS Bohr fallback atom elements.');
+assertClose([bohrModel.Atoms.X, bohrModel.Atoms.Y, bohrModel.Atoms.Z], ...
+    [0 0 0; 0.529177210903 0 0], 1e-12, 'GAMESS Bohr fallback coordinates');
+clear bohrCleanup
+
 fprintf('GAMESS_IMPORTER_VALIDATION_OK\n');
 end
 
@@ -47,6 +57,18 @@ fprintf(fid, [' Synthetic legacy-compatible GAMESS output\n' ...
     ' O           8.0   1.0000000000   2.0000000000   3.0000000000\n' ...
     ' H           1.0   1.0000000000   2.0000000000   3.9600000000\n' ...
     ' H           1.0   1.9300000000   2.0000000000   2.7600000000\n' ...
+    '\n']);
+end
+
+function writeSyntheticGAMESSBohrFixture(filename)
+fid = fopen(filename, 'w');
+assert(fid > 0, 'Could not create synthetic GAMESS Bohr fixture.');
+closer = onCleanup(@() fclose(fid));
+fprintf(fid, ['          *            GAMESS VERSION = TEST            *\n' ...
+    ' ATOM      ATOMIC                      COORDINATES (BOHR)\n' ...
+    '           CHARGE         X                   Y                   Z\n' ...
+    ' C           6.0     0.0000000000        0.0000000000        0.0000000000\n' ...
+    ' H           1.0     1.0000000000        0.0000000000        0.0000000000\n' ...
     '\n']);
 end
 
