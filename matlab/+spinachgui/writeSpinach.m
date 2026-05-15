@@ -292,7 +292,7 @@ function text = formatExp3(value)
 text = sprintf('%.3e', value);
 parts = regexp(text, '^(.*e)([+-])(\d+)$', 'tokens', 'once');
 if ~isempty(parts)
-    text = sprintf('%s%s%03d', parts{1}, parts{2}, str2double(parts{3}));
+    text = sprintf('%s%s%03d', parts{1}, parts{2}, spinachgui.parseNumber(parts{3}));
 end
 end
 

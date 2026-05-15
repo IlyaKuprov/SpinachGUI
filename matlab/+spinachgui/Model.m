@@ -32,7 +32,7 @@ classdef Model < handle
             obj.Dirty = false;
         end
 
-        function id = addAtom(obj, isotopeName, xyz, label, makeAutoBonds, requestedID)
+        function id = addAtom(obj, isotopeName, xyz, label, makeAutoBonds, requestedID, allowUnknownMass)
             if nargin < 4
                 label = "";
             end
@@ -42,9 +42,12 @@ classdef Model < handle
             if nargin < 6
                 requestedID = [];
             end
+            if nargin < 7
+                allowUnknownMass = false;
+            end
             validateattributes(xyz, {'numeric'}, {'vector', 'numel', 3, 'finite', 'real'}, mfilename, 'xyz');
             xyz = double(xyz(:).');
-            isotope = spinachgui.findIsotope(isotopeName);
+            isotope = spinachgui.findIsotope(isotopeName, allowUnknownMass);
             if isempty(requestedID)
                 id = nextPositiveID(obj.Atoms.ID);
             else

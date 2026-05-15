@@ -18,8 +18,8 @@ if ~contains(char(lines(4)), 'V2000')
     end
     error('spinachgui:InvalidMOL', 'MOL counts line must declare V2000 in %s.', filename);
 end
-atomCount = str2double(counts{1});
-bondCount = str2double(counts{2});
+atomCount = spinachgui.parseNumber(counts{1});
+bondCount = spinachgui.parseNumber(counts{2});
 if isnan(atomCount) || isnan(bondCount) || atomCount < 0 || bondCount < 0 || ...
         atomCount ~= fix(atomCount) || bondCount ~= fix(bondCount)
     error('spinachgui:InvalidMOL', 'MOL atom and bond counts must be non-negative integers in %s.', filename);
@@ -35,7 +35,7 @@ for k = 1:atomCount
     if numel(fields) < 4
         error('spinachgui:InvalidMOL', 'Invalid MOL atom line %d in %s.', 4+k, filename);
     end
-    xyz = [str2double(fields{1}), str2double(fields{2}), str2double(fields{3})];
+    xyz = [spinachgui.parseNumber(fields{1}), spinachgui.parseNumber(fields{2}), spinachgui.parseNumber(fields{3})];
     if any(isnan(xyz))
         error('spinachgui:InvalidMOL', 'Invalid MOL coordinates on line %d in %s.', 4+k, filename);
     end

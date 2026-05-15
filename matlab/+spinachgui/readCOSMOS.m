@@ -145,7 +145,7 @@ match = regexp(line, '^\s*ATOMS\s+([0-9]+)', 'tokens', 'once');
 if isempty(match)
     count = [];
 else
-    count = str2double(match{1});
+    count = spinachgui.parseNumber(match{1});
 end
 end
 
@@ -202,12 +202,12 @@ end
 number = zeros(1, numel(tokens));
 for k = 1:numel(tokens)
     token = regexprep(char(tokens{k}), '[dD]', 'E');
-    number(k) = str2double(token);
+    number(k) = spinachgui.parseNumber(token);
 end
 end
 
 function number = parseInteger(token)
-number = str2double(char(token));
+number = spinachgui.parseNumber(char(token));
 if isnan(number) || fix(number) ~= number
     number = NaN;
 end

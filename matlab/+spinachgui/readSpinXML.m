@@ -36,7 +36,7 @@ for k = 1:numel(spinBlocks)
     label = attrString(attrs, 'label', "");
     externalID = attrNumberOptionalAny(attrs, {'id', 'number'});
     coord = parseCoords(body);
-    atomID = model.addAtom(isotope, coord, label);
+    atomID = model.addAtom(isotope, coord, label, false, [], true);
     if ~isempty(externalID)
         key = externalIDKey(externalID);
         if isKey(spinIDMap, key)
@@ -135,7 +135,7 @@ end
 
 function value = attrNumber(attrs, key, defaultValue)
 if isKey(attrs, key)
-    value = str2double(xmlUnescape(attrs(key)));
+    value = spinachgui.parseNumber(xmlUnescape(attrs(key)));
     if isnan(value), value = defaultValue; end
 else
     value = defaultValue;
@@ -156,7 +156,7 @@ function value = attrNumberOptionalAny(attrs, keys)
 value = [];
 for k = 1:numel(keys)
     if isKey(attrs, keys{k})
-        value = str2double(xmlUnescape(attrs(keys{k})));
+        value = spinachgui.parseNumber(xmlUnescape(attrs(keys{k})));
         if isnan(value), value = []; end
         return
     end
@@ -169,7 +169,7 @@ attrKeys = keys(attrs);
 for k = 1:numel(keyNames)
     idx = find(strcmpi(attrKeys, keyNames{k}), 1);
     if ~isempty(idx)
-        value = str2double(xmlUnescape(attrs(attrKeys{idx})));
+        value = spinachgui.parseNumber(xmlUnescape(attrs(attrKeys{idx})));
         if isnan(value), value = defaultValue; end
         return
     end
@@ -182,7 +182,7 @@ match = regexp(body, expr, 'tokens', 'once', 'ignorecase');
 if isempty(match)
     value = defaultValue;
 else
-    value = str2double(xmlUnescape(strtrim(match{1})));
+    value = spinachgui.parseNumber(xmlUnescape(strtrim(match{1})));
     if isnan(value), value = defaultValue; end
 end
 end
@@ -229,7 +229,7 @@ elements = regexp(coordBlock, '<element[^>]*>([^<]*)</element>', 'tokens', 'igno
 if numel(elements) >= 3
     xyz = zeros(1, 3);
     for k = 1:3
-        xyz(k) = str2double(xmlUnescape(strtrim(elements{k}{1})));
+        xyz(k) = spinachgui.parseNumber(xmlUnescape(strtrim(elements{k}{1})));
     end
     if all(isfinite(xyz))
         return
@@ -273,7 +273,7 @@ if ~isempty(match)
 end
 match = regexp(body, '<scalar[^>]*>([^<]+)</scalar>', 'tokens', 'once');
 if ~isempty(match)
-    value = str2double(xmlUnescape(strtrim(match{1})));
+    value = spinachgui.parseNumber(xmlUnescape(strtrim(match{1})));
     if isnan(value), value = []; end
 end
 end

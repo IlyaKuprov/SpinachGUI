@@ -83,7 +83,7 @@ for j = headerLine+1:numel(lines)
         end
         return
     end
-    atomIndex = str2double(fields{1});
+    atomIndex = spinachgui.parseNumber(fields{1});
     xyz = parseNumber(fields(3:5));
     mass = round(parseNumber(fields(8)));
     if isnan(atomIndex) || any(isnan(xyz)) || isnan(mass)
@@ -219,7 +219,7 @@ match = regexp(line, '[A-Za-z][a-z]?\((\d+)\)', 'tokens', 'once');
 if isempty(match)
     atomID = NaN;
 else
-    atomID = str2double(match{1});
+    atomID = spinachgui.parseNumber(match{1});
 end
 end
 
@@ -228,7 +228,7 @@ match = regexp(line, 'Nucleus\s+(\d+)\s+\([^)]*\)\s+perturbing\s+nucleus\s+(\d+)
 if isempty(match)
     pair = [];
 else
-    pair = [str2double(match{1}), str2double(match{2})];
+    pair = [spinachgui.parseNumber(match{1}), spinachgui.parseNumber(match{2})];
 end
 end
 
@@ -304,7 +304,7 @@ end
 numbers = zeros(1, numel(tokens));
 for k = 1:numel(tokens)
     token = regexprep(char(tokens{k}), '[dD]', 'E');
-    numbers(k) = str2double(token);
+    numbers(k) = spinachgui.parseNumber(token);
 end
 end
 

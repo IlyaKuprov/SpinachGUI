@@ -10,6 +10,7 @@ cleanup = onCleanup(@() cleanupTempDir(tmpDir));
 
 validateSpinXMLIDsAndEntities(tmpDir);
 validateSpinXMLTensorForms(tmpDir);
+validateBundledSpinXMLSample(thisDir);
 validateModelInputGuards();
 validateExporterAndImporterGuards(tmpDir);
 validateAppLooseTails();
@@ -90,9 +91,43 @@ assertClose(model.Interactions.Matrix{2}, diag([12.75 10.5 6.75]), 1e-12, 'SpinX
 assertClose(model.Interactions.Matrix{3}, 29.13 * eye(3), 1e-12, 'SpinXML scalar tensor');
 end
 
+function validateBundledSpinXMLSample(thisDir)
+repoRoot = fileparts(thisDir);
+sampleFile = fullfile(repoRoot, 'examples', 'SpinXML', 'Sample file.xml');
+model = spinachgui.readSpinXML(sampleFile);
+assert(height(model.Atoms) == 2, 'Schema-style SpinXML sample should import two atoms.');
+assert(height(model.positiveInteractions()) == 2, 'Schema-style SpinXML sample should import two interactions.');
+assert(isequal(model.Atoms.Label(:).', ["H schema sample", "C schema sample"]), ...
+    'Schema-style SpinXML sample atom labels changed.');
+frameRow = model.ReferenceFrames.ID == 2;
+assert(nnz(frameRow) == 1 && model.ReferenceFrames.Label(frameRow) == "Schema sample frame", ...
+    'Schema-style SpinXML reference-frame name= alias changed.');
+assert(model.ReferenceFrames.ParentID(frameRow) == 1, ...
+    'Schema-style SpinXML parent_reference_frame_id changed.');
+shiftRow = model.Interactions.Label == "schema shift";
+assert(nnz(shiftRow) == 1 && model.Interactions.ReferenceFrameID(shiftRow) == 2, ...
+    'Schema-style SpinXML shift interaction reference frame changed.');
+assertClose(model.Interactions.Matrix{shiftRow}, diag([1 2 3]), 1e-12, ...
+    'Schema-style SpinXML eigenvalue/quaternion tensor');
+jRow = model.Interactions.Label == "schema scalar J";
+assert(nnz(jRow) == 1, 'Schema-style SpinXML scalar-J interaction missing.');
+assertClose(model.Interactions.Matrix{jRow}, 140 * eye(3), 1e-12, ...
+    'Schema-style SpinXML scalar J tensor');
+end
+
 function validateModelInputGuards()
+assertThrows(@() spinachgui.findIsotope("999H"), 'spinachgui:UnknownIsotopeMass');
+displayIsotope = spinachgui.findIsotope("999H", true);
+assert(displayIsotope.Element == "H" && displayIsotope.Mass == 999 && displayIsotope.Spin == 0, ...
+    'Unknown isotope masses should only fall back when explicitly requested.');
+assert(spinachgui.findIsotope("203Tl").Element == "Tl", '203Tl isotope-table entry should use the Tl symbol.');
+assert(spinachgui.findIsotope("205Tl").Element == "Tl", '205Tl isotope-table entry should use the Tl symbol.');
+assert(spinachgui.findIsotope("235U").Element == "U", '235U isotope-table entry should use the U symbol.');
+assert(spinachgui.findIsotope("185Re").Magnetogyric > 1e6, ...
+    '185Re magnetogyric ratio should be in rad s^-1 T^-1, not a unitless typo.');
+
 model = spinachgui.Model();
-assertThrows(@() model.addAtom("1H", [NaN 0 0], "bad", false), 'MATLAB:expectedFinite');
+assertThrows(@() model.addAtom("1H", [NaN 0 0], "bad", false), 'MATLAB:Model:expectedFinite');
 assertThrows(@() model.addAtom("1H", [0 0 0], "bad", false, 0), 'spinachgui:InvalidID');
 firstID = model.addAtom("1H", [0 0 0], "first", false, 10);
 assert(firstID == 10, 'Requested atom ID was not returned.');
@@ -101,7 +136,7 @@ assertThrows(@() model.addAtom("13C", [1 0 0], "duplicate", false, 10), ...
 assertThrows(@() model.addInteraction("Shift", 99, 99, eye(3), "ppm"), ...
     'spinachgui:MissingAtom');
 assertThrows(@() model.addReferenceFrame([1 2; 3 4], "bad", NaN, "validation", false), ...
-    'MATLAB:incorrectSize');
+    'MATLAB:normalizeDcm:incorrectSize');
 frameID = model.addReferenceFrame(2 * eye(3), "normalised", NaN, "validation", false, 5);
 assert(frameID == 5, 'Requested reference-frame ID was not returned.');
 assertClose(model.ReferenceFrames.Matrix{model.ReferenceFrames.ID == frameID}, eye(3), 1e-12, ...
@@ -121,10 +156,14 @@ oldDcm = model.Interactions.DCM{descendantRow};
 model.setReferenceFrameMatrix(frameID, spinachgui.eulerToDcm(0.3, -0.2, 0.1));
 assert(~isequal(model.Interactions.DCM{descendantRow}, oldDcm), ...
     'Ancestor reference-frame edits should refresh descendant interaction DCMs.');
+assertClose(model.Interactions.DCM{descendantRow}, model.referenceFrameToRootMatrix(childFrameID), 1e-12, ...
+    'Ancestor reference-frame edits should refresh descendant interaction DCMs to the frame closure.');
 replacementDcm = model.Interactions.DCM{descendantRow};
 model.addReferenceFrame(spinachgui.eulerToDcm(-0.1, 0.2, -0.3), "normalised", NaN, "validation", false, frameID);
 assert(~isequal(model.Interactions.DCM{descendantRow}, replacementDcm), ...
     'Reference-frame replacement should refresh descendant interaction DCMs.');
+assertClose(model.Interactions.DCM{descendantRow}, model.referenceFrameToRootMatrix(childFrameID), 1e-12, ...
+    'Reference-frame replacement should refresh descendant interaction DCMs to the frame closure.');
 assertThrows(@() model.addReferenceFrame(eye(3), "missing", 1234, "validation", false), ...
     'spinachgui:MissingReferenceFrame');
 assertThrows(@() model.addReferenceFrame(eye(3), "cycle", childFrameID, "validation", false, frameID), ...
@@ -158,6 +197,12 @@ utf16Model = spinachgui.readXYZ(utf16XYZFile);
 assert(height(utf16Model.Atoms) == 1 && utf16Model.Atoms.Element(1) == "H", ...
     'UTF-16LE XYZ files should import.');
 
+dExponentXYZFile = fullfile(tmpDir, 'd_exponent.xyz');
+writeTextFile(dExponentXYZFile, sprintf('1\nFortran exponent test\nH 1.0D+00 -2.5D-01 3.0d+00\n'));
+dExponentModel = spinachgui.readXYZ(dExponentXYZFile);
+assertClose([dExponentModel.Atoms.X(1) dExponentModel.Atoms.Y(1) dExponentModel.Atoms.Z(1)], ...
+    [1 -0.25 3], 1e-12, 'Fortran D exponent XYZ coordinates');
+
 spinXMLXYZFile = fullfile(tmpDir, 'spinxml_payload.xyz');
 writeTextFile(spinXMLXYZFile, ['<?xml version="1.0" encoding="utf-8"?>\n' ...
     '<spin_system><spin id="1" isotope="1H"><coordinates x="0" y="0" z="0" /></spin></spin_system>\n']);
@@ -176,8 +221,11 @@ assert(gaussianProbe.Interactions.Unit(1) == "Unitless", 'g tensor unit should b
 end
 
 function validateAppLooseTails()
-appText = fileread(fullfile(fileparts(mfilename('fullpath')), '+spinachgui', 'App.m'));
-assert(contains(appText, '*.magres') && contains(appText, '*.coo'), ...
+filters = spinachgui.importFileFilters();
+primaryPattern = string(filters{1, 1});
+primaryDescription = string(filters{1, 2});
+assert(contains(primaryPattern, '*.magres') && contains(primaryPattern, '*.coo') && ...
+    contains(primaryDescription, '*.magres') && contains(primaryDescription, '*.coo'), ...
     'Open dialog supported-file filter should include MAGRES and COSMOS files.');
 app = spinachgui.App();
 cleanup = onCleanup(@() deleteFigureIfValid(app.Figure));
@@ -226,9 +274,7 @@ function assertThrows(functionHandle, expectedID)
 try
     functionHandle();
 catch err
-    expectedTail = regexp(expectedID, '[^:]+$', 'match', 'once');
-    matched = strcmp(err.identifier, expectedID) || endsWith(err.identifier, [':' expectedTail]);
-    assert(matched, 'Expected %s, got %s.', expectedID, err.identifier);
+    assert(strcmp(err.identifier, expectedID), 'Expected %s, got %s.', expectedID, err.identifier);
     return
 end
 error('Expected error %s was not thrown.', expectedID);

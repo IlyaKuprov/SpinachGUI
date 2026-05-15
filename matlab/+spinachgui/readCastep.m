@@ -296,7 +296,7 @@ end
 numbers = zeros(1, numel(tokens));
 for k = 1:numel(tokens)
     token = regexprep(char(tokens{k}), '[dD]', 'E');
-    numbers(k) = str2double(token);
+    numbers(k) = spinachgui.parseNumber(token);
 end
 end
 

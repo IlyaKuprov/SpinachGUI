@@ -14,7 +14,7 @@ countTok = regexp(strtrim(lines{first}), '^(\d+)$', 'tokens', 'once');
 if isempty(countTok)
     error('spinachgui:XYZAtomCount', 'Could not read XYZ atom count from %s.', filename);
 end
-nAtoms = str2double(countTok{1});
+nAtoms = spinachgui.parseNumber(countTok{1});
 if ~isfinite(nAtoms) || nAtoms ~= fix(nAtoms)
     error('spinachgui:XYZAtomCount', 'XYZ atom count must be a non-negative integer in %s.', filename);
 end
@@ -31,7 +31,7 @@ for k = 1:nAtoms
         error('spinachgui:XYZBadAtomLine', 'Bad XYZ atom line %d.', lineIndex);
     end
     element = fields{1};
-    xyz = str2double(fields(2:4));
+    xyz = spinachgui.parseNumber(fields(2:4));
     if any(isnan(xyz))
         error('spinachgui:XYZBadCoordinates', 'Bad XYZ coordinates on line %d.', lineIndex);
     end

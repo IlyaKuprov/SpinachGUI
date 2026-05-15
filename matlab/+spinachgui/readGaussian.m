@@ -208,7 +208,7 @@ for k = 1:numel(lines)
             if ~isempty(current), break, end
             continue
         end
-        atomIndex = str2double(fields{1});
+        atomIndex = spinachgui.parseNumber(fields{1});
         isotope = normalizeGaussianIsotope(fields{2});
         if isnan(atomIndex) || isotope == ""
             if ~isempty(current), break, end
@@ -239,8 +239,8 @@ for j = startLine:numel(lines)
     if numel(fields) ~= 6
         continue
     end
-    atomIndex = str2double(fields{1});
-    atomicNumber = str2double(fields{2});
+    atomIndex = spinachgui.parseNumber(fields{1});
+    atomicNumber = spinachgui.parseNumber(fields{2});
     xyz = parseNumber(fields(4:6));
     if isnan(atomIndex) || isnan(atomicNumber) || any(isnan(xyz))
         continue
@@ -270,7 +270,7 @@ while j <= numel(lines)
     fields = regexp(header, '\s+', 'split');
     atomID = NaN;
     if ~isempty(fields)
-        atomID = str2double(fields{1});
+        atomID = spinachgui.parseNumber(fields{1});
     end
     if isnan(atomID) || ~contains(header, 'Isotropic')
         break
@@ -318,7 +318,7 @@ for firstColumn = 1:5:atomCount
                 'Expected %d fields in Gaussian J-coupling row for atom %d at line %d in %s.', ...
                 expectedFields, atomID, lineNumber, filename);
         end
-        rowAtom = str2double(fields{1});
+        rowAtom = spinachgui.parseNumber(fields{1});
         if isnan(rowAtom) || rowAtom ~= atomID
             error('spinachgui:InvalidGaussian', ...
                 'Expected Gaussian J-coupling row for atom %d at line %d in %s.', atomID, lineNumber, filename);
@@ -385,7 +385,7 @@ for j = markerLine+2:numel(lines)
         error('spinachgui:InvalidGaussian', ...
             'Expected six fields in Gaussian Fermi-contact row at line %d in %s.', j, filename);
     end
-    atomID = str2double(fields{1});
+    atomID = spinachgui.parseNumber(fields{1});
     value = parseNumber(fields(5));
     if isnan(atomID) || isnan(value)
         error('spinachgui:InvalidGaussian', ...
@@ -426,7 +426,7 @@ while lineNumber <= numel(lines)
         error('spinachgui:InvalidGaussian', ...
             'Malformed Gaussian spin-dipole principal-axis block near line %d in %s.', baaLine, filename);
     end
-    atomID = str2double(bbbFields{1});
+    atomID = spinachgui.parseNumber(bbbFields{1});
     values = parseNumber({baaFields{4}, bbbFields{6}, bccFields{4}});
     axisA = parseNumber(baaFields(6:8));
     axisB = parseNumber(bbbFields(8:10));
@@ -516,7 +516,7 @@ while j <= numel(lines)
     if numel(fields) ~= 2
         break
     end
-    atomID = str2double(fields{1});
+    atomID = spinachgui.parseNumber(fields{1});
     if isnan(atomID)
         break
     end
@@ -691,7 +691,7 @@ end
 numbers = zeros(1, numel(tokens));
 for k = 1:numel(tokens)
     token = regexprep(char(tokens{k}), '[dD]', 'E');
-    numbers(k) = str2double(token);
+    numbers(k) = spinachgui.parseNumber(token);
 end
 end
 

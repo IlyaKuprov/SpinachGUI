@@ -295,7 +295,7 @@ match = regexp(line, 'Nucleus\s+(\d+)[A-Za-z]*', 'tokens', 'once');
 if isempty(match)
     error('spinachgui:InvalidOrca', 'Could not parse ORCA atom index at line %d in %s.', lineNumber, filename);
 end
-atomID = str2double(match{1}) + 1;
+atomID = spinachgui.parseNumber(match{1}) + 1;
 if isnan(atomID)
     error('spinachgui:InvalidOrca', 'Invalid ORCA atom index at line %d in %s.', lineNumber, filename);
 end
@@ -313,7 +313,7 @@ end
 numbers = zeros(1, numel(tokens));
 for k = 1:numel(tokens)
     token = regexprep(char(tokens{k}), '[dD]', 'E');
-    numbers(k) = str2double(token);
+    numbers(k) = spinachgui.parseNumber(token);
 end
 end
 

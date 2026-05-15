@@ -98,6 +98,8 @@ model.setReferenceFrameMatrix(frameID, replacementFrame);
 assertClose(model.ReferenceFrames.Matrix{model.ReferenceFrames.ID == frameID}, replacementFrame, 1e-12, ...
     'Reference frame matrix update');
 assert(~isequal(model.Interactions.DCM{idx}, originalDcm), 'Reference-frame update should refresh interaction DCM.');
+assertClose(model.Interactions.DCM{idx}, expectedInteractionDcm(model, idx), 1e-10, ...
+    'Reference-frame update should refresh interaction DCM to the frame closure.');
 assert(model.Dirty, 'Reference-frame mutation should set dirty flag.');
 
 model.addInteraction("Jcoupling", 1, 2, diag([10 20 30]), "Hz", "", 1, "", "validation");
@@ -128,6 +130,11 @@ end
 
 function assertClose(actual, expected, tolerance, context)
 assert(all(abs(actual - expected) <= tolerance, 'all'), 'Unexpected value for %s.', context);
+end
+
+function dcm = expectedInteractionDcm(model, interactionRow)
+[vectors, ~] = eig(spinachgui.symmetrizeTensor(model.Interactions.Matrix{interactionRow}));
+dcm = spinachgui.normalizeDcm(model.referenceFrameToRootMatrix(model.Interactions.ReferenceFrameID(interactionRow)) * vectors);
 end
 
 function deleteFigureIfValid(fig)

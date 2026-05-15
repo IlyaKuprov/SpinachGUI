@@ -1,8 +1,14 @@
-function isotope = findIsotope(isotopeName)
+function isotope = findIsotope(isotopeName, allowUnknownMass)
 %FINDISOTOPE Match an isotope label using the original SpinachGUI rules.
 %   Labels may be plain element symbols (C) or mass-prefixed symbols (13C).
 %   If no mass is supplied, the first isotope for that element in the
 %   historical table is returned, matching Isotopes::FindIsotope.
+%   Unknown mass-labelled isotopes are rejected unless allowUnknownMass is
+%   true; that fallback is reserved for structural SpinXML display atoms.
+
+if nargin < 2
+    allowUnknownMass = false;
+end
 
 t = spinachgui.isotopeTable();
 name = string(strtrim(char(isotopeName)));
@@ -17,7 +23,7 @@ if isempty(m)
     element = name;
     mass = 0;
 else
-    mass = str2double(m{1});
+    mass = spinachgui.parseNumber(m{1});
     element = string(m{2});
 end
 idx = find(t.Element == element);
@@ -30,6 +36,9 @@ end
 if mass ~= 0
     massIdx = idx(t.Mass(idx) == mass);
     if isempty(massIdx)
+        if ~allowUnknownMass
+            error('spinachgui:UnknownIsotopeMass', 'Unknown isotope mass "%s".', isotopeName);
+        end
         isotope = t(idx(1), :);
         isotope.Mass = mass;
         isotope.Spin = 0;

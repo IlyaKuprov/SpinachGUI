@@ -104,7 +104,7 @@ if ischar(tokens) || isstring(tokens)
 end
 numbers = zeros(1, numel(tokens));
 for k = 1:numel(tokens)
-    numbers(k) = str2double(tokens{k});
+    numbers(k) = spinachgui.parseNumber(tokens{k});
 end
 end
 
