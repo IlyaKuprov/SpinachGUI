@@ -42,11 +42,11 @@ bool Castep::LoadFile(void)
 	fileline=ReadLine();
 	try
 	{
-		if (fileline->Contains("#$magres-abinitio-v1.0")) 
+		if (fileline->Contains("#$magres-abinitio-v1.0"))
 			OK=NewFormat( fileline); //New CASTEP format
 		else OK=OldFormat(fileline); //Old CASTEP Format
 	}
-	catch(String^ e) 
+	catch(String^ e)
 	{
 		throw gcnew Exception("Problem in Reading File in Line "+LineCount+". " +e);
 	}
@@ -66,9 +66,9 @@ bool Castep::OldFormat(String^ firstline)
 {
 	int number; 						//number of fields in each line
 	String^ fileline=firstline;         //line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 	//Dictionary for saving quadropolar constants for specific elements
 	Dictionary <String^, double>^ quadrupolecon=gcnew Dictionary<String^, double>();
 
@@ -76,9 +76,9 @@ bool Castep::OldFormat(String^ firstline)
 	while (!ReadingFile->EndOfStream )
 	{
 		//Bug: case when 2 line have =====
-		if(fileline->Contains("============")) 
+		if(fileline->Contains("============"))
 
-		{  
+		{
 			fileline=ReadLine();
 
 			//Reading of quadropolarconstants
@@ -86,13 +86,13 @@ bool Castep::OldFormat(String^ firstline)
 			{
 				while(!(fileline=ReadLine())->Contains("============"))
 				{
-					//Read the quardopolar constant 
-					number=7; 
+					//Read the quardopolar constant
+					number=7;
 					numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 					if(number!=numbers->Length) throw gcnew Exception("Problem in quadrupole moment");
 
 					//Try to add quadropolar constant in the dictionary else throw exception
-					try 
+					try
 					{
 						quadrupolecon->Add(numbers[0], Convert::ToDouble(numbers[5]));
 					}
@@ -109,7 +109,7 @@ bool Castep::OldFormat(String^ firstline)
 				number=3; //Number of Strings in the Line describing an Atom
 				numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 				if(number!=numbers->Length) throw gcnew Exception("Problem in Reading Atom");
-				
+
 
 				fileline=ReadLine();//============
 
@@ -123,10 +123,10 @@ bool Castep::OldFormat(String^ firstline)
 				//Check if the atom is already imported
 				int AtomID;
 				if(!CheckImportAtom(numbers, AtomID)) throw gcnew Exception("Problem in Interaction Atom");
-	
+
 				fileline=ReadLine();//Empty line
 
-				//Read Interaction 
+				//Read Interaction
 				fileline=ReadLine(); //TOTAL Shielding Tensor
 				number=2; //Number of Strings in the Line describing kind of interaction
 				numbers = nullptr;
@@ -138,7 +138,7 @@ bool Castep::OldFormat(String^ firstline)
 
 				//Check if it is hemical shielding or Quadropolar
 				InteractionKind Intkind;
-				if(numbers->Length>number && numbers[1]=="Shielding" && numbers[2]=="Tensor") 
+				if(numbers->Length>number && numbers[1]=="Shielding" && numbers[2]=="Tensor")
 				{Intkind=InteractionKind::CShielding;ToShift=true;}
 				else if (numbers[1]=="tensor") Intkind=InteractionKind::Quadrupolar;
 				fileline=ReadLine();  //Empty line
@@ -149,14 +149,14 @@ bool Castep::OldFormat(String^ firstline)
 					//Quadropolar factors
 					double factor=2.3496e+02;//(efg_atomic*e_charge*1e-28/h_planck)MHz
 					double qconst;
-					
-					//Find nuclear spin quantum number and in case smaller 
-					//or equal than 0.5 find other isotope 
-					if (((Atom^)AtomCollection[AtomID])->isotope->Spin<=0.5)	
+
+					//Find nuclear spin quantum number and in case smaller
+					//or equal than 0.5 find other isotope
+					if (((Atom^)AtomCollection[AtomID])->isotope->Spin<=0.5)
 						((Atom^)AtomCollection[AtomID])->isotope=
 						Isotopes::FindIsotopeWithHigherSpin(((Atom^)AtomCollection[AtomID])->isotope);
 					double NSQN=((Atom^)AtomCollection[AtomID])->isotope->Spin; //nuclear spin quantum number
-					
+
 					//Try to find the quadrupolar constant for this element
 					try
 					{
@@ -175,12 +175,12 @@ bool Castep::OldFormat(String^ firstline)
 					try
 					{
 						//Number of Fields: 3, XYZ index: 0,1,2
-						ExtractInteractionMatrix3x3(fileline, "Quadrupolar Coupling", 
-							(Atom^)AtomCollection[AtomID], (Atom^)AtomCollection[AtomID], 
+						ExtractInteractionMatrix3x3(fileline, "Quadrupolar Coupling",
+							(Atom^)AtomCollection[AtomID], (Atom^)AtomCollection[AtomID],
 							factor*qconst/(2*NSQN*(2*NSQN-1)),
-							false, 0, j, 3, 0, 1, 2, 
-							Units::MHz, Intkind, 
-							SystemModel->RefFrameCollection[1], 
+							false, 0, j, 3, 0, 1, 2,
+							Units::MHz, Intkind,
+							SystemModel->RefFrameCollection[1],
 							InteractionCollection);
 					}
 					catch (String^ e) {/*Continue*/};
@@ -192,12 +192,12 @@ bool Castep::OldFormat(String^ firstline)
 					fileline=ReadLine();
 					int j;
 					//Number of Fields: 3, XYZ index: 0,1,2, no factor
-					ExtractInteractionMatrix3x3(fileline, "Chemical shielding", 
-						(Atom^)AtomCollection[AtomID], (Atom^)AtomCollection[AtomID], 
+					ExtractInteractionMatrix3x3(fileline, "Chemical shielding",
+						(Atom^)AtomCollection[AtomID], (Atom^)AtomCollection[AtomID],
 						1.0,
-						false, 0, j, 3, 0, 1, 2, 
-						Units::ppm, Intkind, 
-						SystemModel->RefFrameCollection[1], 
+						false, 0, j, 3, 0, 1, 2,
+						Units::ppm, Intkind,
+						SystemModel->RefFrameCollection[1],
 						InteractionCollection);
 				}
 
@@ -218,15 +218,15 @@ bool Castep::NewFormat(String^ firstline)
 {
 	int number;							//number of fields in each line
 	String^ fileline=firstline;         //line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,	";          //seperator of fields, includes "tab"
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 
-	//Read the file until the end of it 
+	//Read the file until the end of it
 	while (!ReadingFile->EndOfStream)
 	{
 		if(fileline->Contains("<atoms>")) //Atom Reading
-		{  
+		{
 			fileline=ReadLine(); //units lattice Angstrom
 			fileline=ReadLine(); //lattice    6.0000000000000009E+00   0.0000000
 			fileline=ReadLine(); //units atom Angstrom
@@ -253,7 +253,7 @@ bool Castep::NewFormat(String^ firstline)
 		}
 		else if(fileline->Contains("<magres>")) //Interactions Reading
 		{
-			while(!(fileline=ReadLine())->Contains("</magres>"))	
+			while(!(fileline=ReadLine())->Contains("</magres>"))
 			{
 				if(fileline->Contains("units"))  //Reading Interaction Units
 				{
@@ -261,7 +261,7 @@ bool Castep::NewFormat(String^ firstline)
 				}
 				else if (fileline->Contains("ms") || fileline->Contains("efg") || fileline->Contains("isc "))
 				{
-					//Read Interaction 
+					//Read Interaction
 					// ms H   1  3.2E+01  1.2E+00  3.8E+00  1.9E+00   2.7E+01  2.49E+00   4.1E+00  2.2E+00  3.0E+01
 
 					InteractionKind Intkind;
@@ -322,7 +322,7 @@ bool Castep::NewFormat(String^ firstline)
 					//Find the Atom ID from the label
 					for each(int i in AtomCollection->Keys)
 					{
-						if(((Atom^)AtomCollection[i])->Label==numbers[1]+numbers[2]) 
+						if(((Atom^)AtomCollection[i])->Label==numbers[1]+numbers[2])
 						{
 							AtomID=((Atom^)AtomCollection[i])->getID();
 							break;
@@ -331,11 +331,11 @@ bool Castep::NewFormat(String^ firstline)
 
 					if(Intkind==InteractionKind::Quadrupolar)
 					{
-						//Find nuclear spin quantum number and in case smaller 
-						//or equal than 0.5 find other isotope 
+						//Find nuclear spin quantum number and in case smaller
+						//or equal than 0.5 find other isotope
 						if (((Atom^)AtomCollection[AtomID])->isotope->Spin<=0.5f)
 							((Atom^)AtomCollection[AtomID])->isotope=
-							Isotopes::FindIsotopeWithHigherSpin(((Atom^)AtomCollection[AtomID])->isotope);		
+							Isotopes::FindIsotopeWithHigherSpin(((Atom^)AtomCollection[AtomID])->isotope);
 
 						//Creating Quadrupolar interaction
 						//If isotope with no 0.5>spin just ignore
@@ -363,7 +363,7 @@ bool Castep::NewFormat(String^ firstline)
 						//Find the second Atom ID from the label
 						for each (int i in AtomCollection->Keys)
 						{
-							if(((Atom^)AtomCollection[i])->Label==numbers[3]+numbers[4]) 
+							if(((Atom^)AtomCollection[i])->Label==numbers[3]+numbers[4])
 							{
 								AtomID2=((Atom^)AtomCollection[i])->getID();
 								break;
@@ -394,13 +394,13 @@ bool Castep::NewFormat(String^ firstline)
 * @brief Main function for adding an atom to the collection checking if this happen before
 * @return Returns always true.
 */
-bool Castep::CheckImportAtom(array<String^>^ atomline, int & AtomID)
+bool Castep::CheckImportAtom(cli::array<String^>^ atomline, int & AtomID)
 {
 
 	//check first if the Atom already exists
 	for each(int i in AtomCollection->Keys)
 	{
-		if(((Atom^)AtomCollection[i])->Label==atomline[0]+atomline[1]) 
+		if(((Atom^)AtomCollection[i])->Label==atomline[0]+atomline[1])
 		{
 			AtomID=((Atom^)AtomCollection[i])->getID();
 			return true;

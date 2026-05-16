@@ -23,14 +23,14 @@ void Simpson::Initialize_Simpson(Model^ model, String^ filename)
 	int j=0;
 
 	//Creating channel list and dtagrid with channels
-	for each(int i in SystemModel->AtomCollection->Keys) 
+	for each(int i in SystemModel->AtomCollection->Keys)
 	{
 		//Create the channel string from the mass and elements
 		temp=" "+((Atom^)SystemModel->AtomCollection[i])->isotope->Mass+
 			((Atom^)SystemModel->AtomCollection[i])->isotope->Element;
 
 		//Check if does not exist already
-		if(!ChannelList->Contains(temp)) 
+		if(!ChannelList->Contains(temp))
 		{
 			//Add line in the datagridview and fill the line with the channel string
 			ChanneldataGridView->Rows->Add();
@@ -38,7 +38,7 @@ void Simpson::Initialize_Simpson(Model^ model, String^ filename)
 			ChanneldataGridView[0,j]->Value=true;
 			j++;
 
-			//Add the channel string in the total channels string 
+			//Add the channel string in the total channels string
 			ChannelList+=temp;
 		};
 	};
@@ -83,7 +83,7 @@ void Simpson::WriteFile(String^ filename)
 	int j=1;
 
 	//First add atoms in a new array
-	for each(int i in SystemModel->AtomCollection->Keys) 
+	for each(int i in SystemModel->AtomCollection->Keys)
 	{
 		SortedAtomList->Add(((Atom^)SystemModel->AtomCollection[i]));
 	};
@@ -93,12 +93,12 @@ void Simpson::WriteFile(String^ filename)
 
 	//If sorted option is on then put the sorted collection into the AtomCollection or
 	// else put the original
-	if(SortcheckBox->Checked) 
+	if(SortcheckBox->Checked)
 		for(int i=0;i<SortedAtomList->Count;i++)  AtomCollection->Add((Atom ^)SortedAtomList[i]);
 	else AtomCollection=SystemModel->AtomCollection;
 
 	//Loop over all atoms except electrons
-	for each(int i in AtomCollection->Keys) 
+	for each(int i in AtomCollection->Keys)
 	{
 		if(((Atom^)AtomCollection[i])->isotope->Element!="e")
 		{
@@ -119,21 +119,21 @@ void Simpson::WriteFile(String^ filename)
 			SpinachGUIIndex+=temp2->Remove(temp->Length); //Reduced it to original size
 
 			//Try to save a list of all unique IDs
-			try 
+			try
 			{
 				AtomIDs->Add(((Atom^)AtomCollection[i])->ID, j++);
 			}
 			catch (ArgumentException^)
 			{
-				MessageBox::Show("AtomID declared twice", "Error", 
+				MessageBox::Show("AtomID declared twice", "Error",
 					MessageBoxButtons::OK, MessageBoxIcon::Error) ;
 			};
 		};
 	};
 
 	//Loop over all channels
-	for(int i=0;i<ChanneldataGridView->Rows->Count;i++) 
-	{ 
+	for(int i=0;i<ChanneldataGridView->Rows->Count;i++)
+	{
 		//Write in the channel list anly the ones that are on
 		if(Convert::ToInt32(ChanneldataGridView[0,i]->Value)) ChannelList+=ChanneldataGridView[1,i]->Value;
 	}
@@ -161,7 +161,7 @@ void Simpson::WriteFile(String^ filename)
 			//Calculate euler angles object form this function
 			euleran=EulerAnglesfromEigenVectors(((Interaction^)SystemModel->InteractionCollection[i])->dcm);
 
-			//Convert angles to degrees 
+			//Convert angles to degrees
 			alpha=float(180.0f*euleran->alpha/PI);
 			beta=float(180.0f*euleran->beta/PI);
 			gamma=float(180.0f*euleran->gamma/PI);
@@ -214,7 +214,7 @@ void Simpson::WriteFile(String^ filename)
 			if(((Interaction^)SystemModel->InteractionCollection[i])->IntKind==InteractionKind::Quadrupolar)
 			{
 				//nuclear spin quantum number
-				double NSQN=((Interaction^)SystemModel->InteractionCollection[i])->A->isotope->Spin; 
+				double NSQN=((Interaction^)SystemModel->InteractionCollection[i])->A->isotope->Spin;
 				double C_q;
 
 				//Calculation of C_q factor =2I*(2I-1)*1.0e-6 Hz
@@ -224,7 +224,7 @@ void Simpson::WriteFile(String^ filename)
 
 				Quadrupolar+="	quadrupole "+
 					AtomIDs[((Tensor^)SystemModel->InteractionCollection[i])->A->ID]+" "+
-					Convert::ToString(QuadOrder)+" "+ 
+					Convert::ToString(QuadOrder)+" "+
 					To_String(C_q)+" "+
 					To_String(hta)+" "+
 					To_String(alpha)+" "+ To_String(beta)+" "+ To_String(gamma)+" \r\n";
@@ -260,7 +260,7 @@ void Simpson::WriteFile(String^ filename)
 			Dipolar+="	dipole "+
 				AtomIDs[((Tensor^)SystemModel->InteractionCollection[i])->A->ID]+" "+
 				AtomIDs[((Tensor^)SystemModel->InteractionCollection[i])->B->ID]+" "+
-				To_String(bij)+" "+ 
+				To_String(bij)+" "+
 				To_String(alpha)+" "+ To_String(beta)+" "+ To_String(gamma)+" \r\n";
 		};
 
@@ -313,7 +313,7 @@ void Simpson::WriteFile(String^ filename)
 	FileText+="} \r\n";
 
 	//Convert and write to the file
-	array<Byte>^ info = (gcnew UTF8Encoding( true ))->GetBytes(FileText);
+	cli::array<Byte>^ info = (gcnew UTF8Encoding( true ))->GetBytes(FileText);
 	WritingFile->Write( info, 0, info->Length  );
 	WritingFile->Close();
 }
@@ -326,7 +326,7 @@ void Simpson::WriteFile(String^ filename)
 */
 Void Simpson::Exportbutton_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	//Setting the format and initila filename for the save dialoguebox 
+	//Setting the format and initila filename for the save dialoguebox
 	saveFileDialog->Filter="Simpson File|*.in";
 	saveFileDialog->FileName=Path::GetFileNameWithoutExtension(FileName)+".in";
 

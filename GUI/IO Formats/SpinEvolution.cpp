@@ -23,14 +23,14 @@ void SpinEvolution::Initialize_SpinEvolution(Model^ model, String^ filename)
 	int j=0;
 
 	//Creating channel list and dtagrid with channels
-	for each(int i in SystemModel->AtomCollection->Keys) 
+	for each(int i in SystemModel->AtomCollection->Keys)
 	{
-		//Create the channel string from the elements and mass 
+		//Create the channel string from the elements and mass
 		temp=" "+((Atom^)SystemModel->AtomCollection[i])->isotope->Element+
 			((Atom^)SystemModel->AtomCollection[i])->isotope->Mass;
 
 		//Check if does not exist already
-		if(!ChannelList->Contains(temp)) 
+		if(!ChannelList->Contains(temp))
 		{
 			//Add line in the datagridview and fill the line with the channel string
 			ChanneldataGridView->Rows->Add();
@@ -38,7 +38,7 @@ void SpinEvolution::Initialize_SpinEvolution(Model^ model, String^ filename)
 			ChanneldataGridView[0,j]->Value=true;
 			j++;
 
-			//Add the channel string in the total channels string 
+			//Add the channel string in the total channels string
 			ChannelList+=temp;
 		};
 	};
@@ -85,7 +85,7 @@ void SpinEvolution::WriteFile(System::String^ filename)
 	int j=1;
 
 	//First add atoms in a new array
-	for each(int i in SystemModel->AtomCollection->Keys) 
+	for each(int i in SystemModel->AtomCollection->Keys)
 	{
 		SortedAtomList->Add(((Atom^)SystemModel->AtomCollection[i]));
 	};
@@ -94,14 +94,14 @@ void SpinEvolution::WriteFile(System::String^ filename)
 	AtomCollection=SystemModel->AtomCollection;
 
 	//Loop over all channels
-	for(int i=0;i<ChanneldataGridView->Rows->Count;i++) 
-	{ 
+	for(int i=0;i<ChanneldataGridView->Rows->Count;i++)
+	{
 		//Write in the channel list anly the ones that are on
 		if(Convert::ToInt32(ChanneldataGridView[0,i]->Value)) ChannelList+=ChanneldataGridView[1,i]->Value;
 	}
 
 	//Loop over all atoms except electrons
-	for each(int i in SystemModel->AtomCollection->Keys) 
+	for each(int i in SystemModel->AtomCollection->Keys)
 	{
 		if(((Atom^)AtomCollection[i])->isotope->Element!="e" &&
 			ChannelList->Contains(((Atom^)AtomCollection[i])->isotope->Element+((Atom^)AtomCollection[i])->isotope->Mass))
@@ -123,13 +123,13 @@ void SpinEvolution::WriteFile(System::String^ filename)
 			SpinachGUIIndex+=temp2->Remove(temp->Length); //Reduced it to original size
 
 			//Try to save a list of all unique IDs
-			try 
+			try
 			{
 				AtomIDs->Add(((Atom^)AtomCollection[i])->ID, j++);
 			}
 			catch (ArgumentException^)
 			{
-				MessageBox::Show("AtomID declared twice", "Error", 
+				MessageBox::Show("AtomID declared twice", "Error",
 					MessageBoxButtons::OK, MessageBoxIcon::Error) ;
 			};
 		};
@@ -142,7 +142,7 @@ void SpinEvolution::WriteFile(System::String^ filename)
 
 	//If more than one atom loop over all atoms and write them
 	if(AtomCollection->Count==1) FileText+="*";
-	else 
+	else
 		for each(int i in SystemModel->AtomCollection->Keys)  FileText+= ((Atom^)AtomCollection[i])->X+" "+
 			((Atom^)AtomCollection[i])->Y+" "+ ((Atom^)AtomCollection[i])->Z+" ";
 
@@ -157,7 +157,7 @@ void SpinEvolution::WriteFile(System::String^ filename)
 	String ^ B=gcnew String("");
 
 	//Loop over all interactions
-	for each(int i in SystemModel->InteractionCollection->Keys) 
+	for each(int i in SystemModel->InteractionCollection->Keys)
 	{
 		//Short name for the A Atom string
 		A=((Interaction^)SystemModel->InteractionCollection[i])->A->isotope->Element+
@@ -178,7 +178,7 @@ void SpinEvolution::WriteFile(System::String^ filename)
 			//Calculate euler angles object form this function
 			euleran=EulerAnglesfromEigenVectors(((Interaction^)SystemModel->InteractionCollection[i])->dcm);
 
-			//Convert angles to degrees 
+			//Convert angles to degrees
 			alpha=float(180.0f*euleran->alpha/PI);
 			beta=float(180.0f*euleran->beta/PI);
 			gamma=float(180.0f*euleran->gamma/PI);
@@ -238,7 +238,7 @@ void SpinEvolution::WriteFile(System::String^ filename)
 					To_String(hta)+" "+
 					To_String(alpha)+" "+ To_String(beta)+" "+ To_String(gamma)+" \n";
 			};
-		} 	
+		}
 	};
 
 	//Write all the above in the stream in the correct format
@@ -259,20 +259,20 @@ void SpinEvolution::WriteFile(System::String^ filename)
 	//Printing of the pulse sequence according to the channels we have activated
 	FileText+="******* Pulse Sequence ******************************\n";
 	int jj=1;
-	for(int i=0;i<ChanneldataGridView->Rows->Count;i++) 
+	for(int i=0;i<ChanneldataGridView->Rows->Count;i++)
 	{
 		if(ChannelList->Contains(Convert::ToString(ChanneldataGridView[1,i]->Value)))
 		{
 			FileText+="CHN "+jj+"\n";
 			FileText+="timing(usec)       (4   4)\n";
-			FileText+="power(kHz)         125 125\n";  
-			FileText+="phase(deg)         0   15\n"; 
+			FileText+="power(kHz)         125 125\n";
+			FileText+="phase(deg)         0   15\n";
 			FileText+="freq_offs(kHz)     0   0\n";
 			jj++;
 		};
 	};
 
-	//This is a basic Spinevolution parameters which append at the end of our data in order to run in the SpinEvolution  
+	//This is a basic Spinevolution parameters which append at the end of our data in order to run in the SpinEvolution
 	FileText+="******* Variables ***********************************\n";
 	FileText+="******* Options *************************************\n";
 	FileText+="rho0               F1x\n";
@@ -285,8 +285,8 @@ void SpinEvolution::WriteFile(System::String^ filename)
 	FileText+="options            *\n";
 	FileText+="******************************************************\n";
 
-	//Convert and write to the file      
-	array<Byte>^ info = (gcnew UTF8Encoding( true ))->GetBytes(FileText);
+	//Convert and write to the file
+	cli::array<Byte>^ info = (gcnew UTF8Encoding( true ))->GetBytes(FileText);
 	WritingFile->Write( info, 0, info->Length  );
 	WritingFile->Close();
 }
@@ -296,9 +296,9 @@ void SpinEvolution::WriteFile(System::String^ filename)
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-Void SpinEvolution::Exportbutton_Click(System::Object^  sender, System::EventArgs^  e) 
+Void SpinEvolution::Exportbutton_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	//Setting the format and initila filename for the save dialoguebox 
+	//Setting the format and initila filename for the save dialoguebox
 	saveFileDialog->Filter="SpinEvolution File|*.in";
 	saveFileDialog->FileName=Path::GetFileNameWithoutExtension(TitleFile)+".in";
 

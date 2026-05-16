@@ -6,10 +6,10 @@ using namespace SpinachGUI;
 
 /** \class  Gauss
 *  Gauss class, inherited from  IOSpinSystem for reading GaussView3 format
-*  Atoms data, Chemical shifts, J-couplings, Hyperfine couplings, 
+*  Atoms data, Chemical shifts, J-couplings, Hyperfine couplings,
 *  g-tensors, quadrupolar couplings, framed.
 */
-public ref class Gauss:IOSpinSystem 
+public ref class Gauss:public IOSpinSystem
 {
 public:
 	Gauss(String^, Model^% );
@@ -23,7 +23,7 @@ private:
 	bool read_CHITENSOR();
 	bool read_ISOCOUPLINGS();
 	bool read_ANISCOUPLINGS();
-	bool read_GTENSOR();	
+	bool read_GTENSOR();
 	bool read_QUADCOUPLINGS();
 	bool read_ISOTOPES2();
 
@@ -34,8 +34,8 @@ private:
 	bool read_onceANI;	///<Flag for checking if multiple frames is being read for anisotropic factors.
 	bool read_onceCHI;  ///<Flag for checking if multiple frames is being read for susceptibility tensor.
 	bool read_onceCO;   ///<Flag for checking if multiple frames is being read for coordinates.
-	bool read_onceCS;	///<Flag for checking if multiple frames is being read for Chemical shifts.   
-	bool read_onceGT;   ///<Flag for checking if multiple frames is being read for g-tesnors.		
+	bool read_onceCS;	///<Flag for checking if multiple frames is being read for Chemical shifts.
+	bool read_onceGT;   ///<Flag for checking if multiple frames is being read for g-tesnors.
 	bool read_onceCHIT; ///<Flag for checking if multiple frames is being read for g-tesnors.
 	bool read_onceQC;   ///<Flag for checking if multiple frames is being read for quadropolar couplings.
 

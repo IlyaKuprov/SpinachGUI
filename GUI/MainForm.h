@@ -23,7 +23,7 @@
 #include "IsotopesDialog.h"
 #include "About.h"
 #include "BalloonToolTip.h"
-#using "gTrackBar.netmodule"
+#using "gTrackBar.dll"
 
 namespace SpinachGUI {
 
@@ -3124,4 +3124,3 @@ private: System::Void Colorlabel_MouseDoubleClick(System::Object^  sender, Syste
 
 };
 };
-

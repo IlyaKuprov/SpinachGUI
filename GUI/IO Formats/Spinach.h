@@ -12,7 +12,7 @@ namespace SpinachGUI {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/** \class  Spinach 
+	/** \class  Spinach
 	*  Spinach  class inherited from  IOSpinSystem for writing Spinach matlab format
 	*  Atoms data, Chemical shifts, J-couplings, Hyperfine couplings, exchange couplings,
 	*  quadropolar couplings, g-tensors, zero-field couplings, non-framed.
@@ -89,11 +89,11 @@ private: System::Windows::Forms::SaveFileDialog^  saveFileDialog;
 			this->groupBox1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			this->SuspendLayout();
-			// 
+			//
 			// groupBox1
-			// 
-			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
+			//
+			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox1->Controls->Add(this->panel2);
 			this->groupBox1->Location = System::Drawing::Point(220, 5);
@@ -102,11 +102,11 @@ private: System::Windows::Forms::SaveFileDialog^  saveFileDialog;
 			this->groupBox1->TabIndex = 4;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"File Preview (click to pan)";
-			// 
+			//
 			// panel2
-			// 
-			this->panel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
+			//
+			this->panel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel2->AutoScroll = true;
 			this->panel2->Controls->Add(this->PreviewtextBox);
@@ -117,13 +117,13 @@ private: System::Windows::Forms::SaveFileDialog^  saveFileDialog;
 			this->panel2->TabIndex = 3;
 			this->panel2->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Spinach::PreviewtextBox_MouseDown);
 			this->panel2->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Spinach::PreviewtextBox_MouseMove);
-			// 
+			//
 			// PreviewtextBox
-			// 
+			//
 			this->PreviewtextBox->BackColor = System::Drawing::SystemColors::Info;
 			this->PreviewtextBox->Cursor = System::Windows::Forms::Cursors::NoMove2D;
 			this->PreviewtextBox->Enabled = false;
-			this->PreviewtextBox->Font = (gcnew System::Drawing::Font(L"Courier New", 10.86792F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+			this->PreviewtextBox->Font = (gcnew System::Drawing::Font(L"Courier New", 10.86792F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->PreviewtextBox->Location = System::Drawing::Point(3, 3);
 			this->PreviewtextBox->Multiline = true;
@@ -134,9 +134,9 @@ private: System::Windows::Forms::SaveFileDialog^  saveFileDialog;
 			this->PreviewtextBox->WordWrap = false;
 			this->PreviewtextBox->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Spinach::PreviewtextBox_MouseDown);
 			this->PreviewtextBox->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Spinach::PreviewtextBox_MouseMove);
-			// 
+			//
 			// Exportbutton
-			// 
+			//
 			this->Exportbutton->Location = System::Drawing::Point(325, 788);
 			this->Exportbutton->Name = L"Exportbutton";
 			this->Exportbutton->Size = System::Drawing::Size(287, 24);
@@ -144,65 +144,65 @@ private: System::Windows::Forms::SaveFileDialog^  saveFileDialog;
 			this->Exportbutton->Text = L"Export";
 			this->Exportbutton->UseVisualStyleBackColor = true;
 			this->Exportbutton->Click += gcnew System::EventHandler(this, &Spinach::Exportbutton_Click);
-			// 
+			//
 			// MagnettextBox
-			// 
+			//
 			this->MagnettextBox->Location = System::Drawing::Point(77, 31);
 			this->MagnettextBox->Name = L"MagnettextBox";
 			this->MagnettextBox->Size = System::Drawing::Size(52, 20);
 			this->MagnettextBox->TabIndex = 1;
 			this->MagnettextBox->Text = L"14.100";
 			this->MagnettextBox->Leave += gcnew System::EventHandler(this, &Spinach::BasicSettextBox_Leave);
-			// 
+			//
 			// dataGridViewCheckBoxColumn1
-			// 
+			//
 			this->dataGridViewCheckBoxColumn1->Name = L"dataGridViewCheckBoxColumn1";
-			// 
+			//
 			// Column4
-			// 
+			//
 			this->Column4->Name = L"Column4";
-			// 
+			//
 			// dataGridViewTextBoxColumn1
-			// 
+			//
 			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
-			// 
+			//
 			// GraphcomboBox
-			// 
+			//
 			this->GraphcomboBox->Location = System::Drawing::Point(0, 0);
 			this->GraphcomboBox->Name = L"GraphcomboBox";
 			this->GraphcomboBox->Size = System::Drawing::Size(121, 21);
 			this->GraphcomboBox->TabIndex = 0;
-			// 
+			//
 			// Column3
-			// 
+			//
 			this->Column3->Name = L"Column3";
-			// 
+			//
 			// Column5
-			// 
+			//
 			this->Column5->Name = L"Column5";
-			// 
+			//
 			// Column6
-			// 
+			//
 			this->Column6->Name = L"Column6";
-			// 
+			//
 			// dataGridViewComboBoxColumn2
-			// 
+			//
 			this->dataGridViewComboBoxColumn2->Name = L"dataGridViewComboBoxColumn2";
-			// 
+			//
 			// dataGridViewTextBoxColumn3
-			// 
+			//
 			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			// 
+			//
 			// dataGridViewComboBoxColumn1
-			// 
+			//
 			this->dataGridViewComboBoxColumn1->Name = L"dataGridViewComboBoxColumn1";
-			// 
+			//
 			// dataGridViewTextBoxColumn2
-			// 
+			//
 			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
-			// 
+			//
 			// Spinach
-			// 
+			//
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(938, 824);
@@ -223,7 +223,7 @@ private: System::Windows::Forms::SaveFileDialog^  saveFileDialog;
 #pragma region Non-autogenerated members
 
 private: String ^basicsetnumstring, ^magnetstring, ^internumstring;
-private: String ^final, ^header; 
+private: String ^final, ^header;
 private: String ^systemstring, ^systemnumstring;
 private: String^ CurrentTitleFile;
 private: Model^ SystemModel;
@@ -238,9 +238,9 @@ public: System::Void Spinach_Initialization(Model^% model, String^ aCurrentTitle
 #pragma region Handlers
 private: System::Void BasicSetextBoxKeyPress(System::Object^ , System::Windows::Forms::KeyPressEventArgs^  ) ;
 private: System::Void Exportbutton_Click(System::Object^  , System::EventArgs^  );
-private: System::Void PreviewtextBox_MouseDown(System::Object^  , System::Windows::Forms::MouseEventArgs^  ); 
+private: System::Void PreviewtextBox_MouseDown(System::Object^  , System::Windows::Forms::MouseEventArgs^  );
 private: System::Void PreviewtextBox_MouseMove(System::Object^ , System::Windows::Forms::MouseEventArgs^ );
-private: System::Void BasicSettextBox_Leave(System::Object^  sender, System::EventArgs^  e) { BasicSetextBoxKeyPress(sender, gcnew KeyPressEventArgs((char)13)); }	
+private: System::Void BasicSettextBox_Leave(System::Object^  sender, System::EventArgs^  e) { BasicSetextBoxKeyPress(sender, gcnew KeyPressEventArgs((char)13)); }
 private: System::Void groupBox9_Enter(System::Object^  sender, System::EventArgs^  e) { };
 #pragma endregion
 };

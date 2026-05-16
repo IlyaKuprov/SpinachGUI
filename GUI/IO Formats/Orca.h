@@ -6,10 +6,10 @@ using namespace SpinachGUI;
 
 /** \class  Orca
 *  Orca class, inherited from  IOSpinSystem for reading Orca format
-*  Atoms data, Chemical shifts, J-couplings, Hyperfine couplings, 
+*  Atoms data, Chemical shifts, J-couplings, Hyperfine couplings,
 *  g-tensors, zero-field couplings, framed
 */
-public ref class Orca:IOSpinSystem 
+public ref class Orca:public IOSpinSystem
 {
 public:
 	Orca(String^, Model^% );

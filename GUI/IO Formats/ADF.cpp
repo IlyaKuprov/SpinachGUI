@@ -55,16 +55,16 @@ bool ADF::LoadFile(void)
 		{
 			//Read coordinates
 			if(Command->Contains(CMD_CARTCOORD))
-			{  
+			{
 				OK=read_CARTCOORD();
 				read_onceOR=true; //read at least once
-			}//Read chemical shields	
-			else if(Command->Contains( CMD_CHEMICAL_SHIFTS)) 
-			{ 
+			}//Read chemical shields
+			else if(Command->Contains( CMD_CHEMICAL_SHIFTS))
+			{
 				OK=read_CHEMICAL_SHIELDING();
 				read_onceCS=true;//read at least once
 			} //Read J-couplings
-			else if(Command->Contains(CMD_J_COUPLINGS)) 
+			else if(Command->Contains(CMD_J_COUPLINGS))
 			{
 				OK=read_J_COUPLINGS();
 				read_onceJC=true;//read at least once
@@ -95,19 +95,19 @@ bool ADF::read_CARTCOORD()
 	int AtomID=1;						//Saving the atom ID
 
 	//Readin initial dummy lines
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	// ===============
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//ATOMS
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//=====                            X Y Z                    CHARGE
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//                             (Angstrom)             Nucl     +Core       At.Mass
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//                    --------------------------    ----------------       -------
 
 	fileline="";
@@ -131,9 +131,9 @@ bool ADF::read_CHEMICAL_SHIELDING()
 {
 	int number; 						//number of fields in each line
 	String^ fileline=gcnew String("");  //line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 	int AtomID;						  //Saving the atom ID
 
 	//Saving the starting index of this interaction for case of multiple frames
@@ -149,7 +149,7 @@ bool ADF::read_CHEMICAL_SHIELDING()
 		int j=0;
 		//****  N U C L E U S : C(2)
 		if (fileline->Contains("****  N U C L E U S :"))
-		{ 
+		{
 			//(blank)
 			fileline=ReadLine() ;
 			//ADF-GUI atom: C(2)
@@ -161,7 +161,7 @@ bool ADF::read_CHEMICAL_SHIELDING()
 			if(number>numbers->Length) throw gcnew Exception("Problem in Reading CHEMICAL SHIELDING");
 
 			//Naking of "C(2)"
-			for(int ii=0;numbers[2][ii]!=Convert::ToChar("(");) 
+			for(int ii=0;numbers[2][ii]!=Convert::ToChar("(");)
 			{
 				numbers[2]=numbers[2]->Remove(ii,1);
 			}
@@ -174,14 +174,14 @@ bool ADF::read_CHEMICAL_SHIELDING()
 			{
 				if(fileline->Contains("===  TOTAL NMR SHIELDING TENSOR (ppm)"))
 				{
-					fileline=ReadLine() ; 
+					fileline=ReadLine() ;
 					//
-					fileline=ReadLine() ; 
+					fileline=ReadLine() ;
 					//        ***********************************
 					fileline=ReadLine() ;
 					//        CARTESIAN AXIS REPRESENTATION
 					fileline=ReadLine() ;
-					//	
+					//
 					fileline=ReadLine() ;
 					//        ==== total shielding tensor
 					fileline=ReadLine() ;
@@ -190,13 +190,13 @@ bool ADF::read_CHEMICAL_SHIELDING()
 					//Reading interaction matrix and creating interaction
 					fileline=ReadLine();
 					//Number of Fields: 3, XYZ index: 0,1,2
-					ExtractInteractionMatrix3x3(fileline, "Chemical Shielding", 
+					ExtractInteractionMatrix3x3(fileline, "Chemical Shielding",
 						(Atom^)AtomCollection[AtomID], (Atom^)AtomCollection[AtomID], 1.0,
-						read_onceCS, startIndexCS, j, 3, 0, 1, 2, 
-						Units::ppm, InteractionKind::CShielding, 
-						SystemModel->RefFrameCollection[1], 
+						read_onceCS, startIndexCS, j, 3, 0, 1, 2,
+						Units::ppm, InteractionKind::CShielding,
+						SystemModel->RefFrameCollection[1],
 						InteractionCollection);
-						
+
 				};// "total shielding tensor"
 			};//Searching lines  for "total shielding tensor"
 
@@ -216,9 +216,9 @@ bool ADF::read_J_COUPLINGS()
 
 	int number; 						//number of fields in each line
 	String^ fileline=gcnew String("");  //line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 	int AtomID1, AtomID2; //Saving ID of the first and the second atom
 	double value;		  //Scalar value of the j-coupling
 	bool DoubleDeclaration; //Flag for if an j-coupling is duplicated
@@ -233,7 +233,7 @@ bool ADF::read_J_COUPLINGS()
 		int j=0;
 		//  Nucleus 1 (C) perturbing nucleus 2 (C)
 		if (fileline->Contains("Nucleus") && fileline->Contains("perturbing nucleus") )
-		{ 
+		{
 			//Read the atom IDs which interact through j-coupling
 			number=7;
 			numbers = nullptr;
@@ -252,7 +252,7 @@ bool ADF::read_J_COUPLINGS()
 					if((((Tensor^ )InteractionCollection[i])->A->ID==AtomID1 &&
 				    ((Tensor^ )InteractionCollection[i])->B->ID==AtomID2) ||
 				   (((Tensor^ )InteractionCollection[i])->A->ID==AtomID2 &&
-					((Tensor^ )InteractionCollection[i])->B->ID==AtomID1)) 
+					((Tensor^ )InteractionCollection[i])->B->ID==AtomID1))
 					 DoubleDeclaration=true;
 			};
 
@@ -262,9 +262,9 @@ bool ADF::read_J_COUPLINGS()
 				if(fileline->Contains("total calculated spin-spin coupling:") && !DoubleDeclaration)
 				{
 					::Matrix3x3 ^ J_Coupling=gcnew ::Matrix3x3();
-					
+
 					//Try read scalar quantity
-					//isotropic    k=     180.984                              j=     137.514      
+					//isotropic    k=     180.984                              j=     137.514
 					number=5;
 					fileline=ReadLine() ;
 					numbers = nullptr;
@@ -275,7 +275,7 @@ bool ADF::read_J_COUPLINGS()
 
 					//Set the scalar value to the diagonal of the matrix
 					J_Coupling[0]=value; J_Coupling[4]=value; J_Coupling[8]=value;
-					J_Coupling[1]=0.0; J_Coupling[2]=0.0; J_Coupling[3]=0.0; 
+					J_Coupling[1]=0.0; J_Coupling[2]=0.0; J_Coupling[3]=0.0;
 					J_Coupling[5]=0.0; J_Coupling[6]=0.0; J_Coupling[7]=0.0;
 
 					//Create j-coupling interaction, unit and reference frame

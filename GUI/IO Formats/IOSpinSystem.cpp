@@ -7,14 +7,14 @@
 */
 
 /**
-* @brief Reads a line from the stream  ReadingFile keeping track which line reads. 
+* @brief Reads a line from the stream  ReadingFile keeping track which line reads.
 * @return The read string. Throws string exception.
 */
 String^ SpinachGUI::IOSpinSystem::ReadLine()
 {
 	String ^ result;
 	LineCount++;
-	
+
 	//Try to read the line and throw exception if something wrong
 	try { result=ReadingFile->ReadLine();}
 	catch(Exception ^ e) {throw e;};
@@ -38,21 +38,21 @@ String^ SpinachGUI::IOSpinSystem::ReadLine()
 * @param YIndex Zero-Index number which shows the field of Y coordinate.
 * @param ZIndex Zero-Index number which shows the field of Z coordinate.
 * @param factor A multiplying factor for the coordinates.
-* @param AtomCollection Collection where the data of the atom will be saved. 
+* @param AtomCollection Collection where the data of the atom will be saved.
 */
 void SpinachGUI::IOSpinSystem::ExtractIsotopeAndCoordinates(String ^ line, String ^ Format, bool read_once, int & AtomID,
 								  int FieldsNumber, int IsotopeIndex, int AtomNumberIndex, int MassIndex, int XIndex, int YIndex, int ZIndex,
 								  double factor, AtomsDictionary^% AtomCollection)
 {
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 
 	//Split the line to a number of fields
 	numbers = nullptr;
 	numbers=line->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
-	if(FieldsNumber==numbers->Length) 
+	if(FieldsNumber==numbers->Length)
 	{
 		try {
 			Atom^ nAtom=gcnew Atom();
@@ -62,37 +62,37 @@ void SpinachGUI::IOSpinSystem::ExtractIsotopeAndCoordinates(String ^ line, Strin
 			if (!Double::TryParse(numbers[XIndex], x) || !Double::TryParse(numbers[YIndex], y ) ||
 				!Double::TryParse(numbers[ZIndex], z ))
 				throw gcnew Exception("Error in Atom coordinates");
-			else 
+			else
 			{
 				//Save the new atom and coordinates in the model
 				nAtom->X=factor*x;nAtom->Y=factor*y;nAtom->Z=factor*z;
 
 				//Can throw exception if does not find the isotope
-				if(MassIndex==-1 && AtomNumberIndex==-1) 
+				if(MassIndex==-1 && AtomNumberIndex==-1)
 					nAtom->isotope=Isotopes::FindIsotope(numbers[IsotopeIndex],0, 0);
-				else if(MassIndex==-1) 
+				else if(MassIndex==-1)
 					nAtom->isotope=Isotopes::FindIsotope(numbers[IsotopeIndex],
 					 Convert::ToInt32(Convert::ToDouble(numbers[AtomNumberIndex])), 0);
-				else if(AtomNumberIndex==-1) 
+				else if(AtomNumberIndex==-1)
 					nAtom->isotope=Isotopes::FindIsotope(numbers[IsotopeIndex],0,
 					 Convert::ToInt32(Convert::ToDouble(numbers[MassIndex])));
 				else
 					nAtom->isotope=Isotopes::FindIsotope(numbers[IsotopeIndex],
-					 Convert::ToInt32(Convert::ToDouble(numbers[AtomNumberIndex])), 
+					 Convert::ToInt32(Convert::ToDouble(numbers[AtomNumberIndex])),
 					 Convert::ToInt32(Convert::ToDouble(numbers[MassIndex])));
 
 
 				//If this is the first time reading this section(read_once==false)
 				// just add it in the system else replace the previous frame value(if exists)
-				if(read_once) 
+				if(read_once)
 					try{AtomCollection[AtomID]=nAtom; AtomID++;}
 				catch(String ^ e)  {throw gcnew Exception("Problem in Elements: "+e);}
 				else AtomCollection->Add(nAtom);
 			};
 		}
 		catch(Exception ^ e)
-		{	
-			//Wrong format of the field, where coordinates not giving number and where 
+		{
+			//Wrong format of the field, where coordinates not giving number and where
 			//isotope not giving valid isotope name
 			throw gcnew Exception("Problem in Reading "+Format+ " format in Line "+LineCount+":"+e->Message) ;
 		};
@@ -108,7 +108,7 @@ void SpinachGUI::IOSpinSystem::ExtractIsotopeAndCoordinates(String ^ line, Strin
 
 /**
 * @brief Reads three lines, split them to a number of fields which must be equal to FieldsNumber
-* (for each line) and extracts the interaction matrix creatting the interaction and 
+* (for each line) and extracts the interaction matrix creatting the interaction and
 * adding to the InteractionCollection. Can used for multiple frames, but the last frame of data is saved.
 * @param line String of the first line(of three) that contains the matrix of the interaction.
 * @param InterName Name of interaction in order to have it in the exception-error dialogs.
@@ -126,15 +126,15 @@ void SpinachGUI::IOSpinSystem::ExtractIsotopeAndCoordinates(String ^ line, Strin
 * @param unit Unit of the imported interaction matrix data.
 * @param IntKind Interaction kind of the imported interaction matrix data.
 * @param RefFrame Reference frame of the imported interaction matrix data.
-* @param InteractionCollection Collection where the data of the interaction will be saved. 
+* @param InteractionCollection Collection where the data of the interaction will be saved.
 */
 void SpinachGUI::IOSpinSystem::ExtractInteractionMatrix3x3(String ^ line, String ^ InterName, Atom^ A, Atom^ B, double factor,
-			bool read_once, int startIndex, int & InterID, int FieldsNumber, int M1Index, int M2Index, int M3Index, 
+			bool read_once, int startIndex, int & InterID, int FieldsNumber, int M1Index, int M2Index, int M3Index,
 			Unit ^ unit, InteractionKind IntKind, ReferenceFrame ^ RefFrame, InteractionsDictionary^% InteractionCollection)
 {
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,=";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 	::Matrix3x3 ^matrix=gcnew ::Matrix3x3(); //3x3 matrix with the interaction
 	double x,y,z;                       // For reading the tree element of the matrix
 	double test;
@@ -157,7 +157,7 @@ void SpinachGUI::IOSpinSystem::ExtractInteractionMatrix3x3(String ^ line, String
 
 		//Try to read elements and save in the matrix
 		// use & not && to avoid short circuit
-		if (FieldsNumber!=numbers->Length & 
+		if (FieldsNumber!=numbers->Length &
 			!Double::TryParse(numbers[M1Index], x) ||
 			!Double::TryParse(numbers[M2Index], y) ||
 			!Double::TryParse(numbers[M3Index], z))
@@ -177,14 +177,14 @@ void SpinachGUI::IOSpinSystem::ExtractInteractionMatrix3x3(String ^ line, String
 		nInteraction->unit=unit;
 		nInteraction->Frame=RefFrame;
 	}//Throws when an invalid interaction is tried to create.
-	catch(Exception ^ e)  
-	{ 
+	catch(Exception ^ e)
+	{
 		throw gcnew Exception("Problem in Reading Interaction: "+e->Message
 			+". Problem in Reading File in Line:"+getLineStop()+" .");
 	}
 	//If this is the first time reading this section(read_once==false)
 	// just add it in the system else replace the previous frame value(if exists)
-	if(read_once) 
+	if(read_once)
 		try{InteractionCollection[InterID+startIndex]=nInteraction; InterID++;}
 	catch(String ^ e)  {throw gcnew Exception("Problem in Elements: "+e);}
 	else InteractionCollection->Add(nInteraction);

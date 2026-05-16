@@ -26,10 +26,10 @@ namespace SpinachGUI {
 		provider = MyCI->NumberFormat;
 
 		//number of Decimal digits
-		provider->NumberDecimalDigits = decDigits;  
+		provider->NumberDecimalDigits = decDigits;
 
 		//seperator for more than a 3 digits
-		provider->NumberGroupSeparator = ""; 
+		provider->NumberGroupSeparator = "";
 
 		return 	((Double)(aNumber)).ToString(format, provider);
 	}
@@ -106,7 +106,7 @@ namespace SpinachGUI {
 	public:
 		IOSpinSystem(): ToShift(false), LineCount(0){};   ///< Constructor
 
-		
+
 		enum class FilterType {
 			IMPORT,
 			EXPORT,
@@ -132,7 +132,7 @@ namespace SpinachGUI {
 	protected:
 		int LineCount;          ///< Line Counter
 		String^ ReadLine();
-		void ExtractIsotopeAndCoordinates(String ^ , String ^ , bool , int & , int , int , 
+		void ExtractIsotopeAndCoordinates(String ^ , String ^ , bool , int & , int , int ,
 			int , int, int , int , int , double, AtomsDictionary^% );
 		/**
 		* @brief Overload function of ExtractIsotopeAndCoordinates without the AtomNumberIndex parameter
@@ -141,7 +141,7 @@ namespace SpinachGUI {
 		void ExtractIsotopeAndCoordinates(String ^ line, String ^ Format, bool read_once, int & AtomID,
 			int FieldsNumber, int IsotopeIndex, int XIndex, int YIndex, int ZIndex, double factor,
 			int MassIndex, AtomsDictionary^% AtomCollection)
-		{ExtractIsotopeAndCoordinates(line, Format, read_once, AtomID, FieldsNumber, 
+		{ExtractIsotopeAndCoordinates(line, Format, read_once, AtomID, FieldsNumber,
 		IsotopeIndex, -1, MassIndex, XIndex, YIndex, ZIndex,factor, AtomCollection);};
 		/**
 		* @brief Overload function of ExtractIsotopeAndCoordinates without the MassIndex parameter
@@ -150,7 +150,7 @@ namespace SpinachGUI {
 		void ExtractIsotopeAndCoordinates(String ^ line, String ^ Format, bool read_once, int & AtomID,
 			int FieldsNumber, int IsotopeIndex, int XIndex, int YIndex, int ZIndex, double factor,
 			AtomsDictionary^% AtomCollection, int AtomNumberIndex)
-		{ExtractIsotopeAndCoordinates(line, Format, read_once, AtomID, FieldsNumber, 
+		{ExtractIsotopeAndCoordinates(line, Format, read_once, AtomID, FieldsNumber,
 		IsotopeIndex, AtomNumberIndex, -1, XIndex, YIndex, ZIndex,factor, AtomCollection);};
 		/**
 		* @brief Overload function of ExtractIsotopeAndCoordinates without the MassIndex and AtomNumberIndex parameter
@@ -159,12 +159,12 @@ namespace SpinachGUI {
 		void ExtractIsotopeAndCoordinates(String ^ line, String ^ Format, bool read_once, int & AtomID,
 			int FieldsNumber, int IsotopeIndex, int XIndex, int YIndex, int ZIndex, double factor,
 			AtomsDictionary^% AtomCollection)
-		{ExtractIsotopeAndCoordinates(line, Format, read_once, AtomID, FieldsNumber, 
+		{ExtractIsotopeAndCoordinates(line, Format, read_once, AtomID, FieldsNumber,
 		IsotopeIndex, -1, -1, XIndex, YIndex, ZIndex,factor, AtomCollection);};
 
-		void ExtractInteractionMatrix3x3(String ^ , String ^ , Atom^ , Atom^ , double , bool , int , int & , 
+		void ExtractInteractionMatrix3x3(String ^ , String ^ , Atom^ , Atom^ , double , bool , int , int & ,
 			int , int , int , int , Unit ^ , InteractionKind , ReferenceFrame ^ , InteractionsDictionary^% );
 
-	};	
-	
+	};
+
 }

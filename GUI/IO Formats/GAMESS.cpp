@@ -12,7 +12,7 @@
 */
 
 /**
-* @brief Constructor of GAMESS format 
+* @brief Constructor of GAMESS format
 * @param filename Name of the file to be read.
 * @param model The model where the imported data will be saved.
 */
@@ -53,7 +53,7 @@ bool GAMESS::LoadFile(void)
 		{
 			//Read coordinates
 			if(Command->Contains(CMD_CARTCOORD))
-			{  
+			{
 				OK=read_CARTCOORD();
 				read_onceOR=true; //read at least once
 			}
@@ -82,11 +82,11 @@ bool GAMESS::read_CARTCOORD()
 	int AtomID=1;						//Saving the atom ID
 
 	//Readin initial dummy lines
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//COORDINATES OF ALL ATOMS ARE (ANGS)
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//ATOM   CHARGE       X              Y              Z
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	//------------------------------------------------------------
 
 

@@ -45,7 +45,7 @@ public:
 	static ArrayList^ getAllIsotopes(){Init_Isotopes();return Isotopes_Collection;};
 
 	static Isotope^ FindIsotope(System::String^ element, int atomNumber, int mass);
-	static array<System::String^>^ getAllIsotopeMasses(System::String ^element);
+	static cli::array<System::String^>^ getAllIsotopeMasses(System::String ^element);
 	static Isotope^ FindIsotopeWithHigherSpin(Isotope^ isotope);
 
 private:

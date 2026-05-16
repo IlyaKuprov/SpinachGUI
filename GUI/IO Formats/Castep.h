@@ -9,7 +9,7 @@ using namespace System::Collections::Generic;
 *  Atoms data, Chemical shields, Quadrupolar couplings, J-couplings, non framed
 */
 
-public ref class Castep:IOSpinSystem 
+public ref class Castep:public IOSpinSystem
 {
 public:
 	Castep(String^, Model^%  );
@@ -18,6 +18,6 @@ public:
 private:
 	bool OldFormat(String^ );
 	bool NewFormat(String^ );
-	bool CheckImportAtom(array<String^>^ , int & );
+	bool CheckImportAtom(cli::array<String^>^ , int & );
 };
 

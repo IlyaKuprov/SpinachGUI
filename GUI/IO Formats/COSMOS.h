@@ -9,7 +9,7 @@ using namespace SpinachGUI;
 *  COSMOS class, inherited from  IOSpinSystem for reading COSMOS format
 *  Atoms data, Chemical shields, J-couplings, non framed
 */
-public ref class COSMOS:IOSpinSystem 
+public ref class COSMOS:public IOSpinSystem
 {
 public:
 	COSMOS(String^, Model^%  );

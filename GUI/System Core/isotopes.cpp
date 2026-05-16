@@ -262,12 +262,12 @@ Isotope^ Isotopes::FindIsotopeWithHigherSpin(Isotope^ isotope)
 * @param element Element name.
 * @result Returns an array with all the possible masses.
 */
-array<System::String^>^ Isotopes::getAllIsotopeMasses(System::String ^element)
+cli::array<System::String^>^ Isotopes::getAllIsotopeMasses(System::String ^element)
 {
 	//Initialize isotopes collection
 	Init_Isotopes();
 
-	array<System::String^>^ result;
+	cli::array<System::String^>^ result;
 	ArrayList^ temp=gcnew ArrayList();
 
 	//Loop over all isotopes
@@ -283,7 +283,7 @@ array<System::String^>^ Isotopes::getAllIsotopeMasses(System::String ^element)
 			if(element!=((Isotope^)Isotopes_Collection[j+1])->Element) 
 			{
 				//Size the final array
-				result=gcnew array<System::String^>(temp->Count);
+				result=gcnew cli::array<System::String^>(temp->Count);
 
 				//Copy the values and return the resulted array
 				for ( int i = 0; i <temp->Count; i++ ) {result->SetValue( (System::String^)temp[i], i );}

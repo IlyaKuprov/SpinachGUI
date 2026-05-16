@@ -38,7 +38,7 @@ Orca::Orca(System::String^ filename, Model^% model)
 bool Orca::LoadFile(void)
 {
  String^ Command;
- 
+
  bool  OK = true;
 
  //Initializing flags to false, meaning that no any frame was yet read
@@ -58,7 +58,7 @@ bool Orca::LoadFile(void)
  //Read the file
  while (!ReadingFile->EndOfStream  && OK )
  {
-	 //if(Command==nullptr)		
+	 //if(Command==nullptr)
 	 //  {
 	 Command=gcnew String("");
 	 Command= ReadLine() ;
@@ -68,16 +68,16 @@ bool Orca::LoadFile(void)
 	 if(OK)
 	 {
 		 if ( String::Compare(Command->Trim(), CMD_CARTCOORD  ) == 0)
-		 {  OK=read_CARTCOORD();read_onceOR=true; }	
-		 else if ( String::Compare(Command->Trim(), CMD_GTENSOR) == 0 ) 
-		 {OK=read_GTENSOR();read_onceGT=true; } 
-		 else if ( String::Compare(Command->Trim(), CMD_ZERO_FIELD ) == 0 ) 
-		 {OK=read_ZERO_FIELD();read_onceZF=true; } 
-		 else if (String::Compare(Command->Trim(), CMD_CHEMICAL_SHIFTS ) == 0 ) 
+		 {  OK=read_CARTCOORD();read_onceOR=true; }
+		 else if ( String::Compare(Command->Trim(), CMD_GTENSOR) == 0 )
+		 {OK=read_GTENSOR();read_onceGT=true; }
+		 else if ( String::Compare(Command->Trim(), CMD_ZERO_FIELD ) == 0 )
+		 {OK=read_ZERO_FIELD();read_onceZF=true; }
+		 else if (String::Compare(Command->Trim(), CMD_CHEMICAL_SHIFTS ) == 0 )
 		 {
 			 OK=read_CHEMICAL_SHIFTS();read_onceCS=true;
-		 } 
-		 else if (String::Compare(Command->Trim(), CMD_HFC_QUAD_COUPLINGS)== 0) 
+		 }
+		 else if (String::Compare(Command->Trim(), CMD_HFC_QUAD_COUPLINGS)== 0)
 		 {OK=read_HFC_QUAD_COUPLINGS();read_onceHFC_QUAD=true;read_onceQC=true;}
 	 };
 
@@ -101,7 +101,7 @@ bool Orca::LoadFile(void)
 
 	  //Create electron
 	  Atom^ nAtom=gcnew Atom();
-	  nAtom->isotope=Isotopes::FindIsotope("e",0, 0); 
+	  nAtom->isotope=Isotopes::FindIsotope("e",0, 0);
 	  nAtom->X=0.0f;
 	  nAtom->Y=0.0f;
 	  nAtom->Z=0.0f;
@@ -111,7 +111,7 @@ bool Orca::LoadFile(void)
 	  //Create gtensor
 	  ::Matrix3x3 ^g_tensor=gcnew ::Matrix3x3();
 	  g_tensor[0]=2.0023f; g_tensor[4]=2.0023f;g_tensor[8]=2.0023f;
-	  g_tensor[1]=0.0f; g_tensor[2]=0.0f; g_tensor[3]=0.0f; 
+	  g_tensor[1]=0.0f; g_tensor[2]=0.0f; g_tensor[3]=0.0f;
 	  g_tensor[5]=0.0f; g_tensor[6]=0.0f; g_tensor[7]=0.0f;
 	  Tensor^ nInteraction=gcnew Tensor(nAtom, nAtom,
 										  InteractionKind::GTensor, g_tensor);
@@ -121,18 +121,18 @@ bool Orca::LoadFile(void)
 
 	}
 	else
-		for each(int i in AtomCollection->Keys) 
+		for each(int i in AtomCollection->Keys)
 			if(((Atom^)AtomCollection[i])->isotope->Element=="e") electronindex=i;
 
 	int jj=0;
-	for each(int i in gcnew List<int>(InteractionCollection->Keys)) 
+	for each(int i in gcnew List<int>(InteractionCollection->Keys))
 	{
 		if(((Interaction ^)InteractionCollection[i])->IntKind==InteractionKind::spinrotation)
 		{
 
-			Tensor^ nInteraction=gcnew Tensor(((Interaction ^)InteractionCollection[i])->A , 
+			Tensor^ nInteraction=gcnew Tensor(((Interaction ^)InteractionCollection[i])->A ,
 				                              (Atom^)AtomCollection[electronindex],
-											  InteractionKind::HFC, 
+											  InteractionKind::HFC,
 											  ((Tensor ^)InteractionCollection[i])->matrix3x3);
 			nInteraction->unit=Units::Gauss;
 			nInteraction->Frame=SystemModel->RefFrameCollection[1];
@@ -143,9 +143,9 @@ bool Orca::LoadFile(void)
 
   };
 
-   AtomCollection->Refreshing=true; 
+   AtomCollection->Refreshing=true;
   return true;
-	
+
 }
 
 /**
@@ -159,7 +159,7 @@ bool Orca::read_CARTCOORD()
 
 	//dummy lines
 	//----------------------------
-	fileline=ReadLine() ; 
+	fileline=ReadLine() ;
 	// NO LB      ZA    FRAG    MASS        X           Y           Z
 	fileline=ReadLine() ;
 
@@ -182,9 +182,9 @@ bool Orca::read_CARTCOORD()
 bool Orca::read_CHEMICAL_SHIFTS()
 {
 	int number;							//Number of fields in a line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 	String^ fileline=gcnew String("");  //line
 	int AtomID=1;						//Saving the atom ID
 
@@ -209,7 +209,7 @@ bool Orca::read_CHEMICAL_SHIFTS()
 		int j=0;
 		//Nucleus   0C : A
 		if (fileline->Contains("Nucleus"))
-		{ 
+		{
 			//Split the line to a number of fields
 			number=2;
 			numbers = nullptr;
@@ -217,11 +217,11 @@ bool Orca::read_CHEMICAL_SHIFTS()
 			if(number>numbers->Length) throw gcnew Exception("Problem in Reading CHEMICAL SHIFTS");
 
 			//Clean string leaving only atom ID
-			for(int i=numbers[1]->Length-1;i>-1;i--) 
+			for(int i=numbers[1]->Length-1;i>-1;i--)
 				if(Char::IsLetter(numbers[1][i])) numbers[1]=numbers[1]->Remove(i);
 			AtomID=Convert::ToInt32(numbers[1]);
 
-			// ----------------------------------------------------------- 
+			// -----------------------------------------------------------
 			fileline=ReadLine();
 
 			if((fileline=ReadLine())->Contains("Raw-matrix :"))
@@ -229,11 +229,11 @@ bool Orca::read_CHEMICAL_SHIFTS()
 				//Reading interaction matrix and creating interaction
 				fileline=ReadLine();
 				//Number of Fields: 3, XYZ index: 0,1,2
-				ExtractInteractionMatrix3x3(fileline, "Chemical Shielding", 
+				ExtractInteractionMatrix3x3(fileline, "Chemical Shielding",
 					(Atom^)AtomCollection[AtomID+1], (Atom^)AtomCollection[AtomID+1], 1.0,
-					read_onceCS, startIndexCS, j, 3, 0, 1, 2, 
-					Units::MHz, InteractionKind::Shift, 
-					SystemModel->RefFrameCollection[1], 
+					read_onceCS, startIndexCS, j, 3, 0, 1, 2,
+					Units::MHz, InteractionKind::Shift,
+					SystemModel->RefFrameCollection[1],
 					InteractionCollection);
 			}
 		}; //Nucleus
@@ -252,9 +252,9 @@ bool Orca::read_HFC_QUAD_COUPLINGS()
 {
 
 	int number;							//Number of fields in a line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 	String^ fileline=gcnew String("");  //line
 	int AtomID=1;						//Saving the atom ID
 	double factor=2.3496e+02;           //(efg_atomic*e_charge*1e-28/h_planck)MHz
@@ -281,30 +281,30 @@ bool Orca::read_HFC_QUAD_COUPLINGS()
 		//Nucleus   0C : A:ISTP=   13 I=  0.5 P=134.1900 MHz/au**3
 		//fileline= ReadLine() ;
 		if (fileline->Contains("Nucleus"))
-		{ 
+		{
 			//Split the line to a number of fields
 			number=5;
 			numbers = nullptr;
 			numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
-			if(number>numbers->Length) 
+			if(number>numbers->Length)
 				throw gcnew Exception("Problem in Reading ELECTRIC AND MAGNETIC HYPERFINE STRUCTURE");
 
 			//Clean string leaving only atom ID
-			for(int i=numbers[1]->Length-1;i>-1;i--) 
+			for(int i=numbers[1]->Length-1;i>-1;i--)
 				if(Char::IsLetter(numbers[1][i])) numbers[1]=numbers[1]->Remove(i);
 			AtomID=Convert::ToInt32(numbers[1]);
 
 			//Reading Qbarn factor
-			//                Q:ISTP=   13 I=  0.5 Q=  0.0000 barn  
+			//                Q:ISTP=   13 I=  0.5 Q=  0.0000 barn
 			fileline=ReadLine();
 			number=7;
 			numbers = nullptr;
 			numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
-			if(number!=numbers->Length) 
+			if(number!=numbers->Length)
 				throw gcnew Exception("Problem in Reading ELECTRIC AND MAGNETIC HYPERFINE STRUCTURE");
 			Qbarn=Convert::ToDouble(numbers[5]);
 
-			// ----------------------------------------------------------- 
+			// -----------------------------------------------------------
 			fileline=ReadLine();
 
 			//Read until end of senction of end of file
@@ -321,19 +321,19 @@ bool Orca::read_HFC_QUAD_COUPLINGS()
 					//Reading interaction matrix and creating interaction
 					fileline=ReadLine();
 					//Number of Fields: 3, XYZ index: 0,1,2
-					ExtractInteractionMatrix3x3(fileline, "Hyeperfine Couplings", 
+					ExtractInteractionMatrix3x3(fileline, "Hyeperfine Couplings",
 						(Atom^)AtomCollection[AtomID+1], (Atom^)AtomCollection[AtomID+1], 1.0,
-						read_onceHFC_QUAD, startIndexANIS, j, 3, 0, 1, 2, 
-						Units::MHz, InteractionKind::spinrotation, 
-						SystemModel->RefFrameCollection[1], 
+						read_onceHFC_QUAD, startIndexANIS, j, 3, 0, 1, 2,
+						Units::MHz, InteractionKind::spinrotation,
+						SystemModel->RefFrameCollection[1],
 						InteractionCollection);
 
 				}//Read quadropolar interactions
 				else if(fileline->Contains("Raw EFG matrix (all values in a.u.**-3):"))
 				{
-					//Find nuclear spin quantum number and in case smaller 
-					//or equal than 0.5 find other isotope 
-					if (((Atom^)AtomCollection[AtomID+1])->isotope->Spin<=0.5)	
+					//Find nuclear spin quantum number and in case smaller
+					//or equal than 0.5 find other isotope
+					if (((Atom^)AtomCollection[AtomID+1])->isotope->Spin<=0.5)
 						((Atom^)AtomCollection[AtomID+1])->isotope=
 						Isotopes::FindIsotopeWithHigherSpin(((Atom^)AtomCollection[AtomID+1])->isotope);
 					double NSQN=((Atom^)AtomCollection[AtomID+1])->isotope->Spin; //nuclear spin quantum number
@@ -388,7 +388,7 @@ bool Orca::read_HFC_QUAD_COUPLINGS()
 						//If isotope with no 0.5>spin just ignore
 						try
 						{
-							Tensor^ nInteraction=gcnew Tensor((Atom^)AtomCollection[AtomID+1], 
+							Tensor^ nInteraction=gcnew Tensor((Atom^)AtomCollection[AtomID+1],
 								(Atom^)AtomCollection[AtomID+1],
 								InteractionKind::Quadrupolar, Quad_Coupling);
 							nInteraction->unit=Units::MHz;
@@ -441,11 +441,11 @@ bool Orca::read_GTENSOR()
 	//Reading interaction matrix and creating interaction
 	fileline=ReadLine();
 	//Number of Fields: 3, XYZ index: 0,1,2
-	ExtractInteractionMatrix3x3(fileline, "G-Tensor", 
+	ExtractInteractionMatrix3x3(fileline, "G-Tensor",
 		nAtom, nAtom, 1.0,
 		read_onceGT, startIndexGT, j, 3, 0, 1, 2,
-		Units::Mi_b, InteractionKind::GTensor, 
-		SystemModel->RefFrameCollection[1], 
+		Units::Mi_b, InteractionKind::GTensor,
+		SystemModel->RefFrameCollection[1],
 		InteractionCollection);
 
 	return true;
@@ -466,7 +466,7 @@ bool Orca::read_ZERO_FIELD()
 	//Dummy lines
 	//---------------------------
 	//
-	//raw-matrix : 
+	//raw-matrix :
 	fileline=ReadLine() ;
 	fileline=ReadLine() ;
 	fileline=ReadLine() ;
@@ -490,11 +490,11 @@ bool Orca::read_ZERO_FIELD()
 	//Reading interaction matrix and creating interaction
 	fileline=ReadLine();
 	//Number of Fields: 3, XYZ index: 0,1,2
-	ExtractInteractionMatrix3x3(fileline, "Zero-Field coupling", 
+	ExtractInteractionMatrix3x3(fileline, "Zero-Field coupling",
 		nAtom, nAtom, 1.0,
 		read_onceZF, startIndexZF, j, 3, 0, 1, 2,
-		Units::rev_cm, InteractionKind::ZFS, 
-		SystemModel->RefFrameCollection[1], 
+		Units::rev_cm, InteractionKind::ZFS,
+		SystemModel->RefFrameCollection[1],
 		InteractionCollection);
 
 	return true;
