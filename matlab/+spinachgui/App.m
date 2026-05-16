@@ -84,7 +84,13 @@ classdef App < handle
         function buildUI(app)
             app.Figure = uifigure('Name', 'SpinachGUI', 'Position', [100 100 1200 760]);
             app.Figure.CloseRequestFcn = @(~,~) app.closeApp();
-            app.TabGroup = uitabgroup(app.Figure, 'Position', [1 1 1200 760]);
+            figureGrid = uigridlayout(app.Figure, [1 1]);
+            figureGrid.Padding = [0 0 0 0];
+            figureGrid.RowSpacing = 0;
+            figureGrid.ColumnSpacing = 0;
+            app.TabGroup = uitabgroup(figureGrid);
+            app.TabGroup.Layout.Row = 1;
+            app.TabGroup.Layout.Column = 1;
             app.HomeTab = uitab(app.TabGroup, 'Title', 'Home');
             app.VisualizationTab = uitab(app.TabGroup, 'Title', 'Visualization');
             app.buildHomeTab();
@@ -93,7 +99,7 @@ classdef App < handle
 
         function buildHomeTab(app)
             root = uigridlayout(app.HomeTab, [2 3]);
-            root.ColumnWidth = {190, '1x', 420};
+            root.ColumnWidth = {190, '2x', '1x'};
             root.RowHeight = {'1x', 215};
             root.Padding = [8 8 8 8];
             root.RowSpacing = 8;
@@ -126,6 +132,7 @@ classdef App < handle
             app.AtomsTable = uitable(right);
             app.AtomsTable.Layout.Row = 2;
             app.AtomsTable.Layout.Column = 1;
+            app.configureAtomsTable();
 
             bottom = uigridlayout(root, [2 1]);
             bottom.Layout.Row = 2;
@@ -134,6 +141,7 @@ classdef App < handle
             uilabel(bottom, 'Text', 'Interactions', 'FontWeight', 'bold');
             app.InteractionsTable = uitable(bottom);
             app.InteractionsTable.Layout.Row = 2;
+            app.configureInteractionsTable(app.InteractionsTable);
         end
 
         function makeFilePanel(app, parent)
@@ -269,15 +277,16 @@ classdef App < handle
             alignLabButton.Layout.Column = [1 2];
 
             app.VisualizationInteractionsTable = uitable(root);
+            app.configureInteractionsTable(app.VisualizationInteractionsTable);
         end
 
         function refresh(app)
             if isempty(app.AtomsTable) || ~isvalid(app.AtomsTable)
                 return
             end
-            app.AtomsTable.Data = app.Model.Atoms;
+            app.AtomsTable.Data = app.atomTableData();
             interactionData = app.Model.positiveInteractions();
-            interactionData = interactionData(:, {'ID','Kind','A','B','Label','Unit','ReferenceFrameID','Reference'});
+            interactionData = app.interactionTableData(interactionData);
             if ~isempty(app.InteractionsTable) && isvalid(app.InteractionsTable)
                 app.InteractionsTable.Data = interactionData;
             end
@@ -292,6 +301,141 @@ classdef App < handle
             end
             app.renderModel();
             app.StatusLabel.Text = sprintf('SpinachGUI: %d atoms, %d interactions', height(app.Model.Atoms), height(app.Model.Interactions));
+        end
+
+        function configureAtomsTable(app)
+            app.AtomsTable.ColumnName = {'ID','Label','Element','Mass Number','x(Angstrom)','y(Angstrom)','z(Angstrom)'};
+            app.AtomsTable.ColumnEditable = true(1, 7);
+            app.AtomsTable.ColumnFormat = {'numeric','char',cellstr(app.atomElementOptions()), ...
+                'numeric','numeric','numeric','numeric'};
+            app.AtomsTable.RowName = {};
+            app.AtomsTable.CellEditCallback = @(~,event) app.atomsTableEdited(event);
+        end
+
+        function configureInteractionsTable(app, tableHandle)
+            tableHandle.ColumnName = {'ID','Label','Atom ID','Inter. Type','Coupled Atom ID', ...
+                'Unit','Ref. Frame ID','Reference','Magnitude Orientation'};
+            tableHandle.ColumnEditable = [true true true true true true true true false];
+            tableHandle.ColumnFormat = {'numeric','char','numeric',cellstr(app.interactionKindOptions()), ...
+                'numeric',cellstr(app.unitOptions()),'numeric','char','char'};
+            tableHandle.RowName = {};
+            tableHandle.CellEditCallback = @(src,event) app.interactionsTableEdited(src, event);
+            tableHandle.CellSelectionCallback = @(src,event) app.interactionsTableSelected(src, event);
+        end
+
+        function data = atomTableData(app)
+            names = {'ID','Label','Element','Mass','X','Y','Z'};
+            if isempty(app.Model.Atoms)
+                data = cell(0, numel(names));
+                return
+            end
+            data = app.stringCellsToChar(table2cell(app.Model.Atoms(:, names)));
+        end
+
+        function data = interactionTableData(app, interactions)
+            names = {'ID','Label','A','Kind','B','Unit','ReferenceFrameID','Reference','Edit'};
+            if isempty(interactions)
+                data = cell(0, numel(names));
+                return
+            end
+            data = [app.stringCellsToChar(table2cell(interactions(:, names(1:end-1)))), ...
+                repmat({'Edit'}, height(interactions), 1)];
+        end
+
+        function data = stringCellsToChar(~, data)
+            for idx = 1:numel(data)
+                if isstring(data{idx})
+                    data{idx} = char(data{idx});
+                end
+            end
+        end
+
+        function atomsTableEdited(app, event)
+            if isempty(event.Indices)
+                return
+            end
+            row = event.Indices(1);
+            column = event.Indices(2);
+            data = app.AtomsTable.Data;
+            if row > size(data, 1)
+                return
+            end
+            atomKeys = app.atomTableKeys();
+            columnName = atomKeys(column);
+            atomID = data{row, 1};
+            if columnName == "ID"
+                atomID = event.PreviousData;
+            end
+            try
+                switch columnName
+                    case "ID"
+                        app.Model.setAtomID(event.PreviousData, event.NewData);
+                    case "Label"
+                        app.Model.setAtomLabel(atomID, event.NewData);
+                    case "Element"
+                        app.Model.setAtomIsotope(atomID, event.NewData, []);
+                    case "Mass"
+                        app.Model.setAtomIsotope(atomID, data{row, 3}, data{row, 4});
+                    case {"X","Y","Z"}
+                        app.Model.setAtomCoordinates(atomID, cell2mat(data(row, 5:7)));
+                end
+            catch err
+                app.showEditError(err);
+            end
+            app.refresh();
+        end
+
+        function interactionsTableEdited(app, src, event)
+            if isempty(event.Indices)
+                return
+            end
+            row = event.Indices(1);
+            column = event.Indices(2);
+            data = src.Data;
+            if row > size(data, 1)
+                return
+            end
+            interactionKeys = app.interactionTableKeys();
+            columnName = interactionKeys(column);
+            interactionID = data{row, 1};
+            if columnName == "ID"
+                interactionID = event.PreviousData;
+            end
+            try
+                switch columnName
+                    case "ID"
+                        app.Model.setInteractionID(event.PreviousData, event.NewData);
+                    case "Label"
+                        app.Model.setInteractionLabel(interactionID, event.NewData);
+                    case "A"
+                        app.Model.setInteractionAtomA(interactionID, event.NewData);
+                    case "Kind"
+                        app.Model.setInteractionKind(interactionID, event.NewData);
+                    case "B"
+                        app.Model.setInteractionAtomB(interactionID, event.NewData);
+                    case "Unit"
+                        app.Model.setInteractionUnit(interactionID, event.NewData);
+                    case "ReferenceFrameID"
+                        app.Model.setInteractionReferenceFrame(interactionID, event.NewData);
+                    case "Reference"
+                        app.Model.setInteractionReference(interactionID, event.NewData);
+                end
+            catch err
+                app.showEditError(err);
+            end
+            app.refresh();
+        end
+
+        function interactionsTableSelected(app, src, event)
+            if isempty(event.Indices) || isempty(src.Data)
+                return
+            end
+            row = event.Indices(1);
+            column = event.Indices(2);
+            if row > size(src.Data, 1) || column ~= size(src.Data, 2)
+                return
+            end
+            app.showInteractionEditor(src.Data{row, 1});
         end
 
         function renderModel(app)
@@ -702,6 +846,16 @@ classdef App < handle
             if isempty(idx)
                 return
             end
+            app.showInteractionEditor(interactionID);
+        end
+
+        function showInteractionEditor(app, interactionID)
+            idx = find(app.Model.Interactions.ID == interactionID, 1);
+            if isempty(idx)
+                uialert(app.Figure, 'The selected interaction is no longer present in the model.', ...
+                    'Interaction unavailable', 'Icon', 'warning');
+                return
+            end
             titleText = sprintf('Interaction %d tensor/orientation editor', interactionID);
             frameToRoot = app.Model.referenceFrameToRootMatrix(app.Model.Interactions.ReferenceFrameID(idx));
             localDcm = frameToRoot \ app.Model.Interactions.DCM{idx};
@@ -777,7 +931,7 @@ classdef App < handle
                 return
             end
             data = app.VisualizationInteractionsTable.Data;
-            if isempty(data) || height(data) == 0
+            if isempty(data) || size(data, 1) == 0
                 uialert(app.Figure, 'No positive interactions are available.', ...
                     'No interaction selected', 'Icon', 'warning');
                 return
@@ -798,8 +952,8 @@ classdef App < handle
                 return
             end
             row = selectedRows(1);
-            row = max(1, min(row, height(data)));
-            interactionID = data.ID(row);
+            row = max(1, min(row, size(data, 1)));
+            interactionID = data{row, 1};
             idx = find(app.Model.Interactions.ID == interactionID, 1);
             if isempty(idx)
                 uialert(app.Figure, 'The selected interaction is no longer present in the model.', ...
@@ -850,6 +1004,37 @@ classdef App < handle
                 if ~isempty(control) && isvalid(control)
                     value = logical(control.Value);
                 end
+            end
+        end
+
+        function names = atomElementOptions(~)
+            isotopes = spinachgui.isotopeTable();
+            names = unique(isotopes.Element, 'stable').';
+        end
+
+        function names = atomTableKeys(~)
+            names = ["ID","Label","Element","Mass","X","Y","Z"];
+        end
+
+        function names = interactionTableKeys(~)
+            names = ["ID","Label","A","Kind","B","Unit","ReferenceFrameID","Reference","Edit"];
+        end
+
+        function names = interactionKindOptions(~)
+            names = setdiff(spinachgui.interactionKinds(), "CBond", 'stable');
+            names = names(:).';
+        end
+
+        function names = unitOptions(~)
+            units = spinachgui.units();
+            names = units.Name.';
+        end
+
+        function showEditError(app, err)
+            if ~isempty(app.Figure) && isvalid(app.Figure)
+                uialert(app.Figure, err.message, 'Table edit rejected', 'Icon', 'error');
+            else
+                warning(err.identifier, '%s', err.message);
             end
         end
 

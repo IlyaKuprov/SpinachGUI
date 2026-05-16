@@ -239,6 +239,149 @@ classdef Model < handle
             obj.Dirty = true;
         end
 
+        function setAtomID(obj, oldID, newID)
+            oldID = obj.validateAtomReference(oldID, 'oldID');
+            newID = validatePositiveIntegerID(newID, 'newID');
+            if oldID == newID
+                return
+            end
+            if any(obj.Atoms.ID == newID)
+                error('spinachgui:DuplicateAtomID', 'Atom ID %d is already present.', newID);
+            end
+            obj.Atoms.ID(obj.Atoms.ID == oldID) = newID;
+            obj.Interactions.A(obj.Interactions.A == oldID) = newID;
+            obj.Interactions.B(obj.Interactions.B == oldID) = newID;
+            obj.Atoms = sortrows(obj.Atoms, 'ID');
+            obj.Dirty = true;
+        end
+
+        function setAtomLabel(obj, atomID, label)
+            atomID = obj.validateAtomReference(atomID, 'atomID');
+            obj.Atoms.Label(obj.Atoms.ID == atomID) = string(label);
+            obj.Dirty = true;
+        end
+
+        function setAtomIsotope(obj, atomID, element, mass)
+            atomID = obj.validateAtomReference(atomID, 'atomID');
+            element = string(strtrim(char(element)));
+            if nargin < 4 || isempty(mass) || isnan(double(mass)) || double(mass) == 0
+                isotopeName = element;
+            else
+                mass = validateIntegerID(mass, 'mass');
+                if mass < 0
+                    error('spinachgui:InvalidMassNumber', 'Mass number must be non-negative.');
+                end
+                isotopeName = sprintf('%d%s', mass, char(element));
+            end
+            isotope = spinachgui.findIsotope(isotopeName, false);
+            atomRow = find(obj.Atoms.ID == atomID, 1);
+            obj.Atoms.Element(atomRow) = string(isotope.Element);
+            obj.Atoms.Mass(atomRow) = isotope.Mass;
+            obj.Atoms.Radius(atomRow) = isotope.Radius;
+            obj.Atoms.Red(atomRow) = isotope.Red;
+            obj.Atoms.Green(atomRow) = isotope.Green;
+            obj.Atoms.Blue(atomRow) = isotope.Blue;
+            obj.Atoms.Spin(atomRow) = isotope.Spin;
+            obj.Atoms.Magnetogyric(atomRow) = isotope.Magnetogyric;
+            obj.Dirty = true;
+        end
+
+        function setAtomCoordinates(obj, atomID, xyz)
+            atomID = obj.validateAtomReference(atomID, 'atomID');
+            validateattributes(xyz, {'numeric'}, {'vector', 'numel', 3, 'finite', 'real'}, mfilename, 'xyz');
+            atomRow = find(obj.Atoms.ID == atomID, 1);
+            xyz = double(xyz(:).');
+            obj.Atoms.X(atomRow) = xyz(1);
+            obj.Atoms.Y(atomRow) = xyz(2);
+            obj.Atoms.Z(atomRow) = xyz(3);
+            obj.Dirty = true;
+        end
+
+        function setInteractionID(obj, oldID, newID)
+            idx = obj.interactionRow(oldID);
+            newID = validateIntegerID(newID, 'newID');
+            if oldID == newID
+                return
+            end
+            if obj.Interactions.Kind(idx) == "CBond" && newID >= 0
+                error('spinachgui:InvalidInteractionID', 'CBond interaction IDs must be negative.');
+            elseif obj.Interactions.Kind(idx) ~= "CBond" && newID <= 0
+                error('spinachgui:InvalidInteractionID', 'Scientific interaction IDs must be positive.');
+            end
+            if any(obj.Interactions.ID == newID)
+                error('spinachgui:DuplicateInteractionID', 'Interaction ID %d is already present.', newID);
+            end
+            obj.Interactions.ID(idx) = newID;
+            obj.Interactions = sortrows(obj.Interactions, 'ID');
+            obj.Dirty = true;
+        end
+
+        function setInteractionLabel(obj, interactionID, label)
+            idx = obj.interactionRow(interactionID);
+            obj.Interactions.Label(idx) = string(label);
+            obj.Dirty = true;
+        end
+
+        function setInteractionAtomA(obj, interactionID, atomA)
+            idx = obj.interactionRow(interactionID);
+            atomA = obj.validateAtomReference(atomA, 'atomA');
+            obj.Interactions.A(idx) = atomA;
+            obj.Interactions.B(idx) = obj.defaultInteractionPartner(obj.Interactions.Kind(idx), ...
+                atomA, obj.Interactions.B(idx));
+            obj.Dirty = true;
+        end
+
+        function setInteractionAtomB(obj, interactionID, atomB)
+            idx = obj.interactionRow(interactionID);
+            atomB = obj.validateAtomReference(atomB, 'atomB');
+            candidates = obj.candidateInteractionPartners(obj.Interactions.Kind(idx), obj.Interactions.A(idx));
+            if ~ismember(atomB, candidates)
+                error('spinachgui:InvalidInteractionPartner', ...
+                    'Atom %d is not a valid coupled atom for %s on atom %d.', ...
+                    atomB, obj.Interactions.Kind(idx), obj.Interactions.A(idx));
+            end
+            obj.Interactions.B(idx) = atomB;
+            obj.Dirty = true;
+        end
+
+        function setInteractionKind(obj, interactionID, kind)
+            idx = obj.interactionRow(interactionID);
+            kind = spinachgui.normalizeInteractionKind(kind);
+            if kind == "CBond"
+                error('spinachgui:InvalidInteractionKind', 'CBond interactions are edited as automatic bonds.');
+            end
+            obj.Interactions.Kind(idx) = kind;
+            obj.Interactions.B(idx) = obj.defaultInteractionPartner(kind, obj.Interactions.A(idx), obj.Interactions.B(idx));
+            obj.Interactions.Unit(idx) = obj.defaultUnitForKind(kind);
+            obj.refreshInteractionDerivedStates(idx);
+            obj.Dirty = true;
+        end
+
+        function setInteractionUnit(obj, interactionID, unitName)
+            idx = obj.interactionRow(interactionID);
+            unitName = string(unitName);
+            units = spinachgui.units();
+            if ~ismember(unitName, units.Name)
+                error('spinachgui:InvalidUnit', 'Unknown unit "%s".', unitName);
+            end
+            obj.Interactions.Unit(idx) = unitName;
+            obj.Dirty = true;
+        end
+
+        function setInteractionReferenceFrame(obj, interactionID, frameID)
+            idx = obj.interactionRow(interactionID);
+            frameID = obj.validateReferenceFrameReference(frameID, 'frameID');
+            obj.Interactions.ReferenceFrameID(idx) = frameID;
+            obj.refreshInteractionDerivedStates(idx);
+            obj.Dirty = true;
+        end
+
+        function setInteractionReference(obj, interactionID, reference)
+            idx = obj.interactionRow(interactionID);
+            obj.Interactions.Reference(idx) = string(reference);
+            obj.Dirty = true;
+        end
+
         function [filteredModel, summary] = filterInteractions(obj, thresholds, removeOrphanAtoms)
             if nargin < 2
                 thresholds = struct();
@@ -401,6 +544,60 @@ classdef Model < handle
             distance = norm([obj.Atoms.X(idxA) - obj.Atoms.X(idxB), ...
                 obj.Atoms.Y(idxA) - obj.Atoms.Y(idxB), obj.Atoms.Z(idxA) - obj.Atoms.Z(idxB)]);
             obj.addInteraction("CBond", atomA, atomB, distance * eye(3), "Angstroms", "", 1, "", "Auto bond");
+        end
+
+        function atomIDs = candidateInteractionPartners(obj, kind, atomA)
+            kind = spinachgui.normalizeInteractionKind(kind);
+            atomA = obj.validateAtomReference(atomA, 'atomA');
+            atomIDs = obj.Atoms.ID;
+            atomElements = obj.Atoms.Element;
+            atomAIndex = find(obj.Atoms.ID == atomA, 1);
+            atomAIsElectron = obj.Atoms.Element(atomAIndex) == "e";
+            switch kind
+                case "HFC"
+                    if atomAIsElectron
+                        atomIDs = atomIDs(atomElements ~= "e");
+                    else
+                        atomIDs = atomIDs(atomElements == "e");
+                    end
+                case {"Jcoupling","Dipolar"}
+                    atomIDs = atomIDs(atomElements ~= "e" & atomIDs ~= atomA);
+                case "Exchange"
+                    atomIDs = atomIDs(atomElements == "e" & atomIDs ~= atomA);
+                otherwise
+                    atomIDs = atomA;
+            end
+        end
+
+        function atomB = defaultInteractionPartner(obj, kind, atomA, preferredAtomB)
+            candidates = obj.candidateInteractionPartners(kind, atomA);
+            if isempty(candidates)
+                error('spinachgui:NoInteractionPartner', ...
+                    'No valid coupled atom exists for %s on atom %d.', kind, atomA);
+            end
+            if nargin >= 4 && ismember(preferredAtomB, candidates)
+                atomB = preferredAtomB;
+            else
+                atomB = candidates(1);
+            end
+        end
+
+        function unitName = defaultUnitForKind(~, kind)
+            kind = spinachgui.normalizeInteractionKind(kind);
+            switch kind
+                case "HFC"
+                    unitName = "Gauss";
+                case {"Shift","CShielding"}
+                    unitName = "ppm";
+                case {"Jcoupling","Dipolar","spinrotation"}
+                    unitName = "Hz";
+                case {"Quadrupolar","ZFS","Exchange","CHITensor"}
+                    unitName = "MHz";
+                case "GTensor"
+                    unitName = "Bohr magneton";
+                otherwise
+                    unitName = "Unknown";
+            end
         end
     end
 end
