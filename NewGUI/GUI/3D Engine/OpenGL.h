@@ -69,7 +69,6 @@ namespace OpenGLForm
 		System::Void ConMat(System::Void);
 		System::Void Init_Metaballs(System::Void);
 		GLvoid ReSizeGLScene(GLsizei , GLsizei );	
-		System::Void  MySetLightingFormat(System::Void);
 		System::Void SelectionBuffer(GLfloat ,GLfloat );
 		void OnMouseEnter(System::Object^ , System::EventArgs^  );
 		void OnMouseLeave(System::Object^ , System::EventArgs^  );

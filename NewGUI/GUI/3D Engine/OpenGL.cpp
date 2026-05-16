@@ -1892,18 +1892,13 @@ System::Void OpenGLForm::COpenGL::Init_Metaballs()
 		squaredRadius=metaballs[i].squaredRadius;
 		ballPosition=metaballs[i].position;
 
-		//VC++6 standard does not inline functions
-		//by inlining these maually, in this performance-critical area,
-		//almost a 100% increase in speed is found
 		for(int j=0; j<cubeGrid->numVertices; j++)
 		{
-			//ballToPoint=cubeGrid.vertices[j].position-ballPosition;
 			ballToPoint.x=cubeGrid->vertices[j].position.x-ballPosition.x;
 			ballToPoint.y=cubeGrid->vertices[j].position.y-ballPosition.y;
 			ballToPoint.z=cubeGrid->vertices[j].position.z-ballPosition.z;
 
 			//get squared distance from ball to point
-			//float squaredDistance=ballToPoint.GetSquaredLength();
 			float squaredDistance=	ballToPoint.x*ballToPoint.x +
 				ballToPoint.y*ballToPoint.y +
 				ballToPoint.z*ballToPoint.z;
@@ -1915,7 +1910,6 @@ System::Void OpenGLForm::COpenGL::Init_Metaballs()
 
 			//normal = (r^2 * v)/d^4
 			normalScale=squaredRadius/(squaredDistance*squaredDistance);
-			//cubeGrid.vertices[j].normal+=ballToPoint*normalScale;
 			cubeGrid->vertices[j].normal.x+=ballToPoint.x*normalScale;
 			cubeGrid->vertices[j].normal.y+=ballToPoint.y*normalScale;
 			cubeGrid->vertices[j].normal.z+=ballToPoint.z*normalScale;
@@ -2390,46 +2384,11 @@ GLint OpenGLForm::COpenGL::MySetFontFormat(HDC hdc)
  nFontList = glGenLists(128);
 
  wglUseFontBitmaps(hdc, 0, 128, nFontList);
- DeleteObject(hFont); // Don’t need original font anymore
+ DeleteObject(hFont); // Don't need original font anymore
  // Black Background
  //glClearColor(0.0f, 0.0f, 0.0f, 1.0f );
 
  return 1;
-}
-
-/**
-*  @brief Setting Lighting(artistic) Format for OpenGL.
-*/
-System::Void  OpenGLForm::COpenGL::MySetLightingFormat(System::Void)
-{
-  GLfloat  ambient               = (GLfloat) 0.20;
-  GLfloat  diffuse               = (GLfloat) 0.40;
-  GLfloat  specular              = (GLfloat) 0.30;
-  GLfloat ambientLight[] = {ambient/10.0f,ambient/10.0f,ambient/10.f,1.0};
-  GLfloat diffuseLight[] = {diffuse,diffuse,diffuse,1.0};
-  GLfloat specularLight[] = {specular/4.0f,specular/4.0f,specular/4.0f,1.0};
-
-  // setting the lighting parameters
-  glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
-  glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
-  glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
-  glLightfv(GL_LIGHT2, GL_AMBIENT, ambientLight);
-  glLightfv(GL_LIGHT2, GL_DIFFUSE, diffuseLight);
-  glLightfv(GL_LIGHT2, GL_SPECULAR, specularLight);
-  GLfloat position[] = { 0.0f, 0.0f, -1.0f, 1.0f};
-  GLfloat pos[]      = { 20.0f, 0.0f, 200.0f, 1.0f};
-
-  glLightfv(GL_LIGHT0, GL_POSITION, position);
-  glLightfv(GL_LIGHT2, GL_POSITION, pos);
-  glEnable(GL_LIGHTING);
-  glEnable(GL_LIGHT0);
-  glEnable(GL_LIGHT2);
-
-  glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
-  glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
-  glEnable(GL_COLOR_MATERIAL);
-  glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specularLight);
-
 }
 
 /**

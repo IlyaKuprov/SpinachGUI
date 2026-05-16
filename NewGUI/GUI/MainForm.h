@@ -42,27 +42,11 @@ namespace SpinachGUI {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
-	//	MainForm (const MainForm ^ aMainForm){return ((MainForm ^)aMainForm->MemberwiseClone());};
 		MainForm(String ^ OpenedFileName)
 		{
-			
 			InitializeComponent();
-			
-			//
-			//TODO: Add the constructor code here
-			//
-			/*
-			this->SetStyle(ControlStyles::UserPaint | 
-				           ControlStyles::OptimizedDoubleBuffer |
-						   ControlStyles::AllPaintingInWmPaint | 
-						   ControlStyles::SupportsTransparentBackColor |
-						   ControlStyles::ResizeRedraw, true);
-			this->UpdateStyles();
-			*/
-			    //MaintabControl->ResizeRedraw=false;
-			doubleResize=false;
-			orientationdialog= gcnew OrientationDialog();
-						this->Text+=SpinachGUIver;
+			orientationdialog=gcnew OrientationDialog();
+			this->Text+=SpinachGUIver;
 			MainForm_Initialization();
 
 				dataGridView1->GetType()->InvokeMember(
@@ -165,7 +149,6 @@ namespace SpinachGUI {
 
 private: System::Windows::Forms::ToolTip^  ToolTips;
 public: System::Windows::Forms::SaveFileDialog^  SaveFilesDialog;
-private: System::Windows::Forms::DataGridViewRow^  Row1;
 private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel4;
 private: System::Windows::Forms::Label^  label3;
 private: System::Windows::Forms::ColorDialog^  GenColorDialog;
@@ -185,7 +168,6 @@ protected: System::Windows::Forms::OpenFileDialog^  OpenFilesDialog;
 	protected:  String^ CurrentSavedFile; 
 	public:   String ^CurrentTitleFile;
 	private: System::ComponentModel::ComponentResourceManager^  MyResources2;
-	private:  System::EventHandler^ comboevent;
 	private: System::Windows::Forms::PrintDialog^  printDialog1;
     private: System::Drawing::Printing::PrintDocument^  DocumenttoPrint;
 	
@@ -345,19 +327,14 @@ private: System::Windows::Forms::CheckBox^  FullScreencheckBox;
 
 
 
-
-
-	public: int ^testpointer;
 	public: System::Void OnMouseDownOpenGL(System::Object^ , System::Windows::Forms::MouseEventArgs^ );
 	public: System::Void OnMouseUpOpenGL(System::Object^ , System::Windows::Forms::MouseEventArgs^ );
 	private: System::Void MainForm_Initialization();
 	private: OrientationDialog^ orientationdialog;
 	private: EasySpin^ easyspin;
 	private: Spinach^ spinach;
-	private: ArrayList^ NodesToDeleted;
 	private: Simpson^ simpson;
 			 SpinEvolution^ spinEvolution;
-			 bool doubleResize;
 			 int SplitterDistance1, SplitterDistance2;
 			 FormWindowState  FormState;
 
@@ -2975,7 +2952,6 @@ private: System::Void Update_Interactions_Color();
 private: DataGridViewComboBoxCell^ UpdateCoupledAtomIDComboBox(int , String^ );
 private: DataGridViewComboBoxCell^ UpdateInteractionTypeComboBox(int );
 private: ArrayList ^ ConColor(double* );
-private: double * RevConColor(ArrayList ^ );
 private: System::Void trackBar_EnabledChanged(System::Object^  , System::EventArgs^  ) ;
 private: System::Void MainForm_Shown(System::Object^  , System::EventArgs^  ); 
 private: System::Void DocumenttoPrint_PrintPage(System::Object^  , System::Drawing::Printing::PrintPageEventArgs^  ) ;
@@ -2983,7 +2959,6 @@ private: System::Void Reset();
 private: System::Void CheckExistentInteractions(bool);
 private: System::Void OpenSpinXML(String ^ ); 
 private: System::Void DelegateMethod(int , int );
-private: System::Void Delegate2Method(int , int );
 private: delegate System::Void SetColumnIndex(int i, int j);
 private: System::Void OnMouseWheel(System::Object^ , System::Windows::Forms::MouseEventArgs^  );
 private: System::Void TensorButton_Click(System::Object^  , System::EventArgs^  );
@@ -3063,10 +3038,6 @@ private: System::Void ModelChange(System::Object ^ sender,PropertyChangedEventAr
 private: System::Void ExportSpinEvolution_Click(System::Object^  , System::EventArgs^  );
 private: System::Void ExportSpinach_Click(System::Object^  , System::EventArgs^  );
 private: System::Void ExportSimpson_Click(System::Object^  , System::EventArgs^  );
-private: TreeNode^ FindNodeRecurcively(TreeNode ^Root, String ^Name);
-private: System::Void Delegate3Method(System::Object^ , System::Windows::Forms::NodeLabelEditEventArgs^  );
-private: delegate System::Void SetSenders(System::Object^  sender, System::Windows::Forms::NodeLabelEditEventArgs^  e);
-private: bool labelflag;
 private: bool UseTrackBarEventHandler;
 private: System::Void OpenGLcontextMenu_ItemClicked(System::Object^  , System::Windows::Forms::ToolStripItemClickedEventArgs^  );
 private: System::Void OpenGLcontextMenu_Closed(System::Object^  , System::Windows::Forms::ToolStripDropDownClosedEventArgs^  );

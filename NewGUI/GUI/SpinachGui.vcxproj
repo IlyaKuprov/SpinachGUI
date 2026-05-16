@@ -222,18 +222,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="icons\mouse-select-left-icon.png" />
-    <None Include="icons\mouse-select-right-icon.png" />
-    <None Include="icons\mouse-select-scroll-icon.png" />
     <CustomBuild Include="app.ico" />
-    <None Include="icons\pictureBoxMouse1.Image.png" />
-    <None Include="pictureBoxMouse1.Image.bmp" />
+    <None Include="icons\rubbish.ico" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="3D Engine\ArcBall.cpp" />
     <ClCompile Include="3D Engine\MetaBall.cpp" />
     <ClCompile Include="3D Engine\OpenGL.cpp" />
-    <ClCompile Include="3D Engine\VECTOR3D.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="IO Formats\COSMOS.cpp" />
     <ClCompile Include="FilterFile.cpp" />
@@ -255,8 +250,7 @@
     <ClCompile Include="OrientationExport.cpp" />
     <ClCompile Include="RefFrameOrientationDialog.cpp" />
     <ClCompile Include="ShieldingtoShift.cpp" />
-    <ClCompile Include="SpinachGUI.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="SpinachGui.cpp" />
     <ClCompile Include="System Core\isotopes.cpp" />
     <ClCompile Include="System Core\Model.cpp" />
     <ClCompile Include="System Core\orientation.cpp" />

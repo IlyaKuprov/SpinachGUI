@@ -440,7 +440,6 @@ private:
 	PropertyChangedEventHandler^ propertyChanged;
 	Dictionary <int, Interaction^> ^ aDictionary; ///< The observable collection of the interactions.
 	System::Void UpdateEigenMinMax(Interaction^ aInteraction, InteractionKind intKind);
-	System::Void FilterInteractions(InteractionKind^ kind, double threshold, bool znorm );
 	System::Void InteractionsDictionaryChange(System::Object ^ sender, System::ComponentModel::PropertyChangedEventArgs^ e);
 
 	/**
@@ -567,7 +566,6 @@ public:
 	System::Void Add(ReferenceFrame^ frame);
 	System::Void Clear();
 	System::Void RemoveAt(int aID); 
-	System::Void MakeFrameLabFrame(ReferenceFrame^ frame);
 	
 	//Properties
 

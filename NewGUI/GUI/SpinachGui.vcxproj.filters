@@ -26,24 +26,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="icons\mouse-select-left-icon.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="icons\mouse-select-right-icon.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="icons\mouse-select-scroll-icon.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="icons\pictureBoxMouse1.Image.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="pictureBoxMouse1.Image.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="SpinachGUI.cpp">
+    <ClCompile Include="SpinachGui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -88,9 +71,6 @@
     <ClCompile Include="3D Engine\OpenGL.cpp">
       <Filter>3D Engine</Filter>
     </ClCompile>
-    <ClCompile Include="3D Engine\VECTOR3D.cpp">
-      <Filter>3D Engine</Filter>
-    </ClCompile>
     <ClCompile Include="IO Formats\MOL.cpp">
       <Filter>IO Formats</Filter>
     </ClCompile>
@@ -129,9 +109,6 @@
     </ClCompile>
     <ClCompile Include="System Core\orientation.cpp">
       <Filter>System Core</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -291,5 +268,8 @@
     <CustomBuild Include="app.ico">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <None Include="icons\rubbish.ico">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
