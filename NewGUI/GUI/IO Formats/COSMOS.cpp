@@ -99,7 +99,7 @@ bool COSMOS::LoadFile(void)
 							try{
 								nAtom->isotope=Isotopes::FindIsotope(numbers[0],AtomicN, 0);
 							}
-							catch(String ^ e)
+							catch(String^)
 							{
 								nAtom->isotope=Isotopes::FindIsotope(nullptr,AtomicN, 0);
 							};
@@ -244,5 +244,4 @@ bool COSMOS::LoadFile(void)
 	ReadingFile->Close();
 	return true;
 }
-
 

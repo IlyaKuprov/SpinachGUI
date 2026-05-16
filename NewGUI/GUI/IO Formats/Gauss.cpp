@@ -403,7 +403,6 @@ bool Gauss::read_ISOTOPES2()
 bool Gauss::read_COORDINATES()
 {
  	int number=6;   //number of fileds in the a line
-	double value;  //readedd value
 	String^ fileline=gcnew String(""); //line
 	int AtomID=1;
 	int index=0;    //Index for the elements array
@@ -702,8 +701,7 @@ bool Gauss::read_ANISCOUPLINGS()
 			numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
 			//Try to read elements and save in the matrix
-			// use & not && to avoid short circuit
-			if (number!=numbers->Length &
+			if (number!=numbers->Length ||
 				!Double::TryParse(numbers[3], x) ||
 				!Double::TryParse(numbers[5], y) ||
 				!Double::TryParse(numbers[6], z) ||
@@ -727,8 +725,7 @@ bool Gauss::read_ANISCOUPLINGS()
 			numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
 			//Try to read elements and save in the matrix
-			// use & not && to avoid short circuit
-			if ((number+2)!=numbers->Length &
+			if ((number+2)!=numbers->Length ||
 				!Double::TryParse(numbers[5], x) ||
 				!Double::TryParse(numbers[7], y) ||
 				!Double::TryParse(numbers[8], z) ||
@@ -752,8 +749,7 @@ bool Gauss::read_ANISCOUPLINGS()
 			numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
 			//Try to read elements and save in the matrix
-			// use & not && to avoid short circuit
-			if (number!=numbers->Length &
+			if (number!=numbers->Length ||
 				!Double::TryParse(numbers[3], x) ||
 				!Double::TryParse(numbers[5], y) ||
 				!Double::TryParse(numbers[6], z) ||
@@ -913,7 +909,6 @@ bool Gauss::read_CHITENSOR()
 */
 bool Gauss::read_QUADCOUPLINGS()
 {
-	int number;   //number of fields in the a line
 	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,=";            //seperator of fields
 	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
@@ -932,11 +927,11 @@ bool Gauss::read_QUADCOUPLINGS()
 		fileline=ReadLine();
 
 		//Split the line
-	   numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
+			numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
-	   //check if all the atoms have quadropolar and save atom ID, use & for avoiding short circuit
-	   int AtomID;
-	   if(numbers->Length!=2 & !Int32::TryParse(numbers[0], AtomID)) return true;
+			//check if all the atoms have quadropolar and save atom ID
+			int AtomID;
+			if(numbers->Length!=2 || !Int32::TryParse(numbers[0], AtomID)) return true;
 
 		//For Quadrupolar interactions, try to find proper isotope
 		try{
@@ -957,7 +952,7 @@ bool Gauss::read_QUADCOUPLINGS()
 				SystemModel->RefFrameCollection[1],
 				InteractionCollection);
 		}//In case we can not find isotope with  spin>0.5
-		catch (String^ e) {/*Continue*/};
+		catch (String^) {/*Continue*/};
 	};
 	return true;
 }

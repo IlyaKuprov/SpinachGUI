@@ -127,7 +127,7 @@ System::Void OpenGLForm::COpenGL:: BuildDisplayLists(System::Void)
   // counters for drawing the vertices in 3D space
   // calculate PI using the asin trig function
   int m = 15, p = 15;
-  float pi = asin(1.0)*2;
+  float pi = (float)(asin(1.0)*2.0);
   float rad = 1.0;
   glBegin(GL_QUADS);
   // for each of the latitude lines
@@ -456,7 +456,7 @@ System::Void OpenGLForm::COpenGL::RotateToPlane(char axis1, char axis2)
 
 	//Create the incrementing step matrix
 	double steps=15.0f;
-	for(int i=0;i<12;i++)  SaveMat[i]=(temp[i]-modelview[i])/steps;
+	for(int i=0;i<12;i++)  SaveMat[i]=(GLfloat)((temp[i]-modelview[i])/steps);
 
 	//Start the Slow travelling
 	((SpinachGUI::MainForm^)mainForm)->OpenGLtimer->Start();
@@ -485,7 +485,7 @@ System::Void OpenGLForm::COpenGL::Travelling()
 	double sum=0.0f;
 	for(int i=0;i<12;i++)
 	{
-		TransformMat[i]=modelview[i]+SaveMat[i];
+		TransformMat[i]=(GLfloat)(modelview[i]+SaveMat[i]);
 		sum+=abs(temp[i]-TransformMat[i]);
 	}
 
@@ -1315,7 +1315,7 @@ System::Void OpenGLForm::COpenGL::Render_Atom_Properties(double X, double Y, dou
 	glTranslatef((GLfloat)X, (GLfloat)Y,(GLfloat)Z);
 	
 	//In order to draw when bigger than the atom
-	float show=0.0033*((Tensor^)MainICollection[ID])->A->isotope->Radius; 
+	float show=(float)(0.0033*((Tensor^)MainICollection[ID])->A->isotope->Radius);
 	if(factor*abs(eigen[0])>show ||  factor*abs(eigen[1])>show ||  factor*abs(eigen[2])>show)
 	  {
       //Rotation according to eigen vector
@@ -1338,8 +1338,8 @@ System::Void OpenGLForm::COpenGL::Render_Atom_Properties(double X, double Y, dou
 	  if(eigen[0]<=0)  glColor3f(0.0f,0.0f,1.0f); else glColor3f(1.0f,0.0f,0.0f);
 	  glPushMatrix();
 	  glRotated(90,0,1,0);
-	  glTranslatef(0.0f,0.0f,-factor*abs(eigen[0]));
-	  glScalef(1.0f,1.0f,2.0*factor*abs(eigen[0]));
+	  glTranslatef(0.0f,0.0f,(GLfloat)(-factor*abs(eigen[0])));
+	  glScalef(1.0f,1.0f,(GLfloat)(2.0*factor*abs(eigen[0])));
 	  glCallList(CylinderHighRes);
 	  glPopMatrix();
 
@@ -1347,8 +1347,8 @@ System::Void OpenGLForm::COpenGL::Render_Atom_Properties(double X, double Y, dou
 	  if(eigen[1]<=0)  glColor3f(0.0f,0.0f,1.0f); else glColor3f(1.0f,0.0f,0.0f);
 	  glPushMatrix();
 	  glRotated(-90,1,0,0);
-	  glTranslatef(0.0f,0.0f,-factor*abs(eigen[1]));
-	  glScalef(1.0f,1.0f,2.0*factor*abs(eigen[1]));
+	  glTranslatef(0.0f,0.0f,(GLfloat)(-factor*abs(eigen[1])));
+	  glScalef(1.0f,1.0f,(GLfloat)(2.0*factor*abs(eigen[1])));
 	  glCallList(CylinderHighRes);
 	  glPopMatrix();
 
@@ -1356,8 +1356,8 @@ System::Void OpenGLForm::COpenGL::Render_Atom_Properties(double X, double Y, dou
 	  if(eigen[2]<=0)  glColor3f(0.0f,0.0f,1.0f); else glColor3f(1.0f,0.0f,0.0f);
 	  glPushMatrix();
 	  glRotated(90,0,0,1);
-	  glTranslatef(0.0f,0.0f,-factor*abs(eigen[2]));
-	  glScalef(1.0f,1.0f,2.0*factor*abs(eigen[2]));
+	  glTranslatef(0.0f,0.0f,(GLfloat)(-factor*abs(eigen[2])));
+	  glScalef(1.0f,1.0f,(GLfloat)(2.0*factor*abs(eigen[2])));
 	  glCallList(CylinderHighRes);
 	  glPopMatrix();
 	  }
@@ -1472,13 +1472,13 @@ System::Void OpenGLForm::COpenGL::Render_Bonds(System::Void)
 					 }
 				 else if((distance-epsilo)<1.2f)
 				 {
-					 glScalef(1.0,1.0, distance);
+					 glScalef(1.0f,1.0f,(GLfloat)distance);
 					 if(LowRes) glCallList(CylinderLowRes); else glCallList(CylinderHighRes);
 				 }
 			 }
 			 else
 			 {
-				 glScalef(1.0,1.0, distance);
+				 glScalef(1.0f,1.0f,(GLfloat)distance);
 				 if(LowRes) glCallList(CylinderLowRes); else glCallList(CylinderHighRes);
 			 }
 
@@ -2551,6 +2551,3 @@ System::Drawing::Bitmap^  OpenGLForm::COpenGL::Save_BMP()
 	
     return bmp;
 }
-
-
-

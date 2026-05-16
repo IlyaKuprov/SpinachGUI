@@ -183,7 +183,7 @@ bool Castep::OldFormat(String^ firstline)
 							SystemModel->RefFrameCollection[1],
 							InteractionCollection);
 					}
-					catch (String^ e) {/*Continue*/};
+					catch (String^) {/*Continue*/};
 
 				}//Read Chemical shield interactions
 				else
@@ -347,7 +347,7 @@ bool Castep::NewFormat(String^ firstline)
 							nInteraction->Frame=SystemModel->RefFrameCollection[1];
 							InteractionCollection->Add(nInteraction);
 						}
-						catch (String^ e) {/*Continue*/};
+						catch (String^) {/*Continue*/};
 					}//Creating Chemical shield interaction
 					else if(Intkind==InteractionKind::CShielding)
 					{
