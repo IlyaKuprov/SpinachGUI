@@ -8,7 +8,7 @@ using namespace SpinachGUI;
 *  ADF class, inherited from  IOSpinSystem for reading ADF format
 *  Atoms data, Chemical shields, J-couplings, framed
 */
-public ref class ADF:IOSpinSystem 
+public ref class ADF:public IOSpinSystem
 {
 public:
 	ADF(String^, Model^% );

@@ -34,7 +34,7 @@ bool MOL::LoadFile(void)
 	//Turn off Refreshing for faster importing
 	AtomCollection->Refreshing=false;
 
-	
+
 	//Read the file until the end of it and as long flag OK is true
 	while (!ReadingFile->EndOfStream  && OK )
 	{
@@ -42,9 +42,9 @@ bool MOL::LoadFile(void)
 		int totalAtoms=0;					//total number of atoms in the system
 		int totalBonds=0;					//total number of bonds in the system
 		String^ fileline=gcnew String("");  //line
-		array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+		cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 		String^ delimStr = " ,";            //seperator of fields
-		array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
+		cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 		int dummy;							// dummy variable used for calling extract function
 
 		try {
@@ -64,7 +64,7 @@ bool MOL::LoadFile(void)
 			throw gcnew Exception("Unexpected end of file in Line "+LineCount+":"+e->Message) ;
 		};
 
-		
+
 		//Read the atom format: 0.4865   -0.1848    1.3191 C 0 0 0 0 0 0 0 0 0 0 0 0              //
 		for(int i=0;i<totalAtoms;i++)
 		{
@@ -86,7 +86,7 @@ bool MOL::LoadFile(void)
 			fileline=ReadLine();
 			//Split the line to a number of fields
 			numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
-			if(number=numbers->Length) 
+			if(number=numbers->Length)
 			{ /* Ignore bond data as we create them automatically
 				try {
 					Interaction^ nInter=gcnew Atom();
@@ -98,8 +98,8 @@ bool MOL::LoadFile(void)
 					AtomID++;
 				}
 				catch(String ^ e)
-				{	
-					MessageBox::Show("Problem in Reading MOL format:"+e, "Error", 
+				{
+					MessageBox::Show("Problem in Reading MOL format:"+e, "Error",
 						MessageBoxButtons::OK, MessageBoxIcon::Error) ;
 					return false;
 				}
@@ -110,7 +110,7 @@ bool MOL::LoadFile(void)
 				//Wrong number of fields read
 				throw gcnew Exception("Problem in Reading Bonds in Line "+LineCount+".") ;
 			};
-			
+
 		};
 		fileline=ReadLine();// M End
 

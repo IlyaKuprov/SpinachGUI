@@ -16,7 +16,7 @@ ref class ReferenceFrame;
 
 //Definitions
 #define epsilo std::numeric_limits<double>::epsilon()
-#define dMax   std::numeric_limits<double>::max()
+#define dMax   (std::numeric_limits<double>::max)()
 
 /**
 * @brief C++/CLI Swap for exception safe copy.
@@ -55,7 +55,7 @@ public enum class InteractionKind
 /** \class  Matrix3x3
 *  Class for storing a 3x3 observable matrix.
 */
-public ref class  Matrix3x3:INotifyPropertyChanged
+public ref class  Matrix3x3:public INotifyPropertyChanged
 {
 public:
 	/**
@@ -66,7 +66,15 @@ public:
 	/**
 	* @brief Event for when something changes inside the matrix object.
 	*/
-	virtual event PropertyChangedEventHandler^ PropertyChanged;
+	virtual event PropertyChangedEventHandler^ PropertyChanged
+	{
+		void add(PropertyChangedEventHandler^ handler) {propertyChanged += handler;}
+		void remove(PropertyChangedEventHandler^ handler) {propertyChanged -= handler;}
+		void raise(System::Object^ sender, PropertyChangedEventArgs^ e)
+		{
+			if(propertyChanged != nullptr) propertyChanged(sender, e);
+		}
+	}
 
 	/**
 	* @brief Property [] for giving or setting the element of the matrix.
@@ -82,6 +90,7 @@ public:
 		};
 };
 private:
+	PropertyChangedEventHandler^ propertyChanged;
 	ObservableCollection<double>^ matrix3x3;     ///< The observable collection
 
 	/**
@@ -95,15 +104,23 @@ private:
 /** \class  Interaction
 *  Class for storing an observable Interaction.
 */
-public ref class Interaction:INotifyPropertyChanged
+public ref class Interaction:public INotifyPropertyChanged
 {
  public:
 	 Interaction(Atom^% , Atom^% , InteractionKind );
 
-	 /**
-	 * @brief Event for when something changes inside the interaction object
-	 */
-	 virtual event PropertyChangedEventHandler^ PropertyChanged;
+		 /**
+		 * @brief Event for when something changes inside the interaction object
+		 */
+		 virtual event PropertyChangedEventHandler^ PropertyChanged
+		 {
+			 void add(PropertyChangedEventHandler^ handler) {propertyChanged += handler;}
+			 void remove(PropertyChangedEventHandler^ handler) {propertyChanged -= handler;}
+			 void raise(System::Object^ sender, PropertyChangedEventArgs^ e)
+			 {
+				 if(propertyChanged != nullptr) propertyChanged(sender, e);
+			 }
+		 }
 
 	 int ID;				///< The 1-based ID of interaction
 	 String^ reference;		///< The reference substance(only for chemical shifts) of interaction
@@ -233,7 +250,8 @@ public ref class Interaction:INotifyPropertyChanged
 	 };
 
 private:
-	ObservableCollection<double>^ aeigen;  ///< The matrix with the eigen values.
+		PropertyChangedEventHandler^ propertyChanged;
+		ObservableCollection<double>^ aeigen;  ///< The matrix with the eigen values.
 	ObservableCollection<double>^ adcm;	   ///< The matrix with the eigen vectors (DCM).
 	InteractionKind intKind;			   ///< The kind of interaction.
 	Unit^ aUnit;						   ///< The units of the interaction.
@@ -314,8 +332,8 @@ private:
 /** \class  InteractionsDictionary
 *  Class for storing an observable Interactions collection.
 */
-public ref class InteractionsDictionary: INotifyCollectionChanged, 
-								  INotifyPropertyChanged
+public ref class InteractionsDictionary: public INotifyCollectionChanged,
+								  public INotifyPropertyChanged
 {
 
 public:
@@ -329,7 +347,15 @@ public:
 	/**
 	* @brief Event for when a property changes. Not used
 	*/
-	virtual event PropertyChangedEventHandler^ PropertyChanged;
+	virtual event PropertyChangedEventHandler^ PropertyChanged
+	{
+		void add(PropertyChangedEventHandler^ handler) {propertyChanged += handler;}
+		void remove(PropertyChangedEventHandler^ handler) {propertyChanged -= handler;}
+		void raise(System::Object^ sender, PropertyChangedEventArgs^ e)
+		{
+			if(propertyChanged != nullptr) propertyChanged(sender, e);
+		}
+	}
 
 	/**
 	* @brief Getter for the number of interactions fo specific kind.
@@ -411,6 +437,7 @@ internal:  //like friend
 	int bondID;	  ///< One-based ID for the new bond interaction.
 
 private:
+	PropertyChangedEventHandler^ propertyChanged;
 	Dictionary <int, Interaction^> ^ aDictionary; ///< The observable collection of the interactions.
 	System::Void UpdateEigenMinMax(Interaction^ aInteraction, InteractionKind intKind);
 	System::Void FilterInteractions(InteractionKind^ kind, double threshold, bool znorm );
@@ -431,7 +458,7 @@ private:
 /** \class  ReferenceFrame
 *  Class for storing an observable reference frame with parent.
 */
-public ref class ReferenceFrame:INotifyPropertyChanged
+public ref class ReferenceFrame:public INotifyPropertyChanged
 {
 public:
 	//Constructors
@@ -447,7 +474,15 @@ public:
 	/**
 	* @brief Event for when something changes inside the matrix object.
 	*/
-	virtual event PropertyChangedEventHandler^ PropertyChanged;
+	virtual event PropertyChangedEventHandler^ PropertyChanged
+	{
+		void add(PropertyChangedEventHandler^ handler) {propertyChanged += handler;}
+		void remove(PropertyChangedEventHandler^ handler) {propertyChanged -= handler;}
+		void raise(System::Object^ sender, PropertyChangedEventArgs^ e)
+		{
+			if(propertyChanged != nullptr) propertyChanged(sender, e);
+		}
+	}
 
 	//Properties
 
@@ -479,6 +514,7 @@ public:
 	
 
 internal:
+	PropertyChangedEventHandler^ propertyChanged;
 	int ID;							 ///< The one-based ID of the reference frame.
 	Matrix3x3^ rotation;			 ///< The observable rotation matrix of the reference frame.
 	ReferenceFrame ^ ParentRefFrame; ///< The parent reference frame of this reference frame.
@@ -503,8 +539,8 @@ internal:
 /** \class  ReferenceFramesDictionary
 *  Class for storing an observable reference frame collection.
 */
-public ref class ReferenceFramesDictionary: INotifyCollectionChanged, 
-								            INotifyPropertyChanged
+public ref class ReferenceFramesDictionary: public INotifyCollectionChanged,
+								            public INotifyPropertyChanged
 {
 public:
 	ReferenceFramesDictionary(InteractionsDictionary ^%aInteractions);
@@ -517,7 +553,15 @@ public:
 	/**
 	* @brief Event for when a property changes. Not used
 	*/
-	virtual event PropertyChangedEventHandler^ PropertyChanged;
+	virtual event PropertyChangedEventHandler^ PropertyChanged
+	{
+		void add(PropertyChangedEventHandler^ handler) {propertyChanged += handler;}
+		void remove(PropertyChangedEventHandler^ handler) {propertyChanged -= handler;}
+		void raise(System::Object^ sender, PropertyChangedEventArgs^ e)
+		{
+			if(propertyChanged != nullptr) propertyChanged(sender, e);
+		}
+	}
 
 	//Other functions
 	System::Void Add(ReferenceFrame^ frame);
@@ -579,6 +623,7 @@ internal:  //like friend
 	int newID;    ///< One-based ID for the new reference frame.
 
 private:
+	PropertyChangedEventHandler^ propertyChanged;
 	Dictionary <int, ReferenceFrame^> ^ aDictionary; ///< The observable collection of the reference frames.
 	InteractionsDictionary ^Interactions;			 ///< The observable collection of the interactions.
 	System::Void TransformToFrame(ReferenceFrame^ frame,Tensor ^% inter);
@@ -596,7 +641,7 @@ private:
 /** \class  Atom
 *  Class for storing an observable Atom or spin with its properties.
 */
-public ref class Atom:INotifyPropertyChanged
+public ref class Atom:public INotifyPropertyChanged
 {
 public:
 	/**
@@ -615,7 +660,15 @@ public:
 	/**
 	* @brief Event for when something changes inside the matrix object.
 	*/
-	virtual event PropertyChangedEventHandler^ PropertyChanged;
+	virtual event PropertyChangedEventHandler^ PropertyChanged
+	{
+		void add(PropertyChangedEventHandler^ handler) {propertyChanged += handler;}
+		void remove(PropertyChangedEventHandler^ handler) {propertyChanged -= handler;}
+		void raise(System::Object^ sender, PropertyChangedEventArgs^ e)
+		{
+			if(propertyChanged != nullptr) propertyChanged(sender, e);
+		}
+	}
 
 	//Properties
 
@@ -692,6 +745,7 @@ public:
 
 
 internal:
+	PropertyChangedEventHandler^ propertyChanged;
 	double x,y,z;		   ///< The x,y,z coordinates of the atom.
 	Isotope ^ aIsotope;	   ///< The isotope of the atom.
 	System::String^ label; ///< The label of the atom.
@@ -706,8 +760,8 @@ internal:
 /** \class  AtomsDictionary
 *  Class for storing an observable Atom or spin collection.
 */
-public ref class AtomsDictionary: INotifyCollectionChanged, 
-								  INotifyPropertyChanged
+public ref class AtomsDictionary: public INotifyCollectionChanged,
+							  public INotifyPropertyChanged
 {
 public:
 	AtomsDictionary(InteractionsDictionary ^%aInteractions);
@@ -720,7 +774,15 @@ public:
 	/**
 	* @brief Event for when a property changes. Not used
 	*/
-	virtual event PropertyChangedEventHandler^ PropertyChanged; 
+	virtual event PropertyChangedEventHandler^ PropertyChanged
+	{
+		void add(PropertyChangedEventHandler^ handler) {propertyChanged += handler;}
+		void remove(PropertyChangedEventHandler^ handler) {propertyChanged -= handler;}
+		void raise(System::Object^ sender, PropertyChangedEventArgs^ e)
+		{
+			if(propertyChanged != nullptr) propertyChanged(sender, e);
+		}
+	}
 
 	/**
 	* @brief Getter for the number of electrons in the collection.
@@ -848,6 +910,7 @@ public:
 	double MaxX,MaxY,MaxZ; ///< Maximum of coordinates of the collection.
 
 private:
+	PropertyChangedEventHandler^ propertyChanged;
 	Dictionary <int, Atom^> ^ aDictionary;	///< The observable collection of the atoms.
 	int newID;								///< One-based ID for the new element.
 	int electron_number;					///< Electron number in the collection for the g-tensor.		
@@ -872,7 +935,7 @@ private:
 /** \class  Model
 *  Class for storing an observable Model with all of its properties.
 */
-public ref class Model:INotifyPropertyChanged
+public ref class Model:public INotifyPropertyChanged
 {
 public:
 	//Constructors, copy and assigment
@@ -888,11 +951,20 @@ public:
 	/**
 	* @brief Event for when something changes inside the model object
 	*/
-	virtual event PropertyChangedEventHandler^ PropertyChanged;
+	virtual event PropertyChangedEventHandler^ PropertyChanged
+	{
+		void add(PropertyChangedEventHandler^ handler) {propertyChanged += handler;}
+		void remove(PropertyChangedEventHandler^ handler) {propertyChanged -= handler;}
+		void raise(System::Object^ sender, PropertyChangedEventArgs^ e)
+		{
+			if(propertyChanged != nullptr) propertyChanged(sender, e);
+		}
+	}
 
 	System::Void MakeInteractionLabFrame(int ID);
 
 private:
+	PropertyChangedEventHandler^ propertyChanged;
 	System::Void ModelChange(System::Object ^ sender, System::Collections::Specialized::NotifyCollectionChangedEventArgs^ e);
 
 	/**
@@ -901,6 +973,3 @@ private:
 	*/
 	virtual System::Void OnPropertyChanged(PropertyChangedEventArgs^ e) sealed {PropertyChanged(this, e);};
 };
-
-
-

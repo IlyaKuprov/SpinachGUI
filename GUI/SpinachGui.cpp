@@ -30,17 +30,9 @@ using namespace SpinachGUI;
  * - Visuliazation of electron: G-Tensor, Exchange coupling, Zero Field
  * 
  *
- * \section inst Installation 
- * You need at least MS Visual Studio 2012 for loading the project and solution files.
- *
- * Everything is setup there. %Unit testing framework(called TestSpinachGUI) is setup
- * for the debug configuration only.
- *
- * Due to some difficulties with MS visual studio 2012, 
- * during the compilation of the debug configuration, a second
- * compilation runs in order to produce a .dll file in order to used with the unit testing.
- *
- * In order to used the updated .dll file, rebuild the TestSpinachGUI nad then run the tests.
+	 * \section inst Installation
+	 * The GUI solution is maintained for current Visual Studio and builds the gTrackBar
+	 * support library before SpinachGUI.
  *
  * \section start Guide for developers
  * The entry point function of SpinachGUI is the \ref main() "main" function and consequently the 
@@ -68,7 +60,7 @@ using namespace SpinachGUI;
 * If the next argument file then opens it automatically.
 */
 [STAThreadAttribute]
-int main(array<System::String ^> ^args)
+int main(cli::array<System::String ^> ^args)
 {
 	// Enabling Windows XP visual effects before any controls are created
 	Application::EnableVisualStyles();
@@ -84,4 +76,3 @@ int main(array<System::String ^> ^args)
 	else Application::Run(gcnew MainForm((String^)args[0]));
 	return 0;
 }        
-

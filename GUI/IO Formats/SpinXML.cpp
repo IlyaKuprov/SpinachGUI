@@ -24,7 +24,7 @@ SpinXML::SpinXML(System::String^ filename, FilterType type, Model^% model)
 	//Depending the filtertype create file for reading or writing
 	if(type==FilterType::IMPORT) ReadingFile = gcnew StreamReader(filename);
 	else if(type==FilterType::EXPORT) WritingFile = gcnew StreamWriter(filename);
-    
+
 }
 
 /**
@@ -124,7 +124,7 @@ bool SpinXML::LoadFile(void)
 		for(int j=0;j<XMLSpinSystemRef->direction->Count;j++)
 		{
 			//Match the ids of the direction with the reference frame
-			if(XMLSpinSystemRef->direction[j]->reference_frameRow->id==XMLSpinSystemRef->reference_frame[i]->id) 
+			if(XMLSpinSystemRef->direction[j]->reference_frameRow->id==XMLSpinSystemRef->reference_frame[i]->id)
 			{
 				//Read matrix in mat
 				if(XMLSpinSystemRef->direction[j]->GetdcmRows()->Length>0)
@@ -143,7 +143,7 @@ bool SpinXML::LoadFile(void)
 				//Create ref. frame form the matrix
 				frame=gcnew ReferenceFrame(mat);
 
-				//Parent reference frame. If not existing is the root and set it		
+				//Parent reference frame. If not existing is the root and set it
 				if(XMLSpinSystemRef->reference_frame[i]->Isparent_reference_frame_idNull() || j==0)
 				{
 					frame->ParentRefFrame=nullptr;
@@ -171,7 +171,7 @@ bool SpinXML::LoadFile(void)
 
 		//If B not existing put equal to A
 		if(XMLSpinSystem->interaction[i]->Isspin_bNull()) BID=AID;
-		else 
+		else
 		{
 			BID=XMLSpinSystem->interaction[i]->spin_b;
 
@@ -200,17 +200,17 @@ bool SpinXML::LoadFile(void)
 		if (XMLSpinSystem->interaction[i]->kind=="hfc") IntKind=InteractionKind::HFC;
 		else if (XMLSpinSystem->interaction[i]->kind=="jcoupling") IntKind=InteractionKind::Jcoupling;
 		else if (XMLSpinSystem->interaction[i]->kind=="quadrupolar") IntKind=InteractionKind::Quadrupolar;
-		else if (XMLSpinSystem->interaction[i]->kind=="gtensor") IntKind=InteractionKind::GTensor;		
+		else if (XMLSpinSystem->interaction[i]->kind=="gtensor") IntKind=InteractionKind::GTensor;
 		else if (XMLSpinSystem->interaction[i]->kind=="chitensor") IntKind=InteractionKind::CHITensor;
 		else if (XMLSpinSystem->interaction[i]->kind=="zfs") IntKind=InteractionKind::ZFS;
 		else if (XMLSpinSystem->interaction[i]->kind=="exchange") IntKind=InteractionKind::Exchange;
 		else if (XMLSpinSystem->interaction[i]->kind=="dipolar") IntKind=InteractionKind::Dipolar;
 		else if (XMLSpinSystem->interaction[i]->kind=="spinrotation") IntKind=InteractionKind::spinrotation;
-		else if (XMLSpinSystem->interaction[i]->kind=="shielding") 
+		else if (XMLSpinSystem->interaction[i]->kind=="shielding")
 		{IntKind=InteractionKind::CShielding; ToShift=true;}
 		else if (XMLSpinSystem->interaction[i]->kind=="shift") IntKind=InteractionKind::Shift;
 		else throw gcnew Exception("File : "+FileName+"\n Error in XML Format: \"" +
-			XMLSpinSystem->interaction[i]->kind+"\" is not an accepted interaction kind!"); 
+			XMLSpinSystem->interaction[i]->kind+"\" is not an accepted interaction kind!");
 
 
 
@@ -240,7 +240,7 @@ bool SpinXML::LoadFile(void)
 			eigenvalues[2]=XMLSpinSystem->interaction[i]->GeteigenvaluesRows()[0]->zz;
 		};
 
-		//Check if interaction is written in Axiality-Rombicity form and 
+		//Check if interaction is written in Axiality-Rombicity form and
 		// save it in a calculated eigen matrix
 		double ax, rh, iso;
 		if(XMLSpinSystem->interaction[i]->Getaxiality_rhombicityRows()->Length>0)
@@ -253,7 +253,7 @@ bool SpinXML::LoadFile(void)
 			eigenvalues[2]=ax/3.0f+iso;
 		};
 
-		//Check if interaction is written in Span-Skew form and 
+		//Check if interaction is written in Span-Skew form and
 		// save it in a calculated eigen matrix
 		double span, skew;
 		if(XMLSpinSystem->interaction[i]->Getspan_skewRows()->Length>0)
@@ -272,7 +272,7 @@ bool SpinXML::LoadFile(void)
 		for(int j=0;j<XMLSpinSystem->orientation->Count;j++)
 		{
 			//Match the ids of the direction with the interaction
-			if(XMLSpinSystem->orientation[j]->interactionRow->id==XMLSpinSystem->interaction[i]->id) 
+			if(XMLSpinSystem->orientation[j]->interactionRow->id==XMLSpinSystem->interaction[i]->id)
 			{
 				//Check if interaction is written in dcm form and save it in a matrix
 				if(XMLSpinSystem->orientation[j]->GetdcmRows()->Length>0)
@@ -285,7 +285,7 @@ bool SpinXML::LoadFile(void)
 					dcm[5]=XMLSpinSystem->orientation[j]->GetdcmRows()[0]->yz;
 					dcm[6]=XMLSpinSystem->orientation[j]->GetdcmRows()[0]->zx;
 					dcm[7]=XMLSpinSystem->orientation[j]->GetdcmRows()[0]->zy;
-					dcm[8]=XMLSpinSystem->orientation[j]->GetdcmRows()[0]->zz;	
+					dcm[8]=XMLSpinSystem->orientation[j]->GetdcmRows()[0]->zz;
 				}//Check if interaction is written in euler angles form and save it in a calculated dcm matrix
 				else if(XMLSpinSystem->orientation[j]->Geteuler_anglesRows()->Length>0)
 				{
@@ -346,7 +346,7 @@ bool SpinXML::LoadFile(void)
 				Matrix3d result,eigenVectors,eigenVal;
 
 				//Translate matrixes
-				for(int j=0;j<9;j++) 
+				for(int j=0;j<9;j++)
 				{
 					eigenVectors(j)=dcm[j];
 					eigenVal(j)=0.0;
@@ -365,11 +365,11 @@ bool SpinXML::LoadFile(void)
 			nInteraction=gcnew Tensor(A, B, IntKind, matrix3x3);
 
 			//Check if there is interaction label
-			if(!XMLSpinSystem->interaction[i]->IslabelNull()) 
+			if(!XMLSpinSystem->interaction[i]->IslabelNull())
 				nInteraction->Label=XMLSpinSystem->interaction[i]->label;
 
 			//Check if there is reference substance
-			if(!XMLSpinSystem->interaction[i]->IsreferenceNull()) 
+			if(!XMLSpinSystem->interaction[i]->IsreferenceNull())
 				nInteraction->reference=XMLSpinSystem->interaction[i]->reference;
 
 			//Search Units, else set to unknown
@@ -426,7 +426,7 @@ void SpinXML::WriteFile(Model^% model)
 		 XMLisotope,
 		 ((Atom^)AtomCollection[i])->Label);
 	 //Add label if exist to serializer
-	 if(((Atom^)AtomCollection[i])->Label==nullptr) 
+	 if(((Atom^)AtomCollection[i])->Label==nullptr)
 		 XMLSpinSystem->spin[i-1]->SetlabelNull();
 
 	 //Add coordinates to serializer
@@ -460,7 +460,7 @@ void SpinXML::WriteFile(Model^% model)
 			if(((Interaction^)InteractionCollection[i])->reference==nullptr) {reference="ref";}
 			else reference=((Interaction^)InteractionCollection[i])->reference;
 
-			//Constructor of interaction 
+			//Constructor of interaction
 			interrow=XMLSpinSystem->interaction->AddinteractionRow(
 				((Interaction^)InteractionCollection[i])->IntKind.ToString()->ToLower(),
 				((Interaction^)InteractionCollection[i])->ID,
@@ -473,13 +473,13 @@ void SpinXML::WriteFile(Model^% model)
 				NULL); //Everything will in Tensor form.
 
 			//Set the fields that are missing null
-			if(((Interaction^)InteractionCollection[i])->B==nullptr) 
+			if(((Interaction^)InteractionCollection[i])->B==nullptr)
 				XMLSpinSystem->interaction[current]->Setspin_bNull();
 
-			if(((Interaction^)InteractionCollection[i])->Label==nullptr) 
+			if(((Interaction^)InteractionCollection[i])->Label==nullptr)
 				XMLSpinSystem->interaction[current]->SetlabelNull();
 
-			if(((Interaction^)InteractionCollection[i])->reference==nullptr) 
+			if(((Interaction^)InteractionCollection[i])->reference==nullptr)
 				XMLSpinSystem->interaction[current]->SetreferenceNull();
 
 			//Always interaction will not be scalar
@@ -528,9 +528,9 @@ void SpinXML::WriteFile(Model^% model)
 	 spin_system_ref::directionRow ^ direction=XMLSpinSystemRef->direction->AdddirectionRow(refFrame);
 
 	 //Set the fields that are missing null
-	 if(((ReferenceFrame^ )SystemModel->RefFrameCollection[i])->Label==nullptr) 
+	 if(((ReferenceFrame^ )SystemModel->RefFrameCollection[i])->Label==nullptr)
 		 XMLSpinSystemRef->reference_frame[current]->SetlabelNull();
-	 if(((ReferenceFrame^ )SystemModel->RefFrameCollection[i])->ParentRefFrame==nullptr) 
+	 if(((ReferenceFrame^ )SystemModel->RefFrameCollection[i])->ParentRefFrame==nullptr)
 		 XMLSpinSystemRef->reference_frame[current]->Setparent_reference_frame_idNull();
 
 	 //Set the direction of ref. frame from the rotation matrix
@@ -558,8 +558,8 @@ void SpinXML::WriteFile(Model^% model)
    XmlWriter^ writer = XmlWriter::Create( WritingFile, settings);
 
    //Export both schemas to xml and close files
-   XMLSpinSystem->WriteXml(writer); 
-   XMLSpinSystemRef->WriteXml(writer); 
+   XMLSpinSystem->WriteXml(writer);
+   XMLSpinSystemRef->WriteXml(writer);
    writer->Close();
    WritingFile->Close();
 

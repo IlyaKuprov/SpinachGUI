@@ -7,7 +7,7 @@ using namespace SpinachGUI;
 *  GAMESS class, inherited from  IOSpinSystem for reading GAMESS format
 *  Just atoms data, framed
 */
-public ref class GAMESS:IOSpinSystem 
+public ref class GAMESS:public IOSpinSystem
 {
 public:
 	GAMESS(String^, Model^% );

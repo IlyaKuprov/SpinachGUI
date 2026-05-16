@@ -66,7 +66,7 @@ namespace SpinachGUI {
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-#pragma endregion 
+#pragma endregion
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -95,9 +95,9 @@ namespace SpinachGUI {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->ChanneldataGridView))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->DipolarThreshold))->BeginInit();
 			this->SuspendLayout();
-			// 
+			//
 			// SortcheckBox
-			// 
+			//
 			this->SortcheckBox->AutoSize = true;
 			this->SortcheckBox->Location = System::Drawing::Point(157, 52);
 			this->SortcheckBox->Name = L"SortcheckBox";
@@ -105,9 +105,9 @@ namespace SpinachGUI {
 			this->SortcheckBox->TabIndex = 0;
 			this->SortcheckBox->Text = L"Sort atoms according to isootpe";
 			this->SortcheckBox->UseVisualStyleBackColor = true;
-			// 
+			//
 			// Exportbutton
-			// 
+			//
 			this->Exportbutton->Location = System::Drawing::Point(55, 229);
 			this->Exportbutton->Name = L"Exportbutton";
 			this->Exportbutton->Size = System::Drawing::Size(75, 23);
@@ -115,9 +115,9 @@ namespace SpinachGUI {
 			this->Exportbutton->Text = L"Export";
 			this->Exportbutton->UseVisualStyleBackColor = true;
 			this->Exportbutton->Click += gcnew System::EventHandler(this, &Simpson::Exportbutton_Click);
-			// 
+			//
 			// Cancelbutton
-			// 
+			//
 			this->Cancelbutton->Location = System::Drawing::Point(220, 228);
 			this->Cancelbutton->Name = L"Cancelbutton";
 			this->Cancelbutton->Size = System::Drawing::Size(75, 23);
@@ -125,9 +125,9 @@ namespace SpinachGUI {
 			this->Cancelbutton->Text = L"Cancel";
 			this->Cancelbutton->UseVisualStyleBackColor = true;
 			this->Cancelbutton->Click += gcnew System::EventHandler(this, &Simpson::Cancelbutton_Click);
-			// 
+			//
 			// OrdercomboBox
-			// 
+			//
 			this->OrdercomboBox->FormattingEnabled = true;
 			this->OrdercomboBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"1st", L"2nd"});
 			this->OrdercomboBox->Location = System::Drawing::Point(169, 10);
@@ -135,47 +135,47 @@ namespace SpinachGUI {
 			this->OrdercomboBox->Size = System::Drawing::Size(45, 21);
 			this->OrdercomboBox->TabIndex = 3;
 			this->OrdercomboBox->Text = L"1st";
-			// 
+			//
 			// label1
-			// 
+			//
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(9, 13);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(152, 13);
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"Order of quadrupolar couplings";
-			// 
+			//
 			// tableLayoutPanel13
-			// 
-			this->tableLayoutPanel13->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
+			//
+			this->tableLayoutPanel13->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left));
 			this->tableLayoutPanel13->CellBorderStyle = System::Windows::Forms::TableLayoutPanelCellBorderStyle::Single;
 			this->tableLayoutPanel13->ColumnCount = 1;
-			this->tableLayoutPanel13->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent, 
+			this->tableLayoutPanel13->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				100)));
 			this->tableLayoutPanel13->Controls->Add(this->ChanneldataGridView, 0, 1);
 			this->tableLayoutPanel13->Controls->Add(this->label10, 0, 0);
 			this->tableLayoutPanel13->Location = System::Drawing::Point(6, 37);
 			this->tableLayoutPanel13->Name = L"tableLayoutPanel13";
 			this->tableLayoutPanel13->RowCount = 2;
-			this->tableLayoutPanel13->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 
+			this->tableLayoutPanel13->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute,
 				20)));
 			this->tableLayoutPanel13->RowStyles->Add((gcnew System::Windows::Forms::RowStyle()));
 			this->tableLayoutPanel13->Size = System::Drawing::Size(137, 163);
 			this->tableLayoutPanel13->TabIndex = 6;
-			// 
+			//
 			// ChanneldataGridView
-			// 
+			//
 			this->ChanneldataGridView->AllowUserToAddRows = false;
 			this->ChanneldataGridView->AllowUserToDeleteRows = false;
 			this->ChanneldataGridView->AllowUserToResizeColumns = false;
 			this->ChanneldataGridView->AllowUserToResizeRows = false;
-			this->ChanneldataGridView->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
+			this->ChanneldataGridView->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
 			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, 
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::WindowText;
 			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
@@ -183,11 +183,11 @@ namespace SpinachGUI {
 			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
 			this->ChanneldataGridView->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this->ChanneldataGridView->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->ChanneldataGridView->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {this->Column1, 
+			this->ChanneldataGridView->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {this->Column1,
 				this->Column4});
 			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
 			dataGridViewCellStyle5->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, 
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::ControlText;
 			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::Color::Pink;
@@ -199,7 +199,7 @@ namespace SpinachGUI {
 			this->ChanneldataGridView->Name = L"ChanneldataGridView";
 			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle6->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.471698F, System::Drawing::FontStyle::Regular, 
+			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.471698F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::WindowText;
 			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Highlight;
@@ -210,9 +210,9 @@ namespace SpinachGUI {
 			this->ChanneldataGridView->RowHeadersWidth = 39;
 			this->ChanneldataGridView->Size = System::Drawing::Size(129, 134);
 			this->ChanneldataGridView->TabIndex = 0;
-			// 
+			//
 			// Column1
-			// 
+			//
 			this->Column1->FalseValue = L"0";
 			this->Column1->HeaderText = L"Enabled";
 			this->Column1->Name = L"Column1";
@@ -220,20 +220,20 @@ namespace SpinachGUI {
 			this->Column1->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
 			this->Column1->TrueValue = L"1";
 			this->Column1->Width = 45;
-			// 
+			//
 			// Column4
-			// 
+			//
 			this->Column4->HeaderText = L"Isotope";
 			this->Column4->Name = L"Column4";
 			this->Column4->ReadOnly = true;
 			this->Column4->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->Column4->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 			this->Column4->Width = 60;
-			// 
+			//
 			// label10
-			// 
-			this->label10->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
+			//
+			this->label10->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label10->AutoSize = true;
 			this->label10->BackColor = System::Drawing::Color::Gray;
@@ -245,26 +245,26 @@ namespace SpinachGUI {
 			this->label10->TabIndex = 0;
 			this->label10->Text = L"Channels";
 			this->label10->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
+			//
 			// DipolarThreshold
-			// 
+			//
 			this->DipolarThreshold->DecimalPlaces = 2;
 			this->DipolarThreshold->Location = System::Drawing::Point(242, 118);
 			this->DipolarThreshold->Name = L"DipolarThreshold";
 			this->DipolarThreshold->Size = System::Drawing::Size(55, 20);
 			this->DipolarThreshold->TabIndex = 7;
-			// 
+			//
 			// label2
-			// 
+			//
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(156, 95);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(165, 39);
 			this->label2->TabIndex = 8;
 			this->label2->Text = L"Do not export dipolar interactions \r\n\r\nfor distances >                         Å";
-			// 
+			//
 			// Simpson
-			// 
+			//
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(334, 262);
@@ -296,7 +296,7 @@ namespace SpinachGUI {
 		private: FileStream^ WritingFile;   ///< The stream that has the file which will be written
 		private: Model^ SystemModel;		///< The  model where imported data will be saved
 		private: String ^ FileName;			///< The name of the File to read or write
-#pragma endregion 
+#pragma endregion
 
 #pragma region Handlers
 private: System::Void Exportbutton_Click(System::Object^  , System::EventArgs^  );

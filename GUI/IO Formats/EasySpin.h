@@ -243,7 +243,7 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-#pragma endregion 
+#pragma endregion
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -475,11 +475,11 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->EvengroupBox->SuspendLayout();
 			this->Optionsgarlicpanel->SuspendLayout();
 			this->SuspendLayout();
-			// 
+			//
 			// PreviewgroupBox
-			// 
-			this->PreviewgroupBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
+			//
+			this->PreviewgroupBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->PreviewgroupBox->Controls->Add(this->panel2);
 			this->PreviewgroupBox->Location = System::Drawing::Point(424, 3);
@@ -488,11 +488,11 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->PreviewgroupBox->TabIndex = 0;
 			this->PreviewgroupBox->TabStop = false;
 			this->PreviewgroupBox->Text = L"File Preview (click to pan)";
-			// 
+			//
 			// panel2
-			// 
-			this->panel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
+			//
+			this->panel2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel2->AutoScroll = true;
 			this->panel2->Controls->Add(this->PreviewtextBox);
@@ -503,13 +503,13 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->panel2->TabIndex = 3;
 			this->panel2->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &EasySpin::PreviewtextBox_MouseDown);
 			this->panel2->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &EasySpin::PreviewtextBox_MouseMove);
-			// 
+			//
 			// PreviewtextBox
-			// 
+			//
 			this->PreviewtextBox->BackColor = System::Drawing::SystemColors::Info;
 			this->PreviewtextBox->Cursor = System::Windows::Forms::Cursors::NoMove2D;
 			this->PreviewtextBox->Enabled = false;
-			this->PreviewtextBox->Font = (gcnew System::Drawing::Font(L"Courier New", 10.86792F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+			this->PreviewtextBox->Font = (gcnew System::Drawing::Font(L"Courier New", 10.86792F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->PreviewtextBox->Location = System::Drawing::Point(3, 3);
 			this->PreviewtextBox->Multiline = true;
@@ -520,9 +520,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->PreviewtextBox->WordWrap = false;
 			this->PreviewtextBox->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &EasySpin::PreviewtextBox_MouseDown);
 			this->PreviewtextBox->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &EasySpin::PreviewtextBox_MouseMove);
-			// 
+			//
 			// Exportbutton
-			// 
+			//
 			this->Exportbutton->Location = System::Drawing::Point(62, 655);
 			this->Exportbutton->Name = L"Exportbutton";
 			this->Exportbutton->Size = System::Drawing::Size(287, 24);
@@ -530,9 +530,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Exportbutton->Text = L"Export";
 			this->Exportbutton->UseVisualStyleBackColor = true;
 			this->Exportbutton->Click += gcnew System::EventHandler(this, &EasySpin::Exportbutton_Click);
-			// 
+			//
 			// MaingroupBox
-			// 
+			//
 			this->MaingroupBox->Controls->Add(this->pepperradioButton);
 			this->MaingroupBox->Controls->Add(this->garlicradioButton);
 			this->MaingroupBox->Controls->Add(this->chilliradioButton);
@@ -542,9 +542,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->MaingroupBox->TabIndex = 2;
 			this->MaingroupBox->TabStop = false;
 			this->MaingroupBox->Text = L"EasySpin Function";
-			// 
+			//
 			// pepperradioButton
-			// 
+			//
 			this->pepperradioButton->AutoSize = true;
 			this->pepperradioButton->Location = System::Drawing::Point(10, 65);
 			this->pepperradioButton->Name = L"pepperradioButton";
@@ -555,9 +555,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->pepperradioButton->Text = L"pepper (rigid limit)";
 			this->pepperradioButton->UseVisualStyleBackColor = true;
 			this->pepperradioButton->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::radioButton_CheckedChanged);
-			// 
+			//
 			// garlicradioButton
-			// 
+			//
 			this->garlicradioButton->AutoSize = true;
 			this->garlicradioButton->Checked = true;
 			this->garlicradioButton->Location = System::Drawing::Point(10, 22);
@@ -569,9 +569,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->garlicradioButton->Text = L"garlic (isotropic limit and  fast-motion regime)";
 			this->garlicradioButton->UseVisualStyleBackColor = true;
 			this->garlicradioButton->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::radioButton_CheckedChanged);
-			// 
+			//
 			// chilliradioButton
-			// 
+			//
 			this->chilliradioButton->AutoSize = true;
 			this->chilliradioButton->Location = System::Drawing::Point(10, 45);
 			this->chilliradioButton->Name = L"chilliradioButton";
@@ -582,9 +582,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->chilliradioButton->Text = L"chili (slow-motion regime)";
 			this->chilliradioButton->UseVisualStyleBackColor = true;
 			this->chilliradioButton->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::radioButton_CheckedChanged);
-			// 
+			//
 			// MaintabControl
-			// 
+			//
 			this->MaintabControl->Controls->Add(this->Broadeningstab);
 			this->MaintabControl->Controls->Add(this->Experimenttab);
 			this->MaintabControl->Controls->Add(this->Dynamicstab);
@@ -594,9 +594,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->MaintabControl->SelectedIndex = 0;
 			this->MaintabControl->Size = System::Drawing::Size(416, 543);
 			this->MaintabControl->TabIndex = 3;
-			// 
+			//
 			// Broadeningstab
-			// 
+			//
 			this->Broadeningstab->Controls->Add(this->pepperBroadeningspanel);
 			this->Broadeningstab->Controls->Add(this->Broadeningspanel);
 			this->Broadeningstab->Location = System::Drawing::Point(4, 22);
@@ -606,18 +606,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Broadeningstab->TabIndex = 0;
 			this->Broadeningstab->Text = L"Broadenings";
 			this->Broadeningstab->UseVisualStyleBackColor = true;
-			// 
+			//
 			// pepperBroadeningspanel
-			// 
+			//
 			this->pepperBroadeningspanel->Controls->Add(this->AnisotropygroupBox);
 			this->pepperBroadeningspanel->Location = System::Drawing::Point(4, 119);
 			this->pepperBroadeningspanel->Name = L"pepperBroadeningspanel";
 			this->pepperBroadeningspanel->Size = System::Drawing::Size(402, 175);
 			this->pepperBroadeningspanel->TabIndex = 2;
 			this->pepperBroadeningspanel->Visible = false;
-			// 
+			//
 			// AnisotropygroupBox
-			// 
+			//
 			this->AnisotropygroupBox->Controls->Add(this->label17);
 			this->AnisotropygroupBox->Controls->Add(this->label16);
 			this->AnisotropygroupBox->Controls->Add(this->label15);
@@ -649,90 +649,90 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->AnisotropygroupBox->TabIndex = 0;
 			this->AnisotropygroupBox->TabStop = false;
 			this->AnisotropygroupBox->Text = L"Anisotropic";
-			// 
+			//
 			// label17
-			// 
+			//
 			this->label17->AutoSize = true;
 			this->label17->Location = System::Drawing::Point(333, 59);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(29, 13);
 			this->label17->TabIndex = 25;
 			this->label17->Text = L"MHz";
-			// 
+			//
 			// label16
-			// 
+			//
 			this->label16->AutoSize = true;
 			this->label16->Location = System::Drawing::Point(333, 89);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(29, 13);
 			this->label16->TabIndex = 24;
 			this->label16->Text = L"MHz";
-			// 
+			//
 			// label15
-			// 
+			//
 			this->label15->AutoSize = true;
 			this->label15->Location = System::Drawing::Point(333, 29);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(29, 13);
 			this->label15->TabIndex = 23;
 			this->label15->Text = L"MHz";
-			// 
+			//
 			// label14
-			// 
+			//
 			this->label14->AutoSize = true;
 			this->label14->Location = System::Drawing::Point(246, 117);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(80, 13);
 			this->label14->TabIndex = 22;
 			this->label14->Text = L"corr. coefficient";
-			// 
+			//
 			// label13
-			// 
+			//
 			this->label13->AutoSize = true;
 			this->label13->Location = System::Drawing::Point(85, 117);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(46, 13);
 			this->label13->TabIndex = 21;
 			this->label13->Text = L"D (MHz)";
-			// 
+			//
 			// label12
-			// 
+			//
 			this->label12->AutoSize = true;
 			this->label12->Location = System::Drawing::Point(171, 117);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(45, 13);
 			this->label12->TabIndex = 20;
 			this->label12->Text = L"E (MHz)";
-			// 
+			//
 			// label11
-			// 
+			//
 			this->label11->AutoSize = true;
 			this->label11->Location = System::Drawing::Point(282, 11);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(12, 13);
 			this->label11->TabIndex = 19;
 			this->label11->Text = L"z";
-			// 
+			//
 			// label10
-			// 
+			//
 			this->label10->AutoSize = true;
 			this->label10->Location = System::Drawing::Point(195, 11);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(12, 13);
 			this->label10->TabIndex = 18;
 			this->label10->Text = L"y";
-			// 
+			//
 			// label9
-			// 
+			//
 			this->label9->AutoSize = true;
 			this->label9->Location = System::Drawing::Point(100, 11);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(12, 13);
 			this->label9->TabIndex = 17;
 			this->label9->Text = L"x";
-			// 
+			//
 			// DStrainEtext
-			// 
+			//
 			this->DStrainEtext->Location = System::Drawing::Point(159, 135);
 			this->DStrainEtext->Name = L"DStrainEtext";
 			this->DStrainEtext->Size = System::Drawing::Size(80, 20);
@@ -740,9 +740,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->DStrainEtext->Tag = L"4";
 			this->DStrainEtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->DStrainEtext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// DStraincorrtext
-			// 
+			//
 			this->DStraincorrtext->Location = System::Drawing::Point(247, 135);
 			this->DStraincorrtext->Name = L"DStraincorrtext";
 			this->DStraincorrtext->Size = System::Drawing::Size(80, 20);
@@ -750,9 +750,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->DStraincorrtext->Tag = L"4";
 			this->DStraincorrtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->DStraincorrtext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// DStrainDtext
-			// 
+			//
 			this->DStrainDtext->Location = System::Drawing::Point(69, 135);
 			this->DStrainDtext->Name = L"DStrainDtext";
 			this->DStrainDtext->Size = System::Drawing::Size(80, 20);
@@ -760,9 +760,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->DStrainDtext->Tag = L"4";
 			this->DStrainDtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->DStrainDtext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// AStrainytext
-			// 
+			//
 			this->AStrainytext->Location = System::Drawing::Point(158, 89);
 			this->AStrainytext->Name = L"AStrainytext";
 			this->AStrainytext->Size = System::Drawing::Size(80, 20);
@@ -770,9 +770,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->AStrainytext->Tag = L"3";
 			this->AStrainytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->AStrainytext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// AStrainztext
-			// 
+			//
 			this->AStrainztext->Location = System::Drawing::Point(246, 89);
 			this->AStrainztext->Name = L"AStrainztext";
 			this->AStrainztext->Size = System::Drawing::Size(80, 20);
@@ -780,9 +780,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->AStrainztext->Tag = L"3";
 			this->AStrainztext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->AStrainztext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// AStrainxtext
-			// 
+			//
 			this->AStrainxtext->Location = System::Drawing::Point(68, 89);
 			this->AStrainxtext->Name = L"AStrainxtext";
 			this->AStrainxtext->Size = System::Drawing::Size(80, 20);
@@ -790,9 +790,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->AStrainxtext->Tag = L"3";
 			this->AStrainxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->AStrainxtext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// gStrainytext
-			// 
+			//
 			this->gStrainytext->Location = System::Drawing::Point(158, 59);
 			this->gStrainytext->Name = L"gStrainytext";
 			this->gStrainytext->Size = System::Drawing::Size(80, 20);
@@ -800,9 +800,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->gStrainytext->Tag = L"2";
 			this->gStrainytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->gStrainytext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// gStrainztext
-			// 
+			//
 			this->gStrainztext->Location = System::Drawing::Point(246, 59);
 			this->gStrainztext->Name = L"gStrainztext";
 			this->gStrainztext->Size = System::Drawing::Size(80, 20);
@@ -810,9 +810,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->gStrainztext->Tag = L"2";
 			this->gStrainztext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->gStrainztext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// gStrainxtext
-			// 
+			//
 			this->gStrainxtext->Location = System::Drawing::Point(68, 59);
 			this->gStrainxtext->Name = L"gStrainxtext";
 			this->gStrainxtext->Size = System::Drawing::Size(80, 20);
@@ -820,9 +820,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->gStrainxtext->Tag = L"2";
 			this->gStrainxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->gStrainxtext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// HStrainytext
-			// 
+			//
 			this->HStrainytext->Location = System::Drawing::Point(158, 29);
 			this->HStrainytext->Name = L"HStrainytext";
 			this->HStrainytext->Size = System::Drawing::Size(80, 20);
@@ -830,27 +830,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->HStrainytext->Tag = L"1";
 			this->HStrainytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->HStrainytext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// label6
-			// 
+			//
 			this->label6->AutoSize = true;
 			this->label6->Location = System::Drawing::Point(6, 91);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(41, 13);
 			this->label6->TabIndex = 6;
 			this->label6->Text = L"AStrain";
-			// 
+			//
 			// label5
-			// 
+			//
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(6, 137);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(42, 13);
 			this->label5->TabIndex = 5;
 			this->label5->Text = L"DStrain";
-			// 
+			//
 			// HStrainztext
-			// 
+			//
 			this->HStrainztext->Location = System::Drawing::Point(246, 29);
 			this->HStrainztext->Name = L"HStrainztext";
 			this->HStrainztext->Size = System::Drawing::Size(80, 20);
@@ -858,9 +858,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->HStrainztext->Tag = L"1";
 			this->HStrainztext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->HStrainztext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// HStrainxtext
-			// 
+			//
 			this->HStrainxtext->Location = System::Drawing::Point(68, 29);
 			this->HStrainxtext->Name = L"HStrainxtext";
 			this->HStrainxtext->Size = System::Drawing::Size(80, 20);
@@ -868,35 +868,35 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->HStrainxtext->Tag = L"1";
 			this->HStrainxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Anisotropic_text_KeyPress);
 			this->HStrainxtext->Leave += gcnew System::EventHandler(this, &EasySpin::Anisotropic_Leave);
-			// 
+			//
 			// label7
-			// 
+			//
 			this->label7->AutoSize = true;
 			this->label7->Location = System::Drawing::Point(6, 61);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(40, 13);
 			this->label7->TabIndex = 1;
 			this->label7->Text = L"gStrain";
-			// 
+			//
 			// label8
-			// 
+			//
 			this->label8->AutoSize = true;
 			this->label8->Location = System::Drawing::Point(6, 30);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(42, 13);
 			this->label8->TabIndex = 0;
 			this->label8->Text = L"HStrain";
-			// 
+			//
 			// Broadeningspanel
-			// 
+			//
 			this->Broadeningspanel->Controls->Add(this->convolutionsbox);
 			this->Broadeningspanel->Location = System::Drawing::Point(3, 3);
 			this->Broadeningspanel->Name = L"Broadeningspanel";
 			this->Broadeningspanel->Size = System::Drawing::Size(402, 110);
 			this->Broadeningspanel->TabIndex = 1;
-			// 
+			//
 			// convolutionsbox
-			// 
+			//
 			this->convolutionsbox->Controls->Add(this->BroadUnitscombo);
 			this->convolutionsbox->Controls->Add(this->label4);
 			this->convolutionsbox->Controls->Add(this->label3);
@@ -912,9 +912,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->convolutionsbox->TabIndex = 0;
 			this->convolutionsbox->TabStop = false;
 			this->convolutionsbox->Text = L"Convolutions";
-			// 
+			//
 			// BroadUnitscombo
-			// 
+			//
 			this->BroadUnitscombo->FormattingEnabled = true;
 			this->BroadUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"Gauss", L"mTesla"});
 			this->BroadUnitscombo->Location = System::Drawing::Point(326, 43);
@@ -924,27 +924,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->BroadUnitscombo->Tag = L"1";
 			this->BroadUnitscombo->Text = L"Gauss";
 			this->BroadUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Unitscombo_SelectedIndexChanged);
-			// 
+			//
 			// label4
-			// 
+			//
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(212, 63);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(19, 13);
 			this->label4->TabIndex = 7;
 			this->label4->Text = L"pp";
-			// 
+			//
 			// label3
-			// 
+			//
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(212, 30);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(19, 13);
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"pp";
-			// 
+			//
 			// Lorentzianpptext
-			// 
+			//
 			this->Lorentzianpptext->Location = System::Drawing::Point(237, 62);
 			this->Lorentzianpptext->Name = L"Lorentzianpptext";
 			this->Lorentzianpptext->Size = System::Drawing::Size(80, 20);
@@ -953,9 +953,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Lorentzianpptext->Text = L"0.0";
 			this->Lorentzianpptext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::convolutionBoxKeyPress);
 			this->Lorentzianpptext->Leave += gcnew System::EventHandler(this, &EasySpin::convolutiontext_Leave);
-			// 
+			//
 			// Gaussianpptext
-			// 
+			//
 			this->Gaussianpptext->Location = System::Drawing::Point(237, 27);
 			this->Gaussianpptext->Name = L"Gaussianpptext";
 			this->Gaussianpptext->Size = System::Drawing::Size(80, 20);
@@ -964,9 +964,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Gaussianpptext->Text = L"0.0";
 			this->Gaussianpptext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::convolutionBoxKeyPress);
 			this->Gaussianpptext->Leave += gcnew System::EventHandler(this, &EasySpin::convolutiontext_Leave);
-			// 
+			//
 			// LorentzianFWHMtext
-			// 
+			//
 			this->LorentzianFWHMtext->Location = System::Drawing::Point(123, 62);
 			this->LorentzianFWHMtext->Name = L"LorentzianFWHMtext";
 			this->LorentzianFWHMtext->Size = System::Drawing::Size(80, 20);
@@ -975,9 +975,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->LorentzianFWHMtext->Text = L"0.0";
 			this->LorentzianFWHMtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::convolutionBoxKeyPress);
 			this->LorentzianFWHMtext->Leave += gcnew System::EventHandler(this, &EasySpin::convolutiontext_Leave);
-			// 
+			//
 			// GaussianFWHMtext
-			// 
+			//
 			this->GaussianFWHMtext->Location = System::Drawing::Point(123, 27);
 			this->GaussianFWHMtext->Name = L"GaussianFWHMtext";
 			this->GaussianFWHMtext->Size = System::Drawing::Size(80, 20);
@@ -986,27 +986,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->GaussianFWHMtext->Text = L"0.0";
 			this->GaussianFWHMtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::convolutionBoxKeyPress);
 			this->GaussianFWHMtext->Leave += gcnew System::EventHandler(this, &EasySpin::convolutiontext_Leave);
-			// 
+			//
 			// label2
-			// 
+			//
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(6, 67);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(99, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Lorentzian   FWHM";
-			// 
+			//
 			// label1
-			// 
+			//
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(6, 30);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(100, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Gaussian     FWHM";
-			// 
+			//
 			// Experimenttab
-			// 
+			//
 			this->Experimenttab->Controls->Add(this->PepperExppanel);
 			this->Experimenttab->Controls->Add(this->Experimentpanel);
 			this->Experimenttab->Location = System::Drawing::Point(4, 22);
@@ -1016,9 +1016,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Experimenttab->TabIndex = 1;
 			this->Experimenttab->Text = L"Experiment";
 			this->Experimenttab->UseVisualStyleBackColor = true;
-			// 
+			//
 			// PepperExppanel
-			// 
+			//
 			this->PepperExppanel->Controls->Add(this->label67);
 			this->PepperExppanel->Controls->Add(this->CrystalSymmetrytext);
 			this->PepperExppanel->Controls->Add(this->label66);
@@ -1030,18 +1030,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->PepperExppanel->TabIndex = 3;
 			this->PepperExppanel->TabStop = false;
 			this->PepperExppanel->Visible = false;
-			// 
+			//
 			// label67
-			// 
+			//
 			this->label67->AutoSize = true;
 			this->label67->Location = System::Drawing::Point(161, 11);
 			this->label67->Name = L"label67";
 			this->label67->Size = System::Drawing::Size(198, 13);
 			this->label67->TabIndex = 31;
 			this->label67->Text = L"(point or space group symbol or  number)";
-			// 
+			//
 			// CrystalSymmetrytext
-			// 
+			//
 			this->CrystalSymmetrytext->Location = System::Drawing::Point(99, 9);
 			this->CrystalSymmetrytext->Name = L"CrystalSymmetrytext";
 			this->CrystalSymmetrytext->Size = System::Drawing::Size(61, 20);
@@ -1050,27 +1050,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->CrystalSymmetrytext->Text = L"1";
 			this->CrystalSymmetrytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::CrystalSymmetryBoxKeyPress);
 			this->CrystalSymmetrytext->Leave += gcnew System::EventHandler(this, &EasySpin::CrystalSymmetrytext_Leave);
-			// 
+			//
 			// label66
-			// 
+			//
 			this->label66->AutoSize = true;
 			this->label66->Location = System::Drawing::Point(-1, 12);
 			this->label66->Name = L"label66";
 			this->label66->Size = System::Drawing::Size(86, 13);
 			this->label66->TabIndex = 29;
 			this->label66->Text = L"Crystal Symmetry";
-			// 
+			//
 			// label19
-			// 
+			//
 			this->label19->AutoSize = true;
 			this->label19->Location = System::Drawing::Point(11, 38);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(34, 13);
 			this->label19->TabIndex = 6;
 			this->label19->Text = L"Mode";
-			// 
+			//
 			// Modecombo
-			// 
+			//
 			this->Modecombo->FormattingEnabled = true;
 			this->Modecombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"parallel", L"perpendicular"});
 			this->Modecombo->Location = System::Drawing::Point(76, 34);
@@ -1079,9 +1079,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Modecombo->TabIndex = 8;
 			this->Modecombo->Text = L"perpendicular";
 			this->Modecombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Exp_comboBox_SelectedIndexChanged);
-			// 
+			//
 			// Experimentpanel
-			// 
+			//
 			this->Experimentpanel->Controls->Add(this->Wbandbutton);
 			this->Experimentpanel->Controls->Add(this->Qbandbutton);
 			this->Experimentpanel->Controls->Add(this->Xbandbutton);
@@ -1106,9 +1106,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Experimentpanel->Name = L"Experimentpanel";
 			this->Experimentpanel->Size = System::Drawing::Size(402, 262);
 			this->Experimentpanel->TabIndex = 2;
-			// 
+			//
 			// Wbandbutton
-			// 
+			//
 			this->Wbandbutton->Location = System::Drawing::Point(313, 100);
 			this->Wbandbutton->Name = L"Wbandbutton";
 			this->Wbandbutton->Size = System::Drawing::Size(58, 21);
@@ -1117,9 +1117,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Wbandbutton->Text = L"W-band";
 			this->Wbandbutton->UseVisualStyleBackColor = true;
 			this->Wbandbutton->Click += gcnew System::EventHandler(this, &EasySpin::buttonFreqClick);
-			// 
+			//
 			// Qbandbutton
-			// 
+			//
 			this->Qbandbutton->Location = System::Drawing::Point(247, 100);
 			this->Qbandbutton->Name = L"Qbandbutton";
 			this->Qbandbutton->Size = System::Drawing::Size(58, 21);
@@ -1128,9 +1128,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Qbandbutton->Text = L"Q-band";
 			this->Qbandbutton->UseVisualStyleBackColor = true;
 			this->Qbandbutton->Click += gcnew System::EventHandler(this, &EasySpin::buttonFreqClick);
-			// 
+			//
 			// Xbandbutton
-			// 
+			//
 			this->Xbandbutton->Location = System::Drawing::Point(184, 100);
 			this->Xbandbutton->Name = L"Xbandbutton";
 			this->Xbandbutton->Size = System::Drawing::Size(55, 21);
@@ -1139,27 +1139,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Xbandbutton->Text = L"X-band";
 			this->Xbandbutton->UseVisualStyleBackColor = true;
 			this->Xbandbutton->Click += gcnew System::EventHandler(this, &EasySpin::buttonFreqClick);
-			// 
+			//
 			// label27
-			// 
+			//
 			this->label27->AutoSize = true;
 			this->label27->Location = System::Drawing::Point(151, 104);
 			this->label27->Name = L"label27";
 			this->label27->Size = System::Drawing::Size(28, 13);
 			this->label27->TabIndex = 20;
 			this->label27->Text = L"GHz";
-			// 
+			//
 			// label18
-			// 
+			//
 			this->label18->AutoSize = true;
 			this->label18->Location = System::Drawing::Point(161, 137);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(14, 13);
 			this->label18->TabIndex = 15;
 			this->label18->Text = L"K";
-			// 
+			//
 			// Frequencytext
-			// 
+			//
 			this->Frequencytext->Location = System::Drawing::Point(113, 102);
 			this->Frequencytext->Name = L"Frequencytext";
 			this->Frequencytext->Size = System::Drawing::Size(34, 20);
@@ -1168,27 +1168,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Frequencytext->Text = L"9.5";
 			this->Frequencytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::ExperimenttextBoxKeyPress);
 			this->Frequencytext->Leave += gcnew System::EventHandler(this, &EasySpin::Experimenttext_Leave);
-			// 
+			//
 			// Tempnumeric
-			// 
+			//
 			this->Tempnumeric->Enabled = false;
 			this->Tempnumeric->Location = System::Drawing::Point(118, 134);
 			this->Tempnumeric->Name = L"Tempnumeric";
 			this->Tempnumeric->Size = System::Drawing::Size(34, 20);
 			this->Tempnumeric->TabIndex = 14;
 			this->Tempnumeric->ValueChanged += gcnew System::EventHandler(this, &EasySpin::Expnumeric_ValueChanged);
-			// 
+			//
 			// label26
-			// 
+			//
 			this->label26->AutoSize = true;
 			this->label26->Location = System::Drawing::Point(13, 104);
 			this->label26->Name = L"label26";
 			this->label26->Size = System::Drawing::Size(89, 13);
 			this->label26->TabIndex = 18;
 			this->label26->Text = L"Microwave freq. :";
-			// 
+			//
 			// TempcheckBox
-			// 
+			//
 			this->TempcheckBox->AutoSize = true;
 			this->TempcheckBox->Location = System::Drawing::Point(15, 135);
 			this->TempcheckBox->Name = L"TempcheckBox";
@@ -1197,27 +1197,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->TempcheckBox->Text = L"Temperature";
 			this->TempcheckBox->UseVisualStyleBackColor = true;
 			this->TempcheckBox->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::Exp_checkBox_CheckedChanged);
-			// 
+			//
 			// label24
-			// 
+			//
 			this->label24->AutoSize = true;
 			this->label24->Location = System::Drawing::Point(181, 49);
 			this->label24->Name = L"label24";
 			this->label24->Size = System::Drawing::Size(40, 13);
 			this->label24->TabIndex = 17;
 			this->label24->Text = L"Sweep";
-			// 
+			//
 			// label25
-			// 
+			//
 			this->label25->AutoSize = true;
 			this->label25->Location = System::Drawing::Point(181, 12);
 			this->label25->Name = L"label25";
 			this->label25->Size = System::Drawing::Size(38, 13);
 			this->label25->TabIndex = 16;
 			this->label25->Text = L"Centre";
-			// 
+			//
 			// ExpUnitscombo
-			// 
+			//
 			this->ExpUnitscombo->FormattingEnabled = true;
 			this->ExpUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"mTesla", L"Gauss"});
 			this->ExpUnitscombo->Location = System::Drawing::Point(326, 26);
@@ -1227,9 +1227,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->ExpUnitscombo->Tag = L"2";
 			this->ExpUnitscombo->Text = L"mTesla";
 			this->ExpUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Unitscombo_SelectedIndexChanged);
-			// 
+			//
 			// Sweeptext
-			// 
+			//
 			this->Sweeptext->Location = System::Drawing::Point(231, 45);
 			this->Sweeptext->Name = L"Sweeptext";
 			this->Sweeptext->Size = System::Drawing::Size(80, 20);
@@ -1237,9 +1237,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Sweeptext->Tag = L"4";
 			this->Sweeptext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::ExperimenttextBoxKeyPress);
 			this->Sweeptext->Leave += gcnew System::EventHandler(this, &EasySpin::Experimenttext_Leave);
-			// 
+			//
 			// Centertext
-			// 
+			//
 			this->Centertext->Location = System::Drawing::Point(231, 10);
 			this->Centertext->Name = L"Centertext";
 			this->Centertext->Size = System::Drawing::Size(80, 20);
@@ -1247,9 +1247,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Centertext->Tag = L"3";
 			this->Centertext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::ExperimenttextBoxKeyPress);
 			this->Centertext->Leave += gcnew System::EventHandler(this, &EasySpin::Experimenttext_Leave);
-			// 
+			//
 			// Maximumtext
-			// 
+			//
 			this->Maximumtext->Location = System::Drawing::Point(76, 45);
 			this->Maximumtext->Name = L"Maximumtext";
 			this->Maximumtext->Size = System::Drawing::Size(80, 20);
@@ -1257,9 +1257,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Maximumtext->Tag = L"2";
 			this->Maximumtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::ExperimenttextBoxKeyPress);
 			this->Maximumtext->Leave += gcnew System::EventHandler(this, &EasySpin::Experimenttext_Leave);
-			// 
+			//
 			// Minimumtext
-			// 
+			//
 			this->Minimumtext->Location = System::Drawing::Point(76, 10);
 			this->Minimumtext->Name = L"Minimumtext";
 			this->Minimumtext->Size = System::Drawing::Size(80, 20);
@@ -1267,27 +1267,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Minimumtext->Tag = L"1";
 			this->Minimumtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::ExperimenttextBoxKeyPress);
 			this->Minimumtext->Leave += gcnew System::EventHandler(this, &EasySpin::Experimenttext_Leave);
-			// 
+			//
 			// label22
-			// 
+			//
 			this->label22->AutoSize = true;
 			this->label22->Location = System::Drawing::Point(10, 50);
 			this->label22->Name = L"label22";
 			this->label22->Size = System::Drawing::Size(51, 13);
 			this->label22->TabIndex = 10;
 			this->label22->Text = L"Maximum";
-			// 
+			//
 			// label23
-			// 
+			//
 			this->label23->AutoSize = true;
 			this->label23->Location = System::Drawing::Point(10, 13);
 			this->label23->Name = L"label23";
 			this->label23->Size = System::Drawing::Size(48, 13);
 			this->label23->TabIndex = 9;
 			this->label23->Text = L"Minimum";
-			// 
+			//
 			// DetectiongroupBox
-			// 
+			//
 			this->DetectiongroupBox->Controls->Add(this->Phasetext);
 			this->DetectiongroupBox->Controls->Add(this->Modetext);
 			this->DetectiongroupBox->Controls->Add(this->ModUnitscombo);
@@ -1303,9 +1303,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->DetectiongroupBox->TabIndex = 0;
 			this->DetectiongroupBox->TabStop = false;
 			this->DetectiongroupBox->Text = L"Detection Settings";
-			// 
+			//
 			// Phasetext
-			// 
+			//
 			this->Phasetext->Location = System::Drawing::Point(94, 52);
 			this->Phasetext->Name = L"Phasetext";
 			this->Phasetext->Size = System::Drawing::Size(38, 20);
@@ -1314,9 +1314,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Phasetext->Text = L"0.0";
 			this->Phasetext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::ExperimenttextBoxKeyPress);
 			this->Phasetext->Leave += gcnew System::EventHandler(this, &EasySpin::Experimenttext_Leave);
-			// 
+			//
 			// Modetext
-			// 
+			//
 			this->Modetext->Enabled = false;
 			this->Modetext->Location = System::Drawing::Point(222, 18);
 			this->Modetext->Name = L"Modetext";
@@ -1325,9 +1325,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Modetext->Tag = L"4";
 			this->Modetext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::ExperimenttextBoxKeyPress);
 			this->Modetext->Leave += gcnew System::EventHandler(this, &EasySpin::Experimenttext_Leave);
-			// 
+			//
 			// ModUnitscombo
-			// 
+			//
 			this->ModUnitscombo->Enabled = false;
 			this->ModUnitscombo->FormattingEnabled = true;
 			this->ModUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"mTesla", L"Gauss"});
@@ -1338,18 +1338,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->ModUnitscombo->Tag = L"2";
 			this->ModUnitscombo->Text = L"mTesla";
 			this->ModUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Unitscombo_SelectedIndexChanged);
-			// 
+			//
 			// label28
-			// 
+			//
 			this->label28->AutoSize = true;
 			this->label28->Location = System::Drawing::Point(7, 54);
 			this->label28->Name = L"label28";
 			this->label28->Size = System::Drawing::Size(84, 13);
 			this->label28->TabIndex = 17;
 			this->label28->Text = L"Phase (degrees)";
-			// 
+			//
 			// Harmoniccombo
-			// 
+			//
 			this->Harmoniccombo->FormattingEnabled = true;
 			this->Harmoniccombo->Items->AddRange(gcnew cli::array< System::Object^  >(3) {L"0", L"1", L"2"});
 			this->Harmoniccombo->Location = System::Drawing::Point(81, 19);
@@ -1358,9 +1358,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Harmoniccombo->TabIndex = 16;
 			this->Harmoniccombo->Text = L"1";
 			this->Harmoniccombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Exp_comboBox_SelectedIndexChanged);
-			// 
+			//
 			// ModcheckBox
-			// 
+			//
 			this->ModcheckBox->AutoSize = true;
 			this->ModcheckBox->Location = System::Drawing::Point(139, 18);
 			this->ModcheckBox->Name = L"ModcheckBox";
@@ -1369,9 +1369,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->ModcheckBox->Text = L"Mod. amp.";
 			this->ModcheckBox->UseVisualStyleBackColor = true;
 			this->ModcheckBox->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::Exp_checkBox_CheckedChanged);
-			// 
+			//
 			// Pointscombo
-			// 
+			//
 			this->Pointscombo->FormattingEnabled = true;
 			this->Pointscombo->Items->AddRange(gcnew cli::array< System::Object^  >(3) {L"1024", L"2048", L"8192"});
 			this->Pointscombo->Location = System::Drawing::Point(265, 51);
@@ -1380,36 +1380,36 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Pointscombo->TabIndex = 9;
 			this->Pointscombo->Text = L"1024";
 			this->Pointscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Exp_comboBox_SelectedIndexChanged);
-			// 
+			//
 			// label20
-			// 
+			//
 			this->label20->AutoSize = true;
 			this->label20->Location = System::Drawing::Point(6, 22);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(52, 13);
 			this->label20->TabIndex = 1;
 			this->label20->Text = L"Harmonic";
-			// 
+			//
 			// label21
-			// 
+			//
 			this->label21->AutoSize = true;
 			this->label21->Location = System::Drawing::Point(146, 53);
 			this->label21->Name = L"label21";
 			this->label21->Size = System::Drawing::Size(88, 13);
 			this->label21->TabIndex = 0;
 			this->label21->Text = L"Number of Points";
-			// 
+			//
 			// label69
-			// 
+			//
 			this->label69->AutoSize = true;
 			this->label69->Location = System::Drawing::Point(150, 129);
 			this->label69->Name = L"label69";
 			this->label69->Size = System::Drawing::Size(13, 13);
 			this->label69->TabIndex = 24;
 			this->label69->Text = L"o";
-			// 
+			//
 			// Dynamicstab
-			// 
+			//
 			this->Dynamicstab->Controls->Add(this->Dynamicspanel);
 			this->Dynamicstab->Location = System::Drawing::Point(4, 22);
 			this->Dynamicstab->Name = L"Dynamicstab";
@@ -1418,9 +1418,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Dynamicstab->TabIndex = 2;
 			this->Dynamicstab->Text = L"Dynamics";
 			this->Dynamicstab->UseVisualStyleBackColor = true;
-			// 
+			//
 			// Dynamicspanel
-			// 
+			//
 			this->Dynamicspanel->Controls->Add(this->Heisenbergpanel);
 			this->Dynamicspanel->Controls->Add(this->DynamicsgroupBox);
 			this->Dynamicspanel->Controls->Add(this->OrderinggroupBox);
@@ -1428,9 +1428,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Dynamicspanel->Name = L"Dynamicspanel";
 			this->Dynamicspanel->Size = System::Drawing::Size(402, 512);
 			this->Dynamicspanel->TabIndex = 3;
-			// 
+			//
 			// Heisenbergpanel
-			// 
+			//
 			this->Heisenbergpanel->Controls->Add(this->label55);
 			this->Heisenbergpanel->Controls->Add(this->label56);
 			this->Heisenbergpanel->Controls->Add(this->heisentext);
@@ -1439,36 +1439,36 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Heisenbergpanel->Size = System::Drawing::Size(296, 25);
 			this->Heisenbergpanel->TabIndex = 34;
 			this->Heisenbergpanel->Visible = false;
-			// 
+			//
 			// label55
-			// 
+			//
 			this->label55->AutoSize = true;
 			this->label55->Location = System::Drawing::Point(221, 5);
 			this->label55->Name = L"label55";
 			this->label55->Size = System::Drawing::Size(29, 13);
 			this->label55->TabIndex = 30;
 			this->label55->Text = L"MHz";
-			// 
+			//
 			// label56
-			// 
+			//
 			this->label56->AutoSize = true;
 			this->label56->Location = System::Drawing::Point(7, 5);
 			this->label56->Name = L"label56";
 			this->label56->Size = System::Drawing::Size(115, 13);
 			this->label56->TabIndex = 28;
 			this->label56->Text = L"Heisenberg Exchange ";
-			// 
+			//
 			// heisentext
-			// 
+			//
 			this->heisentext->Location = System::Drawing::Point(139, 2);
 			this->heisentext->Name = L"heisentext";
 			this->heisentext->Size = System::Drawing::Size(80, 20);
 			this->heisentext->TabIndex = 29;
 			this->heisentext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::orderheisentext_KeyPress);
 			this->heisentext->Leave += gcnew System::EventHandler(this, &EasySpin::orderheisentext_Leave);
-			// 
+			//
 			// DynamicsgroupBox
-			// 
+			//
 			this->DynamicsgroupBox->Controls->Add(this->rhombicpanel);
 			this->DynamicsgroupBox->Controls->Add(this->axialpanel);
 			this->DynamicsgroupBox->Controls->Add(this->isotropicpanel);
@@ -1482,9 +1482,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->DynamicsgroupBox->TabIndex = 27;
 			this->DynamicsgroupBox->TabStop = false;
 			this->DynamicsgroupBox->Text = L"Rotational";
-			// 
+			//
 			// rhombicpanel
-			// 
+			//
 			this->rhombicpanel->Controls->Add(this->label49);
 			this->rhombicpanel->Controls->Add(this->diffztext);
 			this->rhombicpanel->Controls->Add(this->corrztext);
@@ -1503,18 +1503,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->rhombicpanel->Size = System::Drawing::Size(389, 78);
 			this->rhombicpanel->TabIndex = 33;
 			this->rhombicpanel->Visible = false;
-			// 
+			//
 			// label49
-			// 
+			//
 			this->label49->AutoSize = true;
 			this->label49->Location = System::Drawing::Point(271, 4);
 			this->label49->Name = L"label49";
 			this->label49->Size = System::Drawing::Size(12, 13);
 			this->label49->TabIndex = 26;
 			this->label49->Text = L"z";
-			// 
+			//
 			// diffztext
-			// 
+			//
 			this->diffztext->Location = System::Drawing::Point(241, 47);
 			this->diffztext->Name = L"diffztext";
 			this->diffztext->Size = System::Drawing::Size(70, 20);
@@ -1523,9 +1523,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->diffztext->Text = L"0";
 			this->diffztext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->diffztext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// corrztext
-			// 
+			//
 			this->corrztext->Location = System::Drawing::Point(241, 21);
 			this->corrztext->Name = L"corrztext";
 			this->corrztext->Size = System::Drawing::Size(70, 20);
@@ -1534,27 +1534,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->corrztext->Text = L"0";
 			this->corrztext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->corrztext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// label45
-			// 
+			//
 			this->label45->AutoSize = true;
 			this->label45->Location = System::Drawing::Point(197, 4);
 			this->label45->Name = L"label45";
 			this->label45->Size = System::Drawing::Size(12, 13);
 			this->label45->TabIndex = 23;
 			this->label45->Text = L"y";
-			// 
+			//
 			// label46
-			// 
+			//
 			this->label46->AutoSize = true;
 			this->label46->Location = System::Drawing::Point(121, 3);
 			this->label46->Name = L"label46";
 			this->label46->Size = System::Drawing::Size(12, 13);
 			this->label46->TabIndex = 22;
 			this->label46->Text = L"x";
-			// 
+			//
 			// diffytext
-			// 
+			//
 			this->diffytext->Location = System::Drawing::Point(168, 47);
 			this->diffytext->Name = L"diffytext";
 			this->diffytext->Size = System::Drawing::Size(70, 20);
@@ -1563,9 +1563,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->diffytext->Text = L"0";
 			this->diffytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->diffytext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// corrytext
-			// 
+			//
 			this->corrytext->Location = System::Drawing::Point(168, 21);
 			this->corrytext->Name = L"corrytext";
 			this->corrytext->Size = System::Drawing::Size(70, 20);
@@ -1574,9 +1574,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->corrytext->Text = L"0";
 			this->corrytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->corrytext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// DiffRhUnitscombo
-			// 
+			//
 			this->DiffRhUnitscombo->FormattingEnabled = true;
 			this->DiffRhUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"MHz", L"GHz"});
 			this->DiffRhUnitscombo->Location = System::Drawing::Point(323, 47);
@@ -1586,9 +1586,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->DiffRhUnitscombo->Tag = L"2";
 			this->DiffRhUnitscombo->Text = L"GHz";
 			this->DiffRhUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::DynamicsUnitscombo_SelectedIndexChanged);
-			// 
+			//
 			// diffxtext
-			// 
+			//
 			this->diffxtext->Location = System::Drawing::Point(95, 47);
 			this->diffxtext->Name = L"diffxtext";
 			this->diffxtext->Size = System::Drawing::Size(70, 20);
@@ -1597,18 +1597,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->diffxtext->Text = L"0";
 			this->diffxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->diffxtext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// label47
-			// 
+			//
 			this->label47->AutoSize = true;
 			this->label47->Location = System::Drawing::Point(1, 50);
 			this->label47->Name = L"label47";
 			this->label47->Size = System::Drawing::Size(80, 13);
 			this->label47->TabIndex = 17;
 			this->label47->Text = L"Diffusion tensor";
-			// 
+			//
 			// RhUnitscombo
-			// 
+			//
 			this->RhUnitscombo->FormattingEnabled = true;
 			this->RhUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"ns", L"μs"});
 			this->RhUnitscombo->Location = System::Drawing::Point(323, 21);
@@ -1618,9 +1618,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->RhUnitscombo->Tag = L"1";
 			this->RhUnitscombo->Text = L"ns";
 			this->RhUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::DynamicsUnitscombo_SelectedIndexChanged);
-			// 
+			//
 			// corrxtext
-			// 
+			//
 			this->corrxtext->Location = System::Drawing::Point(95, 21);
 			this->corrxtext->Name = L"corrxtext";
 			this->corrxtext->Size = System::Drawing::Size(70, 20);
@@ -1629,18 +1629,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->corrxtext->Text = L"0";
 			this->corrxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->corrxtext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// label48
-			// 
+			//
 			this->label48->AutoSize = true;
 			this->label48->Location = System::Drawing::Point(1, 24);
 			this->label48->Name = L"label48";
 			this->label48->Size = System::Drawing::Size(79, 13);
 			this->label48->TabIndex = 14;
 			this->label48->Text = L"Correlation time";
-			// 
+			//
 			// axialpanel
-			// 
+			//
 			this->axialpanel->Controls->Add(this->label34);
 			this->axialpanel->Controls->Add(this->label33);
 			this->axialpanel->Controls->Add(this->axdiffztext);
@@ -1656,27 +1656,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->axialpanel->Size = System::Drawing::Size(389, 78);
 			this->axialpanel->TabIndex = 32;
 			this->axialpanel->Visible = false;
-			// 
+			//
 			// label34
-			// 
+			//
 			this->label34->AutoSize = true;
 			this->label34->Location = System::Drawing::Point(223, 3);
 			this->label34->Name = L"label34";
 			this->label34->Size = System::Drawing::Size(12, 13);
 			this->label34->TabIndex = 23;
 			this->label34->Text = L"z";
-			// 
+			//
 			// label33
-			// 
+			//
 			this->label33->AutoSize = true;
 			this->label33->Location = System::Drawing::Point(132, 3);
 			this->label33->Name = L"label33";
 			this->label33->Size = System::Drawing::Size(17, 13);
 			this->label33->TabIndex = 22;
 			this->label33->Text = L"xy";
-			// 
+			//
 			// axdiffztext
-			// 
+			//
 			this->axdiffztext->Location = System::Drawing::Point(191, 47);
 			this->axdiffztext->Name = L"axdiffztext";
 			this->axdiffztext->Size = System::Drawing::Size(70, 20);
@@ -1685,9 +1685,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->axdiffztext->Text = L"0";
 			this->axdiffztext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->axdiffztext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// axcorrztext
-			// 
+			//
 			this->axcorrztext->Location = System::Drawing::Point(191, 21);
 			this->axcorrztext->Name = L"axcorrztext";
 			this->axcorrztext->Size = System::Drawing::Size(70, 20);
@@ -1696,9 +1696,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->axcorrztext->Text = L"0";
 			this->axcorrztext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->axcorrztext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// DiffAxUnitscombo
-			// 
+			//
 			this->DiffAxUnitscombo->FormattingEnabled = true;
 			this->DiffAxUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"MHz", L"GHz"});
 			this->DiffAxUnitscombo->Location = System::Drawing::Point(271, 47);
@@ -1708,9 +1708,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->DiffAxUnitscombo->Tag = L"2";
 			this->DiffAxUnitscombo->Text = L"GHz";
 			this->DiffAxUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::DynamicsUnitscombo_SelectedIndexChanged);
-			// 
+			//
 			// axdiffxytext
-			// 
+			//
 			this->axdiffxytext->Location = System::Drawing::Point(106, 47);
 			this->axdiffxytext->Name = L"axdiffxytext";
 			this->axdiffxytext->Size = System::Drawing::Size(70, 20);
@@ -1719,18 +1719,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->axdiffxytext->Text = L"0";
 			this->axdiffxytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->axdiffxytext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// label31
-			// 
+			//
 			this->label31->AutoSize = true;
 			this->label31->Location = System::Drawing::Point(6, 50);
 			this->label31->Name = L"label31";
 			this->label31->Size = System::Drawing::Size(80, 13);
 			this->label31->TabIndex = 17;
 			this->label31->Text = L"Diffusion tensor";
-			// 
+			//
 			// AxUnitscombo
-			// 
+			//
 			this->AxUnitscombo->FormattingEnabled = true;
 			this->AxUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"ns", L"μs"});
 			this->AxUnitscombo->Location = System::Drawing::Point(271, 21);
@@ -1740,9 +1740,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->AxUnitscombo->Tag = L"1";
 			this->AxUnitscombo->Text = L"ns";
 			this->AxUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::DynamicsUnitscombo_SelectedIndexChanged);
-			// 
+			//
 			// axcorrxytext
-			// 
+			//
 			this->axcorrxytext->Location = System::Drawing::Point(106, 21);
 			this->axcorrxytext->Name = L"axcorrxytext";
 			this->axcorrxytext->Size = System::Drawing::Size(70, 20);
@@ -1751,18 +1751,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->axcorrxytext->Text = L"0";
 			this->axcorrxytext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->axcorrxytext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// label32
-			// 
+			//
 			this->label32->AutoSize = true;
 			this->label32->Location = System::Drawing::Point(6, 24);
 			this->label32->Name = L"label32";
 			this->label32->Size = System::Drawing::Size(79, 13);
 			this->label32->TabIndex = 14;
 			this->label32->Text = L"Correlation time";
-			// 
+			//
 			// isotropicpanel
-			// 
+			//
 			this->isotropicpanel->Controls->Add(this->IsotropicDiffussionpanel);
 			this->isotropicpanel->Controls->Add(this->IsoUnitscombo);
 			this->isotropicpanel->Controls->Add(this->isocorrtext);
@@ -1771,9 +1771,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->isotropicpanel->Name = L"isotropicpanel";
 			this->isotropicpanel->Size = System::Drawing::Size(389, 60);
 			this->isotropicpanel->TabIndex = 31;
-			// 
+			//
 			// IsotropicDiffussionpanel
-			// 
+			//
 			this->IsotropicDiffussionpanel->Controls->Add(this->label30);
 			this->IsotropicDiffussionpanel->Controls->Add(this->DiffIsoUnitscombo);
 			this->IsotropicDiffussionpanel->Controls->Add(this->isodifftext);
@@ -1782,18 +1782,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->IsotropicDiffussionpanel->Size = System::Drawing::Size(261, 29);
 			this->IsotropicDiffussionpanel->TabIndex = 20;
 			this->IsotropicDiffussionpanel->Visible = false;
-			// 
+			//
 			// label30
-			// 
+			//
 			this->label30->AutoSize = true;
 			this->label30->Location = System::Drawing::Point(2, 5);
 			this->label30->Name = L"label30";
 			this->label30->Size = System::Drawing::Size(80, 13);
 			this->label30->TabIndex = 17;
 			this->label30->Text = L"Diffusion tensor";
-			// 
+			//
 			// DiffIsoUnitscombo
-			// 
+			//
 			this->DiffIsoUnitscombo->FormattingEnabled = true;
 			this->DiffIsoUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"MHz", L"GHz"});
 			this->DiffIsoUnitscombo->Location = System::Drawing::Point(184, 2);
@@ -1803,9 +1803,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->DiffIsoUnitscombo->Tag = L"2";
 			this->DiffIsoUnitscombo->Text = L"GHz";
 			this->DiffIsoUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::DynamicsUnitscombo_SelectedIndexChanged);
-			// 
+			//
 			// isodifftext
-			// 
+			//
 			this->isodifftext->Location = System::Drawing::Point(105, 2);
 			this->isodifftext->Name = L"isodifftext";
 			this->isodifftext->Size = System::Drawing::Size(70, 20);
@@ -1814,9 +1814,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->isodifftext->Text = L"0";
 			this->isodifftext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->isodifftext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// IsoUnitscombo
-			// 
+			//
 			this->IsoUnitscombo->FormattingEnabled = true;
 			this->IsoUnitscombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"ns", L"μs"});
 			this->IsoUnitscombo->Location = System::Drawing::Point(184, 3);
@@ -1826,9 +1826,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->IsoUnitscombo->Tag = L"1";
 			this->IsoUnitscombo->Text = L"ns";
 			this->IsoUnitscombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::DynamicsUnitscombo_SelectedIndexChanged);
-			// 
+			//
 			// isocorrtext
-			// 
+			//
 			this->isocorrtext->Location = System::Drawing::Point(106, 3);
 			this->isocorrtext->Name = L"isocorrtext";
 			this->isocorrtext->Size = System::Drawing::Size(70, 20);
@@ -1837,18 +1837,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->isocorrtext->Text = L"0";
 			this->isocorrtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::textBoxDynamics_KeyPress);
 			this->isocorrtext->Leave += gcnew System::EventHandler(this, &EasySpin::textBoxDynamics_Leave);
-			// 
+			//
 			// label29
-			// 
+			//
 			this->label29->AutoSize = true;
 			this->label29->Location = System::Drawing::Point(6, 6);
 			this->label29->Name = L"label29";
 			this->label29->Size = System::Drawing::Size(79, 13);
 			this->label29->TabIndex = 14;
 			this->label29->Text = L"Correlation time";
-			// 
+			//
 			// Rhombicradio
-			// 
+			//
 			this->Rhombicradio->AutoSize = true;
 			this->Rhombicradio->Enabled = false;
 			this->Rhombicradio->Location = System::Drawing::Point(12, 58);
@@ -1859,9 +1859,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Rhombicradio->Text = L"Rhombic anisotropic diffusion";
 			this->Rhombicradio->UseVisualStyleBackColor = true;
 			this->Rhombicradio->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::radioButton_diffusion_CheckedChanged);
-			// 
+			//
 			// Axialradio
-			// 
+			//
 			this->Axialradio->AutoSize = true;
 			this->Axialradio->Enabled = false;
 			this->Axialradio->Location = System::Drawing::Point(12, 38);
@@ -1872,9 +1872,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Axialradio->Text = L"Axial anisotropic diffusion";
 			this->Axialradio->UseVisualStyleBackColor = true;
 			this->Axialradio->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::radioButton_diffusion_CheckedChanged);
-			// 
+			//
 			// Isotropicradio
-			// 
+			//
 			this->Isotropicradio->AutoSize = true;
 			this->Isotropicradio->Checked = true;
 			this->Isotropicradio->Location = System::Drawing::Point(12, 19);
@@ -1886,9 +1886,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Isotropicradio->Text = L"Isotropic diffusion";
 			this->Isotropicradio->UseVisualStyleBackColor = true;
 			this->Isotropicradio->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::radioButton_diffusion_CheckedChanged);
-			// 
+			//
 			// RotationallogcheckBox
-			// 
+			//
 			this->RotationallogcheckBox->AutoSize = true;
 			this->RotationallogcheckBox->Location = System::Drawing::Point(58, 326);
 			this->RotationallogcheckBox->Name = L"RotationallogcheckBox";
@@ -1896,9 +1896,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->RotationallogcheckBox->TabIndex = 26;
 			this->RotationallogcheckBox->Text = L"Specify log10 of the principal components";
 			this->RotationallogcheckBox->UseVisualStyleBackColor = true;
-			// 
+			//
 			// OrderinggroupBox
-			// 
+			//
 			this->OrderinggroupBox->Controls->Add(this->label43);
 			this->OrderinggroupBox->Controls->Add(this->l42text);
 			this->OrderinggroupBox->Controls->Add(this->label44);
@@ -1921,144 +1921,144 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->OrderinggroupBox->TabStop = false;
 			this->OrderinggroupBox->Text = L"Ordering potential";
 			this->OrderinggroupBox->Visible = false;
-			// 
+			//
 			// label43
-			// 
+			//
 			this->label43->AutoSize = true;
 			this->label43->Location = System::Drawing::Point(310, 56);
 			this->label43->Name = L"label43";
 			this->label43->Size = System::Drawing::Size(29, 13);
 			this->label43->TabIndex = 26;
 			this->label43->Text = L"MHz";
-			// 
+			//
 			// l42text
-			// 
+			//
 			this->l42text->Location = System::Drawing::Point(228, 53);
 			this->l42text->Name = L"l42text";
 			this->l42text->Size = System::Drawing::Size(80, 20);
 			this->l42text->TabIndex = 25;
 			this->l42text->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::orderheisentext_KeyPress);
 			this->l42text->Leave += gcnew System::EventHandler(this, &EasySpin::orderheisentext_Leave);
-			// 
+			//
 			// label44
-			// 
+			//
 			this->label44->AutoSize = true;
 			this->label44->Location = System::Drawing::Point(183, 56);
 			this->label44->Name = L"label44";
 			this->label44->Size = System::Drawing::Size(33, 13);
 			this->label44->TabIndex = 24;
 			this->label44->Text = L"λ[4,2]";
-			// 
+			//
 			// label41
-			// 
+			//
 			this->label41->AutoSize = true;
 			this->label41->Location = System::Drawing::Point(310, 26);
 			this->label41->Name = L"label41";
 			this->label41->Size = System::Drawing::Size(29, 13);
 			this->label41->TabIndex = 23;
 			this->label41->Text = L"MHz";
-			// 
+			//
 			// l22text
-			// 
+			//
 			this->l22text->Location = System::Drawing::Point(228, 23);
 			this->l22text->Name = L"l22text";
 			this->l22text->Size = System::Drawing::Size(80, 20);
 			this->l22text->TabIndex = 22;
 			this->l22text->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::orderheisentext_KeyPress);
 			this->l22text->Leave += gcnew System::EventHandler(this, &EasySpin::orderheisentext_Leave);
-			// 
+			//
 			// label42
-			// 
+			//
 			this->label42->AutoSize = true;
 			this->label42->Location = System::Drawing::Point(183, 26);
 			this->label42->Name = L"label42";
 			this->label42->Size = System::Drawing::Size(33, 13);
 			this->label42->TabIndex = 21;
 			this->label42->Text = L"λ[2,2]";
-			// 
+			//
 			// label39
-			// 
+			//
 			this->label39->AutoSize = true;
 			this->label39->Location = System::Drawing::Point(137, 79);
 			this->label39->Name = L"label39";
 			this->label39->Size = System::Drawing::Size(29, 13);
 			this->label39->TabIndex = 20;
 			this->label39->Text = L"MHz";
-			// 
+			//
 			// l44text
-			// 
+			//
 			this->l44text->Location = System::Drawing::Point(55, 76);
 			this->l44text->Name = L"l44text";
 			this->l44text->Size = System::Drawing::Size(80, 20);
 			this->l44text->TabIndex = 19;
 			this->l44text->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::orderheisentext_KeyPress);
 			this->l44text->Leave += gcnew System::EventHandler(this, &EasySpin::orderheisentext_Leave);
-			// 
+			//
 			// label40
-			// 
+			//
 			this->label40->AutoSize = true;
 			this->label40->Location = System::Drawing::Point(10, 79);
 			this->label40->Name = L"label40";
 			this->label40->Size = System::Drawing::Size(33, 13);
 			this->label40->TabIndex = 18;
 			this->label40->Text = L"λ[4,4]";
-			// 
+			//
 			// label37
-			// 
+			//
 			this->label37->AutoSize = true;
 			this->label37->Location = System::Drawing::Point(137, 53);
 			this->label37->Name = L"label37";
 			this->label37->Size = System::Drawing::Size(29, 13);
 			this->label37->TabIndex = 17;
 			this->label37->Text = L"MHz";
-			// 
+			//
 			// l40text
-			// 
+			//
 			this->l40text->Location = System::Drawing::Point(55, 50);
 			this->l40text->Name = L"l40text";
 			this->l40text->Size = System::Drawing::Size(80, 20);
 			this->l40text->TabIndex = 16;
 			this->l40text->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::orderheisentext_KeyPress);
 			this->l40text->Leave += gcnew System::EventHandler(this, &EasySpin::orderheisentext_Leave);
-			// 
+			//
 			// label38
-			// 
+			//
 			this->label38->AutoSize = true;
 			this->label38->Location = System::Drawing::Point(10, 53);
 			this->label38->Name = L"label38";
 			this->label38->Size = System::Drawing::Size(33, 13);
 			this->label38->TabIndex = 15;
 			this->label38->Text = L"λ[4,0]";
-			// 
+			//
 			// label36
-			// 
+			//
 			this->label36->AutoSize = true;
 			this->label36->Location = System::Drawing::Point(136, 26);
 			this->label36->Name = L"label36";
 			this->label36->Size = System::Drawing::Size(29, 13);
 			this->label36->TabIndex = 14;
 			this->label36->Text = L"MHz";
-			// 
+			//
 			// l20text
-			// 
+			//
 			this->l20text->Location = System::Drawing::Point(54, 23);
 			this->l20text->Name = L"l20text";
 			this->l20text->Size = System::Drawing::Size(80, 20);
 			this->l20text->TabIndex = 13;
 			this->l20text->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::orderheisentext_KeyPress);
 			this->l20text->Leave += gcnew System::EventHandler(this, &EasySpin::orderheisentext_Leave);
-			// 
+			//
 			// label35
-			// 
+			//
 			this->label35->AutoSize = true;
 			this->label35->Location = System::Drawing::Point(9, 26);
 			this->label35->Name = L"label35";
 			this->label35->Size = System::Drawing::Size(33, 13);
 			this->label35->TabIndex = 12;
 			this->label35->Text = L"λ[2,0]";
-			// 
+			//
 			// Optionstab
-			// 
+			//
 			this->Optionstab->Controls->Add(this->Optionspepperpanel);
 			this->Optionstab->Controls->Add(this->Optionschilipanel);
 			this->Optionstab->Controls->Add(this->Optionsgarlicpanel);
@@ -2069,9 +2069,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Optionstab->TabIndex = 3;
 			this->Optionstab->Text = L"Options";
 			this->Optionstab->UseVisualStyleBackColor = true;
-			// 
+			//
 			// Optionspepperpanel
-			// 
+			//
 			this->Optionspepperpanel->Controls->Add(this->label65);
 			this->Optionspepperpanel->Controls->Add(this->Isonumeric);
 			this->Optionspepperpanel->Controls->Add(this->label58);
@@ -2094,18 +2094,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Optionspepperpanel->Size = System::Drawing::Size(399, 157);
 			this->Optionspepperpanel->TabIndex = 35;
 			this->Optionspepperpanel->Visible = false;
-			// 
+			//
 			// label65
-			// 
+			//
 			this->label65->AutoSize = true;
 			this->label65->Location = System::Drawing::Point(18, 127);
 			this->label65->Name = L"label65";
 			this->label65->Size = System::Drawing::Size(97, 13);
 			this->label65->TabIndex = 49;
 			this->label65->Text = L"log(Isotopes cutoff)";
-			// 
+			//
 			// Isonumeric
-			// 
+			//
 			this->Isonumeric->Location = System::Drawing::Point(134, 125);
 			this->Isonumeric->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) {100, 0, 0, System::Int32::MinValue});
 			this->Isonumeric->Name = L"Isonumeric";
@@ -2113,18 +2113,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Isonumeric->TabIndex = 50;
 			this->Isonumeric->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) {4, 0, 0, System::Int32::MinValue});
 			this->Isonumeric->ValueChanged += gcnew System::EventHandler(this, &EasySpin::Optnumeric_ValueChanged);
-			// 
+			//
 			// label58
-			// 
+			//
 			this->label58->AutoSize = true;
 			this->label58->Location = System::Drawing::Point(241, 129);
 			this->label58->Name = L"label58";
 			this->label58->Size = System::Drawing::Size(50, 13);
 			this->label58->TabIndex = 48;
 			this->label58->Text = L"Verbosity";
-			// 
+			//
 			// PepperVerbcombo
-			// 
+			//
 			this->PepperVerbcombo->FormattingEnabled = true;
 			this->PepperVerbcombo->Items->AddRange(gcnew cli::array< System::Object^  >(3) {L"No Print", L"Print", L"Detailed Print"});
 			this->PepperVerbcombo->Location = System::Drawing::Point(302, 128);
@@ -2133,18 +2133,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->PepperVerbcombo->TabIndex = 47;
 			this->PepperVerbcombo->Text = L"No Print";
 			this->PepperVerbcombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Optioncombo_SelectedIndexChanged);
-			// 
+			//
 			// label63
-			// 
+			//
 			this->label63->AutoSize = true;
 			this->label63->Location = System::Drawing::Point(194, 65);
 			this->label63->Name = L"label63";
 			this->label63->Size = System::Drawing::Size(74, 13);
 			this->label63->TabIndex = 45;
 			this->label63->Text = L"log(Threshold)";
-			// 
+			//
 			// Thresnumeric
-			// 
+			//
 			this->Thresnumeric->Location = System::Drawing::Point(290, 63);
 			this->Thresnumeric->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) {100, 0, 0, System::Int32::MinValue});
 			this->Thresnumeric->Name = L"Thresnumeric";
@@ -2152,9 +2152,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Thresnumeric->TabIndex = 46;
 			this->Thresnumeric->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) {4, 0, 0, System::Int32::MinValue});
 			this->Thresnumeric->ValueChanged += gcnew System::EventHandler(this, &EasySpin::Optnumeric_ValueChanged);
-			// 
+			//
 			// IntenscheckBox
-			// 
+			//
 			this->IntenscheckBox->AutoSize = true;
 			this->IntenscheckBox->Checked = true;
 			this->IntenscheckBox->CheckState = System::Windows::Forms::CheckState::Checked;
@@ -2165,18 +2165,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->IntenscheckBox->Text = L"Intensity";
 			this->IntenscheckBox->UseVisualStyleBackColor = true;
 			this->IntenscheckBox->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::Opt_checkBox_CheckedChanged);
-			// 
+			//
 			// label52
-			// 
+			//
 			this->label52->AutoSize = true;
 			this->label52->Location = System::Drawing::Point(189, 38);
 			this->label52->Name = L"label52";
 			this->label52->Size = System::Drawing::Size(52, 13);
 			this->label52->TabIndex = 43;
 			this->label52->Text = L"Symmetry";
-			// 
+			//
 			// Symmetrycombo
-			// 
+			//
 			this->Symmetrycombo->FormattingEnabled = true;
 			this->Symmetrycombo->Items->AddRange(gcnew cli::array< System::Object^  >(5) {L"auto", L"Dinfh", L"D2h", L"C2h", L"Ci"});
 			this->Symmetrycombo->Location = System::Drawing::Point(255, 35);
@@ -2185,18 +2185,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Symmetrycombo->TabIndex = 42;
 			this->Symmetrycombo->Text = L"auto";
 			this->Symmetrycombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Optioncombo_SelectedIndexChanged);
-			// 
+			//
 			// label54
-			// 
+			//
 			this->label54->AutoSize = true;
 			this->label54->Location = System::Drawing::Point(12, 96);
 			this->label54->Name = L"label54";
 			this->label54->Size = System::Drawing::Size(39, 13);
 			this->label54->TabIndex = 41;
 			this->label54->Text = L"Output";
-			// 
+			//
 			// PepperOutputcombo
-			// 
+			//
 			this->PepperOutputcombo->FormattingEnabled = true;
 			this->PepperOutputcombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"summed", L"seperate"});
 			this->PepperOutputcombo->Location = System::Drawing::Point(67, 95);
@@ -2205,9 +2205,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->PepperOutputcombo->TabIndex = 40;
 			this->PepperOutputcombo->Text = L"summed";
 			this->PepperOutputcombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Optioncombo_SelectedIndexChanged);
-			// 
+			//
 			// IntercheckBox
-			// 
+			//
 			this->IntercheckBox->AutoSize = true;
 			this->IntercheckBox->Location = System::Drawing::Point(13, 63);
 			this->IntercheckBox->Name = L"IntercheckBox";
@@ -2216,44 +2216,44 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->IntercheckBox->Text = L"Interpolate";
 			this->IntercheckBox->UseVisualStyleBackColor = true;
 			this->IntercheckBox->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::Opt_checkBox_CheckedChanged);
-			// 
+			//
 			// Interpnumeric
-			// 
+			//
 			this->Interpnumeric->Enabled = false;
 			this->Interpnumeric->Location = System::Drawing::Point(108, 63);
 			this->Interpnumeric->Name = L"Interpnumeric";
 			this->Interpnumeric->Size = System::Drawing::Size(48, 20);
 			this->Interpnumeric->TabIndex = 36;
 			this->Interpnumeric->ValueChanged += gcnew System::EventHandler(this, &EasySpin::Optnumeric_ValueChanged);
-			// 
+			//
 			// label53
-			// 
+			//
 			this->label53->AutoSize = true;
 			this->label53->Location = System::Drawing::Point(12, 40);
 			this->label53->Name = L"label53";
 			this->label53->Size = System::Drawing::Size(34, 13);
 			this->label53->TabIndex = 34;
 			this->label53->Text = L"Knots";
-			// 
+			//
 			// pepKnotsnumeric
-			// 
+			//
 			this->pepKnotsnumeric->Location = System::Drawing::Point(108, 38);
 			this->pepKnotsnumeric->Name = L"pepKnotsnumeric";
 			this->pepKnotsnumeric->Size = System::Drawing::Size(48, 20);
 			this->pepKnotsnumeric->TabIndex = 35;
 			this->pepKnotsnumeric->ValueChanged += gcnew System::EventHandler(this, &EasySpin::Optnumeric_ValueChanged);
-			// 
+			//
 			// label51
-			// 
+			//
 			this->label51->AutoSize = true;
 			this->label51->Location = System::Drawing::Point(6, 9);
 			this->label51->Name = L"label51";
 			this->label51->Size = System::Drawing::Size(43, 13);
 			this->label51->TabIndex = 17;
 			this->label51->Text = L"Method";
-			// 
+			//
 			// PepperMethodcombo
-			// 
+			//
 			this->PepperMethodcombo->FormattingEnabled = true;
 			this->PepperMethodcombo->Items->AddRange(gcnew cli::array< System::Object^  >(4) {L"matrix", L"perturb1", L"perturb2", L"hybrid"});
 			this->PepperMethodcombo->Location = System::Drawing::Point(61, 8);
@@ -2262,9 +2262,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->PepperMethodcombo->TabIndex = 16;
 			this->PepperMethodcombo->Text = L"matrix";
 			this->PepperMethodcombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Optioncombo_SelectedIndexChanged);
-			// 
+			//
 			// Optionschilipanel
-			// 
+			//
 			this->Optionschilipanel->Controls->Add(this->label57);
 			this->Optionschilipanel->Controls->Add(this->chiliVerbcombo);
 			this->Optionschilipanel->Controls->Add(this->label64);
@@ -2281,18 +2281,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Optionschilipanel->Size = System::Drawing::Size(399, 171);
 			this->Optionschilipanel->TabIndex = 34;
 			this->Optionschilipanel->Visible = false;
-			// 
+			//
 			// label57
-			// 
+			//
 			this->label57->AutoSize = true;
 			this->label57->Location = System::Drawing::Point(211, 141);
 			this->label57->Name = L"label57";
 			this->label57->Size = System::Drawing::Size(50, 13);
 			this->label57->TabIndex = 45;
 			this->label57->Text = L"Verbosity";
-			// 
+			//
 			// chiliVerbcombo
-			// 
+			//
 			this->chiliVerbcombo->FormattingEnabled = true;
 			this->chiliVerbcombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"No Print", L"Print"});
 			this->chiliVerbcombo->Location = System::Drawing::Point(272, 140);
@@ -2301,18 +2301,18 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->chiliVerbcombo->TabIndex = 44;
 			this->chiliVerbcombo->Text = L"No Print";
 			this->chiliVerbcombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Optioncombo_SelectedIndexChanged);
-			// 
+			//
 			// label64
-			// 
+			//
 			this->label64->AutoSize = true;
 			this->label64->Location = System::Drawing::Point(16, 140);
 			this->label64->Name = L"label64";
 			this->label64->Size = System::Drawing::Size(39, 13);
 			this->label64->TabIndex = 43;
 			this->label64->Text = L"Output";
-			// 
+			//
 			// chiliOutputcombo
-			// 
+			//
 			this->chiliOutputcombo->FormattingEnabled = true;
 			this->chiliOutputcombo->Items->AddRange(gcnew cli::array< System::Object^  >(2) {L"summed", L"seperate"});
 			this->chiliOutputcombo->Location = System::Drawing::Point(71, 139);
@@ -2321,9 +2321,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->chiliOutputcombo->TabIndex = 42;
 			this->chiliOutputcombo->Text = L"summed";
 			this->chiliOutputcombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Optioncombo_SelectedIndexChanged);
-			// 
+			//
 			// MOMDcheckBox
-			// 
+			//
 			this->MOMDcheckBox->AutoSize = true;
 			this->MOMDcheckBox->Location = System::Drawing::Point(13, 85);
 			this->MOMDcheckBox->Name = L"MOMDcheckBox";
@@ -2332,27 +2332,27 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->MOMDcheckBox->Text = L"MOMD model";
 			this->MOMDcheckBox->UseVisualStyleBackColor = true;
 			this->MOMDcheckBox->CheckedChanged += gcnew System::EventHandler(this, &EasySpin::Opt_checkBox_CheckedChanged);
-			// 
+			//
 			// psitextBox
-			// 
+			//
 			this->psitextBox->Location = System::Drawing::Point(173, 110);
 			this->psitextBox->Name = L"psitextBox";
 			this->psitextBox->Size = System::Drawing::Size(57, 20);
 			this->psitextBox->TabIndex = 33;
 			this->psitextBox->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Opt_textBox_KeyPress);
 			this->psitextBox->Leave += gcnew System::EventHandler(this, &EasySpin::Opt_text_Leave);
-			// 
+			//
 			// psilabel
-			// 
+			//
 			this->psilabel->AutoSize = true;
 			this->psilabel->Location = System::Drawing::Point(15, 112);
 			this->psilabel->Name = L"psilabel";
 			this->psilabel->Size = System::Drawing::Size(144, 13);
 			this->psilabel->TabIndex = 32;
 			this->psilabel->Text = L"Director tilt (angle in degrees)";
-			// 
+			//
 			// Knotslabel
-			// 
+			//
 			this->Knotslabel->AutoSize = true;
 			this->Knotslabel->Enabled = false;
 			this->Knotslabel->Location = System::Drawing::Point(123, 86);
@@ -2360,9 +2360,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->Knotslabel->Size = System::Drawing::Size(34, 13);
 			this->Knotslabel->TabIndex = 28;
 			this->Knotslabel->Text = L"Knots";
-			// 
+			//
 			// ChillKnotsnumeric
-			// 
+			//
 			this->ChillKnotsnumeric->Enabled = false;
 			this->ChillKnotsnumeric->Location = System::Drawing::Point(183, 84);
 			this->ChillKnotsnumeric->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) {1000, 0, 0, 0});
@@ -2371,9 +2371,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->ChillKnotsnumeric->TabIndex = 29;
 			this->ChillKnotsnumeric->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) {5, 0, 0, 0});
 			this->ChillKnotsnumeric->ValueChanged += gcnew System::EventHandler(this, &EasySpin::Optnumeric_ValueChanged);
-			// 
+			//
 			// OddgroupBox
-			// 
+			//
 			this->OddgroupBox->Controls->Add(this->OddMMaxtext);
 			this->OddgroupBox->Controls->Add(this->OddLMaxtext);
 			this->OddgroupBox->Controls->Add(this->label59);
@@ -2384,45 +2384,45 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->OddgroupBox->TabIndex = 27;
 			this->OddgroupBox->TabStop = false;
 			this->OddgroupBox->Text = L"Odd";
-			// 
+			//
 			// OddMMaxtext
-			// 
+			//
 			this->OddMMaxtext->Location = System::Drawing::Point(101, 41);
 			this->OddMMaxtext->Name = L"OddMMaxtext";
 			this->OddMMaxtext->Size = System::Drawing::Size(80, 20);
 			this->OddMMaxtext->TabIndex = 37;
 			this->OddMMaxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Opt_textBox_KeyPress);
 			this->OddMMaxtext->Leave += gcnew System::EventHandler(this, &EasySpin::Opt_text_Leave);
-			// 
+			//
 			// OddLMaxtext
-			// 
+			//
 			this->OddLMaxtext->Location = System::Drawing::Point(101, 13);
 			this->OddLMaxtext->Name = L"OddLMaxtext";
 			this->OddLMaxtext->Size = System::Drawing::Size(80, 20);
 			this->OddLMaxtext->TabIndex = 36;
 			this->OddLMaxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Opt_textBox_KeyPress);
 			this->OddLMaxtext->Leave += gcnew System::EventHandler(this, &EasySpin::Opt_text_Leave);
-			// 
+			//
 			// label59
-			// 
+			//
 			this->label59->AutoSize = true;
 			this->label59->Location = System::Drawing::Point(6, 41);
 			this->label59->Name = L"label59";
 			this->label59->Size = System::Drawing::Size(63, 13);
 			this->label59->TabIndex = 15;
 			this->label59->Text = L"M Maximum";
-			// 
+			//
 			// label60
-			// 
+			//
 			this->label60->AutoSize = true;
 			this->label60->Location = System::Drawing::Point(6, 16);
 			this->label60->Name = L"label60";
 			this->label60->Size = System::Drawing::Size(60, 13);
 			this->label60->TabIndex = 6;
 			this->label60->Text = L"L Maximum";
-			// 
+			//
 			// EvengroupBox
-			// 
+			//
 			this->EvengroupBox->Controls->Add(this->EvenKMaxtext);
 			this->EvengroupBox->Controls->Add(this->EvenLMaxtext);
 			this->EvengroupBox->Controls->Add(this->label61);
@@ -2433,65 +2433,65 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->EvengroupBox->TabIndex = 26;
 			this->EvengroupBox->TabStop = false;
 			this->EvengroupBox->Text = L"Even";
-			// 
+			//
 			// EvenKMaxtext
-			// 
+			//
 			this->EvenKMaxtext->Location = System::Drawing::Point(103, 40);
 			this->EvenKMaxtext->Name = L"EvenKMaxtext";
 			this->EvenKMaxtext->Size = System::Drawing::Size(80, 20);
 			this->EvenKMaxtext->TabIndex = 35;
 			this->EvenKMaxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Opt_textBox_KeyPress);
 			this->EvenKMaxtext->Leave += gcnew System::EventHandler(this, &EasySpin::Opt_text_Leave);
-			// 
+			//
 			// EvenLMaxtext
-			// 
+			//
 			this->EvenLMaxtext->Location = System::Drawing::Point(103, 12);
 			this->EvenLMaxtext->Name = L"EvenLMaxtext";
 			this->EvenLMaxtext->Size = System::Drawing::Size(80, 20);
 			this->EvenLMaxtext->TabIndex = 34;
 			this->EvenLMaxtext->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &EasySpin::Opt_textBox_KeyPress);
 			this->EvenLMaxtext->Leave += gcnew System::EventHandler(this, &EasySpin::Opt_text_Leave);
-			// 
+			//
 			// label61
-			// 
+			//
 			this->label61->AutoSize = true;
 			this->label61->Location = System::Drawing::Point(6, 41);
 			this->label61->Name = L"label61";
 			this->label61->Size = System::Drawing::Size(61, 13);
 			this->label61->TabIndex = 15;
 			this->label61->Text = L"K Maximum";
-			// 
+			//
 			// label62
-			// 
+			//
 			this->label62->AutoSize = true;
 			this->label62->Location = System::Drawing::Point(6, 16);
 			this->label62->Name = L"label62";
 			this->label62->Size = System::Drawing::Size(60, 13);
 			this->label62->TabIndex = 6;
 			this->label62->Text = L"L Maximum";
-			// 
+			//
 			// Optionsgarlicpanel
-			// 
+			//
 			this->Optionsgarlicpanel->Controls->Add(this->label50);
 			this->Optionsgarlicpanel->Controls->Add(this->GarlicMethodcombo);
 			this->Optionsgarlicpanel->Location = System::Drawing::Point(6, 3);
 			this->Optionsgarlicpanel->Name = L"Optionsgarlicpanel";
 			this->Optionsgarlicpanel->Size = System::Drawing::Size(399, 42);
 			this->Optionsgarlicpanel->TabIndex = 32;
-			// 
+			//
 			// label50
-			// 
+			//
 			this->label50->AutoSize = true;
 			this->label50->Location = System::Drawing::Point(6, 9);
 			this->label50->Name = L"label50";
 			this->label50->Size = System::Drawing::Size(43, 13);
 			this->label50->TabIndex = 17;
 			this->label50->Text = L"Method";
-			// 
+			//
 			// GarlicMethodcombo
-			// 
+			//
 			this->GarlicMethodcombo->FormattingEnabled = true;
-			this->GarlicMethodcombo->Items->AddRange(gcnew cli::array< System::Object^  >(6) {L"exact", L"perturb1", L"perturb2", L"perturb3", 
+			this->GarlicMethodcombo->Items->AddRange(gcnew cli::array< System::Object^  >(6) {L"exact", L"perturb1", L"perturb2", L"perturb3",
 				L"perturb4", L"perturb5"});
 			this->GarlicMethodcombo->Location = System::Drawing::Point(61, 8);
 			this->GarlicMethodcombo->Name = L"GarlicMethodcombo";
@@ -2499,9 +2499,9 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 			this->GarlicMethodcombo->TabIndex = 16;
 			this->GarlicMethodcombo->Text = L"exact";
 			this->GarlicMethodcombo->SelectedIndexChanged += gcnew System::EventHandler(this, &EasySpin::Optioncombo_SelectedIndexChanged);
-			// 
+			//
 			// EasySpin
-			// 
+			//
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(865, 684);
@@ -2608,7 +2608,7 @@ private: System::Windows::Forms::Panel^  Heisenbergpanel;
 	private: System::Void DynamicsUnitscombo_SelectedIndexChanged(System::Object^ , System::EventArgs^  ) ;
 	private: System::Void Exportbutton_Click(System::Object^, System::EventArgs^  ) ;
 	private: System::Void PreviewtextBox_MouseDown(System::Object^  , System::Windows::Forms::MouseEventArgs^ );
-	private: System::Void PreviewtextBox_MouseMove(System::Object^  , System::Windows::Forms::MouseEventArgs^ ); 
+	private: System::Void PreviewtextBox_MouseMove(System::Object^  , System::Windows::Forms::MouseEventArgs^ );
 	private: System::Void Anisotropic_Leave(System::Object^  sender, System::EventArgs^  e) {
 				 Anisotropic_text_KeyPress(sender, gcnew KeyPressEventArgs((char)13));
 			 }

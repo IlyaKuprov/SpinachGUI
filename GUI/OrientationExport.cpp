@@ -61,7 +61,7 @@ System::Void SpinachGUI::OrientationExport::Exportbutton_Click(System::Object^  
 		FileStream^ fs=gcnew FileStream(ExportFileDialog->FileName,FileMode::Create );
 
 		//Convert and write to file
-		array<Byte>^ info = (gcnew  System::Text::UTF8Encoding( true ))->GetBytes( PreviewtextBox->Text);
+		cli::array<Byte>^ info = (gcnew  System::Text::UTF8Encoding( true ))->GetBytes( PreviewtextBox->Text);
 		fs->Write( info, 0, info->Length  );
 
 		fs->Close();

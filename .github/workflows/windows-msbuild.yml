@@ -1,0 +1,32 @@
+name: Windows MSBuild
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - talos/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [Release]
+        platform: [Win32, x64]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build SpinachGUI
+        shell: cmd
+        run: msbuild GUI\SpinachGui.sln /m /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM% /p:RestorePackages=false
+        env:
+          CONFIGURATION: ${{ matrix.configuration }}
+          PLATFORM: ${{ matrix.platform }}

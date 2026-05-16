@@ -72,50 +72,50 @@ bool Gauss::LoadFile(void)
 	 if(OK)
 	 {
 		 //Read isotopes
-		 if (Command->Contains(CMD_ISOTOPES1))	
-		 { 
+		 if (Command->Contains(CMD_ISOTOPES1))
+		 {
 			 OK=read_ISOTOPES1();
 		 }//Read isotopes - alternative syntax
-		 else if (Command->Contains(CMD_ISOTOPES2))	
+		 else if (Command->Contains(CMD_ISOTOPES2))
 		 {
 			 OK=read_ISOTOPES2();
 		 } //Read coordinates
-		 else if (Command->Contains(CMD_COORDINATES1) || Command->Contains(CMD_COORDINATES2))	
-		 { 
-			 OK=read_COORDINATES(); 
+		 else if (Command->Contains(CMD_COORDINATES1) || Command->Contains(CMD_COORDINATES2))
+		 {
+			 OK=read_COORDINATES();
 			 read_onceCO=true; //read at least once
 		 }	//Read g-tensors
-		 else if (Command->Contains(CMD_GTENSOR)) 
+		 else if (Command->Contains(CMD_GTENSOR))
 		 {
 			 OK=read_GTENSOR();
 			 read_onceGT=true;  //read at least once
 		 } //Read CHI-tensors
-		 else if (Command->Contains(CMD_CHITENSOR)) 
+		 else if (Command->Contains(CMD_CHITENSOR))
 		 {
 			 OK=read_CHITENSOR();
 			 read_onceCHIT=true;  //read at least once
 		 } //Read Chemical Shields
-		 else if (Command->Contains(CMD_CSTENSOR)) 
+		 else if (Command->Contains(CMD_CSTENSOR))
 		 {
 			 OK=read_CSTENSOR();
 			 read_onceCS=true; //read at least once
 		 } //Read j-couplings
-		 else if (Command->Contains(CMD_JCOUPLINGS)) 
+		 else if (Command->Contains(CMD_JCOUPLINGS))
 		 {
 			 OK=read_JCOUPLINGS();
 			 read_onceJC=true; //read at least once
 		 } //Read isotropic factors
-		 else if (Command->Contains(CMD_ISOCOUPLINGS)) 
+		 else if (Command->Contains(CMD_ISOCOUPLINGS))
 		 {
 			 OK=read_ISOCOUPLINGS();
 			 read_onceISO=true; //read at least once
 		 } //Read Quadrupolar couplings
-		 else if (Command->Contains(CMD_QUADCOUPLINGS)) 
+		 else if (Command->Contains(CMD_QUADCOUPLINGS))
 		 {
 			 OK=read_QUADCOUPLINGS();
 			 read_onceQC=true; //read at least once
 		 } //Read anisotropic couplings for hfc
-		 else if (Command->Contains(CMD_ANISCOUPLINGS)) 
+		 else if (Command->Contains(CMD_ANISCOUPLINGS))
 		 {
 			 OK=read_ANISCOUPLINGS();
 			 read_onceANI=true; //read at least once
@@ -128,7 +128,7 @@ bool Gauss::LoadFile(void)
  };
 
  // Check if Gaussian format, at least one of the section to be read
- if(!(read_onceCO || read_onceGT || read_onceCS || read_onceCHIT || 
+ if(!(read_onceCO || read_onceGT || read_onceCS || read_onceCHIT ||
 	 read_onceJC || read_onceISO || read_onceQC || read_onceANI)) return false;
 
  //Compine isotropic factor and anisotropic coupligs to create HFC
@@ -142,7 +142,7 @@ bool Gauss::LoadFile(void)
 	 {
 		 //Create electron
 		 Atom^ nAtom=gcnew Atom();
-		 nAtom->isotope=Isotopes::FindIsotope("e",0, 0); 
+		 nAtom->isotope=Isotopes::FindIsotope("e",0, 0);
 		 nAtom->X=0.0f;
 		 nAtom->Y=0.0f;
 		 nAtom->Z=0.0f;
@@ -156,7 +156,7 @@ bool Gauss::LoadFile(void)
 		 //Create gtensor
 		 ::Matrix3x3 ^g_tensor=gcnew ::Matrix3x3();
 		 g_tensor[0]=2.0023f; g_tensor[4]=2.0023f;g_tensor[8]=2.0023f;
-		 g_tensor[1]=0.0f; g_tensor[2]=0.0f; g_tensor[3]=0.0f; 
+		 g_tensor[1]=0.0f; g_tensor[2]=0.0f; g_tensor[3]=0.0f;
 		 g_tensor[5]=0.0f; g_tensor[6]=0.0f; g_tensor[7]=0.0f;
 
 
@@ -168,8 +168,8 @@ bool Gauss::LoadFile(void)
 			 nInteraction->unit=Units::Mi_b;
 			 nInteraction->Frame=SystemModel->RefFrameCollection[1];
 		 }//Throws when an invalid interaction is tried to create.
-		 catch(Exception ^ e)  
-		 { 
+		 catch(Exception ^ e)
+		 {
 			 throw gcnew Exception("Problem in creating gtensor"+e->Message
 				 +". Problem in Reading File in Line:"+getLineStop()+" .");
 		 };
@@ -179,20 +179,20 @@ bool Gauss::LoadFile(void)
 
 	 }
 	 else  //find alectron and save its ID
-		 for each(int i in AtomCollection->Keys) 
+		 for each(int i in AtomCollection->Keys)
 			 if(((Atom^)AtomCollection[i])->isotope->Element=="e") electronindex=i;
-	
+
 	 int jj=0;
 
 	 //Loop over all interactions
-	 for each(int i in gcnew List<int>(InteractionCollection->Keys)) 
+	 for each(int i in gcnew List<int>(InteractionCollection->Keys))
 	 {
 		 //Find the spin rotations in order to change them to HFC
 		 if(((Interaction ^)InteractionCollection[i])->IntKind==InteractionKind::spinrotation)
 		 {
 			 ::Matrix3x3 ^ HF_Couplings=gcnew ::Matrix3x3();
 
-			 //The interaction matrix of HFC is the anistropix part 
+			 //The interaction matrix of HFC is the anistropix part
 			 //plus the istropic factor in the diagonal elements
 			 HF_Couplings=((Tensor ^)InteractionCollection[i])->matrix3x3;
 			 HF_Couplings[0]+=(double)IsotropicCollection[jj];
@@ -202,15 +202,15 @@ bool Gauss::LoadFile(void)
 			 //Try to create new Interaction
 			 Tensor^ nInteraction;
 			 try{
-				 nInteraction=gcnew Tensor(((Interaction ^)InteractionCollection[i])->A , 
+				 nInteraction=gcnew Tensor(((Interaction ^)InteractionCollection[i])->A ,
 					 (Atom^)AtomCollection[electronindex],
-					 InteractionKind::HFC, 
+					 InteractionKind::HFC,
 					 HF_Couplings);
 				 nInteraction->unit=Units::Gauss;
 				 nInteraction->Frame=SystemModel->RefFrameCollection[1];
 			 }//Throws when an invalid interaction is tried to create.
-			 catch(Exception ^ e)  
-			 { 
+			 catch(Exception ^ e)
+			 {
 				 throw gcnew Exception("Problem in creating gtensor"+e->Message
 					 +". Problem in Reading File in Line:"+getLineStop()+" .");
 			 };
@@ -237,9 +237,9 @@ bool Gauss::read_ISOTOPES1()
 
 	int number=1;   //number of fields in the a line, here can be anything
 	String^ fileline=gcnew String(""); //line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,";            //seperator of fields =
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 
 	//Sometimes next line contains the word symbolic, so ignore and read next line
 	if((fileline=ReadLine())->Contains("Symbolic")) fileline=ReadLine();
@@ -253,7 +253,7 @@ bool Gauss::read_ISOTOPES1()
 		numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
 		//Check if the number fields is correct
-		if(number>numbers->Length) 
+		if(number>numbers->Length)
 		{
 			throw gcnew Exception("Problem in Reading Isotope."
 				+" Problem in Reading File in Line: "+getLineStop()+".") ;
@@ -282,7 +282,7 @@ bool Gauss::read_ISOTOPES1()
 		{
 			//In case of something is not a letter  or it is a number
 			if(!Char::IsLetter(((String^)Elements[i])[jj]) ||
-				Char::IsDigit(((String^)Elements[i])[jj])) 
+				Char::IsDigit(((String^)Elements[i])[jj]))
 			{
 				//Find if it contains the word Iso
 				if(((String^)Elements[i])->Substring(jj)->Contains("Iso"))
@@ -321,10 +321,10 @@ bool Gauss::read_ISOTOPES2()
 	int j=0;
 	int number=3;   //number of fields in the a line
 	String^ fileline=gcnew String(""); //line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,";            //seperator of fields=
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
-	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
+
 	//                    1          2          3          4          5
 	fileline=ReadLine();
 
@@ -337,19 +337,19 @@ bool Gauss::read_ISOTOPES2()
 		numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
 		//Check if the numebr fields is correct
-		if(number!=numbers->Length) 
+		if(number!=numbers->Length)
 		{
 			throw gcnew Exception("Problem in Reading Isotope."
 				+" Problem in Reading File in Line: "+getLineStop()+".") ;
 		};
 
 		//If elements and masses was not added in the arrays before,  add them now else overwrite them.
-		if(++j==Elements->Count) 
+		if(++j==Elements->Count)
 		{
 			Elements->Add(numbers[1]);
 			Mass->Add((Int32 ^)0);
 		}
-		else 
+		else
 		{
 			Elements[j]=numbers[1];
 			Mass[j]=(Int32 ^)0;
@@ -368,7 +368,7 @@ bool Gauss::read_ISOTOPES2()
 		{
 			//In case of something is not a letter  or it is a number
 			if(!Char::IsLetter(((String^)Elements[i])[jj]) ||
-				Char::IsDigit(((String^)Elements[i])[jj])) 
+				Char::IsDigit(((String^)Elements[i])[jj]))
 			{
 				//Find if it contains the word Iso
 				if(((String^)Elements[i])->Substring(jj)->Contains("Iso"))
@@ -405,13 +405,13 @@ bool Gauss::read_COORDINATES()
  	int number=6;   //number of fileds in the a line
 	double value;  //readedd value
 	String^ fileline=gcnew String(""); //line
-	int AtomID=1;   
+	int AtomID=1;
 	int index=0;    //Index for the elements array
 	double x,y,z;   //Coordinates
 
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,=";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 
 	// ---------------------------------------------------------------------
 	// Center     Atomic      Atomic             Coordinates (Angstroms)
@@ -430,7 +430,7 @@ bool Gauss::read_COORDINATES()
 		numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
 		//Check if the numebr fields is correct
-		if(number!=numbers->Length) 
+		if(number!=numbers->Length)
 		{
 			throw gcnew Exception("Problem in Reading Coordinates."
 				+" Problem in Reading File in Line: "+getLineStop()+".") ;
@@ -449,7 +449,7 @@ bool Gauss::read_COORDINATES()
 		//Find isotope from the elements matrix
 		try{
 			nAtom->isotope=Isotopes::FindIsotope(((String^) Elements[index]),
-				Convert::ToInt32(numbers[1]), 
+				Convert::ToInt32(numbers[1]),
 				(int)((Int32^) Mass[index]));
 			index++;
 		}
@@ -461,7 +461,7 @@ bool Gauss::read_COORDINATES()
 
 		//If this is the first time reading this section(read_once==false)
 		// just add it in the system else replace the previous frame value(if exists)
-		if(read_onceCO) 
+		if(read_onceCO)
 			try{AtomCollection[AtomID]=nAtom; AtomID++;}
 		catch(Exception ^ e)  {throw gcnew Exception("Problem in Elements: "+e->Message);}
 		else AtomCollection->Add(nAtom);
@@ -484,9 +484,9 @@ bool Gauss::read_ISOCOUPLINGS()
 	double value; //readed value
 	String^ fileline=gcnew String(""); //line
 	int jj=0;
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,=";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 
 	//Atom                 a.u.       MegaHertz       Gauss      10(-4) cm-1
 	fileline=ReadLine() ;
@@ -506,13 +506,13 @@ bool Gauss::read_ISOCOUPLINGS()
 		};
 
 		//Try to read elements and save in the matrix
-		if (!Double::TryParse(numbers[4], value )) 
+		if (!Double::TryParse(numbers[4], value ))
 			throw gcnew Exception("Problem in Reading Isotropic factor in Line "+
 			LineCount+". The format of field(double) is incorrect.");
 
 		//If this is the first time reading this section(read_once==false)
 		// just add it in the system else replace the previous frame value(if exists)
-		if(read_onceISO) 
+		if(read_onceISO)
 			try{IsotropicCollection[jj]=value; jj++;}
 		catch(String ^ e)  {throw gcnew Exception("Problem in Elements: "+e);}
 		else  IsotropicCollection->Add(value);
@@ -532,19 +532,19 @@ bool Gauss::read_JCOUPLINGS()
 	String^ fileline=gcnew String(""); //line
 	int jj=0;
 
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,=";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 
 	//Saving the starting index of this interaction for case of multiple frames
 	static int startIndex;
 	if(!read_onceJC) startIndex=InteractionCollection->Count;
 
 
-	//Loop over the parts of matrix  
+	//Loop over the parts of matrix
 	for(int k=0;k<AtomCount/5+(int)(AtomCount%5>0); k++)
 	{
-		//        1             2             3             4             5 
+		//        1             2             3             4             5
 		fileline=ReadLine() ;
 
 		//Read line with up to 6 columns
@@ -563,7 +563,7 @@ bool Gauss::read_JCOUPLINGS()
 			numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
 			//Check if the numebr fields is correct
-			if(number!=numbers->Length) 
+			if(number!=numbers->Length)
 			{
 				throw gcnew Exception("Problem in Reading Total Couplings"
 					+". Problem in Reading File in Line: "+getLineStop()+".") ;
@@ -575,14 +575,14 @@ bool Gauss::read_JCOUPLINGS()
 			{
 
 				//Try to read elements and save in the matrix
-				if (!Double::TryParse(numbers[j], value )) 
+				if (!Double::TryParse(numbers[j], value ))
 					throw gcnew Exception("Problem in Reading J-Couplings matrix elements in Line "+
 					LineCount+". The format of fields(double) is incorrect.");
 
 				//Set the matrix
 				::Matrix3x3 ^Matrix=gcnew ::Matrix3x3();
 				Matrix[0]=value; Matrix[4]=value; Matrix[8]=value;
-				Matrix[1]=0.0; Matrix[2]=0.0; Matrix[3]=0.0; 
+				Matrix[1]=0.0; Matrix[2]=0.0; Matrix[3]=0.0;
 				Matrix[5]=0.0; Matrix[6]=0.0; Matrix[7]=0.0;
 
 				//Try to create new Interaction
@@ -590,20 +590,20 @@ bool Gauss::read_JCOUPLINGS()
 				try{
 					nInteraction=gcnew Tensor((Atom^)AtomCollection[i+5*k+1],
 						(Atom^)AtomCollection[j+5*k],
-						InteractionKind::Jcoupling, 
+						InteractionKind::Jcoupling,
 						Matrix);
 					nInteraction->unit=Units::Hz;
 					nInteraction->Frame=SystemModel->RefFrameCollection[1];
 				}//Throws when an invalid interaction is tried to create.
-				catch(Exception ^ e)  
-				{ 
+				catch(Exception ^ e)
+				{
 					throw gcnew Exception("Problem in Reading J-Couplings:"+e->Message
 						+". Problem in Reading File in Line:"+getLineStop()+" .");
 				};
 
 				//If this is the first time reading this section(read_once==false)
 				// just add it in the system else replace the previous frame value(if exists)
-				if(read_onceJC) 
+				if(read_onceJC)
 					try{InteractionCollection[startIndex+jj]=nInteraction; jj++;}
 				catch(String ^ e)  {throw gcnew Exception("Problem in Elements: "+e);}
 				else InteractionCollection->Add(nInteraction);
@@ -644,23 +644,23 @@ bool Gauss::read_CSTENSOR()
 		//  XZ=   -52.1651   YZ=    56.3286   ZZ=     0.1103
 		fileline=ReadLine();
 		//Number of Fields: 6, XYZ index: 1,3,5
-		ExtractInteractionMatrix3x3(fileline, "Chemical Shielding", 
+		ExtractInteractionMatrix3x3(fileline, "Chemical Shielding",
 			(Atom^)AtomCollection[i], (Atom^)AtomCollection[i], 1.0,
-			read_onceCS, startIndex, ii, 6, 1, 3, 5, 
-			Units::ppm, InteractionKind::CShielding, 
-			SystemModel->RefFrameCollection[1], 
+			read_onceCS, startIndex, ii, 6, 1, 3, 5,
+			Units::ppm, InteractionKind::CShielding,
+			SystemModel->RefFrameCollection[1],
 			InteractionCollection);
 
 		//Dummy
 		//Eigenvalues:   -50.5935    81.0799   143.3958
 		fileline=ReadLine() ;
-	};   
+	};
 	return true;
 }
 
 /**
-* @brief Main function for reading Anisotropic eigenvalues and DCMs and save them as spin 
-* rotation couplings in order to create hyperfine interactions. Actually we create the 
+* @brief Main function for reading Anisotropic eigenvalues and DCMs and save them as spin
+* rotation couplings in order to create hyperfine interactions. Actually we create the
 * interaction matrix from them.
 * @return Returns false if the format does not seem to be correct.
 */
@@ -668,9 +668,9 @@ bool Gauss::read_ANISCOUPLINGS()
 {
 	int number=8;   //number of fields in the a line
 	String^ fileline=gcnew String(""); //line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,=";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 
 	//Saving the starting index of this interaction for case of multiple frames
 	if(!read_onceANI) startIndexANIS=InteractionCollection->Count;
@@ -684,7 +684,7 @@ bool Gauss::read_ANISCOUPLINGS()
 	fileline=ReadLine() ;
 
 	//Loop over all atoms excepts electrons
-	for each(int i in AtomCollection->Keys) 
+	for each(int i in AtomCollection->Keys)
 		if((((Atom^)AtomCollection[i])->isotope->Element!="e") && (((Atom^)AtomCollection[i])->isotope->Element!="chi"))
 		{
 			double *eigen_Anis_Couplings=new double[9]; //eigen values
@@ -703,7 +703,7 @@ bool Gauss::read_ANISCOUPLINGS()
 
 			//Try to read elements and save in the matrix
 			// use & not && to avoid short circuit
-			if (number!=numbers->Length & 
+			if (number!=numbers->Length &
 				!Double::TryParse(numbers[3], x) ||
 				!Double::TryParse(numbers[5], y) ||
 				!Double::TryParse(numbers[6], z) ||
@@ -728,7 +728,7 @@ bool Gauss::read_ANISCOUPLINGS()
 
 			//Try to read elements and save in the matrix
 			// use & not && to avoid short circuit
-			if ((number+2)!=numbers->Length & 
+			if ((number+2)!=numbers->Length &
 				!Double::TryParse(numbers[5], x) ||
 				!Double::TryParse(numbers[7], y) ||
 				!Double::TryParse(numbers[8], z) ||
@@ -753,7 +753,7 @@ bool Gauss::read_ANISCOUPLINGS()
 
 			//Try to read elements and save in the matrix
 			// use & not && to avoid short circuit
-			if (number!=numbers->Length & 
+			if (number!=numbers->Length &
 				!Double::TryParse(numbers[3], x) ||
 				!Double::TryParse(numbers[5], y) ||
 				!Double::TryParse(numbers[6], z) ||
@@ -771,7 +771,7 @@ bool Gauss::read_ANISCOUPLINGS()
 
 			//Generate Tensor from eigenvectors and eigen values
 			Matrix3d result,eigenVectors,eigenValues;
-			for(int j=0;j<9;j++) 
+			for(int j=0;j<9;j++)
 			{
 				eigenVectors(j)=eigenvec_Anis_Couplings[j];
 				eigenValues(j)=eigen_Anis_Couplings[j];
@@ -787,12 +787,12 @@ bool Gauss::read_ANISCOUPLINGS()
 			//Try tocreate temporary spirotation then convert to HFC
 			Tensor^ nInteraction;
 			try{
-				nInteraction=gcnew Tensor((Atom^)AtomCollection[i], 
-					(Atom^)AtomCollection[i], 
-					InteractionKind::spinrotation, 
+				nInteraction=gcnew Tensor((Atom^)AtomCollection[i],
+					(Atom^)AtomCollection[i],
+					InteractionKind::spinrotation,
 					eigenvec_Anis_Couplings);
 			}
-			catch(Exception ^ e) 
+			catch(Exception ^ e)
 			{
 				throw gcnew Exception("Problem in Reading Hyperfine: "+e->Message
 					+". Problem in Reading File in Line:"+getLineStop()+" .");
@@ -803,7 +803,7 @@ bool Gauss::read_ANISCOUPLINGS()
 			if(read_onceANI)
 				try{InteractionCollection[i+startIndexANIS]=nInteraction;}
 			catch(String ^ e)  {throw gcnew Exception("Problem in Elements: "+e);}
-			else InteractionCollection->Add(nInteraction);		
+			else InteractionCollection->Add(nInteraction);
 		};
 
 		return true;
@@ -821,7 +821,7 @@ bool Gauss::read_GTENSOR()
 	//Saving the starting index of this interaction and electron for case of multiple frames
 	static int startIndex;
 	static int ElectronstartIndex;
-	if(!read_onceGT) 
+	if(!read_onceGT)
 	{
 		startIndex=InteractionCollection->Count;
 		ElectronstartIndex=AtomCollection->Count;
@@ -846,13 +846,13 @@ bool Gauss::read_GTENSOR()
 	//  XY= 16.8895   YY=    49.5584   ZY= 50.7000
 	//  XZ=-52.1651   YZ=    56.3286   ZZ=  0.1103
 	fileline=ReadLine();
-	
+
 	//Number of Fields: 6, XYZ index: 1,3,5
-	ExtractInteractionMatrix3x3(fileline, "G-tesnor", 
+	ExtractInteractionMatrix3x3(fileline, "G-tesnor",
 		nAtom, nAtom, 1.0,
-		read_onceGT, startIndex, ii, 6, 1, 3, 5, 
-		Units::Mi_b, InteractionKind::GTensor, 
-		SystemModel->RefFrameCollection[1], 
+		read_onceGT, startIndex, ii, 6, 1, 3, 5,
+		Units::Mi_b, InteractionKind::GTensor,
+		SystemModel->RefFrameCollection[1],
 		InteractionCollection);
 
 	return true;
@@ -865,11 +865,11 @@ bool Gauss::read_GTENSOR()
 bool Gauss::read_CHITENSOR()
 {
  	String^ fileline=gcnew String(""); //line
-	int ii=1;	
+	int ii=1;
 
 	static int startIndex;
 	static int ChielectronstartIndex;
-	if(!read_onceCHIT) 
+	if(!read_onceCHIT)
 	{
 		startIndex=InteractionCollection->Count;
 		ChielectronstartIndex=AtomCollection->Count;
@@ -886,24 +886,24 @@ bool Gauss::read_CHITENSOR()
 	// just add it in the system else replace the previous frame value(if exists)
 	if(read_onceCHIT) AtomCollection[ChielectronstartIndex+1]=nAtom;
 	else AtomCollection->Add(nAtom);
-	
+
 	//nAtom->ID=AtomCollection->Count;
-		
-	//Reading interaction matrix and creating interaction		
-	//  XX= 124.2135  YX=    17.8802   ZX=-52.5149		
-	//  XY= 16.8895   YY=    49.5584   ZY= 50.7000	
-	//  XZ=-52.1651   YZ=    56.3286   ZZ=  0.1103	
-		
+
+	//Reading interaction matrix and creating interaction
+	//  XX= 124.2135  YX=    17.8802   ZX=-52.5149
+	//  XY= 16.8895   YY=    49.5584   ZY= 50.7000
+	//  XZ=-52.1651   YZ=    56.3286   ZZ=  0.1103
+
 	fileline=ReadLine();
-		
-	//Number of Fields: 6, XYZ index: 1,3,5		
-	ExtractInteractionMatrix3x3(fileline, "CHI-tesnor", 		
-		nAtom, nAtom, 1.0,		
-		read_onceCHIT, startIndex, ii, 6, 1, 3, 5, 			
-		Units::Mi_b, InteractionKind::CHITensor, 			
-		SystemModel->RefFrameCollection[1], 		
+
+	//Number of Fields: 6, XYZ index: 1,3,5
+	ExtractInteractionMatrix3x3(fileline, "CHI-tesnor",
+		nAtom, nAtom, 1.0,
+		read_onceCHIT, startIndex, ii, 6, 1, 3, 5,
+		Units::Mi_b, InteractionKind::CHITensor,
+		SystemModel->RefFrameCollection[1],
 		InteractionCollection);
-		
+
 		return true;
 }
 
@@ -914,9 +914,9 @@ bool Gauss::read_CHITENSOR()
 bool Gauss::read_QUADCOUPLINGS()
 {
 	int number;   //number of fields in the a line
-	array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
+	cli::array<String^>^numbers = nullptr;   // Matrix of the fields after splitting of a line
 	String^ delimStr = " ,=";            //seperator of fields
-	array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array	
+	cli::array<Char>^delimiter = delimStr->ToCharArray(); //Conversion to char array
 
 	String^ fileline=gcnew String(""); //line
 	int ii=1;
@@ -928,19 +928,19 @@ bool Gauss::read_QUADCOUPLINGS()
 	//Loop over all atoms
 	for each(int i in AtomCollection->Keys)
 	{
-		//    1  C(12) 
+		//    1  C(12)
 		fileline=ReadLine();
 
 		//Split the line
 	   numbers=fileline->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
-	   
+
 	   //check if all the atoms have quadropolar and save atom ID, use & for avoiding short circuit
 	   int AtomID;
 	   if(numbers->Length!=2 & !Int32::TryParse(numbers[0], AtomID)) return true;
 
 		//For Quadrupolar interactions, try to find proper isotope
 		try{
-			if(((Atom^)AtomCollection[AtomID])->isotope->Spin<=0.5f) 
+			if(((Atom^)AtomCollection[AtomID])->isotope->Spin<=0.5f)
 				((Atom^)AtomCollection[AtomID])->isotope=
 				Isotopes::FindIsotopeWithHigherSpin(((Atom^)AtomCollection[i])->isotope);
 
@@ -950,14 +950,14 @@ bool Gauss::read_QUADCOUPLINGS()
 			//ac=     0.0000   bc=     0.0000   cc=     0.0000
 			fileline=ReadLine();
 			//Number of Fields: 6, XYZ index: 1,3,5
-			ExtractInteractionMatrix3x3(fileline, "Quadrupolar Interaction", 
+			ExtractInteractionMatrix3x3(fileline, "Quadrupolar Interaction",
 				(Atom^)AtomCollection[AtomID], (Atom^)AtomCollection[AtomID], 1.0,
-				read_onceQC, startIndex, ii, 6, 1, 3, 5, 
-				Units::MHz, InteractionKind::Quadrupolar, 
-				SystemModel->RefFrameCollection[1], 
+				read_onceQC, startIndex, ii, 6, 1, 3, 5,
+				Units::MHz, InteractionKind::Quadrupolar,
+				SystemModel->RefFrameCollection[1],
 				InteractionCollection);
 		}//In case we can not find isotope with  spin>0.5
 		catch (String^ e) {/*Continue*/};
-	};   
+	};
 	return true;
 }

@@ -51,7 +51,7 @@ System::Void SpinachGUI::EasySpin::EasySpin_Initialization(Model^% model, String
 	convolutionBoxKeyPress(textbox, gcnew KeyPressEventArgs((char)13));
 	textbox->Tag=Convert::ToString(3);
 	convolutionBoxKeyPress(textbox, gcnew KeyPressEventArgs((char)13));
-	
+
 	//Initial dynamics tabs parameters
     Anisotropic_text_KeyPress(gcnew TextBox(), gcnew KeyPressEventArgs((char)13));
 	textBoxDynamics_KeyPress(gcnew TextBox(), gcnew KeyPressEventArgs((char)13));
@@ -173,16 +173,16 @@ System::Void SpinachGUI::EasySpin::WriteHeader()
 	};
 
 	//If HFC exist and quadropolar exist combine them.
-	if(hflag)  for(int i=0;i<A->Count;i++) FileText+=A[i]+(qflag? (String ^ )Q[i] : "); \r\n");	
+	if(hflag)  for(int i=0;i<A->Count;i++) FileText+=A[i]+(qflag? (String ^ )Q[i] : "); \r\n");
 	else //else write atom collection alone
 	{
 		FileText+="Sys.Nucs= "+"\'";
 
 		//Loop over all atoms
-		for each(int i in AtomCollection->Keys) 
+		for each(int i in AtomCollection->Keys)
 		{
 			//Write all atoms except electrons
-			if(((Atom^)AtomCollection[i])->isotope->Element!="e") 
+			if(((Atom^)AtomCollection[i])->isotope->Element!="e")
 				FileText+=(i==1? (String ^ )"" : (String ^ )", ")+
 				          ((Atom^)AtomCollection[i])->isotope->Mass+
 				          ((Atom^)AtomCollection[i])->isotope->Element;
@@ -242,7 +242,7 @@ System::Void SpinachGUI::EasySpin::WriteFooter()
 	int fontsize=11;
 
 	//Find the maximum line width
-	for(int i=0;i<PreviewtextBox->Lines->Length;i++) 
+	for(int i=0;i<PreviewtextBox->Lines->Length;i++)
 		if(PreviewtextBox->Lines[i]->Length>maxWidth) maxWidth=PreviewtextBox->Lines[i]->Length;
 
 	//Change the size of the preview panel
@@ -272,10 +272,10 @@ String^ SpinachGUI::EasySpin::unitconv(String^ value, Unit^ result, String^ sele
 	else if (selected=="Seconds" ) unit=Units::seconds;
 	else  unit=Units::mi_sec;/*if (selected=="?s" )*/
 
-	
+
 	double nvalue;
 	//Convert number to SI units
-	if(value=="") return ""; 
+	if(value=="") return "";
 	else nvalue=unit->toSI(Convert::ToDouble(value));
 
 	//Convert to final unit
@@ -287,7 +287,7 @@ String^ SpinachGUI::EasySpin::unitconv(String^ value, Unit^ result, String^ sele
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::radioButton_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
+System::Void SpinachGUI::EasySpin::radioButton_CheckedChanged(System::Object^  sender, System::EventArgs^  e)
 {
 	//Choose between garlic, chili, pepper and activate  proper  elements
 	switch(Convert::ToInt32((String^)(((RadioButton^)sender)->Tag))) {
@@ -361,24 +361,24 @@ System::Void SpinachGUI::EasySpin::radioButton_CheckedChanged(System::Object^  s
 }
 
 /**
-* @brief EventHandler for Export button of EasySpin 
+* @brief EventHandler for Export button of EasySpin
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::Exportbutton_Click(System::Object^  sender, System::EventArgs^  e) 
-{		
-	//Setting the format and initialize filename for the save dialoguebox 
+System::Void SpinachGUI::EasySpin::Exportbutton_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	//Setting the format and initialize filename for the save dialoguebox
 	saveFileDialog->Filter="EasySpin File|*.m";
 	saveFileDialog->FileName=Path::GetFileNameWithoutExtension(CurrentTitleFile)+".m";
 
 	//Opens the save dialogue box and check if the OK button clicked then save to file
 	if (saveFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK )
-	{	 
+	{
 		//Create export file
 		FileStream^ fs=gcnew FileStream(saveFileDialog->FileName,FileMode::Create );
 
 		//Convert and write to file
-		array<Byte>^ info = (gcnew UTF8Encoding( true ))->GetBytes( PreviewtextBox->Text);
+		cli::array<Byte>^ info = (gcnew UTF8Encoding( true ))->GetBytes( PreviewtextBox->Text);
 		fs->Write( info, 0, info->Length  );
 
 		fs->Close();
@@ -394,7 +394,7 @@ System::Void SpinachGUI::EasySpin::Exportbutton_Click(System::Object^  sender, S
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::ExperimenttextBoxKeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
+System::Void SpinachGUI::EasySpin::ExperimenttextBoxKeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 {
 	//Clear the string
 	experimentstring="";
@@ -425,7 +425,7 @@ System::Void SpinachGUI::EasySpin::ExperimenttextBoxKeyPress(System::Object^  se
 
 					//Write the min-max parameters after convertion to proper units
 						experimentstring="Exp.Range = ["+unitconv(Minimumtext->Text,Units::mTesla,ExpUnitscombo->Text)+
-						" "+ unitconv(Maximumtext->Text,Units::mTesla,ExpUnitscombo->Text)+"];\r\n"; 
+						" "+ unitconv(Maximumtext->Text,Units::mTesla,ExpUnitscombo->Text)+"];\r\n";
 			}
 
 			//Write the microwave frequence value in the aproppriate format
@@ -452,7 +452,7 @@ System::Void SpinachGUI::EasySpin::ExperimenttextBoxKeyPress(System::Object^  se
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::buttonFreqClick(System::Object^  sender, System::EventArgs^  e) 
+System::Void SpinachGUI::EasySpin::buttonFreqClick(System::Object^  sender, System::EventArgs^  e)
 {
 	//Set the below values in Microwave freq. for X-, Q-, W- band respectively
 	switch(Convert::ToInt32((String^)(((Button^)sender)->Tag))) {
@@ -476,7 +476,7 @@ System::Void SpinachGUI::EasySpin::buttonFreqClick(System::Object^  sender, Syst
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::Exp_comboBox_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) 
+System::Void SpinachGUI::EasySpin::Exp_comboBox_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
 {
 	//Clear the string
 	experiment1string="";
@@ -498,7 +498,7 @@ System::Void SpinachGUI::EasySpin::Exp_comboBox_SelectedIndexChanged(System::Obj
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::Expnumeric_ValueChanged(System::Object^  sender, System::EventArgs^  e) 
+System::Void SpinachGUI::EasySpin::Expnumeric_ValueChanged(System::Object^  sender, System::EventArgs^  e)
 {
 	//Write the new value of the temperature in the string if checked
 	experiment2string=(TempcheckBox->Checked? "Exp.Temperature = "+ Tempnumeric->Value+";\r\n" : "");
@@ -517,7 +517,7 @@ System::Void SpinachGUI::EasySpin::Exp_checkBox_CheckedChanged(System::Object^  
 {
 	//Enable Temperature text box
 	Tempnumeric->Enabled=TempcheckBox->Checked;
-   
+
 	//Enable mod. amp and units
 	Modetext->Enabled=ModcheckBox->Checked;
 	ModUnitscombo->Enabled=ModcheckBox->Checked;
@@ -525,7 +525,7 @@ System::Void SpinachGUI::EasySpin::Exp_checkBox_CheckedChanged(System::Object^  
 	//Update the values
 	Expnumeric_ValueChanged(gcnew NumericUpDown(), gcnew System::EventArgs());
 	ExperimenttextBoxKeyPress(gcnew TextBox(), gcnew KeyPressEventArgs((char)13));
-	
+
 	//Update the final strings
 	WriteHeader();
 	WriteFooter();
@@ -536,11 +536,11 @@ System::Void SpinachGUI::EasySpin::Exp_checkBox_CheckedChanged(System::Object^  
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::CrystalSymmetryBoxKeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
+System::Void SpinachGUI::EasySpin::CrystalSymmetryBoxKeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 {
 	//Clear the string
 	symmetrystring="";
-	Int32 test; 
+	Int32 test;
 
 	//If key pressed is not number, or . or backspace or enter do nothing
 	if (!Char::IsLetterOrDigit(e->KeyChar) && e->KeyChar != '/' && e->KeyChar != '\b' && e->KeyChar !=(char)13)
@@ -553,7 +553,7 @@ System::Void SpinachGUI::EasySpin::CrystalSymmetryBoxKeyPress(System::Object^  s
 		if (e->KeyChar ==(char)13 && easyspinfunction==2)
 		{
 			//Write crystal symmetry parameter parameters in correct format
-			symmetrystring="Exp.CrystalSymmetry = "+ 
+			symmetrystring="Exp.CrystalSymmetry = "+
 				(Int32::TryParse(CrystalSymmetrytext->Text, test)?
 				CrystalSymmetrytext->Text : "'"+CrystalSymmetrytext->Text+"'")+";\r\n";
 
@@ -574,24 +574,24 @@ System::Void SpinachGUI::EasySpin::CrystalSymmetryBoxKeyPress(System::Object^  s
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::Optioncombo_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) 
-{	
+System::Void SpinachGUI::EasySpin::Optioncombo_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
+{
 	//Clear the string
 	optionstring="";
-	
+
 	//Garlic function , print the Method comobox (1st panel)
 	if (easyspinfunction==0)
 		optionstring="Opt.Method = '"+ GarlicMethodcombo->SelectedItem+"' ;\r\n";
 
 	//Chilli function , print the Output and Verbosity comobox (2nd panel)
-	if (easyspinfunction==1) 
+	if (easyspinfunction==1)
 	{
 		optionstring="Opt.Output = '"+ chiliOutputcombo->SelectedItem+"' ;\r\n";
 		optionstring+="Opt.Verbosity = "+ chiliVerbcombo->SelectedIndex+" ;\r\n";
 	};
 
 	//Pepper function , print the Method, Output, Symmetry and Verbosity comobox (3rd panel)
-	if (easyspinfunction==2) 
+	if (easyspinfunction==2)
 	{
 		optionstring="Opt.Method = '"+ PepperMethodcombo->SelectedItem+"' ;\r\n";
 		optionstring+="Opt.Output = '"+ PepperOutputcombo->SelectedItem+"' ;\r\n";
@@ -621,7 +621,7 @@ System::Void SpinachGUI::EasySpin::Optnumeric_ValueChanged(System::Object^  send
 			(MOMDcheckBox->Checked? "Opt.nKnots = "+ChillKnotsnumeric->Value+";\r\n":"")+
 			(MOMDcheckBox->Checked? "":"Exp.psi = "+psitextBox->Text+";\r\n");
 	}
-	
+
 	//Pepper function , print the threshold, knots, interpolate, cutoff and intensity values (3nd panel)
 	if (easyspinfunction==2) //pepper
 	{
@@ -642,10 +642,10 @@ System::Void SpinachGUI::EasySpin::Optnumeric_ValueChanged(System::Object^  send
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::Opt_checkBox_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
+System::Void SpinachGUI::EasySpin::Opt_checkBox_CheckedChanged(System::Object^  sender, System::EventArgs^  e)
 {
 	//Chili function, depending the MOMD check box, enable or disable different field (2nd panel)
-	if (easyspinfunction==1) 
+	if (easyspinfunction==1)
 	{
 		ChillKnotsnumeric->Enabled=MOMDcheckBox->Checked;
 		Knotslabel->Enabled=MOMDcheckBox->Checked;
@@ -654,7 +654,7 @@ System::Void SpinachGUI::EasySpin::Opt_checkBox_CheckedChanged(System::Object^  
 	}
 
 	//Pepper function, depending the interpolate check box , enable numeric field next to it (3nd panel)
-	else if (easyspinfunction==2) 
+	else if (easyspinfunction==2)
 	{
 		Interpnumeric->Enabled=IntercheckBox->Checked;
 	};
@@ -672,7 +672,7 @@ System::Void SpinachGUI::EasySpin::Opt_checkBox_CheckedChanged(System::Object^  
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::Opt_textBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
+System::Void SpinachGUI::EasySpin::Opt_textBox_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 {
 	//Clear the string
 	option2string="";
@@ -726,7 +726,7 @@ System::Void SpinachGUI::EasySpin::Opt_textBox_KeyPress(System::Object^  sender,
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::convolutionBoxKeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
+System::Void SpinachGUI::EasySpin::convolutionBoxKeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 {
 	//Clear the string
 	broadeningstring="";
@@ -832,7 +832,7 @@ System::Void SpinachGUI::EasySpin::convolutionBoxKeyPress(System::Object^  sende
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::Anisotropic_text_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
+System::Void SpinachGUI::EasySpin::Anisotropic_text_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 {
 	//Clear the string
 	broadening1string="";
@@ -862,7 +862,7 @@ System::Void SpinachGUI::EasySpin::Anisotropic_text_KeyPress(System::Object^  se
 				broadening1string+="Sys.HStrain = ["+ HStrainxtext->Text+" "+
 					HStrainytext->Text+" "+
 					HStrainztext->Text+"];\r\n";
-			}; 
+			};
 
 			//if any of gstrain parameters are not empty
 			if(gStrainxtext->Text!="" || gStrainytext->Text!="" || gStrainztext->Text!="" )
@@ -924,7 +924,7 @@ System::Void SpinachGUI::EasySpin::Anisotropic_text_KeyPress(System::Object^  se
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::radioButton_diffusion_CheckedChanged(System::Object^  sender, System::EventArgs^  e) 
+System::Void SpinachGUI::EasySpin::radioButton_diffusion_CheckedChanged(System::Object^  sender, System::EventArgs^  e)
 {
 	//Choose between isotorpic or axial or rhombic diffusion to enable respective panels
 	switch(Convert::ToInt32((String^)(((RadioButton^)sender)->Tag))) {
@@ -961,7 +961,7 @@ System::Void SpinachGUI::EasySpin::radioButton_diffusion_CheckedChanged(System::
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
+System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 {
 	dynamicstring="";	//Clear the string
 	String^ temp;
@@ -991,10 +991,10 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					if(DiffIsoUnitscombo->Text=="GHz") unit=Units::GHz;
 					else  unit=Units::MHz;
 
-					//Save the text for time after conversion to chosen SI units 
+					//Save the text for time after conversion to chosen SI units
 					temp=unitconv(isocorrtext->Text,Units::seconds,IsoUnitscombo->Text);
 
-					//Calulate the diffusion tensor from the correlation 
+					//Calulate the diffusion tensor from the correlation
 					//time and convert to selected units
 					isodifftext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::Hz->get_name());
@@ -1009,15 +1009,15 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					if(DiffAxUnitscombo->Text=="GHz") unit=Units::GHz;
 					else  unit=Units::MHz;
 
-					//Save the text for time after conversion to chosen SI units 
+					//Save the text for time after conversion to chosen SI units
 					temp=unitconv(axcorrxytext->Text,Units::seconds,AxUnitscombo->Text);
 
-					//Calulate the diffusion tensor from the correlation 
+					//Calulate the diffusion tensor from the correlation
 					//time and convert to selected units
 					axdiffxytext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::Hz->get_name());
 				} //if time text empty set also tensor empty
-				else 
+				else
 					axdiffxytext->Text="";
 
 				//axial anisotropic diffusion z and when the text is not empty
@@ -1027,10 +1027,10 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					if(DiffAxUnitscombo->Text=="GHz") unit=Units::GHz;
 					else  unit=Units::MHz;
 
-					//Save the text for time after conversion to chosen SI units 
+					//Save the text for time after conversion to chosen SI units
 					temp=unitconv(axcorrztext->Text,Units::seconds,AxUnitscombo->Text);
 
-					//Calulate the diffusion tensor from the correlation 
+					//Calulate the diffusion tensor from the correlation
 					//time and convert to selected units
 					axdiffztext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::Hz->get_name());
@@ -1045,10 +1045,10 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					if(DiffRhUnitscombo->Text=="GHz") unit=Units::GHz;
 					else  unit=Units::MHz;
 
-					//Save the text for time after conversion to chosen SI units 
+					//Save the text for time after conversion to chosen SI units
 					temp=unitconv(corrxtext->Text,Units::seconds,RhUnitscombo->Text);
 
-					//Calulate the diffusion tensor from the correlation 
+					//Calulate the diffusion tensor from the correlation
 					//time and convert to selected units
 					diffxtext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::Hz->get_name());
@@ -1063,10 +1063,10 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					if(DiffRhUnitscombo->Text=="GHz") unit=Units::GHz;
 					else  unit=Units::MHz;
 
-					//Save the text for time after conversion to chosen SI units 
+					//Save the text for time after conversion to chosen SI units
 					temp=unitconv(corrytext->Text,Units::seconds,RhUnitscombo->Text);
 
-					//Calulate the diffusion tensor from the correlation 
+					//Calulate the diffusion tensor from the correlation
 					//time and convert to selected units
 					diffytext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::Hz->get_name());
@@ -1081,10 +1081,10 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					if(DiffRhUnitscombo->Text=="GHz") unit=Units::GHz;
 					else  unit=Units::MHz;
 
-					//Save the text for time after conversion to chosen SI units 
+					//Save the text for time after conversion to chosen SI units
 					temp=unitconv(corrztext->Text,Units::seconds,RhUnitscombo->Text);
 
-					//Calulate the diffusion tensor from the correlation 
+					//Calulate the diffusion tensor from the correlation
 					//time and convert to selected units
 					diffztext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::Hz->get_name());
@@ -1092,7 +1092,7 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 				else//if time text empty set also tensor empty
 					diffztext->Text="";
 
-				break;	
+				break;
 				//////////////////////////////////////////////////////////
 
 			case 2: //When writing diffusion tensor, we change also time auto
@@ -1104,10 +1104,10 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					if(IsoUnitscombo->Text=="ns") unit=Units::nsec;
 					else  unit=Units::mi_sec;
 
-					//Save the text for tensor after conversion to chosen SI units 
+					//Save the text for tensor after conversion to chosen SI units
 					temp=unitconv(isodifftext->Text,Units::Hz,DiffIsoUnitscombo->Text);
 
-					//Calulate the correlation time from the diffusion 
+					//Calulate the correlation time from the diffusion
 					//tensor and convert to selected units
 					isocorrtext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::seconds->get_name());
@@ -1125,12 +1125,12 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					//Save the text for tensor after conversion to chosen SI units
 					temp=unitconv(axdiffxytext->Text,Units::Hz,DiffAxUnitscombo->Text);
 
-					//Calulate the correlation time from the diffusion 
+					//Calulate the correlation time from the diffusion
 					//tensor and convert to selected units
 					axcorrxytext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::seconds->get_name());
 				}//if tensor text empty set also time empty
-				else 
+				else
 					axcorrxytext->Text="";
 
 				//Axial anisotropic time z and when the text is not empty
@@ -1143,7 +1143,7 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					//Save the text for tensor after conversion to chosen SI units
 					temp=unitconv(axdiffztext->Text,Units::Hz,DiffAxUnitscombo->Text);
 
-					//Calulate the correlation time from the diffusion 
+					//Calulate the correlation time from the diffusion
 					//tensor and convert to selected units
 					axcorrztext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::seconds->get_name());
@@ -1161,7 +1161,7 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					//Save the text for tensor after conversion to chosen SI units
 					temp=unitconv(diffxtext->Text,Units::Hz,DiffRhUnitscombo->Text);
 
-					//Calulate the correlation time from the diffusion 
+					//Calulate the correlation time from the diffusion
 					//tensor and convert to selected units
 					corrxtext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::seconds->get_name());
@@ -1179,7 +1179,7 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					//Save the text for tensor after conversion to chosen SI units
 					temp=unitconv(diffytext->Text,Units::Hz,DiffRhUnitscombo->Text);
 
-					//Calulate the correlation time from the diffusion 
+					//Calulate the correlation time from the diffusion
 					//tensor and convert to selected units
 					corrytext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::seconds->get_name());
@@ -1197,7 +1197,7 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 					//Save the text for tensor after conversion to chosen SI units
 					temp=unitconv(diffztext->Text,Units::Hz,DiffRhUnitscombo->Text);
 
-					//Calulate the correlation time from the diffusion 
+					//Calulate the correlation time from the diffusion
 					//tensor and convert to selected units
 					corrztext->Text=unitconv(Convert::ToString(1.0f/(6.0f*Convert::ToDouble(temp))),
 						unit,Units::seconds->get_name());
@@ -1208,14 +1208,14 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 				break;
 			};
 
-			//When the isotropic diffusion is selected, write parameters to the 
+			//When the isotropic diffusion is selected, write parameters to the
 			//appropriate format is SI unit. If log is enable write them in log form.
 			if(Isotropicradio->Checked) dynamicstring="Sys.tcorr = " +
 				(RotationallogcheckBox->Checked?
 				unitconv(logtext(isocorrtext->Text),Units::seconds,IsoUnitscombo->Text):
 				unitconv(isocorrtext->Text,Units::seconds,IsoUnitscombo->Text))+";\r\n";
 
-			//When the axial anisotropic diffusion is selected, write parameters to the 
+			//When the axial anisotropic diffusion is selected, write parameters to the
 			//appropriate format is SI unit. If log is enable write them in log form.
 			if(Axialradio->Checked) dynamicstring="Sys.tcorr = [" +
 				(RotationallogcheckBox->Checked?
@@ -1225,7 +1225,7 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 				unitconv(logtext(axcorrztext->Text),Units::seconds,AxUnitscombo->Text):
 				unitconv(axcorrztext->Text,Units::seconds,AxUnitscombo->Text))+"];\r\n";
 
-			//When the rhombic aniisotropic diffusion is selected, write parameters to the 
+			//When the rhombic aniisotropic diffusion is selected, write parameters to the
 			//appropriate format is SI unit. If log is enable write them in log form.
 			if(Rhombicradio->Checked) dynamicstring="Sys.tcorr =[ " +
 				(RotationallogcheckBox->Checked?
@@ -1252,7 +1252,7 @@ System::Void SpinachGUI::EasySpin::textBoxDynamics_KeyPress(System::Object^  sen
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::orderheisentext_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
+System::Void SpinachGUI::EasySpin::orderheisentext_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e)
 {
 	//Clear the string
 	dynamic1string="";
@@ -1284,7 +1284,7 @@ System::Void SpinachGUI::EasySpin::orderheisentext_KeyPress(System::Object^  sen
 				//Write lambda  parameters in correct format
 				dynamic1string="Sys.labda = ["+ l20text->Text+" "+l22text->Text+" "+l40text->Text+
 					" "+l42text->Text+" "+l44text->Text+" "+"];\r\n";
-			} 
+			}
 
 			//If heisenberg textbox is not empty write/update in the final string
 			if(heisentext->Text!="") dynamic1string+="Sys.Exchange = "+heisentext->Text+";\r\n";
@@ -1297,7 +1297,7 @@ System::Void SpinachGUI::EasySpin::orderheisentext_KeyPress(System::Object^  sen
 		else ((TextBox^)sender)->BackColor=System::Drawing::SystemColors::Highlight;
 	};
 }
-  
+
 #pragma endregion
 
 #pragma region Units
@@ -1310,7 +1310,7 @@ System::Void SpinachGUI::EasySpin::orderheisentext_KeyPress(System::Object^  sen
 */
 System::Void SpinachGUI::EasySpin::Unitscombo_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
 {
-	switch(Convert::ToInt32((String^)(((ComboBox^)sender)->Tag))) 
+	switch(Convert::ToInt32((String^)(((ComboBox^)sender)->Tag)))
 	{
 	case 1: //For updating convolutions textboxes in Broadenings tab, hitting enter (char)13
 		convolutionBoxKeyPress(gcnew TextBox(),gcnew KeyPressEventArgs((char)13));
@@ -1326,9 +1326,9 @@ System::Void SpinachGUI::EasySpin::Unitscombo_SelectedIndexChanged(System::Objec
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
- System::Void SpinachGUI::EasySpin::DynamicsUnitscombo_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) 
+ System::Void SpinachGUI::EasySpin::DynamicsUnitscombo_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e)
  {
-	 //Choose tag 
+	 //Choose tag
 	 TextBox^ textbox=gcnew TextBox();
 	 textbox->Tag=(String^)(((ComboBox^)sender)->Tag);
 
@@ -1346,7 +1346,7 @@ System::Void SpinachGUI::EasySpin::Unitscombo_SelectedIndexChanged(System::Objec
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
- System::Void SpinachGUI::EasySpin::PreviewtextBox_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) 
+ System::Void SpinachGUI::EasySpin::PreviewtextBox_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e)
  {
 	 //Only for left button
 	 if( e->Button == System::Windows::Forms::MouseButtons::Left)
@@ -1384,7 +1384,7 @@ System::Void SpinachGUI::EasySpin::Unitscombo_SelectedIndexChanged(System::Objec
 * @param sender The object that fire this event.
 * @param e The event arguments for this event handler.
 */
-System::Void SpinachGUI::EasySpin::PreviewtextBox_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) 
+System::Void SpinachGUI::EasySpin::PreviewtextBox_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e)
 {
 	//Save initial position and then fire mouseMove
 	InitialPoint=e->Location;

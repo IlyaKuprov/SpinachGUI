@@ -30,7 +30,7 @@ bool SpinachGUI::XYZ::LoadFile(void)
 {
 	bool  OK = true;
 	bool read_once=false;	//Initializing flags to false, meaning that no any frame was yet read
-	
+
 	//Turn off Refreshing for faster importing
 	AtomCollection->Refreshing=false;
 
@@ -40,11 +40,11 @@ bool SpinachGUI::XYZ::LoadFile(void)
 		int totalAtoms=0;					//total number of atoms in the system
 		String^ fileline=gcnew String("");  //line
 		int AtomID=1;						//Saving the atom ID
-		
+
 
 		//Read number of atoms, checking first if it is an empty line to ignore
 		if((fileline=ReadLine())->Length==0) continue;
-		if (!Int32::TryParse(fileline, totalAtoms )) OK=false; 
+		if (!Int32::TryParse(fileline, totalAtoms )) OK=false;
 
 		//Maybe there is a comment line
 		fileline=ReadLine();
