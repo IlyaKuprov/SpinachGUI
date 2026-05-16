@@ -24,3 +24,16 @@ Build outputs are written under `build/<platform>/<configuration>/`. The solutio
 
 Run the built `SpinachGUI.exe` and use `examples/` to check basic import/export paths. The bundled fixtures are intentionally small and cover representative formats without carrying the old full example corpus.
 
+## SpinXML schema sources
+
+The SpinXML typed-DataSet headers in `GUI/IO Formats/spinxml_schema.h` and
+`GUI/IO Formats/spinxml_schema_reference_frame.h` were generated from the XSD
+files in `GUI/IO Formats/spinxml_schema/`. That directory is retained as
+source material for future schema changes; `Notes.txt` contains the original
+maintenance instructions.
+
+The XSD files should not be added back to the Visual Studio project as live
+inputs. The original workflow edits the XSD, regenerates the C++/CLI headers in
+Visual Studio, removes the XSD files from the project to avoid repeated
+auto-generation, and then manually reapplies the local header changes that are
+not generated from the schema.
