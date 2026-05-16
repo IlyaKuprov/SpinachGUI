@@ -735,25 +735,6 @@ System::Void InteractionsDictionary::Add(Interaction^ inter)
 
 };
 
-System::Void InteractionsDictionary::FilterInteractions(InteractionKind^ kind, double threshold, bool znorm )
-{
-	/*
-	InteractionsDictionary ^newInteractionDic=gcnew InteractionsDictionary();
-	for each(int i in  Interactions->Keys)
-	{
-	if(((Interaction^)Interactions[i])->B==nullptr)
-	{
-	if(((Interaction^)Interactions[i])->A->ID!=aID) 
-	newInteractionDic->Add((Interaction ^)Interactions[i]);	
-	}
-	else if(((Interaction^)Interactions[i])->B->ID!=aID && 
-	((Interaction^)Interactions[i])->A->ID!=aID) 
-	newInteractionDic->Add((Interaction ^)Interactions[i]);
-	};
-	Interactions->Clear();
-	for each(int i in  newInteractionDic->Keys) Interactions->Add(newInteractionDic[i]);
-	*/
-}
 #pragma endregion
 
 #pragma region ReferenceFramesDictionary
@@ -801,121 +782,6 @@ System::Void ReferenceFramesDictionary::TransformToFrame(ReferenceFrame^ frame,T
 	}
 
 	for(int i=0;i<9;i++) inter->matrix3x3[i]=A(i);
-}
-
-System::Void ReferenceFramesDictionary::MakeFrameLabFrame(ReferenceFrame^ frame)
-{
-	Matrix3d A;
-	A<<frame->matrix3x3[0], frame->matrix3x3[1], frame->matrix3x3[2],
-		frame->matrix3x3[3], frame->matrix3x3[4], frame->matrix3x3[5],
-		frame->matrix3x3[6], frame->matrix3x3[7], frame->matrix3x3[8];
-
-	Matrix3d refFrame, result;
-	result.Identity();
-
-	//Change first old children and interactions
-	//calculate the total rotation(merging) from parent to Root
-	for(ReferenceFrame^ next=frame;next!=nullptr;next=next->ParentRefFrame)
-	{
-		refFrame<<next->matrix3x3[0],next->matrix3x3[1],next->matrix3x3[2],
-			next->matrix3x3[3],next->matrix3x3[4],next->matrix3x3[5],
-			next->matrix3x3[6],next->matrix3x3[7],next->matrix3x3[8];
-		result=refFrame*result;
-	}
-
-	//Find interactions of the specific frame and change them
-	for each (int i in Interactions->Keys)
-		if(i>0 && ((Tensor ^)Interactions[i])->Frame==frame)
-		{
-			Matrix3d intermat; 
-			intermat<<((Tensor ^)Interactions[i])->matrix3x3[0],
-				((Tensor ^)Interactions[i])->matrix3x3[1],
-				((Tensor ^)Interactions[i])->matrix3x3[2],
-				((Tensor ^)Interactions[i])->matrix3x3[3],
-				((Tensor ^)Interactions[i])->matrix3x3[4],
-				((Tensor ^)Interactions[i])->matrix3x3[5],
-				((Tensor ^)Interactions[i])->matrix3x3[6],
-				((Tensor ^)Interactions[i])->matrix3x3[7],
-				((Tensor ^)Interactions[i])->matrix3x3[8];
-
-			intermat=result* intermat*result.transpose();
-			for(int ii=0;ii<9;ii++) ((Tensor ^)Interactions[i])->matrix3x3[ii]=A(ii);
-		}
-
-
-		//Find Children and change them
-		for(int i=frame->getID();i<Count+1;i++)
-		{
-			if(frame==((ReferenceFrame^)aDictionary[i])->ParentRefFrame)
-			{
-				ReferenceFrame^ next=((ReferenceFrame^)aDictionary[i]);
-				refFrame<<next->matrix3x3[0],next->matrix3x3[1],next->matrix3x3[2],
-					next->matrix3x3[3],next->matrix3x3[4],next->matrix3x3[5],
-					next->matrix3x3[6],next->matrix3x3[7],next->matrix3x3[8];
-				refFrame=result*refFrame;
-				for(int j=0;j<9;j++) ((ReferenceFrame^)aDictionary[i])->matrix3x3[j]=refFrame(j);
-			}
-		}
-
-
-
-		//Change the parent
-		//Save the old value, will used later
-		Matrix3d temp;
-		temp<<frame->ParentRefFrame->matrix3x3[0], frame->ParentRefFrame->matrix3x3[1], frame->ParentRefFrame->matrix3x3[2],
-			frame->ParentRefFrame->matrix3x3[3], frame->ParentRefFrame->matrix3x3[4], frame->ParentRefFrame->matrix3x3[5],
-			frame->ParentRefFrame->matrix3x3[6], frame->ParentRefFrame->matrix3x3[7], frame->ParentRefFrame->matrix3x3[8];
-		//
-		result=result*A.transpose();
-		for(int j=0;j<9;j++) frame->ParentRefFrame->matrix3x3[j]=result(j);
-
-		//Change the ascendants
-		Matrix3d swap;
-		for(ReferenceFrame^ next=frame->ParentRefFrame->ParentRefFrame;next!=nullptr;next=next->ParentRefFrame)
-		{
-			//Make swap
-			swap=temp.transpose();
-			temp<<next->matrix3x3[0],next->matrix3x3[1],next->matrix3x3[2],
-				next->matrix3x3[3],next->matrix3x3[4],next->matrix3x3[5],
-				next->matrix3x3[6],next->matrix3x3[7],next->matrix3x3[8];
-			for(int j=0;j<9;j++) next->matrix3x3[j]=swap(j);
-		}
-
-		//Change the ascendants, parents
-		ReferenceFrame^ swapRef,^newparent;
-		newparent=frame;
-		for(ReferenceFrame^ next=frame->ParentRefFrame;next!=nullptr;next=swapRef)
-		{
-			//Make swap
-			swapRef=next->ParentRefFrame;
-			next->ParentRefFrame=newparent;
-			newparent=next;
-
-		}
-
-		//Finaly change the new root properties
-		frame->ParentRefFrame=nullptr;
-		A.Identity();
-		for(int j=0;j<9;j++) frame->matrix3x3[j]=A(j);
-
-
-		//Renumber IDs
-		//TODO
-
-
-		//Renumber frames for continous IDs
-		Dictionary <int, ReferenceFrame^> ^ tempDictionary=gcnew Dictionary <int, ReferenceFrame^>();
-		int jj=1;
-		frame->label="Old ["+frame->ID+"]";
-		frame->ID=jj;
-		tempDictionary->Add(jj, frame); 
-		ReIDRecurcively( tempDictionary, frame, jj);
-
-
-		aDictionary->Clear();
-		aDictionary= tempDictionary;
-
-
 }
 
 System::Void ReferenceFramesDictionary::ReIDRecurcively(Dictionary <int, ReferenceFrame^> ^% tempDictionary, ReferenceFrame^ Parent, int & currentID)
@@ -1191,6 +1057,5 @@ System::Void Model::ModelChange(System::Object ^ sender,System::Collections::Spe
 }
 
 #pragma endregion
-
 
 

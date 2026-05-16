@@ -1,12 +1,19 @@
 #include "StdAfx.h"
 #include "MainForm.h"
 
+namespace {
 
-//MainForm  main rutines
+double interaction_abs_max(InteractionsDictionary^ interactions, InteractionKind kind)
+{
+	return System::Math::Max(System::Math::Abs(interactions->InterKindMax[kind]),
+						 System::Math::Abs(interactions->InterKindMin[kind]));
+}
+
+}
+
 System::Void SpinachGUI::MainForm::MainForm_Initialization()
 {
-	MyResources =
-		(gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
+	MyResources=(gcnew System::ComponentModel::ComponentResourceManager(MainForm::typeid));
 	System::Threading::Thread::CurrentThread->CurrentCulture=gcnew System::Globalization::CultureInfo( "en-US",	false);
 
 	SystemModel=gcnew Model();
@@ -14,11 +21,7 @@ System::Void SpinachGUI::MainForm::MainForm_Initialization()
 	CurrentTitleFile=gcnew String("SpinXML1");
 	this->MouseWheel += gcnew System::Windows::Forms::MouseEventHandler(this,&MainForm::OnMouseWheel);
 
-
-
-	//Add elements to drop down menu for elements
 	ArrayList^ Isotopes_Collection=Isotopes::getAllIsotopes();
-	NodesToDeleted=gcnew ArrayList();
 	this->Column4->Items->Add(((Isotope^)Isotopes_Collection[0])->Element);
 	for(int i=0;i<Isotopes_Collection->Count;i++)
 	{
@@ -29,15 +32,15 @@ System::Void SpinachGUI::MainForm::MainForm_Initialization()
 
 	dataGridView1->AutoGenerateColumns=false;
 	dataGridView2->AutoGenerateColumns=false;
-	//Initialize the first line of atoms table
-	//this->dataGridView1->TopLeftHeaderCell->Value="Add atom";
-	//this->dataGridView1->Rows[0]->HeaderCell->Value = gcnew String("+Atom");
+
 	dataGridView1[0,0]->Value = "new";
 	this->dataGridView1[2,0]->Value="";
 	dataGridView1[1,0]->ReadOnly=true;
 	dataGridView1[3,0]->ReadOnly=true;
-	dataGridView1[4,0]->ReadOnly=true;dataGridView1[5,0]->ReadOnly=true;
-	dataGridView1[6,0]->ReadOnly=true;dataGridView1[7,0]->ReadOnly=true;
+	dataGridView1[4,0]->ReadOnly=true;
+	dataGridView1[5,0]->ReadOnly=true;
+	dataGridView1[6,0]->ReadOnly=true;
+	dataGridView1[7,0]->ReadOnly=true;
 	dataGridView1[8,0]->ReadOnly=true;
 
 	MyResources2=(gcnew System::ComponentModel::ComponentResourceManager(About::typeid));
@@ -46,7 +49,6 @@ System::Void SpinachGUI::MainForm::MainForm_Initialization()
 		(cli::safe_cast<System::Drawing::Icon^  >(MyResources2->GetObject(L"$this.Icon")));
 	Column9->ValuesAreIcons=true;
 
-	//Initialize the first line of atoms table
 	dataGridView2[6,0]->Value="Edit";
 	dataGridView2[0,0]->Value = "new";
 	dataGridView2[1,0]->ReadOnly=true;
@@ -60,31 +62,16 @@ System::Void SpinachGUI::MainForm::MainForm_Initialization()
 		(cli::safe_cast<System::Drawing::Icon^  >(MyResources2->GetObject(L"$this.Icon")));
 	Column12->ValuesAreIcons=true;
 
-
-
-	int gap=2; //OpenGL panel margin
-	//OpenGL = gcnew COpenGL(this,
-	//	                   System::Drawing::Point(tableLayoutPanel13->Width+gap/2,this->tabControl1->Height+gap/2),
-	//	                   this->ClientSize.Width-tableLayoutPanel13->Width-tableLayoutPanel4->Width-gap,
-	//	                   this->ClientSize.Height-this->tabControl1->Height-gap);
 	OpenGL = gcnew COpenGL(this,
 		                   System::Drawing::Point(0,0),
 		                   splitContainer2->Panel1->Width,
 		                   splitContainer2->Panel1->Height);
 
-	//OpenGL->SuspendLayout();
-	//OpenGL->Controls->Add(splitContainer2->Panel1);
-	//OpenGL->ResumeLayout(false);
-
 	splitContainer2->Panel1->SuspendLayout();
 	splitContainer2->Panel1->Controls->Add(OpenGL);
 	splitContainer2->Panel1->ResumeLayout(false);
-  Update_Interactions_Color();
+	Update_Interactions_Color();
 
-
-
-
-	//check boxes
 	checkBoxAxes->Checked=OpenGL->AxesFlag;
 	GTcheckBox->Checked=OpenGL->GTFlag;
 	CHITcheckBox->Checked=OpenGL->CHITFlag;
@@ -92,32 +79,20 @@ System::Void SpinachGUI::MainForm::MainForm_Initialization()
 	HFCcheckBox->Checked=OpenGL->HCFlag;
 	BondcheckBox->Checked=OpenGL->CBFlag;
 	JCcheckBox->Checked=OpenGL->JCFlag;
-//	DCcheckBox->Checked=OpenGL->DCFlag;
 	QCcheckBox->Checked=OpenGL->QCFlag;
 	ECcheckBox->Checked=OpenGL->ECFlag;
 	ZFcheckBox->Checked=OpenGL->ZFFlag;
 
 	UseTrackBarEventHandler=true;
-	//EventHandlers for Trackbars-Placed manually because the autogeneration forget them from times to times.
 	this->HFCtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::HFCtrackBar_Scroll);
 	this->CStrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::CStrackBar_Scroll);
 	this->GTtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::GTtrackBar_Scroll);
 	this->CHITtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::CHITtrackBar_Scroll);
 	this->BondtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::BondtrackBar_Scroll);
 	this->JCtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::JCtrackBar_Scroll);
-//	this->DCtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::DCtrackBar_Scroll);
 	this->QCtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::QCtrackBar_Scroll);
 	this->ECtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::ECtrackBar_Scroll);
 	this->ZFtrackBar->ValueChanged += gcnew gTrackBar::gTrackBar::ValueChangedEventHandler(this, &MainForm::ZFtrackBar_Scroll);
-
-	//NativeWindow^ xlMain = gcnew NativeWindow();
-	//xlMain->AssignHandle(IntPtr((HWND)this->Handle.ToPointer()));
-	//String^ name = AppDomain::CurrentDomain->FriendlyName;
-	//cli::array<Diagnostics::Process^>^ pro =
-	//	Diagnostics::Process::GetProcessesByName(name->Substring(0, name->LastIndexOf('.')));
-
-	//button2->OnMouseEnter(gcnew EventArgs());
-
 
 	BalloonToolTip1=gcnew BalloonToolTip("Add atom by selecting element");
 	BalloonToolTip2=gcnew BalloonToolTip("Add interaction by selecting Atom ID");
@@ -125,13 +100,10 @@ System::Void SpinachGUI::MainForm::MainForm_Initialization()
 	this->AddOwnedForm( BalloonToolTip1 );
 	this->AddOwnedForm( BalloonToolTip2 );
 
-	labelflag=true;
 	easyspin = gcnew EasySpin();
 	spinach = gcnew Spinach();
 	simpson=gcnew Simpson();
 	spinEvolution=gcnew SpinEvolution();
-
-
 }
 
 System::Void SpinachGUI::MainForm::MainForm_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e)
@@ -143,16 +115,13 @@ System::Void SpinachGUI::MainForm::MainForm_Paint(System::Object^  sender, Syste
 
 System::Void SpinachGUI::MainForm::MainForm_Resize(System::Object^  sender, System::EventArgs^  e)
 {
-
-	int gap=2; //OpenGL panel margin
 	dataGridView_Helpers();
-
-
 }
 
-System::Void SpinachGUI::MainForm::MainForm_Shown(System::Object^  sender, System::EventArgs^  e) {
-			  OpenGL->Render();
-		 }
+System::Void SpinachGUI::MainForm::MainForm_Shown(System::Object^  sender, System::EventArgs^  e)
+{
+	OpenGL->Render();
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //Open and Save File
 System::Void SpinachGUI::MainForm::Newbutton_Click(System::Object^  sender, System::EventArgs^  e)
@@ -163,7 +132,6 @@ System::Void SpinachGUI::MainForm::Newbutton_Click(System::Object^  sender, Syst
 	SystemModel->AtomCollection->Clear();
 	dataGridView2->Rows->Clear();
 	SystemModel->InteractionCollection->Clear();
-	dataGridView2->Rows->Clear();
 	SystemModel->RefFrameCollection->Clear();
 	CurrentTitleFile="SpinXML1";
 	CurrentSavedFile=nullptr;
@@ -645,11 +613,6 @@ System::Void SpinachGUI::MainForm::DelegateMethod(int columnIndex, int rowIndex)
 {
 	dataGridView1->CurrentCell = dataGridView1[columnIndex,rowIndex];
 	dataGridView1->BeginEdit(true);
-}
-System::Void SpinachGUI::MainForm::Delegate2Method(int columnIndex, int rowIndex)
-{
-	dataGridView1->CurrentCell = dataGridView1[columnIndex,rowIndex];
-	dataGridView1->EndEdit();
 }
 
 System::Void SpinachGUI::MainForm::dataGridView1_CellBeginEdit(System::Object^  sender, System::Windows::Forms::DataGridViewCellCancelEventArgs^  e)
@@ -1494,28 +1457,6 @@ System::Void SpinachGUI::MainForm::dataGridView2_Paint(System::Object^  sender, 
 	dataGridView_Helpers();
 }
 
-System::Void SpinachGUI::MainForm::Delegate3Method(System::Object^  sender, System::Windows::Forms::NodeLabelEditEventArgs^  e)
-{
-	labelflag=false;
-	e->Node->BeginEdit();
-}
-
-
-TreeNode^ SpinachGUI::MainForm::FindNodeRecurcively(TreeNode ^Root, String ^Name)
-{
-	TreeNode^ test;
-	if(Root->Name==Name) return Root;
-	if(Root->Nodes->Count==0) return nullptr;
-
-	for each(TreeNode ^ node in Root->Nodes)
-	{
-		test=FindNodeRecurcively(node, Name);
-		if(test!=nullptr) return test;
-	}
-
-	return nullptr; //For the compiler to not complain
-}
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //Trackbar interactions
 System::Void SpinachGUI::MainForm::HFCtrackBar_Scroll(System::Object^  sender, System::EventArgs^  e)
@@ -1554,13 +1495,7 @@ System::Void SpinachGUI::MainForm::JCtrackBar_Scroll(System::Object^  sender, Sy
 	if(UseTrackBarEventHandler)
 	{
 		OpenGL->JCfactor=JCtrackBar->Value/100.0;
-		double absMax=(abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Jcoupling])<
-		           abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Jcoupling]))*
-				   abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Jcoupling])+
-				   (abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Jcoupling])>
-				   abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Jcoupling]))*
-				   abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Jcoupling]);
-
+		double absMax=interaction_abs_max(SystemModel->InteractionCollection,InteractionKind::Jcoupling);
 		JCColorlabel->Text="J-COUPLING  > "+(OpenGL->JCfactor*absMax).ToString("N2")+" Hz";
 		 OpenGL->UpdateDisplay(UpdateType::BONDS_LIKE);
 	}
@@ -1589,12 +1524,7 @@ System::Void SpinachGUI::MainForm::ECtrackBar_Scroll(System::Object^  sender, Sy
 	if(UseTrackBarEventHandler)
 	{
 		OpenGL->ECfactor=ECtrackBar->Value/100.0;
-		double absMax=(abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Exchange])<
-		           abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Exchange]))*
-				   abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Exchange])+
-				   (abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Exchange])>
-				   abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Exchange]))*
-				   abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Exchange]);
+		double absMax=interaction_abs_max(SystemModel->InteractionCollection,InteractionKind::Exchange);
 		ECColorlabel->Text="EXCHANGE COUPL.> "+(OpenGL->ECfactor*absMax).ToString("N2")+" MHz";
 		OpenGL->UpdateDisplay(UpdateType::BONDS_LIKE);
 	}
@@ -2258,14 +2188,7 @@ System::Void SpinachGUI::MainForm::CheckExistentInteractions(bool trackbarsRepos
 	//J-coupling factor
 	if(SystemModel->InteractionCollection->InterKindCount[InteractionKind::Jcoupling]>0)
 	{
-
-		double absMax=(abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Jcoupling])<
-			abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Jcoupling]))*
-			abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Jcoupling])+
-			(abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Jcoupling])>
-			abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Jcoupling]))*
-			abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Jcoupling]);
-
+		double absMax=interaction_abs_max(SystemModel->InteractionCollection,InteractionKind::Jcoupling);
 		temp=OpenGL->JCfinfactor/absMax;
 
 		JCtrackBar->Value=(int)(100.0f*temp);
@@ -2275,14 +2198,7 @@ System::Void SpinachGUI::MainForm::CheckExistentInteractions(bool trackbarsRepos
 		//Exchange coupling factor
 	if(SystemModel->InteractionCollection->InterKindCount[InteractionKind::Exchange]>0)
 	{
-
-		double absMax=(abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Exchange])<
-			abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Exchange]))*
-			abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Exchange])+
-			(abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Exchange])>
-			abs(SystemModel->InteractionCollection->InterKindMin[InteractionKind::Exchange]))*
-			abs(SystemModel->InteractionCollection->InterKindMax[InteractionKind::Exchange]);
-
+		double absMax=interaction_abs_max(SystemModel->InteractionCollection,InteractionKind::Exchange);
 		temp=OpenGL->ECfinfactor/absMax;
 
 		ECtrackBar->Value=(int)(100.0f*temp);
@@ -2303,14 +2219,6 @@ System::Void SpinachGUI::MainForm::CheckExistentInteractions(bool trackbarsRepos
 
 	Update_Interactions_Color();
 
-
-}
-
-double* SpinachGUI::MainForm::RevConColor(ArrayList ^ matrix)
-{
-	double * result=new double[matrix->Count];
-	for (int i=0;i<matrix->Count;i++) { result[i]=Convert::ToDouble((Double ^)matrix[i]);}
-	return result;
 
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2427,5 +2335,3 @@ System::Void SpinachGUI::MainForm::ImportbackgroundWorker_RunWorkerCompleted(Sys
 		Savebutton->Enabled=true;
 	}
 }
-
-
