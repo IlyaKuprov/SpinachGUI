@@ -1,4 +1,14 @@
-This compiles and runs, the associated paper is here:
+The portable current Visual Studio build tree is in `NewGUI/`.
+
+To build after copying only that directory to another Windows machine, open
+`NewGUI/SpinachGUI.sln` in current Visual Studio or run MSBuild from a Developer
+Command Prompt:
+
+```
+msbuild SpinachGUI.sln /m /p:Configuration=Release /p:Platform=x64 /p:RestorePackages=false
+```
+
+The associated paper is here:
 
 https://doi.org/10.1016/j.jmr.2014.01.004
 
