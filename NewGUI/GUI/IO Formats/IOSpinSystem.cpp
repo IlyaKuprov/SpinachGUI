@@ -149,7 +149,7 @@ void SpinachGUI::IOSpinSystem::ExtractInteractionMatrix3x3(String ^ line, String
 		if(j>0) line=ReadLine() ;
 
 		//Sometimes the umber have "D" for double precision, so change it to E
-	    line=line->Replace('D','E');
+	    line=line->Replace(L'D',L'E');
 
 		//Split the line to a number of fields
 		numbers = nullptr;
