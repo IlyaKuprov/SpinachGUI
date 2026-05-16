@@ -1,0 +1,9 @@
+NewGUI/build/
+NewGUI/GUI/gTrackBar.dll
+NewGUI/Libraries/gTrackBar/bin/
+NewGUI/Libraries/gTrackBar/obj/
+*.suo
+*.user
+*.sdf
+*.aps
+

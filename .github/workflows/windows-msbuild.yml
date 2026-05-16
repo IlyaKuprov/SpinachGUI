@@ -24,9 +24,23 @@ jobs:
       - name: Set up MSBuild
         uses: microsoft/setup-msbuild@v2
 
-      - name: Build SpinachGUI
+      - name: Copy portable NewGUI tree
         shell: cmd
-        run: msbuild GUI\SpinachGui.sln /m /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM% /p:RestorePackages=false
+        run: xcopy NewGUI "%RUNNER_TEMP%\SpinachGUI-NewGUI" /E /I /Y
+
+      - name: Build portable NewGUI copy
+        shell: cmd
+        run: msbuild "%RUNNER_TEMP%\SpinachGUI-NewGUI\SpinachGUI.sln" /m /p:Configuration=%CONFIGURATION% /p:Platform=%PLATFORM% /p:RestorePackages=false
+        env:
+          CONFIGURATION: ${{ matrix.configuration }}
+          PLATFORM: ${{ matrix.platform }}
+
+      - name: Check portable build products
+        shell: cmd
+        run: |
+          if not exist "%RUNNER_TEMP%\SpinachGUI-NewGUI\build\%PLATFORM%\%CONFIGURATION%\SpinachGui.exe" exit /b 1
+          if not exist "%RUNNER_TEMP%\SpinachGUI-NewGUI\build\%PLATFORM%\%CONFIGURATION%\gTrackBar.dll" exit /b 1
+          if not exist "%RUNNER_TEMP%\SpinachGUI-NewGUI\examples\Gaussian\urea.log" exit /b 1
         env:
           CONFIGURATION: ${{ matrix.configuration }}
           PLATFORM: ${{ matrix.platform }}
