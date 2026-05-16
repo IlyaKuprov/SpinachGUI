@@ -397,7 +397,7 @@ bool Orca::read_HFC_QUAD_COUPLINGS()
 							else InteractionCollection->Add(nInteraction);
 							ii++;
 						}
-						catch (String^ e) {/*Continue*/};
+						catch (String^) {/*Continue*/};
 					};
 
 				};

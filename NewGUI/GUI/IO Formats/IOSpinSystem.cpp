@@ -155,12 +155,11 @@ void SpinachGUI::IOSpinSystem::ExtractInteractionMatrix3x3(String ^ line, String
 		numbers = nullptr;
 		numbers=line->Split(delimiter,StringSplitOptions::RemoveEmptyEntries );
 
-		//Try to read elements and save in the matrix
-		// use & not && to avoid short circuit
-		if (FieldsNumber!=numbers->Length &
-			!Double::TryParse(numbers[M1Index], x) ||
-			!Double::TryParse(numbers[M2Index], y) ||
-			!Double::TryParse(numbers[M3Index], z))
+			//Try to read elements and save in the matrix
+			if (FieldsNumber!=numbers->Length ||
+				!Double::TryParse(numbers[M1Index], x) ||
+				!Double::TryParse(numbers[M2Index], y) ||
+				!Double::TryParse(numbers[M3Index], z))
 			throw gcnew Exception("Problem in Reading "+InterName+ " matrix elements in Line "+LineCount+". " +
 			"Either the number of fields in the line is incorrect or "+
 			"the format of fields(double) is incorrect.");

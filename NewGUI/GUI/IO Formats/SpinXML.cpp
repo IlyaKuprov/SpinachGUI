@@ -117,7 +117,6 @@ bool SpinXML::LoadFile(void)
 	{
 		//dcm
 		::Matrix3x3^ mat=gcnew ::Matrix3x3();
-		int ParentID;
 		ReferenceFrame^ frame;
 
 		//Loop over direction matrices
@@ -151,7 +150,8 @@ bool SpinXML::LoadFile(void)
 				}
 				else //other reference frames, add them
 				{
-					frame->ParentRefFrame=SystemModel->RefFrameCollection[XMLSpinSystemRef->reference_frame[i]->parent_reference_frame_id];
+					frame->ParentRefFrame=SystemModel->RefFrameCollection[
+						Convert::ToInt32(XMLSpinSystemRef->reference_frame[i]->parent_reference_frame_id)];
 					SystemModel->RefFrameCollection->Add(frame);
 				};
 			};
@@ -162,7 +162,7 @@ bool SpinXML::LoadFile(void)
 	for(int i=0;i<XMLSpinSystem->interaction->Count;i++)
 	{
 		//Search for A atom according to ID
-		int AID=XMLSpinSystem->interaction[i]->spin_a;
+		int AID=Convert::ToInt32(XMLSpinSystem->interaction[i]->spin_a);
 
 		//If ID is zero, change to 1 for unit indexing
 		if(XMLSpinSystem->interaction[0]->spin_a==0) AID++;
@@ -173,7 +173,7 @@ bool SpinXML::LoadFile(void)
 		if(XMLSpinSystem->interaction[i]->Isspin_bNull()) BID=AID;
 		else
 		{
-			BID=XMLSpinSystem->interaction[i]->spin_b;
+			BID=Convert::ToInt32(XMLSpinSystem->interaction[i]->spin_b);
 
 			//If ID is zero, change to 1 for unit indexing
 			if(XMLSpinSystem->interaction[0]->spin_a==0) BID++;
@@ -191,7 +191,8 @@ bool SpinXML::LoadFile(void)
 		if(XMLSpinSystem->interaction[i]->Isreference_frame_idNull())
 			refFrame=SystemModel->RefFrameCollection[1];
 		else
-			refFrame=SystemModel->RefFrameCollection[XMLSpinSystem->interaction[i]->reference_frame_id];
+			refFrame=SystemModel->RefFrameCollection[
+				Convert::ToInt32(XMLSpinSystem->interaction[i]->reference_frame_id)];
 
 		//Search of Interaction kind
 		InteractionKind IntKind;
