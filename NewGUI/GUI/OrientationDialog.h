@@ -2455,13 +2455,12 @@ private: System::Windows::Forms::TextBox^  textBoxquat2;
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(961, 605);
+			this->ClientSize = System::Drawing::Size(961, 405);
 			this->Controls->Add(this->Alignmentbutton);
 			this->Controls->Add(this->ReferencetextBox);
 			this->Controls->Add(this->Referencelabel);
 			this->Controls->Add(this->groupBox6);
 			this->Controls->Add(this->groupBox7);
-			this->Controls->Add(this->groupBox5);
 			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->groupBox2);
