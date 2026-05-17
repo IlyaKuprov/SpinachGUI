@@ -3,7 +3,7 @@
 
 //Definitions
 #define To_String(aNumber) SpinachGUI::ConvertToString(aNumber, 6, "F")
-#define To_StringE(aNumber) SpinachGUI::ConvertToString(aNumber, 6, "e3")
+#define To_StringE(aNumber) SpinachGUI::ConvertToString(aNumber, 6, "0.00000e0")
 
 /**
 *\file OrientationDialog.cpp
@@ -85,8 +85,10 @@ void SpinachGUI::OrientationDialog::Initialization(Tensor^% aTensor, OpenGLForm:
 */
 System::Void SpinachGUI::OrientationDialog::InteractionMatrix_KeyPress(System::Object^  sender, KeyPressEventArgs^  e) 
 {
-	//If key pressed is not number, or .  or - or backspace or enter do nothing
-	if (!Char::IsNumber(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != '-' && e->KeyChar != '\b' && e->KeyChar !=(char)13)
+	//If key pressed is not number, decimal point, exponent sign, backspace, or enter do nothing
+	if (!Char::IsNumber(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != '-' &&
+		e->KeyChar != '+' && e->KeyChar != 'e' && e->KeyChar != 'E' &&
+		e->KeyChar != '\b' && e->KeyChar !=(char)13)
 	{
 		e->Handled = true;
 	}
@@ -141,14 +143,14 @@ System::Void SpinachGUI::OrientationDialog::InteractionMatrix_KeyPress(System::O
 				//Update the text boxes, if jcoupling or exchange interaction only YY and ZZ
 				if(InterKind==InteractionKind::Jcoupling || InterKind==InteractionKind::Exchange)
 				{
-					textBoxYYTensor->Text=Convert::ToString(Interact_Mat[0]);
-					textBoxZZTensor->Text=Convert::ToString(Interact_Mat[0]);
+					textBoxYYTensor->Text=To_StringE(Interact_Mat[0]);
+					textBoxZZTensor->Text=To_StringE(Interact_Mat[0]);
 				} //Update the text boxes for XY,ZX,ZY
 				else
 				{
-					textBoxYXTensor->Text=Convert::ToString(Interact_Mat[3]);
-					textBoxZXTensor->Text=Convert::ToString(Interact_Mat[6]);
-					textBoxZYTensor->Text=Convert::ToString(Interact_Mat[7]);
+					textBoxYXTensor->Text=To_StringE(Interact_Mat[3]);
+					textBoxZXTensor->Text=To_StringE(Interact_Mat[6]);
+					textBoxZYTensor->Text=To_StringE(Interact_Mat[7]);
 				}
 
 				//Calculate all the forms and update the text boxes, the model and 3d model
@@ -254,8 +256,10 @@ System::Void SpinachGUI::OrientationDialog::textBoxSpherical_KeyPress(System::Ob
 	//save tag of texbox
 	int texttag=Convert::ToInt32((String^)(((TextBox^)sender)->Tag));
 
-	//If key pressed is not number, or .  or - or backspace or enter do nothing
-	if (!Char::IsNumber(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != '-' && e->KeyChar != '\b' && e->KeyChar !=(char)13)
+	//If key pressed is not number, decimal point, exponent sign, backspace, or enter do nothing
+	if (!Char::IsNumber(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != '-' &&
+		e->KeyChar != '+' && e->KeyChar != 'e' && e->KeyChar != 'E' &&
+		e->KeyChar != '\b' && e->KeyChar !=(char)13)
 	{
 		e->Handled = true;
 	}
@@ -277,10 +281,10 @@ System::Void SpinachGUI::OrientationDialog::textBoxSpherical_KeyPress(System::Ob
 				else Im_Spherical_Tens[texttag/2]= textfield;
 
 				//Update Symmetrical terms
-				textBoxSpherical2n1R->Text= To_String(Re_Spherical_Tens[7]=-Re_Spherical_Tens[5]);
-				textBoxSpherical2n1I->Text= To_String(Im_Spherical_Tens[7]=Im_Spherical_Tens[5]);
-				textBoxSpherical2n2R->Text= To_String(Re_Spherical_Tens[8]=Re_Spherical_Tens[4]);
-				textBoxSpherical2n2I->Text= To_String(Im_Spherical_Tens[8]=-Im_Spherical_Tens[4]);
+				textBoxSpherical2n1R->Text= To_StringE(Re_Spherical_Tens[7]=-Re_Spherical_Tens[5]);
+				textBoxSpherical2n1I->Text= To_StringE(Im_Spherical_Tens[7]=Im_Spherical_Tens[5]);
+				textBoxSpherical2n2R->Text= To_StringE(Re_Spherical_Tens[8]=Re_Spherical_Tens[4]);
+				textBoxSpherical2n2I->Text= To_StringE(Im_Spherical_Tens[8]=-Im_Spherical_Tens[4]);
 
 				//if all of this expression are different from 0 then the tensor matrix will imaginary, not good
 				if( (3.0f* Im_Spherical_Tens[4] - sqrt(6.0f)* Im_Spherical_Tens[6] + 3.0f* Im_Spherical_Tens[8])/6.0f!=0 &&
@@ -361,8 +365,10 @@ System::Void SpinachGUI::OrientationDialog::textBoxSpherical_KeyPress(System::Ob
 */
 System::Void SpinachGUI::OrientationDialog::textBoxEigen_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
 {
-	//If key pressed is not number, or .  or - or backspace or enter do nothing
-	if (!Char::IsNumber(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != '-' && e->KeyChar != '\b' && e->KeyChar !=(char)13)
+	//If key pressed is not number, decimal point, exponent sign, backspace, or enter do nothing
+	if (!Char::IsNumber(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != '-' &&
+		e->KeyChar != '+' && e->KeyChar != 'e' && e->KeyChar != 'E' &&
+		e->KeyChar != '\b' && e->KeyChar !=(char)13)
 	{
 		e->Handled = true;
 	}
@@ -419,8 +425,10 @@ System::Void SpinachGUI::OrientationDialog::textBoxEigen_KeyPress(System::Object
 */
 System::Void SpinachGUI::OrientationDialog::textBoxAngle_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) 
 {
-	//If key pressed is not number, or .  or - or backspace or enter do nothing
-	if (!Char::IsNumber(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != '-' && e->KeyChar != '\b' && e->KeyChar !=(char)13)
+	//If key pressed is not number, decimal point, exponent sign, backspace, or enter do nothing
+	if (!Char::IsNumber(e->KeyChar) && e->KeyChar != '.' && e->KeyChar != '-' &&
+		e->KeyChar != '+' && e->KeyChar != 'e' && e->KeyChar != 'E' &&
+		e->KeyChar != '\b' && e->KeyChar !=(char)13)
 	{
 		e->Handled = true;
 	}
@@ -532,15 +540,15 @@ void SpinachGUI::OrientationDialog::UpdateInteraction()
 	InteractionText=gcnew String("interactionmatrix=[ ");
 
 	//set the interaction tensor matrix textboxes
-	textBoxXXTensor->Text= To_String(Interact_Mat[0]);
-	textBoxXYTensor->Text= To_String(Interact_Mat[1]);
-	textBoxXZTensor->Text= To_String(Interact_Mat[2]);
-	textBoxYXTensor->Text= To_String(Interact_Mat[3]);
-	textBoxYYTensor->Text= To_String(Interact_Mat[4]);
-	textBoxYZTensor->Text= To_String(Interact_Mat[5]);
-	textBoxZXTensor->Text= To_String(Interact_Mat[6]);
-	textBoxZYTensor->Text= To_String(Interact_Mat[7]);
-	textBoxZZTensor->Text= To_String(Interact_Mat[8]);
+	textBoxXXTensor->Text= To_StringE(Interact_Mat[0]);
+	textBoxXYTensor->Text= To_StringE(Interact_Mat[1]);
+	textBoxXZTensor->Text= To_StringE(Interact_Mat[2]);
+	textBoxYXTensor->Text= To_StringE(Interact_Mat[3]);
+	textBoxYYTensor->Text= To_StringE(Interact_Mat[4]);
+	textBoxYZTensor->Text= To_StringE(Interact_Mat[5]);
+	textBoxZXTensor->Text= To_StringE(Interact_Mat[6]);
+	textBoxZYTensor->Text= To_StringE(Interact_Mat[7]);
+	textBoxZZTensor->Text= To_StringE(Interact_Mat[8]);
 
 
 	//Writing to matlab format
@@ -558,23 +566,23 @@ void SpinachGUI::OrientationDialog::UpdateEigenState()
 	EigenVectorsText=gcnew String("eigenvectors=[ ");
 
 	//EigenValues
-	textBoxEigenVal1->Text= To_String(eigenval[0]);
-	textBoxEigenVal2->Text= To_String(eigenval[1]);
-	textBoxEigenVal3->Text= To_String(eigenval[2]);
+	textBoxEigenVal1->Text= To_StringE(eigenval[0]);
+	textBoxEigenVal2->Text= To_StringE(eigenval[1]);
+	textBoxEigenVal3->Text= To_StringE(eigenval[2]);
 
 	//Writing to matlab format
 	EigenValuesText+=To_StringE(eigenval[0])+" "+To_StringE(eigenval[1])+" "+To_StringE(eigenval[2])+" ];\r\n";
 
 	//EigenVector
-	textBoxXXEigenVec->Text= To_String(eigenvec[0]);
-	textBoxXYEigenVec->Text= To_String(eigenvec[1]);
-	textBoxXZEigenVec->Text= To_String(eigenvec[2]);
-	textBoxYXEigenVec->Text= To_String(eigenvec[3]);
-	textBoxYYEigenVec->Text= To_String(eigenvec[4]);
-	textBoxYZEigenVec->Text= To_String(eigenvec[5]);
-	textBoxZXEigenVec->Text= To_String(eigenvec[6]);
-	textBoxZYEigenVec->Text= To_String(eigenvec[7]);
-	textBoxZZEigenVec->Text= To_String(eigenvec[8]);
+	textBoxXXEigenVec->Text= To_StringE(eigenvec[0]);
+	textBoxXYEigenVec->Text= To_StringE(eigenvec[1]);
+	textBoxXZEigenVec->Text= To_StringE(eigenvec[2]);
+	textBoxYXEigenVec->Text= To_StringE(eigenvec[3]);
+	textBoxYYEigenVec->Text= To_StringE(eigenvec[4]);
+	textBoxYZEigenVec->Text= To_StringE(eigenvec[5]);
+	textBoxZXEigenVec->Text= To_StringE(eigenvec[6]);
+	textBoxZYEigenVec->Text= To_StringE(eigenvec[7]);
+	textBoxZZEigenVec->Text= To_StringE(eigenvec[8]);
 
 	//Writing to matlab format
 	EigenVectorsText+=To_StringE(eigenvec[0])+" "+To_StringE(eigenvec[1])+" "+To_StringE(eigenvec[2])+" \r\n"+
@@ -633,8 +641,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T2,2 : calculation, updating textbox
 	Re_Spherical_Tens[4]=(Interact_Mat[0]-Interact_Mat[4])/2.0;
 	Im_Spherical_Tens[4]=(-Interact_Mat[1]-Interact_Mat[3])/2.0;
-	textBoxSpherical22R->Text= To_String(Re_Spherical_Tens[4]);
-	textBoxSpherical22I->Text= To_String(Im_Spherical_Tens[4]);
+	textBoxSpherical22R->Text= To_StringE(Re_Spherical_Tens[4]);
+	textBoxSpherical22I->Text= To_StringE(Im_Spherical_Tens[4]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[4]<0?"":"+");
@@ -643,8 +651,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T2,1 : calculation, updating textbox
 	Re_Spherical_Tens[5]=-(Interact_Mat[2]+Interact_Mat[6])/2.0;
 	Im_Spherical_Tens[5]=-(-Interact_Mat[5]-Interact_Mat[7])/2.0;
-	textBoxSpherical21R->Text= To_String(Re_Spherical_Tens[5]);
-	textBoxSpherical21I->Text= To_String(Im_Spherical_Tens[5]);
+	textBoxSpherical21R->Text= To_StringE(Re_Spherical_Tens[5]);
+	textBoxSpherical21I->Text= To_StringE(Im_Spherical_Tens[5]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[5]<0?"":"+");
@@ -653,8 +661,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T1,1 : calculation, updating textbox
 	Re_Spherical_Tens[1]=-(Interact_Mat[6]-Interact_Mat[2])/2.0;
 	Im_Spherical_Tens[1]=-(-Interact_Mat[7]+Interact_Mat[5])/2.0;
-	textBoxSpherical11R->Text= To_String(Re_Spherical_Tens[1]);
-	textBoxSpherical11I->Text= To_String(Im_Spherical_Tens[1]);
+	textBoxSpherical11R->Text= To_StringE(Re_Spherical_Tens[1]);
+	textBoxSpherical11I->Text= To_StringE(Im_Spherical_Tens[1]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[1]<0?"":"+");
@@ -663,8 +671,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T2,0 : calculation, updating textbox
 	Re_Spherical_Tens[6]=(2.0*Interact_Mat[8]-Interact_Mat[0]-Interact_Mat[4])/sqrt(6.0);
 	Im_Spherical_Tens[6]=0.0;
-	textBoxSpherical20R->Text= To_String(Re_Spherical_Tens[6]);
-	textBoxSpherical20I->Text= To_String(Im_Spherical_Tens[6]);
+	textBoxSpherical20R->Text= To_StringE(Re_Spherical_Tens[6]);
+	textBoxSpherical20I->Text= To_StringE(Im_Spherical_Tens[6]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[6]<0?"":"+");
@@ -673,8 +681,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T1,0 : calculation, updating textbox
 	Re_Spherical_Tens[2]=0.0;
 	Im_Spherical_Tens[2]=-(Interact_Mat[1]-Interact_Mat[3])/sqrt(2.0);
-	textBoxSpherical10R->Text= To_String(Re_Spherical_Tens[2]);
-	textBoxSpherical10I->Text= To_String(Im_Spherical_Tens[2]);
+	textBoxSpherical10R->Text= To_StringE(Re_Spherical_Tens[2]);
+	textBoxSpherical10I->Text= To_StringE(Im_Spherical_Tens[2]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[2]<0?"":"+");
@@ -683,8 +691,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T0,0 : calculation, updating textbox
 	Re_Spherical_Tens[0]=-(Interact_Mat[0]+Interact_Mat[4]+Interact_Mat[8])/sqrt(3.0);
 	Im_Spherical_Tens[0]=0.0;
-	textBoxSpherical00R->Text= To_String(Re_Spherical_Tens[0]);
-	textBoxSpherical00I->Text= To_String(Im_Spherical_Tens[0]);
+	textBoxSpherical00R->Text= To_StringE(Re_Spherical_Tens[0]);
+	textBoxSpherical00I->Text= To_StringE(Im_Spherical_Tens[0]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[0]<0?"":"+");
@@ -694,8 +702,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T2,-1 : calculation, updating textbox
 	Re_Spherical_Tens[7]=(Interact_Mat[2]+Interact_Mat[6])/2.0;
 	Im_Spherical_Tens[7]=(Interact_Mat[5]+Interact_Mat[7])/2.0;
-	textBoxSpherical2n1R->Text= To_String(Re_Spherical_Tens[7]);
-	textBoxSpherical2n1I->Text= To_String(Im_Spherical_Tens[7]);
+	textBoxSpherical2n1R->Text= To_StringE(Re_Spherical_Tens[7]);
+	textBoxSpherical2n1I->Text= To_StringE(Im_Spherical_Tens[7]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[7]<0?"":"+");
@@ -704,8 +712,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T1,-1 : calculation, updating textbox
 	Re_Spherical_Tens[3]=-(Interact_Mat[6]-Interact_Mat[2])/2.0;
 	Im_Spherical_Tens[3]=-(Interact_Mat[7]-Interact_Mat[5])/2.0;
-	textBoxSpherical1n1R->Text= To_String(Re_Spherical_Tens[3]);
-	textBoxSpherical1n1I->Text= To_String(Im_Spherical_Tens[3]);
+	textBoxSpherical1n1R->Text= To_StringE(Re_Spherical_Tens[3]);
+	textBoxSpherical1n1I->Text= To_StringE(Im_Spherical_Tens[3]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[3]<0?"":"+");
@@ -714,8 +722,8 @@ void SpinachGUI::OrientationDialog::UpdateSphericaTensor()
 	//T2,-2 : calculation, updating textbox
 	Re_Spherical_Tens[8]=(Interact_Mat[0]-Interact_Mat[4])/2.0;
 	Im_Spherical_Tens[8]=(Interact_Mat[1]+Interact_Mat[3])/2.0;
-	textBoxSpherical2n2R->Text= To_String(Re_Spherical_Tens[8]);
-	textBoxSpherical2n2I->Text= To_String(Im_Spherical_Tens[8]);
+	textBoxSpherical2n2R->Text= To_StringE(Re_Spherical_Tens[8]);
+	textBoxSpherical2n2I->Text= To_StringE(Im_Spherical_Tens[8]);
 
 	//Write to matlab format, checking if needed the + sign first
 	sign=(Im_Spherical_Tens[8]<0?"":"+");
@@ -1049,10 +1057,10 @@ void SpinachGUI::OrientationDialog::UpdateQuaternion()
 	Quaternion^ quater=nOrient->GetAsQuaternion();
 
 	//set the quaternion textboxes
-	textBoxquat1->Text= To_String(quater->w);
-	textBoxquat2->Text= To_String(quater->x);
-	textBoxquat3->Text= To_String(quater->y);
-	textBoxquat4->Text= To_String(quater->z);
+	textBoxquat1->Text= To_StringE(quater->w);
+	textBoxquat2->Text= To_StringE(quater->x);
+	textBoxquat3->Text= To_StringE(quater->y);
+	textBoxquat4->Text= To_StringE(quater->z);
 
 	//Writing to matlab format
 	QuaternionText+=To_StringE(quater->w)+" "+To_StringE(quater->x)+" "+
@@ -1070,10 +1078,10 @@ void SpinachGUI::OrientationDialog::UpdateAngleAxis()
 	AngleAxis^ angleax=nOrient->GetAsAngleAxis();
 
 	//set the angle axis textboxes
-	textBoxangle1->Text= To_String(angleax->x);
-	textBoxangle2->Text= To_String(angleax->y);
-	textBoxangle3->Text= To_String(angleax->z);
-	textBoxangle4->Text= To_String(180.0f*angleax->angle/PI);
+	textBoxangle1->Text= To_StringE(angleax->x);
+	textBoxangle2->Text= To_StringE(angleax->y);
+	textBoxangle3->Text= To_StringE(angleax->z);
+	textBoxangle4->Text= To_StringE(180.0f*angleax->angle/PI);
 
 	//Writing to matlab format
 	AngleAxisText+=To_StringE(angleax->x)+" "+To_StringE(angleax->y)+" "+
@@ -1253,19 +1261,19 @@ System::Void SpinachGUI::OrientationDialog::Exportbutton_Click(System::Object^  
 System::Void SpinachGUI::OrientationDialog::RemoveAnisbutton_Click(System::Object^  sender, System::EventArgs^  e)
 { 
 	//Set T[2,2] real and imaginary part to zero and update
-	textBoxSpherical22I->Text= To_String(0.00000);		 
+	textBoxSpherical22I->Text= To_StringE(0.00000);
 	textBoxSpherical_KeyPress(textBoxSpherical22I,gcnew KeyPressEventArgs((char)13)) ;
-	textBoxSpherical22R->Text= To_String(0.00000);
+	textBoxSpherical22R->Text= To_StringE(0.00000);
 	textBoxSpherical_KeyPress(textBoxSpherical22R,gcnew KeyPressEventArgs((char)13)) ;
 
 	//Set T[2,1]  real and imaginary part to zero and update
-	textBoxSpherical21I->Text= To_String(0.00000);
+	textBoxSpherical21I->Text= To_StringE(0.00000);
 	textBoxSpherical_KeyPress(textBoxSpherical21I,gcnew KeyPressEventArgs((char)13)) ;
-	textBoxSpherical21R->Text= To_String(0.00000);
+	textBoxSpherical21R->Text= To_StringE(0.00000);
 	textBoxSpherical_KeyPress(textBoxSpherical21R, gcnew KeyPressEventArgs((char)13)) ;
 
 	//Set T[2,0] real part to zero and update
-	textBoxSpherical20R->Text= To_String(0.00000);
+	textBoxSpherical20R->Text= To_StringE(0.00000);
 	textBoxSpherical_KeyPress(textBoxSpherical20R, gcnew KeyPressEventArgs((char)13)) ;
 }
 
