@@ -552,7 +552,7 @@ bool Gauss::read_JCOUPLINGS()
 			fileline=ReadLine();
 
 			//Sometimes the umber have "D" for double precision, so change it to E
-			fileline=fileline->Replace('D','E');
+			fileline=fileline->Replace(L'D',L'E');
 
 			//If line number >4th line the fields are 6 else line number +2
 			if((i+2) < 6) number=i+2; else number=6;
